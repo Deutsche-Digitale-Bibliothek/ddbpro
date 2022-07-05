@@ -1,0 +1,74 @@
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'container',
+] %}
+
+{% set viewHeader = {
+  title: 'FAQ' | t,
+  text: 'Sie haben Fragen zu den verschiedenen Bereich der Deutschen Digitalen Bibliothek? Hier wird Ihnen geholfen!' | t,
+  breadcrumbs: false,
+  container: false,
+} %}
+
+{% set faq_categories = _context['attachment_after'] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {# Breadcrumbs block #}
+  {{ drupal_block('system_breadcrumb_block', wrapper=false) }}
+
+  <div class="row-grid row-grid--sticky">
+    <div class="row-grid__title">
+      <div class="row-grid__title-content">
+        {# view header #}
+        {% include '@ddbp/partials/view-header.html.twig' with viewHeader %}
+      </div>
+    </div>
+
+    <aside id="sidebar-right" class="row-grid__sidebar sidebar sidebar--right">
+      <div class="container">
+        <div class="row-grid__sidebar-content">
+          <div class="view-faq__nav">
+            <p class="view-faq__nav-title">
+              {{ 'Springen zu:' | t }}
+            </p>
+            <ul class="view-faq__nav-items">
+              {% for category in faq_categories %}
+                <li class="view-faq__nav-item">
+                  <a href="#{{ category|clean_class }}"
+                    class="view-faq__nav-link">
+                    {{ category }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="row-grid__content view-content">
+      <div class="row-grid__content-content">
+        {# toggle all accordions #}
+        <div class="view-content__item">
+          <div class="row-grid__content-expand-all">
+            <button class="accordion__open-all accordions__expand-all">
+              <span class="open">
+                {{ 'Alle aufklappen' | t }}
+              </span>
+              <span class="close">
+                {{ 'Alle einklappen' | t }}
+              </span>
+            </button>
+          </div>
+        </div>
+        {{ rows }}
+      </div>
+    </div>
+  </div>
+
+</div>
+

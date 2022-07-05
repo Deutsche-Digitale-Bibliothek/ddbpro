@@ -1,0 +1,20 @@
+{% if attributes -%}
+  <div{{ attributes.addClass('accordion-wrapper').setAttribute('id', title|render|striptags|trim|clean_class) }}>
+{% endif %}
+  {% if title %}
+    <h2>{{ title }}</h2>
+  {% endif %}
+
+  <{{ list.type }}{{ list.attributes }}>
+
+    {% for row in rows %}
+      <li{{ row.attributes }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+
+  </{{ list.type }}>
+
+{% if attributes -%}
+  </div>
+{% endif %}

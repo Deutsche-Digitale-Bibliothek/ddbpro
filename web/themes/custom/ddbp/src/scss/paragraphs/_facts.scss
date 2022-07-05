@@ -1,0 +1,40 @@
+.field--name-field-facts {
+    display: flex;
+    flex-direction: column;
+
+    @include bp(l) {
+        flex-direction: row;
+    }
+
+    .field__item {
+        flex: 1;
+
+        + .field__item {
+            @include spacing(margin, medium, top);
+
+            @include bp(l) {
+                margin-top: 0;
+            }
+
+            @include target-bps(l xl) {
+                @include spacing(margin, large, left);
+            }
+        }
+    }
+}
+
+.facts__figure {
+    @include spacing(padding, small, top);
+    @include spacing(margin, tiny, bottom);
+    border-top: 1px solid $color-darken;
+
+    p {
+        color: $color-main;
+    }
+}
+
+.facts__fact {
+    p {
+        color: $color-grey;
+    }
+}

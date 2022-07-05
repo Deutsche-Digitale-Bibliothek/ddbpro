@@ -1,0 +1,40 @@
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+
+{% set viewHeader = {
+  title: 'Fachstellen' | t,
+  text: 'Fachstellen view - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.' | t
+} %}
+
+{# FAQ category: Fachstellen #}
+{% set faqId = '133' %}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {# view header #}
+  {% include '@ddbp/partials/view-header.html.twig' with viewHeader %}
+
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <div class="view-content">
+      {% if rows %}
+        {{ rows }}
+      {% else %}
+        {% include '@ddbp/views/view-empty.html.twig' %}
+      {% endif %}
+    </div>
+  </div>
+
+  {# faq section #}
+  {% include '@ddbp/partials/faq.html.twig' with { id: faqId, deep: true } %}
+</div>

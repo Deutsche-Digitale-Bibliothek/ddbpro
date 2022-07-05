@@ -1,0 +1,137 @@
+.announcement {
+    @include spacing(margin, very-small, top bottom);
+    border-radius: 100px;
+    background: $color-main;
+    overflow: hidden;
+}
+
+.announcement__link {
+    @include spacing(padding, tiny, top bottom);
+    @include spacing(padding, small, left);
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+
+    @include bp(l) {
+        &:hover {
+            .announcement__more {
+                transform: translateX(10px);
+            }
+        }
+    }
+}
+
+.announcement__text-wrapper {
+    --g-width: 25px;
+
+    position: relative;
+    overflow-x: hidden;
+
+    // gradient
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: none;
+        width: var(--g-width);
+        background: linear-gradient(
+            90deg,
+            rgba($color-main, 1) 0%,
+            rgba($color-main, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+        transform: rotate(180deg);
+    }
+
+    > div {
+        @include spacing(padding, tiny, right left);
+        display: flex;
+        min-width: 100%;
+        white-space: nowrap;
+    }
+}
+
+.announcement__text {
+    display: flex;
+    align-items: center;
+
+    span {
+        @include spacing(margin, tiny, right);
+        display: inline-block;
+        flex-shrink: 0;
+        color: $color-white;
+        font-weight: font-weight(semi-bold);
+    }
+
+    p {
+        @include spacing(margin, large, right);
+        color: $color-lighten-heavy;
+        font-weight: font-weight(medium);
+    }
+
+    & + & {
+        display: none;
+    }
+}
+
+.announcement__more {
+    @include spacing(padding, small, right);
+    @include spacing(padding, tiny, left);
+    background: $color-main;
+    transform: translateX(0);
+    transition: transform $duration-fast $easing-default;
+
+    i {
+        @include rsa(font-size, 14px, 17px);
+        position: relative;
+        color: $color-white;
+        font-weight: font-weight(bold);
+    }
+}
+
+// animation
+.announcement--run {
+    @include bp(l) {
+        &:hover {
+            .announcement__text {
+                animation-play-state: paused;
+            }
+        }
+    }
+
+    .announcement__text-wrapper {
+        &:before,
+        &:after {
+            display: block;
+        }
+    }
+
+    .announcement__text {
+        flex-shrink: 0;
+        animation: marquee 12s linear infinite;
+
+        & + .announcement__text {
+            display: flex;
+        }
+    }
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-100%);
+    }
+}

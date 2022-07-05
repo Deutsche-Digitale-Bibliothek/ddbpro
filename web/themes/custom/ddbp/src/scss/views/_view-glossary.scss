@@ -1,0 +1,82 @@
+.view-ddb-glossary {
+    .view-content {
+        border-top: 1px solid $color-darken;
+    }
+}
+
+// filters
+.view-ddb-glossary__filters-container {
+    @include spacing(margin, huge, bottom);
+
+    // hide the scroll gradient
+    &:after {
+        @include bp(l) {
+            display: none;
+        }
+    }
+}
+
+.view-ddb-glossary__filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.view-ddb-glossary__filter {
+    @include spacing(margin, very-small, bottom);
+
+    @include bp(l) {
+        margin-bottom: 0;
+    }
+
+    & + & {
+        @include spacing(margin, very-small, left);
+
+        @include bp(l) {
+            margin-left: 0;
+        }
+    }
+}
+
+.view-ddb-glossary__filter-link {
+    @include rsa(height, 38px, 50px);
+    @include spacing(padding, very-small, right left);
+    @include text(h4);
+    display: grid;
+    place-items: center;
+    background: transparent;
+    color: $color-grey-light;
+    font-weight: font-weight(semi-bold);
+    text-align: center;
+    transition-duration: $duration-fast;
+    transition-property: background, color;
+    transition-timing-function: $easing-default;
+
+    @include bp(l) {
+        &:hover {
+            color: $color-grey;
+        }
+    }
+}
+
+.view-ddb-glossary__filter-link--active {
+    @include spacing(padding, medium, right left);
+    border-radius: 50px;
+    background: $color-bg;
+    color: $color-main;
+    pointer-events: none;
+    cursor: default;
+}
+
+.view-ddb-glossary__filter-link--all {
+    @include spacing(margin, very-small, right);
+}
+
+.view-count {
+    @include spacing(margin, medium, bottom);
+    @include text(h4);
+    color: $color-grey-dark;
+    font-weight: font-weight(semi-bold);
+}

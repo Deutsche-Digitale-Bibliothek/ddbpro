@@ -1,0 +1,104 @@
+uuid: 212493d1-bb04-4bb7-b1c1-bf003db47755
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_contact_persons
+    - field.field.node.article.field_faq_category
+    - field.field.node.article.field_image
+    - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_sub_pages
+    - field.field.node.article.field_teaser_text
+    - field.field.node.article.field_webform
+    - field.field.node.article.field_weight
+    - node.type.article
+  module:
+    - ddbp_responsive_image
+    - entity_reference_revisions
+    - link
+    - user
+    - webform
+_core:
+  default_config_hash: b4RQ-Nfz-gOoG_jjftd_qDIz4lf_-OzlxoLHkRXjfrE
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  field_contact_persons:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser_mini
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_faq_category:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: image_responsive_meta
+    label: hidden
+    settings:
+      image_style_0px: title_xs
+      image_style_421px: title_m
+      image_style_701px: title_m
+      image_style_1181px: title_xl
+      image_style_1481px: title_xl
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_sub_pages:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_teaser_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_webform:
+    type: webform_entity_reference_entity_view
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_weight:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

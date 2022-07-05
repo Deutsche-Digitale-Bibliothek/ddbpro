@@ -1,0 +1,41 @@
+uuid: 89f6a6cc-2e50-4910-8f7f-4d9f7685faef
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_teaser
+    - field.field.node.aggregator_portrait.field_cultural_sector
+    - field.field.node.aggregator_portrait.field_facts
+    - field.field.node.aggregator_portrait.field_image
+    - field.field.node.aggregator_portrait.field_link_ddb_portal
+    - field.field.node.aggregator_portrait.field_link_website
+    - field.field.node.aggregator_portrait.field_region
+    - field.field.node.aggregator_portrait.field_teaser_text
+    - field.field.node.aggregator_portrait.field_text
+    - node.type.aggregator_portrait
+  module:
+    - text
+    - user
+id: node.aggregator_portrait.search_teaser
+targetEntityType: node
+bundle: aggregator_portrait
+mode: search_teaser
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_cultural_sector: true
+  field_facts: true
+  field_image: true
+  field_link_ddb_portal: true
+  field_link_website: true
+  field_region: true
+  field_teaser_text: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

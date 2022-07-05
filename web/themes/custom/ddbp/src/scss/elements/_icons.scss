@@ -1,0 +1,66 @@
+// external links
+.fac-right-top-main {
+    @include fac-icon('arrow-up-right-solid-main');
+
+    .document-teaser &,
+    .document-teaser-big & {
+        &:after {
+            @include rsa(height width, 10px, 13px);
+        }
+    }
+
+    .button &,
+    .link-cta--content-boxes &,
+    .link-cta--node-table &,
+    .link-cta--process & {
+        &:after {
+            @include rsa(height width, 7px, 10px);
+        }
+    }
+}
+
+.fac-right-top-white {
+    @include fac-icon('arrow-up-right-solid-white');
+
+    .button & {
+        &:after {
+            @include rsa(height width, 7px, 10px);
+        }
+    }
+}
+
+// download
+.fac-download-main {
+    @include fac-icon('arrow-down-to-line-solid-main');
+
+    .document-teaser__download--external & {
+        &:after {
+            @include rsa(height width, 10px, 13px);
+        }
+    }
+
+    .document-teaser__download--download & {
+        &:after {
+            @include rsa(height width, 15px, 18px);
+        }
+    }
+}
+
+.fac-download-white {
+    @include fac-icon('arrow-down-to-line-solid-white');
+
+    .button & {
+        &:after {
+            @include rsa(height width, 10px, 13px);
+        }
+    }
+}
+
+// webform messages
+.fac-message-error {
+    @include fac-icon('triangle-exclamation-regular-white');
+}
+
+.fac-message-success {
+    @include fac-icon('message-check-regular-white');
+}

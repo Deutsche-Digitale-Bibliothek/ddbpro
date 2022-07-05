@@ -1,0 +1,25 @@
+uuid: c3795ad2-8134-462d-ad19-d8f43760702f
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:participation_options:2bcc0e84-5a5d-45e6-b286-20baf95fdf9a'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: participation_options
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:2bcc0e84-5a5d-45e6-b286-20baf95fdf9a'
+settings:
+  id: 'block_content:2bcc0e84-5a5d-45e6-b286-20baf95fdf9a'
+  label: 'Participation options'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

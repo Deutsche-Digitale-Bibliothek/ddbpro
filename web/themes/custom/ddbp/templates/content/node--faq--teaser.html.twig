@@ -1,0 +1,13 @@
+{% set categories = [] %}
+{% for key, category in content.field_faq_category if key matches '/^\\d+$/' %}
+  {% set categories = categories|merge([category['#plain_text']]) %}
+{% endfor %}
+
+{% set accordion = {
+  type: 'faq',
+  title: label[0]['#context'].value,
+  text: content.field_answer|raw,
+  subText: categories|slice(1),
+} %}
+
+{% include '@ddbp/partials/accordion.html.twig' with accordion %}

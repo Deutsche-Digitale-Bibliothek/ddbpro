@@ -1,0 +1,30 @@
+{# Markup used by Participation block & front page. #}
+<div class="participation">
+  <div class="tiny-label">
+    {{ 'Teilnehmen' | t }}
+  </div>
+  <h2>{{ data.headline }}</h2>
+  {{ data.description|raw }}
+  <div class="participation__steps">
+    <ul>
+      {% for step in data.steps %}
+        <li class="participation__step h4">
+          <span class="participation__step-icon">
+            {{ loop.index }}
+          </span>
+          <span class="participation__step-text">
+            {{ step.value }}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="participation__links links-siblings">
+    {% if data.linkPrimary %}
+      {% include '@ddbp/partials/link-button.html.twig' with { link: data.linkPrimary } %}
+    {% endif %}
+    {% if data.linkSecondary %}
+      {% include '@ddbp/partials/link-button.html.twig' with { link: data.linkSecondary } %}
+    {% endif %}
+  </div>
+</div>

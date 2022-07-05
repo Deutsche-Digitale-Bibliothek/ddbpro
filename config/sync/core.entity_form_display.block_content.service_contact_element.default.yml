@@ -1,0 +1,51 @@
+uuid: a87730dc-1425-4fc1-825a-b0b5ca46e585
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.service_contact_element
+    - field.field.block_content.service_contact_element.field_description
+    - field.field.block_content.service_contact_element.field_link
+    - field.field.block_content.service_contact_element.field_title
+  module:
+    - link
+    - text
+id: block_content.service_contact_element.default
+targetEntityType: block_content
+bundle: service_contact_element
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

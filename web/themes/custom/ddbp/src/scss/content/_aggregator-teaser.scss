@@ -1,0 +1,132 @@
+// on view page
+.aggregator-teaser {
+    a {
+        @include spacing(padding, medium);
+        @include border-radius();
+        grid-template-rows: repeat(3, auto) 1fr;
+        height: 100%;
+        border: 1px solid $color-darken;
+        transition: box-shadow $duration-fast $easing-default;
+
+        @include bp(l) {
+            &:hover {
+                .aggregator-teaser__more i {
+                    transform: translateX(10px);
+                }
+            }
+        }
+
+        @include target-bps(l xl) {
+            &:hover {
+                @include shadow(box-hover);
+            }
+        }
+    }
+}
+
+.aggregator-teaser__image,
+.aggregator-teaser__title,
+.aggregator-teaser__text {
+    @include spacing(margin, very-small, bottom);
+}
+
+.aggregator-teaser__image {
+    @include rsa(height width, 100px, 130px);
+
+    img {
+        object-fit: contain;
+    }
+}
+
+.aggregator-teaser__text {
+    p {
+        color: $color-grey-light;
+    }
+}
+
+.aggregator-teaser__more {
+    display: flex;
+    align-self: end;
+    justify-content: flex-end;
+
+    i {
+        @include rsa(font-size, 16px, 20px);
+        color: $color-main;
+        font-weight: font-weight(bold);
+        transform: translateX(0);
+        transition: transform $duration-fast $easing-default;
+    }
+}
+
+// on CT Aggregator detail page
+.aggregator-teaser-mini {
+    a {
+        @include spacing(padding, tiny);
+        @include spacing(margin, very-small, left);
+        @include rsa(height width, 50px, 140px);
+        @include border-radius;
+        display: grid;
+        place-items: center;
+        border: 1px solid $color-darken;
+        overflow: hidden;
+
+        @include bp(l) {
+            height: 100%;
+            width: 100%;
+            margin-left: 0;
+
+            &:hover {
+                .aggregator-teaser-mini__image {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    // the active one
+    &:first-child {
+        @include rsa(height width, 100px, 250px);
+        flex-shrink: 0;
+
+        a {
+            @include spacing(padding, medium);
+            height: 100%;
+            width: 100%;
+            margin-left: 0;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .aggregator-teaser-mini__image {
+            max-width: 100%;
+            opacity: 1;
+
+            &:after {
+                display: none;
+            }
+
+            img {
+                position: relative;
+            }
+        }
+    }
+}
+
+.aggregator-teaser-mini__image {
+    @include rsa(max-width, 30px, 80px);
+    position: relative;
+    width: 100%;
+    opacity: 0.5;
+    transition: opacity $duration-fast $easing-default;
+
+    &:after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    img {
+        position: absolute;
+        object-fit: contain;
+    }
+}

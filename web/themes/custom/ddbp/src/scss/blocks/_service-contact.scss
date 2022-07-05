@@ -1,0 +1,63 @@
+.service-contact {
+    @include spacing(padding, large);
+    @include border-radius();
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $color-darken;
+    background: $color-bg;
+    text-align: center;
+
+    @include bp(l) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 26px;
+        text-align: left;
+    }
+
+    // '?' icon
+    &:before {
+        @include rsa(height width, 50px, 60px);
+        @include spacing(margin, small, bottom);
+        content: '';
+        display: inline-block;
+        border-radius: 100%;
+        background-color: $color-white;
+        background-image: url('../images/icons/ddbp-icon-service-contact-question.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: $color-main;
+
+        @include bp(l) {
+            position: absolute;
+            left: 0;
+            margin-bottom: 0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    }
+}
+
+.service-contact__title {
+    @include spacing(margin, tiny, bottom);
+}
+
+.service-contact__description {
+    @include spacing(margin, medium, bottom);
+
+    @include bp(l) {
+        margin-bottom: 0;
+    }
+
+    @include target-bps(l xl) {
+        @include spacing(margin, large, right);
+        @include spacing(margin, tiny, left);
+    }
+}
+
+.service-contact__link {
+    flex-shrink: 0;
+}

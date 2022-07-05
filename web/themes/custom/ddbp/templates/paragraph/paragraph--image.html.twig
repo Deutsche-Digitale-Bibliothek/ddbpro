@@ -1,0 +1,72 @@
+{% set display = content.field_display[0]['#markup']|clean_class %}
+
+{% set classes = [
+  'paragraph',
+  'paragraph--' ~ paragraph.bundle|clean_class,
+  'paragraph--' ~ paragraph.bundle|clean_class ~ '-' ~ display,
+] %}
+
+{% set images = content.field_image[0].images %}
+{% set imageDefault = images[images|length - 1] %}
+{% set imageAlt = imageDefault.alt['#markup'] %}
+{% set imageDescription = imageDefault.description['#markup'] %}
+{% set imageUri = imageDefault.uri['#markup'] %}
+{% set src = imageUri|image_style('content_image_small_xl') %}
+{% set imageCopyright = imageDefault.copyright %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes, nestedParagraphClasses) }}>
+    <div class="paragraph-inner">
+
+      {# set custom image bc of the width and different image style #}
+      {% if display == 'klein' %}
+        <picture class="responsive-image">
+          <img src="{{ src }}" class="responsive-image__img" alt="{{ imageAlt }}" />
+        </picture>
+        {# copyright #}
+        {% if imageCopyright %}
+          <div class="responsive-image__copyright"
+            {% if imageCopyright.link %}data-link={{ imageCopyright.link }}{% endif %}>
+            <div class="responsive-image__copyright-image"
+              style="background-image: url('{{ imageCopyright.image }}')">
+            </div>
+            <span class="responsive-image__copyright-text">
+              <strong>{{- imageDefault.title -}}: </strong>
+              {% if imageDefault.description['#markup'] %}
+                <span>{{- imageDefault.description -}}</span>
+                {% if imageDefault.author['#markup'] %}
+                  |
+                {% endif %}
+              {% endif %}
+              {% if imageDefault.author['#markup'] %}
+                <span>{{ imageDefault.author }}</span>
+              {% endif %}
+              {% if imageCopyright.text %}
+                {% if imageDefault.description['#markup'] or imageDefault.author['#markup'] %}
+                  |
+                {% endif %}
+                {{- imageCopyright.text -}}
+              {% endif %}
+            </span>
+          </div>
+        {% endif %}
+        {# description #}
+        {% if imageDescription %}
+          <div class="responsive-image__desc">
+            <div class="text-formatted">
+              <p>{{- imageDescription -}}</p>
+            </div>
+          </div>
+        {% endif %}
+
+      {% else %}
+        {% set responsiveImage = {
+          images: images,
+          description: true,
+          lazy: true,
+        } %}
+        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

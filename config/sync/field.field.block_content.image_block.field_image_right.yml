@@ -1,0 +1,29 @@
+uuid: 93675c5d-549e-4415-80d3-61c144b3772d
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.image_block
+    - field.storage.block_content.field_image_right
+    - media.type.image
+id: block_content.image_block.field_image_right
+field_name: field_image_right
+entity_type: block_content
+bundle: image_block
+label: 'Bild rechts'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

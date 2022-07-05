@@ -1,0 +1,20 @@
+// content overlay (used e.g. when menu opened)
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $color-overlay;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $duration-medium $easing-default;
+    z-index: 100;
+
+    &.overlay--active {
+        opacity: 1;
+        // prevent clicking sth under the overlay
+        pointer-events: all;
+        cursor: pointer;
+    }
+}

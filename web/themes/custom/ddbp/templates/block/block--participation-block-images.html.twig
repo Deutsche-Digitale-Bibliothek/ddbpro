@@ -1,0 +1,19 @@
+{% set images = {
+  'top-left': {
+    images: content.field_image_top_left[0].images,
+  },
+  'bottom-left': {
+    images: content.field_image_bottom_left[0].images,
+  },
+  'right': {
+    images: content.field_image_right[0].images,
+  },
+} %}
+
+<div class="participation-images">
+  {% for key, image in images %}
+    <div class="participation-image {{ 'participation-image--' ~ key }}">
+      {% include '@ddbp/partials/responsive-image.html.twig' with { responsiveImage: image } %}
+    </div>
+  {% endfor %}
+</div>

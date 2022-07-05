@@ -1,0 +1,159 @@
+uuid: d66ec1b4-ff68-4144-953b-7fcc3f7a9710
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_description
+    - field.storage.node.field_teaser_text
+    - field.storage.user.field_lastname
+    - field.storage.user.field_firstname
+    - search_api.server.database
+  module:
+    - media
+    - node
+    - search_api
+    - user
+id: index
+name: 'Search Index'
+description: ''
+read_only: false
+field_settings:
+  aggregated_field:
+    label: 'Aggregiertes Feld'
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/type'
+        - search_api_entity_type
+  field_description:
+    label: Beschreibung
+    datasource_id: 'entity:media'
+    property_path: field_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.media.field_description
+  field_firstname:
+    label: Vorname
+    datasource_id: 'entity:user'
+    property_path: field_firstname
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_firstname
+  field_lastname:
+    label: Nachname
+    datasource_id: 'entity:user'
+    property_path: field_lastname
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_lastname
+  field_teaser_text:
+    label: 'Teaser Text'
+    datasource_id: 'entity:node'
+    property_path: field_teaser_text
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_teaser_text
+  name:
+    label: Name
+    datasource_id: 'entity:media'
+    property_path: name
+    type: text
+    dependencies:
+      module:
+        - media
+  node_grants:
+    label: 'Zugriffsinformationen für Inhalte'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:media':
+    bundles:
+      default: false
+      selected:
+        - document
+    languages:
+      default: false
+      selected:
+        - de
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - overview_teaser
+    languages:
+      default: false
+      selected:
+        - de
+  'entity:user':
+    languages:
+      default: false
+      selected:
+        - de
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  entity_type: {  }
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - aggregated_field
+      - field_description
+      - field_firstname
+      - field_lastname
+      - field_teaser_text
+      - name
+      - title
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: false
+server: database

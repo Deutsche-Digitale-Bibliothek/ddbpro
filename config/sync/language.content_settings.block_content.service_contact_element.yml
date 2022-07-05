@@ -1,0 +1,11 @@
+uuid: 381c6fd3-8e66-4a26-9a9a-a27e4d9946ba
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.service_contact_element
+id: block_content.service_contact_element
+target_entity_type_id: block_content
+target_bundle: service_contact_element
+default_langcode: site_default
+language_alterable: false

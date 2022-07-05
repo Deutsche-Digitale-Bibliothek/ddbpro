@@ -1,0 +1,8 @@
+uuid: 9b42dfe7-5a39-4ccf-9109-1a80fe8f6969
+langcode: de
+status: true
+dependencies: {  }
+id: service_contact_element
+label: 'Service Contact Element'
+revision: 0
+description: ''

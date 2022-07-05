@@ -1,0 +1,17 @@
+{% set isFullWidth = content.field_width[0]['#markup'] == 'true' %}
+
+{% set classes = [
+  'paragraph',
+  'paragraph--' ~ paragraph.bundle|clean_class,
+  isFullWidth ? 'paragraph--' ~ paragraph.bundle|clean_class ~ '-full-width' : 'paragraph--' ~ paragraph.bundle|clean_class ~ '-narrow',
+] %}
+
+{% block paragraph %}
+  <div {{ attributes.addClass(classes) }}>
+    <div class="paragraph-inner">
+      {% block paragraphContent %}
+        {{ content|without('field_width') }}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

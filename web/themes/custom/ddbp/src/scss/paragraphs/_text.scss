@@ -1,0 +1,198 @@
+.text-formatted {
+    max-width: 100%;
+
+    h2,
+    h3,
+    h4,
+    p,
+    ol,
+    ul,
+    pre,
+    table {
+        @include spacing(margin, medium, bottom);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h5,
+    h6 {
+        @include spacing(margin, small, bottom);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ol,
+    ul {
+        @include text(p1);
+        counter-reset: step-counter;
+
+        li {
+            @include spacing(margin, tiny, bottom);
+            @include spacing(margin, very-small, left);
+            position: relative;
+            display: block;
+            color: $color-grey;
+
+            &:before {
+                @include spacing(position, very-small, left, negative);
+                position: absolute;
+                display: inline-block;
+            }
+        }
+    }
+
+    ol {
+        li {
+            @include spacing(margin, very-small, left);
+            @include rsa(padding-left, 13px, 16px); // number (1-9) size
+            counter-increment: step-counter;
+
+            &:before {
+                @include text(p1);
+                content: counters(step-counter, '.');
+                top: 0;
+                font-weight: font-weight(semi-bold);
+                color: $color-main;
+            }
+        }
+    }
+
+    ul {
+        li {
+            @include rsa(padding-left, 13px, 15px); // icon width
+            position: relative;
+
+            &:before {
+                @include rsa(top, 12px, 15px);
+                @include rsa(width, 13px, 15px);
+                content: '';
+                display: inline-block;
+                height: 5px;
+                background-image: url('../images/icons/dash-solid-main.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+
+    a:not([class]) {
+        position: relative;
+        display: inline;
+        color: $color-main;
+        line-height: 1.5;
+        box-shadow: 0 0 0 $color-main inset;
+        transition: color $duration-fast $easing-default;
+
+        @include focus;
+
+        @include bp(l) {
+            &:hover {
+                color: $color-main-dark;
+                box-shadow: 0 -1px 0 $color-main inset;
+            }
+        }
+    }
+
+    a[target='_blank'] {
+        margin-right: 3px;
+
+        @include fac-icon('arrow-up-right-solid-main', false) {
+            @include rsa(height width, 8px, 10px);
+            @include rsa(margin-left, 4px, 7px);
+        }
+    }
+
+    // inline code block
+    code {
+        @include text(p1-code);
+        padding: 0;
+        border: 1px solid $color-darken;
+        background: $color-bg;
+        color: $color-grey;
+    }
+
+    // code block
+    pre {
+        @include spacing(padding, very-small);
+        border: 1px solid $color-darken;
+        background: $color-bg;
+
+        code {
+            border: none;
+            background: inherit;
+        }
+    }
+
+    table {
+        color: $color-grey;
+        text-align: left;
+
+        @include bp(l) {
+            width: 100%;
+        }
+
+        thead {
+            background: $color-bg;
+        }
+
+        th {
+            @include text(p2);
+            font-weight: font-weight(medium);
+        }
+
+        th,
+        td {
+            @include spacing(padding, very-small, top bottom);
+            @include spacing(padding, medium, right left);
+        }
+
+        td {
+            @include text(p1);
+
+            @include bp(l) {
+                min-width: 0;
+                max-width: 100%;
+            }
+        }
+
+        tr {
+            border-bottom: 1px solid $color-darken;
+        }
+    }
+
+    // only add spacer bottom if in paragraph--text
+    .paragraph--text & {
+        h2,
+        h3,
+        h4,
+        p,
+        ol,
+        ul,
+        pre,
+        table {
+            &:last-child {
+                @include spacing(margin, medium, bottom);
+            }
+        }
+
+        // Responsive tables require a wrapper for horizontal scrolling.
+        // However, client requested styling only for CKEditor <table> tag.
+        // Since large tables would overflow the page container on mobile,
+        // we compromise by adding the overflow rule to the text wrapper.
+        overflow-x: auto;
+        @include bp(l) {
+            overflow-x: initial;
+        }
+
+        h5,
+        h6 {
+            &:last-child {
+                @include spacing(margin, small, bottom);
+            }
+        }
+    }
+}

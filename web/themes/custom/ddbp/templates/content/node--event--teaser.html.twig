@@ -1,0 +1,43 @@
+{% set classes = [
+  'node',
+  'node--' ~ node.bundle|clean_class,
+  'node--' ~ node.bundle|clean_class ~ '-teaser',
+  'event-teaser',
+] %}
+
+{% set startDateRaw = node.field_date.start_date.getTimestamp() %}
+{% set endDateRaw = node.field_date.end_date.getTimestamp() %}
+
+{% set ics_link = calendar_link(
+  'ics',
+  node.title,
+  node.field_date.0.start_date,
+  node.field_date.0.end_date,
+  false,
+  node.field_description,
+  node.field_location
+) %}
+
+<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+  <div class="event-teaser__ical">
+    <a href="{{ ics_link }}" aria-label="{{ 'iCalendar Datei zu der Veranstaltung herunterladen' | t }}">
+      <i aria-hidden="true" class="fa-regular fa-calendar-plus"></i>
+    </a>
+  </div>
+  <h3>
+    <a href="{{ url }}">
+      {{ label[0]['#context'].value }}
+    </a>
+  </h3>
+  <div class="event-teaser__date">
+    <a href="{{ url }}">
+    {% if startDateRaw %}
+      {{ startDateRaw|format_date('custom', 'd.m.Y') }}
+    {% endif %}
+    {% if endDateRaw and (endDateRaw is not same as(startDateRaw)) %}
+      {{ ' ' ~ 'bis' | t ~ ' ' }}
+      {{ endDateRaw|format_date('custom', 'd.m.Y') }}
+    {% endif %}
+    </a>
+  </div>
+</article>

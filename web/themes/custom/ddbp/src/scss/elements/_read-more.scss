@@ -1,0 +1,50 @@
+.read-more {
+    position: relative;
+    overflow: hidden;
+
+    @include bp(l) {
+        overflow: visible;
+    }
+
+    // gradient
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 50%;
+        background: linear-gradient(
+            180deg,
+            rgba($color-white, 0) 0%,
+            rgba($color-white, 1) 100%
+        );
+
+        @include bp(l) {
+            display: none;
+        }
+    }
+
+    .glossary-teaser & {
+        max-height: 170px;
+
+        @include bp(l) {
+            max-height: unset;
+        }
+    }
+}
+
+.read-more__link {
+    @include spacing(margin, very-small, top);
+
+    @include bp(l) {
+        display: none;
+    }
+
+    a {
+        @include text(a1);
+        color: $color-main;
+        font-weight: font-weight(bold);
+        text-transform: uppercase;
+    }
+}

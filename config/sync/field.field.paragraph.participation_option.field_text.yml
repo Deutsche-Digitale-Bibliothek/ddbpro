@@ -1,0 +1,21 @@
+uuid: 857dceb2-8a02-44ec-8a68-33967a7c4b9f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.participation_option
+  module:
+    - text
+id: paragraph.participation_option.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: participation_option
+label: Text
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

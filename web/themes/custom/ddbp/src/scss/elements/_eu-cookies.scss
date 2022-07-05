@@ -1,0 +1,152 @@
+// just colors
+#sliding-popup {
+    .eu-cookies {
+        h2 {
+            color: $color-grey-dark;
+        }
+
+        p {
+            color: $color-grey;
+        }
+
+        .find-more-button {
+            color: $color-main;
+        }
+    }
+}
+
+div#sliding-popup {
+    background: $color-bg;
+}
+
+.eu-cookies {
+    @include spacing(padding, small, top bottom);
+    @include spacing(padding, large, right left);
+    border-top: 1px solid $color-darken;
+
+    h2 {
+        @include text(h4);
+        margin-bottom: 0;
+        font-weight: font-weight(semi-bold);
+    }
+
+    p {
+        @include text(p1);
+        font-weight: font-weight(regular);
+    }
+}
+
+.eu-cookies__content {
+    @include rsa(width, 88vw, 98vw);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    text-align: center;
+
+    @include bp(l) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .find-more-button {
+        @include text(p2);
+        position: relative;
+        display: inline;
+        font-weight: font-weight(medium);
+        box-shadow: 0 -1px 0 $color-main inset;
+        cursor: pointer;
+
+        @include focus;
+
+        @include bp(l) {
+            &:hover {
+                box-shadow: 0 0 0 $color-main inset;
+            }
+        }
+    }
+}
+
+.eu-cookies__content-message {
+    display: grid;
+    margin-top: 0;
+    float: none;
+    max-width: 100%;
+
+    @include bp(l) {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(3, auto);
+    }
+
+    @include target-bps(l xl) {
+        @include spacing(margin, small, right);
+    }
+
+    &:before {
+        @include rsa(height width, 35px, 50px);
+        @include spacing(margin, tiny, bottom);
+        content: '';
+        display: inline-block;
+        justify-self: center;
+        border-radius: 50%;
+        background-image: url('../images/icons/cookie-bite-regular-grey-light.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include bp(l) {
+            align-self: center;
+            justify-self: start;
+            grid-column: 1;
+            grid-row: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        @include target-bps(l xl) {
+            @include spacing(margin, medium, right);
+        }
+    }
+}
+
+.eu-cookies__links {
+    @include spacing(margin, medium, top);
+    display: flex;
+    flex-direction: column;
+    float: none;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 100%;
+
+    @include bp(s) {
+        flex-direction: row;
+        width: auto;
+    }
+    
+    @include bp(l) {
+        flex-shrink: 0;
+        margin-top: 0;
+        max-width: 40%;
+    }
+
+    .button {
+        width: 100%;
+
+        @include bp(s) {
+            width: auto;
+        }
+    }
+
+    .button + .button {
+        @include spacing(margin, very-small, top);
+
+        @include bp(s) {
+            margin-top: 0;
+        }
+
+        @include target-bps(s m l xl) {
+            @include spacing(margin, small, left);
+        }
+    }
+}

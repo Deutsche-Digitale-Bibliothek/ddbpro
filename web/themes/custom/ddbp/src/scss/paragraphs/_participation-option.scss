@@ -1,0 +1,72 @@
+.paragraph--participation-option {
+    @include rsa(margin-bottom, 55px, 30px);
+
+    .field__item:last-child & {
+        @include rsa(margin-bottom, 55px, 30px);
+    }
+
+    .paragraph-inner {
+        @include bp(l) {
+            height: 100%;
+        }
+    }
+}
+
+.participation-option__option-wrapper {
+    position: relative;
+    height: inherit;
+    transition: box-shadow $duration-fast $easing-default;
+
+    @include target-bps(l xl) {
+        &:hover {
+            @include shadow(box-hover);
+        }
+    }
+}
+
+.participation-option__option {
+    @include spacing(padding, medium, top right left);
+    @include spacing(padding, large, bottom);
+    @include border-radius();
+    position: relative;
+    height: inherit;
+    border: 1px solid $color-darken;
+    overflow: hidden;
+    text-align: center;
+
+    // red line at the top
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: block;
+        height: 5px;
+        background: $color-main;
+    }
+
+    h3 {
+        @include spacing(margin, medium, bottom);
+
+        strong {
+            color: $color-main;
+            font-weight: font-weight(semi-bold);
+            box-shadow: 0 -3px 0 $color-main inset;
+        }
+    }
+}
+
+.participation-option__text {
+    @include spacing(margin, tiny, bottom);
+}
+
+.participation-option__link {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    transform: translateY(50%);
+}

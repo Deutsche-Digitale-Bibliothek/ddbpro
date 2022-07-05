@@ -1,0 +1,8 @@
+uuid: 5e30c9b2-f494-40d8-9af9-1491c063e631
+langcode: de
+status: true
+dependencies: {  }
+id: image_block
+label: Bilder
+revision: 0
+description: ''

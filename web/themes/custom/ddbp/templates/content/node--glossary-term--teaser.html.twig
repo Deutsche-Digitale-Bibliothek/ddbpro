@@ -1,0 +1,31 @@
+{% set classes = [
+  'node',
+  'node--' ~ node.bundle|clean_class,
+  'node--' ~ node.bundle|clean_class ~ '-full',
+  'glossary-teaser',
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ url }}" class="glossary-teaser__title">
+    <h2 class="h3">{{ label[0]['#context'].value }}</h2>
+  </a>
+  {% if content.field_alternatives[0] %}
+    <div class="glossary-teaser__alternatives">
+      <a href="{{ url }}">
+        {{- content.field_alternatives -}}
+      </a>
+    </div>
+  {% endif %}
+  {% if content.body[0] %}
+    <div class="glossary-teaser__definition">
+      <div class="text-formatted read-more">
+        <p>{{ content.body[0]['#text']|raw }}</p>
+      </div>
+      <div class="read-more__link">
+        <a href="{{ url }}">
+          {{ 'Weiterlesen' | t }}
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</article>

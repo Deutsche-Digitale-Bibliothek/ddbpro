@@ -1,0 +1,26 @@
+uuid: e9463126-0c65-4689-bac3-7bea82c079e6
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - eu_cookie_compliance
+    - filter
+    - matomo
+    - media
+    - shortcut
+    - system
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 'Angemeldeter Benutzer'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'display eu cookie compliance popup'
+  - 'opt-in or out of matomo tracking'
+  - 'use text format basic_html'
+  - 'view media'

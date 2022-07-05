@@ -1,0 +1,11 @@
+<div class="participation-block">
+  <div class="row">
+    <div class="column">
+      {# Content block with images managed by editors. #}
+      {{ drupal_entity('block', 'participation_block_images') }}
+    </div>
+    <div class="column">
+      {% include '@ddbp/partials/participation.html.twig' with { data: content.data } %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+uuid: 5fb3b628-b10e-4c2c-9602-fda4d3ce354b
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.image_block
+    - field.field.block_content.image_block.field_image_bottom_left
+    - field.field.block_content.image_block.field_image_right
+    - field.field.block_content.image_block.field_image_top_left
+  module:
+    - ddbp_responsive_image
+id: block_content.image_block.default
+targetEntityType: block_content
+bundle: image_block
+mode: default
+content:
+  field_image_bottom_left:
+    type: image_responsive_meta
+    label: hidden
+    settings:
+      image_style_0px: scale_big_xs
+      image_style_421px: scale_big_m
+      image_style_701px: scale_big_m
+      image_style_1181px: scale_big_xl
+      image_style_1481px: scale_big_xl
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image_right:
+    type: image_responsive_meta
+    label: hidden
+    settings:
+      image_style_0px: scale_big_xs
+      image_style_421px: scale_big_m
+      image_style_701px: scale_big_m
+      image_style_1181px: scale_big_xl
+      image_style_1481px: scale_big_xl
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image_top_left:
+    type: image_responsive_meta
+    label: hidden
+    settings:
+      image_style_0px: scale_big_xs
+      image_style_421px: scale_big_m
+      image_style_701px: scale_big_m
+      image_style_1181px: scale_big_xl
+      image_style_1481px: scale_big_xl
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

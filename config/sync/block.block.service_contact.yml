@@ -1,0 +1,25 @@
+uuid: 56319467-c99c-44e1-be82-e908eebb50fd
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:service_contact_element:453e609b-7504-44b6-8a0a-7595afe483d6'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: service_contact
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:453e609b-7504-44b6-8a0a-7595afe483d6'
+settings:
+  id: 'block_content:453e609b-7504-44b6-8a0a-7595afe483d6'
+  label: 'Service contact'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

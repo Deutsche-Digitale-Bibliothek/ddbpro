@@ -1,0 +1,15 @@
+.participation-options__teasers {
+    @include spacing(margin, massive, bottom);
+
+    .field--name-field-paragraphs {
+        @include row();
+
+        > .field__item {
+            @include columns(1);
+
+            @include bp(l) {
+                @include columns(3);
+            }
+        }
+    }
+}

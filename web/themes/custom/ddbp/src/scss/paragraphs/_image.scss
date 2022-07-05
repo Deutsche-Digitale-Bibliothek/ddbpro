@@ -1,0 +1,13 @@
+.paragraph--image {
+    .responsive-image__img {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+.paragraph--image-klein {
+    .responsive-image__img {
+        @include rsa(width, 180px, 280px);
+    }
+}

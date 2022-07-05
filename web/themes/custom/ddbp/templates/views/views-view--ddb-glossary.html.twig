@@ -1,0 +1,49 @@
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+
+{% set viewHeader = {
+  title: 'Glossar' | t,
+  text: 'Für die Arbeit mit digitalem Kulturgut haben sich einige Fachbegriffe entwickelt, deren genaue Bedeutung sich nicht jedem ohne Weiteres erschließt und die wir darum in unserem Glossar definiert haben.' | t,
+  subtext: 'Das Glossar richtet sich vor allem an Projektmitarbeiter der Deutschen Digitalen Bibliothek, aber auch an unsere Datenpartner und alle Interessierten aus der Öffentlichkeit. Wir hoffen, mit unseren Definitionen zu einem besseren Verständnis der zentralen Begriffe beizutragen und möchten mit dem Glossar auf einen gemeinsamen Sprachgebrauch hinwirken. Die im Glossar vorkommenden Begriffe sind immer für Kontexte in der DDB definiert, es handelt sich also nicht um allgemeingültige Definitionen. Das Glossar stellt kein abgeschlossenes Werk dar, es wird bei Bedarf um neue Begriffe ergänzt.' | t,
+} %}
+
+{# Glossary view has an attachment display, containing a summary (similar to core glossary). #}
+{# ddb_glossary is the main view ID. ddb_glossary_filters is the attachment display ID. #}
+{% if display_id == 'ddb_glossary_filters' %}
+  <div class="attachment">
+    {{ rows }}
+  </div>
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    {# view header #}
+    {% include '@ddbp/partials/view-header.html.twig' with viewHeader %}
+
+    <div class="container">
+      <div class="attachment attachment-before">
+        {{ attachment_before }}
+      </div>
+
+      <div class="view-count">
+        {# Sg. vs pl. results count. #}
+        {% set count = rows[0]['#rows']|length %}
+        {{ count }} {{ count == 1 ? 'Fachbegriff' | t : 'Fachbegriffe' | t }}
+      </div>
+      <div class="view-content">
+        {% if rows %}
+          {{ rows }}
+        {% else %}
+          {% include '@ddbp/views/view-empty.html.twig' %}
+        {% endif %}
+      </div>
+    </div>
+
+    {% if pager %}
+      {{ pager }}
+    {% endif %}
+  </div>
+{% endif %}

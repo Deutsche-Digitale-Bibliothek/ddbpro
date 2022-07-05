@@ -1,0 +1,137 @@
+.overview-teaser {
+    position: relative;
+    background: $color-white;
+
+    a {
+        @include rsa(min-height, 240px, 400px);
+        @include border-radius();
+        grid-template-rows: repeat(2, auto);
+        height: 100%;
+        border: 1px solid $color-darken;
+        transition: box-shadow $duration-fast $easing-default;
+
+        @include bp(l) {
+            height: 100%;
+
+            &:hover {
+                .overview-teaser__text p {
+                    color: $color-grey;
+                }
+
+                i {
+                    transform: translateX(10px);
+                }
+            }
+        }
+
+        @include target-bps(l xl) {
+            &:hover {
+                @include shadow(box-hover);
+            }
+        }
+    }
+}
+
+// if it has image
+.overview-teaser--image {
+    a {
+        @include bp(l) {
+            &:hover {
+                .overview-teaser__image {
+                    &:before {
+                        background: rgba($color-black, 0.4);
+                    }
+                }
+
+                .overview-teaser__text p {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+
+    .overview-teaser__title,
+    .overview-teaser__text {
+        &:before {
+            @include fit();
+            content: '';
+        }
+    }
+}
+
+.overview-teaser__image {
+    &:before {
+        background: rgba($color-black, 0.2);
+        transition: background $duration-fast $easing-default;
+    }
+}
+
+.overview-teaser__title {
+    @include spacing(padding, medium);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    grid-row: 1;
+
+    h3 {
+        position: relative;
+        color: $color-grey-dark;
+    }
+
+    // if it has image
+    .overview-teaser--image & {
+        &:before {
+            background: linear-gradient(
+                0deg,
+                rgba($color-black, 0) 0%,
+                rgba($color-black, 0.6) 100%
+            );
+        }
+    }
+}
+
+.overview-teaser__text {
+    @include spacing(padding, medium, right left);
+    position: relative;
+    align-self: end;
+    grid-column: 1;
+    grid-row: 2;
+
+    p {
+        position: relative;
+        color: $color-grey-light;
+        font-weight: font-weight(medium);
+        transition: color $duration-fast $easing-default;
+    }
+
+    // if it has image
+    .overview-teaser--image & {
+        &:before {
+            background: linear-gradient(
+                0deg,
+                rgba($color-black, 0.6) 0%,
+                rgba($color-black, 0) 100%
+            );
+        }
+
+        p {
+            color: $color-white;
+        }
+    }
+}
+
+.overview-teaser__more {
+    @include spacing(padding, medium, bottom);
+    display: flex;
+    align-self: end;
+    justify-content: flex-end;
+
+    i {
+        @include rsa(font-size, 16px, 20px);
+        color: $color-main;
+        font-weight: font-weight(bold);
+        transform: translateX(0);
+        transition: transform $duration-fast $easing-default;
+    }
+}

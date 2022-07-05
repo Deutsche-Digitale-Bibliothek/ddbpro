@@ -1,0 +1,35 @@
+<div id="app" data-off-canvas-main-canvas>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="content-main">
+    <header id="header" class="header">
+      {{ page.header }}
+      <div class="header__content-bottom">
+        <div class="container">
+          {# Site branding. #}
+          {{ page.sidebar_left.ddbp_branding }}
+          <button class="search-toggle" aria-label="{{ 'Suchen' | t }}"></button>
+
+          {# Search form (mobile). #}
+          {% include '@ddbp/partials/search-form.html.twig' with { in_menu: true } %}
+        </div>
+      </div>
+    </header>
+
+    <aside id="sidebar-left" class="sidebar sidebar--left">
+      {{ page.sidebar_left }}
+    </aside>
+
+    <main class="main-content" role="main">
+      <a id="main-content" tabindex="-1" class="visually-hidden"></a>
+      <div class="container">
+        {{ page.highlighted }}
+      </div>
+      {{ page.content }}
+    </main>
+
+    <footer id="footer" class="footer">
+      {{ page.footer }}
+    </footer>
+  </div>
+</div>

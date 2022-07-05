@@ -1,0 +1,44 @@
+.scroll {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        transition: background $duration-fast $easing-default;
+    }
+}
+
+.scroll--start {
+    &:after {
+        background: linear-gradient(
+            90deg,
+            rgba($color-white, 0) 90%,
+            $color-white
+        );
+    }
+}
+
+.scroll--end {
+    &:after {
+        background: linear-gradient(
+            90deg,
+            $color-white,
+            rgba($color-white, 0) 10%
+        );
+    }
+}
+
+.scroll--start.scroll--end {
+    &:after {
+        background: linear-gradient(
+                90deg,
+                rgba($color-white, 0) 90%,
+                $color-white
+            ),
+            linear-gradient(90deg, $color-white, rgba($color-white, 0) 10%);
+    }
+}

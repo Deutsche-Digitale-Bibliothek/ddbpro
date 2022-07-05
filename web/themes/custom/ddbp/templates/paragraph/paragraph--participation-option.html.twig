@@ -1,0 +1,26 @@
+{% extends "paragraph.html.twig" %}
+
+{% set link = {
+  url: content.field_link[0]['#url'],
+  text: content.field_link[0]['#title'],
+  target: content.field_link[0]['#options']['attributes']['target'] == '_blank',
+  type: 'primary',
+} %}
+
+{% block paragraphContent %}
+  <div class="participation-option__option-wrapper">
+    <div class="participation-option__option">
+      <h3>
+        {{ content.field_title|render|striptags('<strong>')|trim|raw }}
+      </h3>
+
+      <div class="participation-option__text">
+        {{ content.field_text }}
+      </div>
+    </div>
+
+    <div class="participation-option__link">
+      {% include '@ddbp/partials/link-button.html.twig' with link %}
+    </div>
+  </div>
+{% endblock %}

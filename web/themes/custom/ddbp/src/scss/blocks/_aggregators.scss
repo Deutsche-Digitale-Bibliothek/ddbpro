@@ -1,0 +1,46 @@
+.block-aggregators {
+    @include spacing(padding, medium, top bottom);
+    background: $color-white;
+
+    .column {
+        &:last-child {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+
+            @include bp(l) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    h2 {
+        margin-right: 15%;
+    }
+
+    .button {
+        @include spacing(margin, small, top);
+
+        @include bp(l) {
+            margin-top: 0;
+            margin-left: auto;
+        }
+
+        span {
+            white-space: nowrap;
+        }
+    }
+}
+
+.block-aggregators__teasers {
+    @include spacing(margin, huge, top);
+}
+
+.block-aggregators__teaser {
+    @include spacing(margin, medium, bottom);
+    @include columns(1);
+
+    @include bp(l) {
+        @include columns(3);
+    }
+}

@@ -1,0 +1,60 @@
+.aggregator {
+    h1 {
+        @include spacing(margin, large, top);
+        @include spacing(margin, small, bottom);
+    }
+}
+
+.aggregator__teasers {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+
+    @include bp(l) {
+        display: grid;
+        grid-template-columns: auto repeat(8, 1fr);
+        grid-template-rows: repeat(2, 1fr); // works for max 17 items
+        column-gap: 1.7vw;
+        row-gap: 34px;
+    }
+
+    @include bp(xl) {
+        row-gap: 40px;
+    }
+
+    // the overflow gradient on the right
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba($color-white, 0) 80%,
+            rgba($color-white, 1) 100%
+        );
+        pointer-events: none;
+
+        @include bp(l) {
+            display: none;
+        }
+    }
+
+    .aggregator-teaser-mini {
+        &:first-child {
+            grid-column: 1;
+            grid-row: 1 / -1;
+        }
+    }
+}
+
+.aggregator__text-teaser {
+    @include spacing(margin, very-large, bottom);
+    color: $color-grey;
+}
+
+.aggregator__text {
+    @include spacing(margin, small, bottom);
+}

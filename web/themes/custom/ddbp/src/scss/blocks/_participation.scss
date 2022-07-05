@@ -1,0 +1,38 @@
+.participation-block {
+    @include spacing(padding, massive, top);
+    border-top: 1px solid $color-darken;
+}
+
+.participation {
+    h2 {
+        @include spacing(margin, very-small, bottom);
+    }
+
+    .text-formatted p:last-child {
+        @include spacing(margin, medium, bottom);
+    }
+}
+
+.participation__step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+
+    & + & {
+        @include spacing(margin, very-small, top);
+    }
+}
+
+.participation__step-icon {
+    @include rsa(height width, 50px, 60px);
+    @include spacing(margin, small, right);
+    @include border-radius();
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 1px solid $color-darken;
+    color: $color-main;
+
+    // decorative line
+    @include red-line;
+}

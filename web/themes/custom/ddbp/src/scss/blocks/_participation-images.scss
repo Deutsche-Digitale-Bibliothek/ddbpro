@@ -1,0 +1,38 @@
+.participation-images {
+    @include rsa(column-gap, 30px, 60px);
+    @include spacing(margin, huge, bottom);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+    @include bp(l) {
+        margin-bottom: 0;
+    }
+}
+
+.participation-image {
+    .responsive-image__img {
+        height: auto;
+
+        @include target-bps(l xl) {
+            @include rsa(max-width, 135px, 300px);
+        }
+    }
+}
+
+.participation-image--top-left {
+    @include spacing(margin, large, bottom);
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.participation-image--bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.participation-image--right {
+    @include spacing(margin, very-large, top);
+    grid-column: 2;
+    grid-row: 1 / -1;
+}

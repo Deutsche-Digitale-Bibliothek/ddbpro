@@ -1,0 +1,62 @@
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+
+{% set viewHeader = {
+  title: 'Aktuelle Termine & Veranstaltungen' | t,
+} %}
+
+{% set linkSecondary = {
+  url: path('view.past_events.past_events'),
+  text: 'Veranstaltungsarchiv',
+  type: 'secondary',
+  bg: 'light',
+} %}
+
+{% set events = rows.0['#rows']|map(e => {
+  'title': e['#node'].title.value,
+  'description': e['#node'].field_description.0.value,
+  'location': e['#node'].field_location.value,
+  'start_date': e['#node'].field_date.start_date.getTimestamp(),
+  'end_date': e['#node'].field_date.end_date.getTimestamp(),
+}) %}
+
+{% set ics_link = calendar_link_multiple(events) %}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {# view header #}
+  {% include '@ddbp/partials/view-header.html.twig' with viewHeader %}
+
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <div class="view-content">
+      {% if rows %}
+        {{ rows }}
+
+        <a href="{{ ics_link }}" class="view-latest-events__download-all">
+          {{ 'Alle Veranstaltungen speichern / abonnieren'|t }}
+        </a>
+
+        <div class="view-content__link">
+          {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
+        </div>
+      {% else %}
+        {% include '@ddbp/views/view-empty.html.twig' %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+</div>

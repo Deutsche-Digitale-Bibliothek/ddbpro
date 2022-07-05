@@ -1,0 +1,36 @@
+uuid: 5f2ea6fd-3b8d-42ea-86ef-367900ffd95e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_secondary_cta
+    - paragraphs.paragraphs_type.collage
+  module:
+    - link
+    - link_field_autocomplete_filter
+third_party_settings:
+  link_field_autocomplete_filter:
+    negate: true
+    allowed_content_types:
+      overview_teaser: overview_teaser
+      aggregator_portrait: '0'
+      article: '0'
+      department: '0'
+      event: '0'
+      faq: '0'
+      glossary_term: '0'
+      page: '0'
+id: paragraph.collage.field_secondary_cta
+field_name: field_secondary_cta
+entity_type: paragraph
+bundle: collage
+label: 'CTA sekundär'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,25 @@
+uuid: cadd5424-c8f4-4338-a916-883e2224008f
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:image_block:d17d2aa1-cfbd-4fce-a964-6c896f13ab9e'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: participation_block_images
+theme: ddbp
+region: hidden
+weight: -3
+provider: null
+plugin: 'block_content:d17d2aa1-cfbd-4fce-a964-6c896f13ab9e'
+settings:
+  id: 'block_content:d17d2aa1-cfbd-4fce-a964-6c896f13ab9e'
+  label: 'Bilder für Teilnahme Schritte Block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

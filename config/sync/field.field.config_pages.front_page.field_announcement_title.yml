@@ -1,0 +1,19 @@
+uuid: a60297b1-9321-4606-85fd-c9818472f169
+langcode: de
+status: true
+dependencies:
+  config:
+    - config_pages.type.front_page
+    - field.storage.config_pages.field_announcement_title
+id: config_pages.front_page.field_announcement_title
+field_name: field_announcement_title
+entity_type: config_pages
+bundle: front_page
+label: 'Announcement title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

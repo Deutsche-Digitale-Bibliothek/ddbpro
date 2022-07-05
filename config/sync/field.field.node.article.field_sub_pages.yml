@@ -1,0 +1,36 @@
+uuid: 9a13c73e-6002-47e0-bdda-349d129e769b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_pages
+    - node.type.article
+  module:
+    - link
+    - link_field_autocomplete_filter
+third_party_settings:
+  link_field_autocomplete_filter:
+    negate: true
+    allowed_content_types:
+      overview_teaser: overview_teaser
+      article: '0'
+      aggregator_portrait: '0'
+      department: '0'
+      event: '0'
+      faq: '0'
+      glossary_term: '0'
+      page: '0'
+id: node.article.field_sub_pages
+field_name: field_sub_pages
+entity_type: node
+bundle: article
+label: Unterseiten
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

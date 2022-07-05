@@ -1,0 +1,20 @@
+uuid: 154c82d5-77cc-4f06-9ed5-82c12193e40d
+langcode: de
+status: true
+dependencies:
+  module:
+    - ddbp_tools
+  theme:
+    - ddbp
+id: participation_block
+theme: ddbp
+region: hidden
+weight: -4
+provider: null
+plugin: participation_block
+settings:
+  id: participation_block
+  label: 'Teilnahme Schritte'
+  label_display: '0'
+  provider: ddbp_tools
+visibility: {  }

@@ -1,0 +1,17 @@
+.view-search {
+    .views-row {
+        &:last-child {
+            @include bp(m) {
+                border-bottom: 1px solid $color-darken;
+            }
+        }
+
+        + .views-row {
+            @include spacing(margin, medium, top);
+
+            @include bp(m) {
+                margin-top: 0;
+            }
+        }
+    }
+}

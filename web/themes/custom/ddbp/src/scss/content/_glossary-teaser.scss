@@ -1,0 +1,54 @@
+.glossary-teaser {
+    @include spacing(padding, small, top);
+    @include spacing(padding, medium, bottom);
+    width: 100%;
+    border-top: 1px solid $color-darken;
+    background: $color-white;
+    transition: background $duration-fast $easing-default;
+
+    @include bp(l) {
+        &:hover {
+            background: $color-bg;
+        }
+    }
+
+    @include target-bps(l xl) {
+        @include spacing(padding, medium, right left);
+    }
+
+    .views-row:first-child & {
+        border-top: 0;
+    }
+}
+
+.glossary-teaser__title {
+    @include spacing(margin, tiny, bottom);
+
+    h2 {
+        color: $color-main;
+    }
+}
+
+.glossary-teaser__alternatives {
+    @include spacing(margin, tiny, bottom);
+    @include text(h4);
+    color: $color-grey-light;
+
+    .field__item {
+        &:first-child {
+            &:before {
+                content: '(';
+            }
+        }
+
+        &:last-child {
+            &:after {
+                content: ')';
+            }
+        }
+    }
+
+    a {
+        color: inherit;
+    }
+}

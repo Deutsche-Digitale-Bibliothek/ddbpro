@@ -1,0 +1,380 @@
+// Hero
+.hero {
+    @include spacing(margin, massive, bottom);
+    position: relative;
+
+    .container {
+        position: relative;
+    }
+}
+
+.hero__gallery {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: $gallery-max-width;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include target-bps(l xl) {
+        @include spacing(margin, large, top);
+    }
+}
+
+.gallery__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    @include bp(s) {
+        column-gap: 20px;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+
+    @include bp(m) {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 35px;
+        margin-right: 35px;
+        margin-left: 35px;
+    }
+
+    @include bp(l) {
+        column-gap: 40px;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    @include bp(xl) {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 50px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+}
+
+.gallery__column {
+    margin-top: 0;
+
+    // spacers
+    &:nth-child(1) {
+        margin-top: 10px;
+
+        @include bp(s) {
+            margin-top: 20px;
+        }
+
+        @include bp(m) {
+            margin-top: 35px;
+        }
+
+        @include bp(l) {
+            margin-top: 40px;
+        }
+
+        @include bp(xl) {
+            margin-top: 0;
+        }
+    }
+
+    &:nth-child(2) {
+        @include bp(xl) {
+            margin-top: 50px;
+        }
+    }
+
+    &:nth-child(4) {
+        @include bp(m) {
+            margin-top: 35px;
+        }
+
+        @include bp(l) {
+            margin-top: 40px;
+        }
+
+        @include bp(xl) {
+            margin-top: 50px;
+        }
+    }
+
+    // opacity
+    &:nth-child(1),
+    &:nth-child(2) {
+        .grid__column-image {
+            &:nth-last-child(2) {
+                opacity: 1;
+
+                @include bp(l) {
+                    opacity: 0.1;
+                }
+            }
+
+            &:last-child {
+                @include bp(l) {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &:nth-child(2) {
+        display: none;
+
+        @include bp(xl) {
+            display: block;
+        }
+    }
+
+    &:nth-child(3) {
+        .grid__column-image {
+            opacity: 0.1;
+
+            @include bp(xl) {
+                opacity: 1;
+            }
+
+            &:nth-last-child(2) {
+                @include bp(xs) {
+                    opacity: 1;
+                }
+
+                @include bp(m) {
+                    opacity: 0.1;
+                }
+
+                @include bp(l) {
+                    opacity: 1;
+                }
+            }
+
+            &:last-child {
+                @include bp(m) {
+                    opacity: 1;
+                }
+
+                @include bp(l) {
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+
+    &:nth-child(4) {
+        .grid__column-image {
+            @include bp(l) {
+                opacity: 1;
+            }
+
+            &:nth-last-child(2) {
+                @include bp(l) {
+                    opacity: 1;
+                }
+            }
+
+            &:last-child {
+                opacity: 1;
+
+                @include bp(l) {
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+
+    &:nth-child(4) {
+        display: none;
+
+        @include bp(m) {
+            display: block;
+        }
+    }
+}
+
+.grid__column-image {
+    margin-bottom: 20px;
+    opacity: 0.1;
+
+    @include bp(s) {
+        margin-bottom: 25px;
+    }
+
+    @include bp(m) {
+        margin-bottom: 35px;
+    }
+
+    @include bp(l) {
+        margin-bottom: 40px;
+    }
+
+    @include bp(xl) {
+        margin-bottom: 50px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    img {
+        height: auto;
+    }
+}
+
+.hero__content-top {
+    padding-top: 10vw;
+    margin-bottom: 75vw;
+
+    @include bp(s) {
+        margin-bottom: 100vw;
+    }
+
+    @include bp(m) {
+        margin-bottom: 55vw;
+    }
+
+    @include bp(l) {
+        margin-bottom: 45vw;
+    }
+
+    @include bp(xl) {
+        margin-bottom: 35vw;
+    }
+
+    h1,
+    p {
+        @include spacing(margin, medium, bottom);
+    }
+
+    h1 {
+        position: relative;
+
+        // main logo
+        &:before {
+            @include spacing(position, tiny, top);
+            @include rsa(height, 40px, 60px);
+            @include rsa(width, 44px, 64px);
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background: url('../images/logo-signet-main.svg') no-repeat;
+            transform: translate(-100%, -100%);
+            z-index: $headerZIndex + 1;
+
+            @include bp(l) {
+                content: '';
+            }
+        }
+    }
+
+    p {
+        color: $color-grey-light;
+        font-weight: font-weight(medium);
+    }
+}
+
+// participation
+.hero__content-bottom {
+    .row {
+        @include bp(l) {
+            justify-content: flex-end;
+        }
+    }
+}
+
+// DDB Studio
+.ddb-studio {
+    @include rsa(min-height, 680px, 1060px);
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.ddb-studio__background-image {
+    @include fit();
+
+    // overflow
+    &:after {
+        @include fit();
+        content: '';
+        background: $color-overlay;
+    }
+}
+
+.ddb-studio__content {
+    @include rsa(max-width, 100%, 60%);
+    width: 100%;
+    color: $color-white;
+
+    h2 {
+        @include spacing(margin, medium, bottom);
+        color: inherit;
+    }
+
+    p {
+        color: inherit;
+        font-weight: font-weight(regular);
+    }
+}
+
+// departments
+.departments {
+    @include spacing(padding, massive, top bottom);
+
+    h2 {
+        @include spacing(margin, very-small, bottom);
+
+        @include target-bps(l xl) {
+            @include spacing(margin, medium, top);
+        }
+    }
+
+    p {
+        @include spacing(margin, medium, bottom);
+        color: $color-grey-light;
+        font-weight: font-weight(regular);
+    }
+
+    .row {
+        @include bp(xl) {
+            justify-content: space-between;
+        }
+    }
+
+    .column--image {
+        display: none;
+
+        @include bp(l) {
+            display: block;
+        }
+    }
+}
+
+.departments__departments {
+    @include target-bps(l xl) {
+        @include spacing(margin, medium, bottom);
+    }
+
+    .department-teaser-mini {
+        display: block;
+    }
+
+    .department-teaser-mini__image {
+        display: none;
+    }
+}
+
+.departments__images {
+    display: grid;
+    grid-template: 100% / 100%;
+
+    .department-teaser-mini {
+        display: none;
+    }
+}

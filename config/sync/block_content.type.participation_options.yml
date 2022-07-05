@@ -1,0 +1,8 @@
+uuid: bd474aa7-de08-4d41-99b9-2bf100d2e423
+langcode: de
+status: true
+dependencies: {  }
+id: participation_options
+label: 'Participation options'
+revision: 0
+description: ''

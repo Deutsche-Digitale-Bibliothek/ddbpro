@@ -1,0 +1,10 @@
+uuid: 6d424ff0-d00f-4c65-9553-7e703f4eb4e7
+langcode: de
+status: true
+dependencies:
+  module:
+    - user
+id: user.search_teaser
+label: 'Search teaser'
+targetEntityType: user
+cache: true

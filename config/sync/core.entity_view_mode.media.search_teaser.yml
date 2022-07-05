@@ -1,0 +1,10 @@
+uuid: e7f8751c-9b0c-427e-817a-152e7a7df6f4
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.search_teaser
+label: 'Search teaser'
+targetEntityType: media
+cache: true

@@ -1,0 +1,157 @@
+<?php
+
+/**
+ * @file
+ * Contains ddbp_tools.module.
+ */
+
+use Drupal\Core\Database\Query\AlterableInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function ddbp_tools_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ddbp_tools module.
+    case 'help.page.ddbp_tools':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A helper module for various tweaks and useful extensions.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Alters some links & meta tags that Drupal doesn't handle very well yet.
+ *
+ * Implements hook_page_attachments_alter().
+ * @param array $page
+ */
+function ddbp_tools_page_attachments_alter(array &$page) {
+  // Removes the viewport meta tag added by the system module.
+  // We have set our own viewport tag in html.html.twig.
+  foreach($page['#attached']['html_head'] as $key => $attachment) {
+    if (is_array($attachment) && count($attachment) && (in_array('viewport', $attachment, true))) {
+      unset($page['#attached']['html_head'][$key]);
+    }
+  }
+  // Adds a new hreflang="x-default" tag for the default language (de).
+  // This isn't in core and is not supported by the metatag module.
+  $page['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'alternate',
+        'hreflang' => 'x-default',
+        'href' => Url::fromRoute('<current>', [], ['absolute' => 'true'])->setOption('language', \Drupal::languageManager()->getLanguage('de'))->toString(),
+      ],
+    ],
+    'hreflang-x-default'
+  ];
+  // Fixes SEO issue with canonical link on Glossary view (context filter).
+  $route = \Drupal::routeMatch()->getRouteObject();
+  if ($route) {
+    $view_id = $route->getDefault('view_id');
+
+    if ($view_id && $view_id == 'ddb_glossary') {
+      $link_url = Url::fromRoute('view.ddb_glossary.ddb_glossary', [], ['absolute' => 'true'])->toString();
+
+      $link = [
+        '#tag' => 'link',
+        '#attributes' => [
+          'rel' => 'canonical',
+          'canonical_url' => $link_url,
+        ],
+      ];
+      $page['#attached']['html_head']['canonical_url'] = [$link, 'canonical_url'];
+    }
+  }
+}
+
+/**
+ * Adds tweaks to certain edit forms.
+ *
+ * Implements hook_form_alter().
+ */
+function ddbp_tools_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Adds custom JS (containing only minor tweaks) to all node edit forms.
+  if (strpos($form_id, 'node') !== false && strpos($form_id, 'edit') !== false) {
+    $form['#attached']['library'][] = 'ddbp_tools/ddbp-js';
+  }
+  // Excludes CT Overview teaser from autocomplete in Main menu, Footer menu & Meta navigation menu.
+  // Avoids confusion for editors as different types of nodes might have identical titles.
+  $menu_forms = [
+    'menu_link_content_main_form',
+    'menu_link_content_footer_form',
+    'menu_link_content_meta-navigation_form',
+  ];
+  if (in_array($form_id, $menu_forms)) {
+    $form['link']['widget'][0]['uri']['#selection_handler'] = "default:node";
+    $form['link']['widget'][0]['uri']['#selection_settings'] = [
+      'target_bundles' => [
+        'aggregator_portrait' => 'aggregator_portrait',
+        'article' => 'article',
+        'department' => 'department',
+        'event' => 'event',
+        'faq' => 'faq',
+        'glossary_term' => 'glossary_term',
+        'page' => 'page'
+      ],
+    ];
+  }
+}
+
+/**
+ * Adds template suggestions for user entities (for theming purposes).
+ *
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ddbp_tools_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+  // Define the view mode.
+  $mode = $variables['elements']['#view_mode'];
+  // Create a theme hook suggestion containing the view mode name.
+  $suggestions[] = 'user__' . $mode;
+}
+
+/**
+ * FAQ questions are already grouped, for these groups we collect
+ * the titles to use in the sidebar (sticky in-page nav).
+ *
+ * @param array $variables
+ */
+function ddbp_tools_preprocess_views_view__faq(array &$variables) {
+  $categories = [];
+  foreach ($variables['rows'] as $row) {
+    $categories[] = trim(strip_tags($row['#title']));
+  }
+
+  $variables['attachment_after'] = $categories;
+}
+
+/**
+ * Disable scroll to top behavior on AJAX views.
+ *
+ * @param array $data
+ */
+function ddbp_tools_ajax_render_alter(array &$data) {
+  foreach ($data as $key => $command) {
+    if ($command['command'] === 'viewsScrollTop') {
+      unset($data[$key]);
+      break;
+    }
+  }
+}
+
+/**
+ * Randomizes SQL query (used by EntityTypeManager in Aggregators block).
+ *
+ * Implements hook_query_TAG_alter().
+ */
+function ddbp_tools_query_randomize_alter(AlterableInterface $query) {
+  $query->orderRandom();
+}

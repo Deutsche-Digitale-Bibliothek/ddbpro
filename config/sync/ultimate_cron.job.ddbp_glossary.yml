@@ -1,0 +1,30 @@
+uuid: 84200e6d-a549-46c3-955e-d7bf64e531c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - ddbp_migrations
+title: 'Run glossary migration'
+id: ddbp_glossary
+weight: 0
+module: ddbp_migrations
+callback: ddbp_migrations_glossary
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 0 * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

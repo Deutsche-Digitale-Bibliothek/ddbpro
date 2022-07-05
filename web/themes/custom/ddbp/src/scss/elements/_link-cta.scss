@@ -1,0 +1,40 @@
+.link-cta {
+    @include text(p1);
+    display: inline-flex;
+    align-items: center;
+    color: $color-main;
+}
+
+.link-cta--content-boxes,
+.link-cta--process {
+    font-weight: font-weight(semi-bold);
+    box-shadow: 0 -1px 0 $color-main inset;
+
+    @include bp(l) {
+        &:hover {
+            box-shadow: 0 0 0 $color-main inset;
+        }
+    }
+
+    i {
+        @include spacing(margin, tiny, left);
+    }
+}
+
+.link-cta--node-table {
+    box-shadow: 0 0 0 $color-main inset;
+
+    @include focus;
+
+    @include bp(l) {
+        &:hover {
+            color: $color-main-dark;
+            box-shadow: 0 -1px 0 $color-main inset;
+        }
+    }
+
+    i {
+        @include rsa(margin-left, 4px, 7px);
+        display: inline-block;
+    }
+}

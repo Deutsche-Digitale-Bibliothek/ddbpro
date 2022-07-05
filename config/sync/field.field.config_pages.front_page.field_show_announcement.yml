@@ -1,0 +1,23 @@
+uuid: 7f8453d2-bb89-4822-b4b1-3b52a2e78b47
+langcode: de
+status: true
+dependencies:
+  config:
+    - config_pages.type.front_page
+    - field.storage.config_pages.field_show_announcement
+id: config_pages.front_page.field_show_announcement
+field_name: field_show_announcement
+entity_type: config_pages
+bundle: front_page
+label: 'Show announcement'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,11 @@
+uuid: a5949a04-95bb-427e-84fb-eb2a70535201
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.participation_options
+id: block_content.participation_options
+target_entity_type_id: block_content
+target_bundle: participation_options
+default_langcode: site_default
+language_alterable: false

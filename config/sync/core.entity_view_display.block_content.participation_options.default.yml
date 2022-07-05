@@ -1,0 +1,26 @@
+uuid: 107eb19d-970f-4123-b492-21d55fefa1ab
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.participation_options
+    - field.field.block_content.participation_options.field_paragraphs
+  module:
+    - entity_reference_revisions
+id: block_content.participation_options.default
+targetEntityType: block_content
+bundle: participation_options
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

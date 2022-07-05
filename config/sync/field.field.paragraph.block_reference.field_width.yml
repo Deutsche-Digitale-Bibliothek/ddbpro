@@ -1,0 +1,23 @@
+uuid: a73e7ade-0494-4fb0-afb5-d6e283517197
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_width
+    - paragraphs.paragraphs_type.block_reference
+id: paragraph.block_reference.field_width
+field_name: field_width
+entity_type: paragraph
+bundle: block_reference
+label: Gesamtbreite
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

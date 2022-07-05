@@ -1,0 +1,42 @@
+uuid: bb65d79b-0b63-4526-83ae-c6c8230bb526
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_teaser
+    - field.field.node.department.field_contact_persons
+    - field.field.node.department.field_faq_category
+    - field.field.node.department.field_icon
+    - field.field.node.department.field_image
+    - field.field.node.department.field_paragraphs
+    - field.field.node.department.field_sub_pages
+    - field.field.node.department.field_teaser_text
+    - field.field.node.department.field_webform
+    - field.field.node.department.field_weight
+    - node.type.department
+  module:
+    - user
+id: node.department.search_teaser
+targetEntityType: node
+bundle: department
+mode: search_teaser
+content:
+  field_teaser_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_contact_persons: true
+  field_faq_category: true
+  field_icon: true
+  field_image: true
+  field_paragraphs: true
+  field_sub_pages: true
+  field_webform: true
+  field_weight: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

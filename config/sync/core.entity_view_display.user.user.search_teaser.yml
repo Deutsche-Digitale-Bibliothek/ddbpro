@@ -1,0 +1,70 @@
+uuid: e15bf713-adc2-46c7-bf63-1566822607e0
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.search_teaser
+    - field.field.user.user.field_academic_degree
+    - field.field.user.user.field_address
+    - field.field.user.user.field_division
+    - field.field.user.user.field_dont_show_in_overview
+    - field.field.user.user.field_firstname
+    - field.field.user.user.field_institution
+    - field.field.user.user.field_job_title
+    - field.field.user.user.field_lastname
+    - field.field.user.user.field_name_suffix
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_user_image
+  module:
+    - user
+_core:
+  default_config_hash: E1qmUI2SlozLlJ308jfMMFKT67l1p6PywE2LTRbeYS4
+id: user.user.search_teaser
+targetEntityType: user
+bundle: user
+mode: search_teaser
+content:
+  field_academic_degree:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_firstname:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lastname:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_name_suffix:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_address: true
+  field_division: true
+  field_dont_show_in_overview: true
+  field_institution: true
+  field_job_title: true
+  field_phone: true
+  field_user_image: true
+  langcode: true
+  masquerade: true
+  member_for: true
+  search_api_excerpt: true

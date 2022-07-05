@@ -1,0 +1,18 @@
+<div class="stable-link">
+  <button class="stable-link__toggle"
+    aria-controls="stable-link-copy"
+    aria-expanded="false"
+    aria-label="{{ 'Stabilen Link anzeigen' | t }}">
+    <span class="fa-solid fa-link"></span>
+  </button>
+
+  <div id="stable-link-copy" class="stable-link__tooltip" aria-hidden="true">
+    <div class="stable-link__tooltip-content-wrapper">
+      <input type="text" id="stable-link" readonly value="" class="stable-link__tooltip-content">
+    </div>
+    <button class="stable-link__tooltip-copy" aria-label="{{ 'Stabilen Link kopieren' | t }}">
+      <i class="fa-regular fa-copy"></i>
+      <span>{{ 'Link copied' | t }}</span>
+    </button>
+  </div>
+</div>

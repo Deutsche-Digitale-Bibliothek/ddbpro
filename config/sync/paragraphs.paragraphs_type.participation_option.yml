@@ -1,0 +1,10 @@
+uuid: 074bcbc6-9e44-456d-aa7d-11dbde5f9042
+langcode: de
+status: true
+dependencies: {  }
+id: participation_option
+label: 'Participation option'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

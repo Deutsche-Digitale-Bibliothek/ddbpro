@@ -1,0 +1,21 @@
+uuid: 4ea53330-cab8-4633-bcee-3201d51b99ea
+langcode: de
+status: true
+dependencies: {  }
+name: content_image_small_xl
+label: content-image-small-xl
+effects:
+  cdef6443-a9c6-4142-9bcd-15403ee2d8e1:
+    uuid: cdef6443-a9c6-4142-9bcd-15403ee2d8e1
+    id: image_scale
+    weight: 1
+    data:
+      width: 500
+      height: null
+      upscale: false
+  d5a534b5-7210-46a4-a4c4-aaf400823433:
+    uuid: d5a534b5-7210-46a4-a4c4-aaf400823433
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

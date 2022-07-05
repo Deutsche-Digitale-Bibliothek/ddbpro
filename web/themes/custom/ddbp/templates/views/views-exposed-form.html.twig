@@ -1,0 +1,82 @@
+<div class="container">
+  {# filters-accordion expand button list #}
+  <div class="filters-header">
+    <ul class="filters-header__buttons">
+      <li>
+        <span class="h4">{{ 'Filter:' | t }}</span>
+      </li>
+      {% for key, item in form if key|first != '#' %}
+        {% if item['#type'] == 'checkboxes' %}
+          <li>
+            <button class="filters-header__button"
+                    aria-controls="filters-{{ item['#id'] }}"
+                    aria-expanded="false">
+              <span class="count"></span>
+              {{ item['#title'] }}
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+      {# Workaround for reset button bug with invalid URLs on Search view (DDBPRO-246). #}
+      {# Follow progress in drupal.org/project/better_exposed_filters/issues/2996297. #}
+      {# Might also be related to AJAX bugs in core (see child issues referenced in #2996297). #}
+      {% if form['#action'] == '/suche' %}
+        {% if form.search_result_category['#value']|length %}
+          <a href="/suche?keywords={{ form.keywords['#value']|split(' ')|join('+') }}" class="button button--primary">
+            <span>{{ 'Alle Filter zurücksetzen'|t }}</span>
+          </a>
+        {% endif %}
+      {% else %}
+        {{ form.actions.reset }}
+      {% endif %}
+    </ul>
+  </div>
+
+  {# filter options as 'accordions' #}
+  {% for key, item in form if key|first != '#' %}
+    {% set type = item['#type'] %}
+
+    {% if type == 'checkboxes' %}
+      <div class="filters-accordion" id="filters-{{ item['#id'] }}">
+        <ul class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
+            title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
+          {% for key, option in item if key|first != '#' %}
+            <li class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
+              <input type="checkbox"
+                     id="{{ option['#id'] }}"
+                     name="{{ option['#name'] }}"
+                     value="{{ key }}"
+                     tabindex="-1"
+                     {{ key in item['#value'] ? 'checked' }}
+                     data-drupal-selector="{{ option['#id'] }}"
+                     class="form-checkbox visually-hidden">
+              <label for="{{ option['#id'] }}" class="option">
+                {{ option['#title'] }}
+              </label>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+
+  {# add filter collapsible fields to 'without' filter to prevent them from rendering in default form #}
+  {#
+    Note: Documents view exposed filemime filter is provided by a relationship in the view.
+    Drupal wrongly appends 'field_document_' to 'filemime', which creates incorrect data in
+    getExposedInput() and the reset button access is set to FALSE in ExposedFormPluginBase.
+    The result is that the reset button doesn't appear after selecting filemime value.
+    To fix this the exposed filter ID was set to 'filemime' in the view config.
+  #}
+  {{ form|without(
+    'bundesland_collapsible',
+    'typ_collapsible',
+    'abteilung_collapsible',
+    'kategorie_collapsible',
+    'filemime_collapsible',
+    'search_result_category',
+    'keywords',
+  ) }}
+
+</div>

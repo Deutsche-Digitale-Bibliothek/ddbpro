@@ -1,0 +1,60 @@
+.view-latest-events,
+.view-past-events {
+    .view-content {
+        @include bp(m) {
+            border-top: 1px solid $color-darken;
+        }
+    }
+
+    .view-content__link {
+        @include spacing(margin, huge, top);
+        display: flex;
+        justify-content: center;
+    }
+
+    .views-row {
+        @include bp(m) {
+            border-bottom: 1px solid $color-darken;
+        }
+
+        + .views-row {
+            @include spacing(margin, medium, top);
+
+            @include bp(m) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .view-latest-events__download-all {
+        @include spacing(margin, large, top);
+        @include text(p2);
+        @include font-awesome($fa-var-calendar-plus, after, $font-awesome-free) {
+            @include spacing(margin, very-small, left);
+            @include rsa(font-size, 14px, 20px);
+            @include rsa(line-height, 30px, 44px);
+            display: inline-block;
+            color: $color-grey-light;
+        }
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        font-weight: font-weight(medium);
+        color: $color-grey-light;
+        text-decoration: underline;
+
+        @include bp(l) {
+            @include spacing(padding, medium, right);
+            justify-content: flex-end;
+        }
+    }
+}
+
+.view-latest-events .view-content__link {
+    @include spacing(margin, large, top);
+    @include bp(l) {
+        @include spacing(margin, small, top);
+    }
+}

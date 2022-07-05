@@ -1,0 +1,122 @@
+.menu-item__search {
+    display: none;
+    position: relative;
+
+    @include bp(l) {
+        display: block;
+    }
+}
+
+.search-form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    display: none;
+
+    @include bp(l) {
+        max-width: 0;
+    }
+
+    .container {
+        @include bp(l) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        @include bp(l) {
+            width: auto;
+        }
+    }
+
+    button {
+        flex-shrink: 0;
+    }
+}
+
+.main-menu .search-form {
+    position: relative;
+    overflow: auto;
+}
+
+.search-form__input-wrapper {
+    @include spacing(margin, very-small, right);
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    input {
+        @include rsa(padding-right padding-left, 50px, 57px);
+        color: $color-grey-dark;
+        font-weight: font-weight(medium);
+    }
+}
+
+.search-form__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+
+    i {
+        @include rsa(height width, 50px, 57px);
+        @include rsa(font-size, 15px, 20px);
+        display: grid;
+        place-items: center;
+    }
+}
+
+.search-form__icon--search {
+    left: 2px;
+    pointer-events: none;
+
+    i {
+        color: $color-main;
+        font-weight: font-weight(bold);
+    }
+}
+
+.search-form__icon--reset {
+    display: none;
+    right: 0;
+
+    i {
+        color: $color-grey;
+        font-weight: font-weight(bold);
+    }
+}
+
+.search-form.search-form--open {
+    display: flex;
+    max-height: none;
+
+    @include bp(l) {
+        width: 37vw;
+        max-width: 760px;
+        overflow: visible;
+    }
+
+    @include target-bps(l xl) {
+        @include spacing(margin, large, right, negative);
+    }
+
+    .search-form__input-wrapper {
+        width: 100%;
+    }
+
+    form {
+        @include target-bps(l xl) {
+            @include spacing(margin, large, right);
+            @include spacing(margin, very-small, left, negative);
+        }
+    }
+}
