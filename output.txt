@@ -1,0 +1,192 @@
+Sending build context to Docker daemon  173.9MB
+Step 1/31 : FROM composer:2 AS COMPOSER_CHAIN
+ ---> 558ce1cf6877
+Step 2/31 : COPY / /tmp/ddbpro
+ ---> 5ce3a0ee1d60
+Step 3/31 : WORKDIR /tmp/ddbpro
+ ---> Running in 45ea0bceedfb
+Removing intermediate container 45ea0bceedfb
+ ---> c734d7354ab8
+Step 4/31 : RUN composer install --no-dev
+ ---> Running in 0620cc7ec949
+[91mcweagans/composer-patches contains a Composer plugin which is blocked by your allow-plugins config. You may add it to the list if you consider it safe. See https://getcomposer.org/allow-plugins
+You can run "composer config --no-plugins allow-plugins.cweagans/composer-patches [true|false]" to enable it (true) or keep it disabled and suppress this warning (false)
+[0m[91mInstalling dependencies from lock file
+[0m[91mVerifying lock file contents can be installed on current platform.
+[0m[91mNothing to install, update or remove
+[0m[91mPackage doctrine/reflection is abandoned, you should avoid using it. Use roave/better-reflection instead.
+Package symfony/debug is abandoned, you should avoid using it. Use symfony/error-handler instead.
+Package webmozart/path-util is abandoned, you should avoid using it. Use symfony/filesystem instead.
+Generating autoload files
+[0m[91m55 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+[0m  * Homepage: https://www.drupal.org/project/drupal
+  * Support:
+    * docs: https://www.drupal.org/docs/user_guide/en/index.html
+    * chat: https://www.drupal.org/node/314178
+Removing intermediate container 0620cc7ec949
+ ---> bade212e7b5a
+Step 5/31 : RUN {         echo -e "$(git describe --tags)";     } >> /tmp/ddbpro/version;     rm -rf .git/;
+ ---> Running in 63e2d668775e
+[91mfatal: No names found, cannot describe anything.
+[0mRemoving intermediate container 63e2d668775e
+ ---> 78824ae1ba56
+Step 6/31 : FROM node:16-alpine AS NODE_CHAIN
+ ---> e5065cc78074
+Step 7/31 : MAINTAINER Michael Büchner <m.buechner@dnb.de>
+ ---> Using cache
+ ---> c5ab67b7ca29
+Step 8/31 : COPY --from=COMPOSER_CHAIN /tmp/ddbpro/ /tmp/ddbpro
+ ---> 9d7d62e4dd5e
+Step 9/31 : WORKDIR /tmp/ddbpro
+ ---> Running in d8c8dd7c0ad1
+Removing intermediate container d8c8dd7c0ad1
+ ---> 78640e6de214
+Step 10/31 : RUN yarn && yarn build
+ ---> Running in 189bab34b062
+yarn install v1.22.18
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[91mwarning compression-webpack-plugin@2.0.0: Invalid bin field for "compression-webpack-plugin".
+[0m[3/4] Linking dependencies...
+[91mwarning " > compression-webpack-plugin@2.0.0" has unmet peer dependency "webpack@^4.3.0".
+[0m[91mwarning " > sass-loader@10.2.1" has unmet peer dependency "webpack@^4.36.0 || ^5.0.0".
+[0m[4/4] Building fresh packages...
+Done in 24.56s.
+yarn run v1.22.18
+$ vue-cli-service build
+
+[91m-  Building for production...
+[0m[91mDEPRECATION WARNING[0m[91m: As of Dart Sass 2.0.0, !global assignments won't be able to declare new variables.
+
+Since this assignment is at the root of the stylesheet, the !global flag is
+unnecessary and can safely be removed.
+
+    ╷
+125 │ $target-bps: map_keys($breakpoints)!global;
+    │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+[0m[91m    node_modules/trio-assets-css/src/scss/_variables.scss 125:1  @import
+    node_modules/trio-assets-css/src/scss/import.scss 1:9        @import
+    web/themes/custom/ddbp/src/scss/app.scss 12:9                root stylesheet
+
+[0m WARNING  Compiled with 3 warnings11:46:44 AM
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  fonts/fa-solid-900.73820155.ttf (379 KiB)
+  css/app.css (462 KiB)
+
+ warning  
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  app (525 KiB)
+      js/chunk-vendors.js
+      css/app.css
+      js/app.js
+
+
+ warning  
+
+webpack performance recommendations: 
+You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
+For more info visit https://webpack.js.org/guides/code-splitting/
+
+  File                                      Size             Gzipped
+
+  web/themes/custom/ddbp/assets/js/chunk    43.94 KiB        13.88 KiB
+  -vendors.js
+  web/themes/custom/ddbp/assets/js/app.j    18.76 KiB        5.31 KiB
+  s
+  web/themes/custom/ddbp/assets/css/app.    462.41 KiB       55.00 KiB
+  css
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The web/themes/custom/ddbp/assets directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+      
+Done in 18.57s.
+Removing intermediate container 189bab34b062
+ ---> 960b6acabaa7
+Step 11/31 : FROM php:8.1-fpm-alpine
+ ---> 036a98e35896
+Step 12/31 : MAINTAINER Michael Büchner <m.buechner@dnb.de>
+ ---> Using cache
+ ---> 166c6068bee0
+Step 13/31 : RUN apk --no-cache add     curl     nginx     nginx-mod-http-brotli     redis     supervisor;     apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community     supercronic;
+ ---> Using cache
+ ---> 17be1f4a69e1
+Step 14/31 : RUN set -eux;           apk add --no-cache --virtual .build-deps           coreutils           freetype-dev           libjpeg-turbo-dev           libpng-dev           libwebp-dev           libzip-dev           pcre-dev           autoconf           g++           make           git           postgresql-dev;           docker-php-ext-configure gd           --with-freetype           --with-jpeg=/usr/include           --with-webp;           docker-php-ext-install -j "$(nproc)"           gd           opcache           pdo_mysql           pdo_pgsql           zip;      pecl channel-update pecl.php.net;      pecl install oauth apcu redis;      docker-php-ext-enable apcu oauth redis;           runDeps="$(           scanelf --needed --nobanner --format '%n#p' --recursive /usr/local                | tr ',' '\n'                | sort -u                | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }'      )";      apk add --no-network --virtual .drupal-phpexts-rundeps $runDeps;      apk del --no-network .build-deps;
+ ---> Using cache
+ ---> 12c88951df59
+Step 15/31 : ENV RUN_USER nobody
+ ---> Using cache
+ ---> 4055b709e88f
+Step 16/31 : ENV RUN_GROUP 0
+ ---> Using cache
+ ---> 74b101660f7e
+Step 17/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/php/ /usr/local/etc/php/conf.d/
+ ---> Using cache
+ ---> 804b8bb0fb14
+Step 18/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/nginx/*.conf /etc/nginx/
+ ---> Using cache
+ ---> 059566f4ec37
+Step 19/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/nginx/mime.types /etc/nginx/mime.types
+ ---> Using cache
+ ---> af59aebcfc56
+Step 20/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/nginx/conf.d/ /etc/nginx/conf.d/
+ ---> Using cache
+ ---> f81810570887
+Step 21/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/nginx/.authpasswd /etc/nginx/.authpasswd
+ ---> Using cache
+ ---> 268c402b5bc0
+Step 22/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/cron/* /etc/crontabs/
+ ---> Using cache
+ ---> 08efb978433c
+Step 23/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} config/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ ---> Using cache
+ ---> e1ca3a8a61e5
+Step 24/31 : WORKDIR /var/www/html
+ ---> Using cache
+ ---> 96d2568cb6aa
+Step 25/31 : COPY --chown=${RUN_USER}:${RUN_GROUP} --from=NODE_CHAIN /tmp/ddbpro/ .
+ ---> ff104fa06cf3
+Step 26/31 : ENV PATH=${PATH}:/var/www/html/vendor/bin
+ ---> Running in 8f4e7c276355
+Removing intermediate container 8f4e7c276355
+ ---> 8f3d1b2fad94
+Step 27/31 : RUN     ln -s /usr/bin/php8 /usr/bin/php;     mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini";     mv scripts/docker-php-entrypoint-drupal.sh /usr/local/bin/docker-php-entrypoint-drupal;     mv scripts/drupal-maintenance.sh /usr/local/bin/drupal-maintenance;     openssl genrsa -des3 -passout pass:foobar -out /etc/ssl/mykey.pem 2048;     cp /etc/ssl/mykey.pem /etc/ssl/mykey.pem.orig;     openssl rsa -passin pass:foobar -in /etc/ssl/mykey.pem.orig -out /etc/ssl/mykey.pem;     openssl req -new -key /etc/ssl/mykey.pem -out /etc/ssl/mycert.csr -subj "/C=DE/ST=DE/L=Frankfurt am Main/O=Deutsche Nationalbibliothek/OU=IT.DDB/CN=DDBpro";     openssl x509 -req -days 3650 -in /etc/ssl/mycert.csr -signkey /etc/ssl/mykey.pem -out /etc/ssl/mycert.pem;     mkdir /var/cache/nginx;     chgrp -R ${RUN_GROUP} /run /var/cache/nginx/ /var/lib/nginx/ /var/log/nginx/ /var/www/html/ /etc/ssl/mycert.pem /etc/ssl/mykey.pem /etc/nginx/.authpasswd;     chmod -R g=u /run/ /etc/nginx/conf.d/ /etc/nginx/*.conf /var/cache/nginx/ /var/lib/nginx/ /var/log/nginx/ /var/www/html/ /etc/ssl/mycert.pem /etc/ssl/mykey.pem /etc/nginx/.authpasswd;     chmod 751 /usr/local/bin/docker-php-entrypoint-drupal /usr/local/bin/drupal-maintenance /var/www/html/vendor/drush/drush/drush /var/www/html/web/sites/default;     chmod 440 /var/www/html/web/sites/default/settings.php /var/www/html/web/sites/default/settings.local.php;     touch /run/supervisord.pid && chgrp -R ${RUN_GROUP} /run/supervisord.pid && chmod -R g=u /run/supervisord.pid;     touch /run/nginx/nginx.pid && chgrp -R ${RUN_GROUP} /run/nginx/nginx.pid && chmod -R g=u /run/nginx/nginx.pid;
+ ---> Running in 6926760e9913
+[91mGenerating RSA private key, 2048 bit long modulus (2 primes)
+[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m+[0m[91m+[0m[91m+[0m[91m+[0m[91m+
+[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m+[0m[91m+[0m[91m+[0m[91m+[0m[91m+
+[0m[91me is 65537 (0x010001)
+[0m[91mwriting RSA key
+[0m[91mSignature ok
+subject=C = DE, ST = DE, L = Frankfurt am Main, O = Deutsche Nationalbibliothek, OU = IT.DDB, CN = DDBpro
+[0m[91mGetting Private key
+[0mRemoving intermediate container 6926760e9913
+ ---> 4e92bdb2d2d6
+Step 28/31 : USER ${RUN_USER}:${RUN_GROUP}
+ ---> Running in c7343a8c8b91
+Removing intermediate container c7343a8c8b91
+ ---> d931d0412f21
+Step 29/31 : ENTRYPOINT ["docker-php-entrypoint-drupal"]
+ ---> Running in a9b5ef4aecd9
+Removing intermediate container a9b5ef4aecd9
+ ---> 8bf0c4284fbe
+Step 30/31 : EXPOSE 8080 4430
+ ---> Running in e4aa7e9849b4
+Removing intermediate container e4aa7e9849b4
+ ---> dbadbb9ce2b1
+Step 31/31 : CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+ ---> Running in 22a64afce76c
+Removing intermediate container 22a64afce76c
+ ---> c1911d9fb1f9
+Successfully built c1911d9fb1f9
+Successfully tagged ddbgo:latest
