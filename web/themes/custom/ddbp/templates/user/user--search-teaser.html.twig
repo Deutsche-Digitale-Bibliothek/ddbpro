@@ -4,7 +4,7 @@
   'search-teaser',
 ] %}
 
-{% set type = 'Ansprechpartner' | t %}
+{% set type = 'Ansprechpersonen' | t %}
 {% set url = url('entity.user.canonical', { 'user': user.id })['#markup'] %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>

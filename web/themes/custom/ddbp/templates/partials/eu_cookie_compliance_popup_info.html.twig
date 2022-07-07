@@ -51,7 +51,7 @@
       {{ message }}
       <div class="eu-cookies__content-link">
         <div class="find-more-button">
-          {{ 'Weitere Informationen' | t }}
+          {{ more_info_button }}
         </div>
       </div>
     </div>
@@ -59,11 +59,11 @@
     <div id="popup-buttons" class="eu-cookies__links eu-cookie-compliance-buttons{% if cookie_categories %} eu-cookie-compliance-has-categories{% endif %}">
       {% if disagree_button %}
         <div class="button button--primary decline-button">
-          <span>{{ 'Nein, danke' | t }}</span>
+          <span>{{ secondary_button_label }}</span>
         </div>
       {% endif %}
       <div class="button button--primary agree-button">
-        <span>{{ 'Annehmen' | t }}</span>
+        <span>{{ agree_button }}</span>
       </div>
     </div>
   </div>

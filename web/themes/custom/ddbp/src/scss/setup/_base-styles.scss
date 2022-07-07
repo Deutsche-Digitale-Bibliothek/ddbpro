@@ -102,6 +102,19 @@ sub {
     bottom: -0.25em;
 }
 
+//spamspan
+.spamspan  {
+    @include text(p1);
+    color: $color-main;
+    font-weight: font-weight(normal);
+
+    &:focus {
+        @include spacing(margin, tiny, top bottom);
+        @include spacing(margin, very-small, right left);
+        box-shadow: 0 0 20px $color-focus;
+    }
+}
+
 // skip to main content link
 a[href='#main-content'] {
     @include text(p1);
