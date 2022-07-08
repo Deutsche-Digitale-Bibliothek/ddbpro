@@ -78,7 +78,8 @@
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "platform": {
             "php": "8.1",
