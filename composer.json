@@ -32,6 +32,7 @@
         "drupal/editor_advanced_link": "^2.0",
         "drupal/eu_cookie_compliance": "^1.19",
         "drupal/field_group": "^3.2",
+        "drupal/field_validation": "^1.0@beta",
         "drupal/focal_point": "^1.5",
         "drupal/gin": "^3.0@beta",
         "drupal/gin_toolbar": "^1.0@beta",
