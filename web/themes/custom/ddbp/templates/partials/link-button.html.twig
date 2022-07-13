@@ -57,8 +57,8 @@
 {# link default #}
 {% else %}
   <a href="{{ link.url }}"
-    class="{{ classes|join(' ') }}">
-
+    class="{{ classes|join(' ') }}"
+    {% if link.target == '_blank' %}target="_blank"{% endif %}>
     <span>{{ link.text }}</span>
   </a>
 

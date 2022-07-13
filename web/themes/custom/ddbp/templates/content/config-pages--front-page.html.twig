@@ -5,7 +5,7 @@
 {% set latestEvents = get_latest_events() %}
 {% set announcementLink = {
   url: content.field_announcement_link[0]['#url'],
-  target: content.field_main_cta[0]['#options']['attributes']['target'] == '_blank',
+  target: content.field_announcement_link[0]['#options']['attributes']['target'] == '_blank',
 } %}
 {% set announcementText = {
   title: content.field_announcement_title[0]['#context'].value,
@@ -106,6 +106,7 @@
               url: content.field_title_cta[0]['#url'],
               text: content.field_title_cta[0]['#title'],
               type: 'primary',
+              target: content.field_title_cta[0]['#options']['attributes']['target'],
             } %}
             {% include '@ddbp/partials/link-button.html.twig' with { link: linkTitle } %}
           </div>
@@ -122,12 +123,14 @@
           url: content.field_participation_cta_left[0]['#url'],
           text: content.field_participation_cta_left[0]['#title'],
           type: 'primary',
+          target: content.field_participation_cta_left[0]['#options']['attributes']['target'],
         },
         linkSecondary: {
           url: content.field_participation_cta_right[0]['#url'],
           text: content.field_participation_cta_right[0]['#title'],
           type: 'secondary',
           bg: 'light',
+          target: content.field_participation_cta_right[0]['#options']['attributes']['target'],
         },
       } %}
 
@@ -146,6 +149,7 @@
     url: content.field_studio_cta_left[0]['#url'],
     text: content.field_studio_cta_left[0]['#title'],
     type: 'primary',
+    target: content.field_studio_cta_left[0]['#options']['attributes']['target'],
   } %}
 
   {% set linkSecondary = {
@@ -153,8 +157,8 @@
     text: content.field_studio_cta_right[0]['#title'],
     type: 'secondary',
     bg: 'dark',
+    target: content.field_studio_cta_right[0]['#options']['attributes']['target'],
   } %}
-
   <div class="ddb-studio">
     {% set responsiveImage = { images: content.field_studio_image[0].images } %}
     <div class="ddb-studio__background-image">
