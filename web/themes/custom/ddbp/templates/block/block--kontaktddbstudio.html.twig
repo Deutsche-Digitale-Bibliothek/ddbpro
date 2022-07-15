@@ -1,0 +1,14 @@
+{% set link = {
+  url: content.field_link[0]['#url'],
+  text: content.field_link[0]['#title'],
+  type: 'primary',
+} %}
+
+<div class="service-contact">
+  <div class="service-contact__description">
+    {{ content.field_description }}
+  </div>
+  <div class="service-contact__link">
+    {% include '@ddbp/partials/link-button.html.twig' with link %}
+  </div>
+</div>
