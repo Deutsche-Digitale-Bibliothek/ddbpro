@@ -42,6 +42,7 @@
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/link_attributes": "^1.11",
         "drupal/link_field_autocomplete_filter": "^1.14",
+        "drupal/linkchecker": "^1.0@beta",
         "drupal/linkit": "^6.0@beta",
         "drupal/mailsystem": "^4.3",
         "drupal/masquerade": "^2.0@beta",
