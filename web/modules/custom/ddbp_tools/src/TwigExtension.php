@@ -135,14 +135,9 @@ class TwigExtension extends AbstractExtension {
     $nodes = $node_storage->loadMultiple($nids);
 
     foreach ($nodes as $node) {
-      $content = $node->get('field_answer')->value;
       $data['items'][] = [
         'title' => $node->getTitle(),
-        'content' => [
-          '#type' => 'processed_text',
-          '#text' => $content,
-          '#format' => 'basic_html',
-        ],
+        'content' => $node->get('field_answer')->view('full'),
       ];
     }
 
