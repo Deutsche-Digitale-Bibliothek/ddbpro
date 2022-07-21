@@ -1960,12 +1960,12 @@
             ],
             "authors": [
                 {
-                    "name": "Qwaygon",
-                    "homepage": "https://www.drupal.org/user/636624"
-                },
-                {
                     "name": "claymor",
                     "homepage": "https://www.drupal.org/user/3193903"
+                },
+                {
+                    "name": "Qwaygon",
+                    "homepage": "https://www.drupal.org/user/636624"
                 },
                 {
                     "name": "shumer",
@@ -1984,16 +1984,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.4.2",
+            "version": "9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "5a4d6acc99e279f70a914804ff3dd08111707de1"
+                "reference": "7b1a403c093c7abc89ef3df1a6b05bdb19b3ffad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/5a4d6acc99e279f70a914804ff3dd08111707de1",
-                "reference": "5a4d6acc99e279f70a914804ff3dd08111707de1",
+                "url": "https://api.github.com/repos/drupal/core/zipball/7b1a403c093c7abc89ef3df1a6b05bdb19b3ffad",
+                "reference": "7b1a403c093c7abc89ef3df1a6b05bdb19b3ffad",
                 "shasum": ""
             },
             "require": {
@@ -2236,13 +2236,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.4.2"
+                "source": "https://github.com/drupal/core/tree/9.4.3"
             },
-            "time": "2022-07-07T01:18:39+00:00"
+            "time": "2022-07-20T15:11:38+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.4.2",
+            "version": "9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2286,13 +2286,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.4.2"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.4.3"
             },
             "time": "2022-06-19T16:14:23+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.4.2",
+            "version": "9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2327,22 +2327,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.4.2"
+                "source": "https://github.com/drupal/core-project-message/tree/9.4.3"
             },
             "time": "2022-02-24T17:40:53+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.4.2",
+            "version": "9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "c10da85434356b27e2bf0516a7b6f8103b473038"
+                "reference": "ff8662af0a5963a88ea856e9786e17a51f8e640c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/c10da85434356b27e2bf0516a7b6f8103b473038",
-                "reference": "c10da85434356b27e2bf0516a7b6f8103b473038",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/ff8662af0a5963a88ea856e9786e17a51f8e640c",
+                "reference": "ff8662af0a5963a88ea856e9786e17a51f8e640c",
                 "shasum": ""
             },
             "require": {
@@ -2351,7 +2351,7 @@
                 "doctrine/annotations": "~1.13.2",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.4.2",
+                "drupal/core": "9.4.3",
                 "egulias/email-validator": "~3.2",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.1",
@@ -2413,9 +2413,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.4.2"
+                "source": "https://github.com/drupal/core-recommended/tree/9.4.3"
             },
-            "time": "2022-07-07T01:18:39+00:00"
+            "time": "2022-07-20T15:11:38+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3319,16 +3319,16 @@
             "authors": [
                 {
                     "name": "Jeff Geerling",
-                    "homepage": "https://www.drupal.org/user/213194",
+                    "homepage": "https://www.drupal.org/user/389011",
                     "email": "geerlingguy@mac.com"
+                },
+                {
+                    "name": "Manuel Garcia",
+                    "homepage": "https://www.drupal.org/user/213194"
                 },
                 {
                     "name": "TR",
                     "homepage": "https://www.drupal.org/user/202830"
-                },
-                {
-                    "name": "geerlingguy",
-                    "homepage": "https://www.drupal.org/user/389011"
                 },
                 {
                     "name": "vijaycs85",
@@ -3733,12 +3733,12 @@
             ],
             "authors": [
                 {
-                    "name": "Upchuk",
-                    "homepage": "https://www.drupal.org/user/1885838"
-                },
-                {
                     "name": "jmuxf",
                     "homepage": "https://www.drupal.org/user/1275704"
+                },
+                {
+                    "name": "Upchuk",
+                    "homepage": "https://www.drupal.org/user/1885838"
                 }
             ],
             "description": "Link Field Autocomplete Filter",
@@ -3913,12 +3913,12 @@
                     "homepage": "https://www.drupal.org/user/213194"
                 },
                 {
-                    "name": "Nafes",
-                    "homepage": "https://www.drupal.org/user/2489926"
-                },
-                {
                     "name": "miro_dietiker",
                     "homepage": "https://www.drupal.org/user/227761"
+                },
+                {
+                    "name": "Nafes",
+                    "homepage": "https://www.drupal.org/user/2489926"
                 },
                 {
                     "name": "pillarsdotnet",
@@ -4138,17 +4138,17 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.20"
+                "reference": "8.x-1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.20.zip",
-                "reference": "8.x-1.20",
-                "shasum": "f9b0019bad629a734da588f64839abdcb076f3d8"
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.21.zip",
+                "reference": "8.x-1.21",
+                "shasum": "677ff7384b557390d4d1a36f335452e8172f741d"
             },
             "require": {
                 "drupal/core": "^9",
@@ -4167,8 +4167,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.20",
-                    "datestamp": "1657722289",
+                    "version": "8.x-1.21",
+                    "datestamp": "1657971667",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4658,17 +4658,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.24.0",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.24"
+                "reference": "8.x-1.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.24.zip",
-                "reference": "8.x-1.24",
-                "shasum": "c4e93b8cc5bcdf7c7817bec06470af223f919f6c"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.25.zip",
+                "reference": "8.x-1.25",
+                "shasum": "823bf5a6010cd08c7d1b287fcd855fbf81140e39"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10.0"
@@ -4689,8 +4689,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.24",
-                    "datestamp": "1657180584",
+                    "version": "8.x-1.25",
+                    "datestamp": "1658149514",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
