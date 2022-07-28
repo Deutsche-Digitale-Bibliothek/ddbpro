@@ -20,7 +20,8 @@
     @include text(p2);
     color: $color-grey;
     font-weight: font-weight(medium);
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
 
     & + & {
         @include spacing(padding, very-small, left);
@@ -34,8 +35,23 @@
     }
 
     &:last-child {
+        display: block;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    // Items in-between first & last breadcrumb can also be shrunk on mobile.
+    &:not(:first-child):not(:last-child) {
+        max-width: 30%;
+
+        @include bp(m) {
+            max-width: 40%;
+        }
+
+        @include bp(l) {
+            max-width: none;
+        }
     }
 
     .content-header--light & {
@@ -48,8 +64,12 @@
 }
 
 .breadcrumbs__item-link {
+    display: block;
     color: $color-grey-light;
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     .fa-house {
         @include rsa(font-size, 10px, 12px);
