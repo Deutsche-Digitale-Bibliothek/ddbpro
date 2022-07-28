@@ -1,7 +1,7 @@
 @mixin grid() {
     display: grid;
     grid-template-columns: repeat(2, 0.5fr);
-    grid-template-rows: 100%;
+    grid-template-rows: auto;
 
     @include bp(l) {
         grid-template-columns: 0.4fr repeat(4, 0.15fr);
