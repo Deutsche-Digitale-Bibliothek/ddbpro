@@ -203,10 +203,13 @@ class TwigExtension extends AbstractExtension {
     $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     $storage = $this->entityTypeManager->getStorage('node');
     $query = $storage->getQuery();
+    $or = $query->orConditionGroup()
+      ->condition('field_date.value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=')
+      ->condition('field_date.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=');
     $nids = $query->condition('type', 'event')
                   ->condition('status', 1)
-                  ->condition('field_date', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=')
-                  ->sort('field_date')
+                  ->condition($or)
+                  ->sort('field_date.value')
                   ->pager($count)
                   ->execute();
     $nodes = $storage->loadMultiple($nids);
