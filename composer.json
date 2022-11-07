@@ -52,6 +52,7 @@
         "drupal/minifyhtml": "^2.0",
         "drupal/paragraphs": "^1.13",
         "drupal/pathauto": "^1.9",
+        "drupal/plain_text_as_formatted": "^1.0@alpha",
         "drupal/redirect": "^1.7",
         "drupal/redis": "^1.5",
         "drupal/search_api": "^1.23",
