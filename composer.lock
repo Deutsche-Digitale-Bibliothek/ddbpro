@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f5e0d8da2027bfe842149a80133880c",
+    "content-hash": "39ecac176c026d98233839e7b7e05aaa",
     "packages": [
         {
             "name": "algolia/places",
@@ -1802,6 +1802,50 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/bulk_copy_fields",
+            "version": "1.0.0-alpha4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bulk_copy_fields.git",
+                "reference": "8.x-1.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bulk_copy_fields-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "a2dc1767e540953cd82d279de763ca860f05787a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1598539644",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "el1_1el",
+                    "homepage": "https://www.drupal.org/user/1795292"
+                }
+            ],
+            "description": "Bulk copy field values from one field to another",
+            "homepage": "https://www.drupal.org/project/bulk_copy_fields",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bulk_copy_fields"
             }
         },
         {
@@ -4472,52 +4516,6 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
-            }
-        },
-        {
-            "name": "drupal/plain_text_as_formatted",
-            "version": "1.0.0-alpha1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/plain_text_as_formatted.git",
-                "reference": "1.0.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/plain_text_as_formatted-1.0.0-alpha1.zip",
-                "reference": "1.0.0-alpha1",
-                "shasum": "536348211026d5cc771bdcf55a2efe33cc69ec97"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10",
-                "php": "^7 || ^8"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.0-alpha1",
-                    "datestamp": "1650755299",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Hawkeye Tenderwolf",
-                    "homepage": "https://www.drupal.org/user/1571646",
-                    "email": "hawkeye@tenderwolf.io"
-                }
-            ],
-            "description": "Helper module to use \"Text (plain)\" fields like \"Text (formatted)\".",
-            "homepage": "http://drupal.org/project/plain_text_as_formatted",
-            "support": {
-                "source": "https://git.drupalcode.org/project/plain_text_as_formatted"
             }
         },
         {
@@ -10774,13 +10772,13 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
+        "drupal/bulk_copy_fields": 15,
         "drupal/field_validation": 10,
         "drupal/gin": 10,
         "drupal/gin_toolbar": 10,
         "drupal/linkchecker": 10,
         "drupal/linkit": 10,
         "drupal/masquerade": 10,
-        "drupal/plain_text_as_formatted": 15,
         "drupal/selective_better_exposed_filters": 10,
         "drupal/spamspan": 10,
         "drupal/ultimate_cron": 15
