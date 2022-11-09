@@ -1,5 +1,0 @@
-name: DDBP Late Migrate
-type: module
-description: A custom module to migrate 'field_description' of nodes from unformated to formatted long text. DO ONLY ACTIVATE IF YOU KNOW WHAT YOU ARE DOING!
-core_version_requirement: ^8.8 || ^9
-package: Custom
