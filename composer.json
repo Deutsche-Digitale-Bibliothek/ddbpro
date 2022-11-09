@@ -21,7 +21,6 @@
         "drupal/address": "^1.10",
         "drupal/admin_toolbar": "^3.1",
         "drupal/better_exposed_filters": "^5.0",
-        "drupal/bulk_copy_fields": "^1.0@alpha",
         "drupal/calendar_link": "^3.0",
         "drupal/codesnippet": "^1.7",
         "drupal/codetag": "^1.2",

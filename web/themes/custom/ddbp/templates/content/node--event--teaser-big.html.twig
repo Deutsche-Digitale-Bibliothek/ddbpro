@@ -45,7 +45,7 @@
     </div>
     {% if content.field_description[0] %}
       <div class="event-teaser-big__text text-formatted">
-        <p>{{ content.field_description[0]['#context'].value }}</p>
+        <p>{{ content.field_description[0]['#text'] | striptags }}</p>
       </div>
     {% endif %}
   </a>

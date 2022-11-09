@@ -37,7 +37,7 @@
         <p>{{ body|length > 400 ? body|slice(0, 400) ~ ' ...' : body }}</p>
       {% endif %}
       {% if content.field_description[0] %}
-        {% set description = content.field_description[0]['#context'].value %}
+        {% set description = content.field_description[0]['#text'] | striptags %}
         <p>{{ description|length > 400 ? description|slice(0, 400) ~ ' ...' : description }}</p>
       {% endif %}
     </a>
