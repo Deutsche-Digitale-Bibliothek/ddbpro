@@ -7,7 +7,7 @@
 ] %}
 
 {% set count = rows[0] ? rows[0]['#view'].total_rows : 0 %}
-{% set searchKeyword = exposed.keywords['#value'] ? 'für' | t ~ ' ' ~ '"' ~ exposed.keywords['#value'] ~ '"' : null %}
+{% set searchKeyword = exposed.keywords['#value'] ? 'für' | t ~ ' ' ~ '„' ~ exposed.keywords['#value'] ~ '“' : null %}
 
 {% set viewHeader = {
   titlePrefix: count,
