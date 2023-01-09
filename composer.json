@@ -22,6 +22,7 @@
         "drupal/admin_toolbar": "^3.1",
         "drupal/better_exposed_filters": "^5.0",
         "drupal/calendar_link": "^3.0",
+        "drupal/classy": "^1.0",
         "drupal/codesnippet": "^1.7",
         "drupal/codetag": "^1.2",
         "drupal/config_pages": "^2.9",
