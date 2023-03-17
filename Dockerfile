@@ -10,12 +10,11 @@ RUN { \
     rm -rf .git/;
 
 FROM node:16-alpine AS NODE_CHAIN
-MAINTAINER Michael Büchner <m.buechner@dnb.de>
 COPY --from=COMPOSER_CHAIN /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
 RUN yarn && yarn build
 
-FROM php:8.1-fpm-alpine
+FROM php:8.2-fpm-alpine
 MAINTAINER Michael Büchner <m.buechner@dnb.de>
 
 # Install packages
