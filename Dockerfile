@@ -20,6 +20,7 @@ MAINTAINER Michael Büchner <m.buechner@dnb.de>
 # Install packages
 RUN apk --no-cache add \
     curl \
+    ffmpeg \
     nginx \
     nginx-mod-http-brotli \
     redis \

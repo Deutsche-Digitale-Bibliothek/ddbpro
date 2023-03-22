@@ -46,6 +46,7 @@
         "drupal/linkit": "^6.0@beta",
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^1.18",
+        "drupal/media_thumbnails_video": "^2.0",
         "drupal/menu_item_extras": "^2.16",
         "drupal/metatag": "^1.19",
         "drupal/migrate_plus": "^6.0",
