@@ -71,11 +71,25 @@ a {
     color: $color-main;
 }
 
-img,
-video {
+img {
     display: inline-block;
     height: auto;
     width: 100%;
+    vertical-align: middle;
+}
+
+video {
+    display: inline-block;
+    height: auto;
+    @include bp(xs) {
+        width: 100%;
+    }
+    @include bp(l) {
+        width: 75%;
+    }
+    @include bp(xl) {
+        width: 50%;
+    }
     vertical-align: middle;
 }
 
