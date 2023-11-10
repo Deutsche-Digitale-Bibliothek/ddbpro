@@ -8243,6 +8243,21 @@
             "time": "2020-12-15T10:26:18+00:00"
         },
         {
+            "name": "popperjs/popperjs",
+            "version": "2.11.8",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "popperjs"
+            },
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "progress-tracker/progress-tracker",
             "version": "2.0.7",
             "dist": {

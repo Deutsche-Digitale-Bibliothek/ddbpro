@@ -42,6 +42,7 @@
         "jquery/select2": "*",
         "jquery/textcounter": "*",
         "jquery/timepicker": "*",
+        "popperjs/popperjs": "*",
         "progress-tracker/progress-tracker": "*",
         "signature_pad/signature_pad": "*",
         "tabby/tabby": "*",
@@ -245,6 +246,22 @@
                     "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.18.zip",
                     "type": "zip"
                 }
+            }
+        },
+        "popperjs": {
+            "type": "package",
+            "package": {
+                "name": "popperjs/popperjs",
+                "version": "2.11.8",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "popperjs"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
+                    "type": "tar"
+                },
+                "license": "MIT"
             }
         },
         "progress-tracker": {
