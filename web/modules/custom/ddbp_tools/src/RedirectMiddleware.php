@@ -4,6 +4,7 @@ namespace Drupal\ddbp_tools;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
@@ -33,7 +34,7 @@ class RedirectMiddleware implements HttpKernelInterface {
   /**
    * {@inheritdoc}
    */
-  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true) {
+  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true): Response {
     $response = $this->httpKernel->handle($request, $type, $catch);
     return $this->redirectResponse ?: $response;
   }

@@ -47,13 +47,15 @@
         </div>
         <div class="row-grid__sidebar">
           <div class="sidebar__items">
-            {% for key, fact in content.field_facts if key matches '/^\\d+$/' %}
-              <div class="sidebar__item">
-                <span>{{ fact.label }}</span>
-                <div class="text-formatted">
-                  {{ fact.value }}
+            {% for key, fact in content.field_facts %}
+              {% if key matches '/^\\d+$/' %}
+                <div class="sidebar__item">
+                  <span>{{ fact.label }}</span>
+                  <div class="text-formatted">
+                    {{ fact.value }}
+                  </div>
                 </div>
-              </div>
+              {% endif %}
             {% endfor %}
           </div>
         </div>

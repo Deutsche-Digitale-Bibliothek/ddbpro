@@ -316,11 +316,11 @@
                 "version": "6.2.6",
                 "type": "drupal-library",
                 "extra": {
-                    "installer-name": "tippyjs/6.x"
+                    "installer-name": "tippyjs"
                 },
                 "dist": {
-                    "url": "https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js",
-                    "type": "file"
+                    "url": "https://registry.npmjs.org/tippy.js/-/tippy.js-6.3.7.tgz",
+                    "type": "tar"
                 }
             }
         }

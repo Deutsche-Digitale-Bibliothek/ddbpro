@@ -1,5 +1,5 @@
 name: DDBP Responsive Image Formatter
 description: Provides additional functionality for responsive image data.
 type: module
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 package: Custom

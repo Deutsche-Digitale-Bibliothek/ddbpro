@@ -76,12 +76,14 @@
             <div class="sidebar__item">
               <span>{{ 'Typ' | t }}</span>
               <div class="sidebar__item-items">
-                {% for key, item in content.field_event_type if key matches '/^\\d+$/' %}
-                  <div class="sidebar__item-items-item">
-                    <div class="text-formatted">
-                      <p>{{ item['#plain_text'] }}</p>
+                {% for key, item in content.field_event_type %}
+                  {% if key matches '/^\\d+$/' %}
+                    <div class="sidebar__item-items-item">
+                      <div class="text-formatted">
+                        <p>{{ item['#plain_text'] }}</p>
+                      </div>
                     </div>
-                  </div>
+                  {% endif %}
                 {% endfor %}
               </div>
             </div>

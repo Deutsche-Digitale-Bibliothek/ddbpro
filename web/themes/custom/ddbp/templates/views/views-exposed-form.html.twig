@@ -5,16 +5,18 @@
       <li>
         <span class="h4">{{ 'Filter:' | t }}</span>
       </li>
-      {% for key, item in form if key|first != '#' %}
-        {% if item['#type'] == 'checkboxes' %}
-          <li>
-            <button class="filters-header__button"
-                    aria-controls="filters-{{ item['#id'] }}"
-                    aria-expanded="false">
-              <span class="count"></span>
-              {{ item['#title'] }}
-            </button>
-          </li>
+      {% for key, item in form %}
+        {% if key|first != '#' %}
+          {% if item['#type'] == 'checkboxes' %}
+            <li>
+              <button class="filters-header__button"
+                      aria-controls="filters-{{ item['#id'] }}"
+                      aria-expanded="false">
+                <span class="count"></span>
+                {{ item['#title'] }}
+              </button>
+            </li>
+          {% endif %}
         {% endif %}
       {% endfor %}
       {# Workaround for reset button bug with invalid URLs on Search view (DDBPRO-246). #}
@@ -33,32 +35,35 @@
   </div>
 
   {# filter options as 'accordions' #}
-  {% for key, item in form if key|first != '#' %}
-    {% set type = item['#type'] %}
+  {% for key, item in form %}
+    {% if key|first != '#' %}
+      {% set type = item['#type'] %}
 
-    {% if type == 'checkboxes' %}
-      <div class="filters-accordion" id="filters-{{ item['#id'] }}">
-        <ul class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
-            title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
-          {% for key, option in item if key|first != '#' %}
-            <li class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
-              <input type="checkbox"
-                     id="{{ option['#id'] }}"
-                     name="{{ option['#name'] }}"
-                     value="{{ key }}"
-                     tabindex="-1"
-                     {{ key in item['#value'] ? 'checked' }}
-                     data-drupal-selector="{{ option['#id'] }}"
-                     class="form-checkbox visually-hidden">
-              <label for="{{ option['#id'] }}" class="option">
-                {{ option['#title'] }}
-              </label>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if type == 'checkboxes' %}
+        <div class="filters-accordion" id="filters-{{ item['#id'] }}">
+          <ul class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
+              title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
+            {% for key, option in item %}
+              {% if key|first != '#' %}
+                <li class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
+                  <input type="checkbox"
+                         id="{{ option['#id'] }}"
+                         name="{{ option['#name'] }}"
+                         value="{{ key }}"
+                         tabindex="-1"
+                         {{ key in item['#value'] ? 'checked' }}
+                         data-drupal-selector="{{ option['#id'] }}"
+                         class="form-checkbox visually-hidden">
+                  <label for="{{ option['#id'] }}" class="option">
+                    {{ option['#title'] }}
+                  </label>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     {% endif %}
-
   {% endfor %}
 
   {# add filter collapsible fields to 'without' filter to prevent them from rendering in default form #}

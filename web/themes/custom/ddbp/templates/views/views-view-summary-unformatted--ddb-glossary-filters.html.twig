@@ -1,8 +1,10 @@
 {% set glossaryPath = path('view.ddb_glossary.ddb_glossary') %}
 {% set allActive = true %}
-{% for row in rows if allActive %}
-  {% if row.active %}
-    {% set allActive = false %}
+{% for row in rows %}
+  {% if allActive %}
+    {% if row.active %}
+      {% set allActive = false %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 

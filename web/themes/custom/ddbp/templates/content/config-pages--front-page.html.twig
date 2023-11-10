@@ -56,38 +56,46 @@
       <div class="gallery__row">
         <div class="gallery__column">
           {% set gallery = content.field_gallery_column_1 %}
-          {% for key, image in gallery if key matches '/^\\d+$/' %}
-            {% set responsiveImage = { images: image.images } %}
-            <div class="grid__column-image">
-              {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-            </div>
+          {% for key, image in gallery %}
+            {% if key matches '/^\\d+$/' %}
+              {% set responsiveImage = { images: image.images } %}
+              <div class="grid__column-image">
+                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
         <div class="gallery__column">
           {% set gallery = content.field_gallery_column_2 %}
-          {% for key, image in gallery if key matches '/^\\d+$/' %}
-            {% set responsiveImage = { images: image.images } %}
-            <div class="grid__column-image">
-              {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-            </div>
+          {% for key, image in gallery %}
+            {% if key matches '/^\\d+$/' %}
+              {% set responsiveImage = { images: image.images } %}
+              <div class="grid__column-image">
+                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
         <div class="gallery__column">
           {% set gallery = content.field_gallery_column_3 %}
-          {% for key, image in gallery if key matches '/^\\d+$/' %}
-            {% set responsiveImage = { images: image.images } %}
-            <div class="grid__column-image">
-              {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-            </div>
+          {% for key, image in gallery %}
+            {% if key matches '/^\\d+$/' %}
+              {% set responsiveImage = { images: image.images } %}
+              <div class="grid__column-image">
+                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+              </div>
+            {%endif %}
           {% endfor %}
         </div>
         <div class="gallery__column">
           {% set gallery = content.field_gallery_column_4 %}
-          {% for key, image in gallery if key matches '/^\\d+$/' %}
-            {% set responsiveImage = { images: image.images } %}
-            <div class="grid__column-image">
-              {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-            </div>
+          {% for key, image in gallery %}
+            {% if key matches '/^\\d+$/' %}
+              {% set responsiveImage = { images: image.images } %}
+              <div class="grid__column-image">
+                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

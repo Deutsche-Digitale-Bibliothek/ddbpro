@@ -10,7 +10,7 @@
  * @see template_preprocess_select()
  */
 #}
-{% spaceless %}
+{% apply spaceless %}
   <div class="form-type-select-wrapper">
     <select{{attributes}}>
       {% for option in options %}
@@ -27,4 +27,4 @@
     </select>
     <div class="select-additional"></div>
   </div>
-{% endspaceless %}
+{% endapply %}

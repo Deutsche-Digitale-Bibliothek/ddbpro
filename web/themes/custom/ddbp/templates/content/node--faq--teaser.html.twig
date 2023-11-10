@@ -1,6 +1,8 @@
 {% set categories = [] %}
-{% for key, category in content.field_faq_category if key matches '/^\\d+$/' %}
-  {% set categories = categories|merge([category['#plain_text']]) %}
+{% for key, category in content.field_faq_category %}
+  {% if key matches '/^\\d+$/' %}
+    {% set categories = categories|merge([category['#plain_text']]) %}
+  {% endif %}
 {% endfor %}
 
 {% set accordion = {

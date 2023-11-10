@@ -1,7 +1,7 @@
 name: DDBP Theme
 description: DDBpro custom theme
 type: theme
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.8 || ^9 || ^10
 base theme: classy
 
 regions:

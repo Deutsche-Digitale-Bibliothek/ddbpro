@@ -131,7 +131,7 @@ class TwigExtension extends AbstractExtension {
       // Otherwise check for a direct match with tid.
       $query->condition('field_faq_category', $tid);
     }
-    $nids = $query->execute();
+    $nids = $query->accessCheck(TRUE)->execute();
     $nodes = $node_storage->loadMultiple($nids);
 
     foreach ($nodes as $node) {
@@ -175,7 +175,7 @@ class TwigExtension extends AbstractExtension {
         break;
     }
 
-    $nids = $query->execute();
+    $nids = $query->accessCheck(TRUE)->execute();
 
     if ($type === 'aggregator_portrait') {
       // add current to the first position
@@ -206,7 +206,8 @@ class TwigExtension extends AbstractExtension {
     $or = $query->orConditionGroup()
       ->condition('field_date.value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=')
       ->condition('field_date.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=');
-    $nids = $query->condition('type', 'event')
+    $nids = $query->accessCheck(TRUE)
+                  ->condition('type', 'event')
                   ->condition('status', 1)
                   ->condition($or)
                   ->sort('field_date.value')

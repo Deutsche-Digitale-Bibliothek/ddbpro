@@ -58,7 +58,8 @@ class AggregatorsBlock extends BlockBase implements ContainerFactoryPluginInterf
 
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
     // Add a tag to the query to get random results (s. hook_query_TAG_alter() in ddbp_tools.module).
-    $nids = $query->condition('type', 'aggregator_portrait')
+    $nids = $query->accessCheck(TRUE)
+                  ->condition('type', 'aggregator_portrait')
                   ->condition('status', 1)
                   ->pager(3)
                   ->addTag('randomize')
