@@ -5,6 +5,7 @@
 /web/modules/contrib/
 /web/themes/contrib/
 /web/profiles/contrib/
+/config/sync/smtp.settings.yml
 
 # Ignore environment information
 # /web/sites/*/settings.local.php
