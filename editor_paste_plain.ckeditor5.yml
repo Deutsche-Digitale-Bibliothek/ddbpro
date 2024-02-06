@@ -1,0 +1,12 @@
+editor_paste_plain_text:
+  ckeditor5:
+    plugins:
+      - forcePastePlainText.EditorForcePastePlainText
+  drupal:
+    label: Paste as plain text
+    class: Drupal\editor_paste_plain\Plugin\CKEditor5Plugin\ForcePastePlainText
+    library: editor_paste_plain/ckeditor5
+    elements: false
+    conditions:
+      requiresConfiguration:
+        force_paste_plain_text: true
