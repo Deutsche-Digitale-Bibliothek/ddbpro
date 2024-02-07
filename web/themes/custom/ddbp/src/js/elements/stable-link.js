@@ -27,9 +27,9 @@ const copyOnClick = () => {
 
       copyBtn.classList.add(copiedClass);
 
-      setTimeout(() => {
-        copyBtn.classList.remove(copiedClass);
-      }, 1100);
+      // setTimeout(() => {
+      // copyBtn.classList.remove(copiedClass);
+      // }, 1100);
     } else {
       console.error('Navigator clipboard api needs a secure context (https)!');
     }
@@ -48,6 +48,7 @@ const show = () => {
 
 const hide = () => {
   stableLink.classList.remove(showClass);
+  copyBtn.classList.remove(copiedClass)
   stableLinkToggle.setAttribute('aria-expanded', false);
   stableLinkTooltip.setAttribute('aria-hidden', true);
 
