@@ -45,7 +45,7 @@
 
           {% if item.below %}
             <div class="sub-menu-items" id="subMenu-{{ key }}">
-              <button class="sub-menu-items__close-button"></button>
+              <button aria-label="Schliessen" class="sub-menu-items__close-button"></button>
               {{ menus.menu_links(item.below, attributes, menu_level + 1, item, join_link) }}
               <a href="{{ join_link }}" class="main-menu__join-button button button--secondary button--light">
                 {{ 'Teilnehmen' | t }}
