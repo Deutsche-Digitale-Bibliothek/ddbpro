@@ -45,7 +45,8 @@
         {% if download %}download{% endif %}
         target="_blank"
         class="{{ linkClasses|join(' ') }}"
-        aria-label="{{ 'Download' | t }}">
+        aria-label="{{ 'Download' | t }}"
+        tabindex="-1">
         <i class="fac {{ iconClass }}"></i>
       </a>
     </div>

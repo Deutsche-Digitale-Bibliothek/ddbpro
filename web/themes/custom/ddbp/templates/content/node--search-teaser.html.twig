@@ -23,7 +23,7 @@
     </h2>
   </a>
   {% if hasText %}
-    <a href="{{ url }}" class="search-teaser__description text-formatted">
+    <a href="{{ url }}" class="search-teaser__description text-formatted" tabindex="-1">
       {% if content.field_teaser_text[0] %}
         {% set teaserText = content.field_teaser_text[0]['#context'].value %}
         <p>{{ teaserText|length > 400 ? teaserText|slice(0, 400) ~ ' ...' : teaserText }}</p>
@@ -43,7 +43,7 @@
     </a>
   {% endif %}
   <div class="search-teaser__link">
-    <a href="{{ url }}">
+    <a href="{{ url }}" tabindex="-1">
       {{ url('entity.node.canonical', { 'node': node.id }) }}
     </a>
   </div>
