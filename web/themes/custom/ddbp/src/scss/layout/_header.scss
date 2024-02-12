@@ -72,7 +72,7 @@
         display: flex;
         flex-flow: row nowrap;
 
-        button:not(.search-form__submit) {
+        button:not(.search-form__submit, .fa-xmark) {
             appearance: none;
             border: none;
             margin-left: auto;

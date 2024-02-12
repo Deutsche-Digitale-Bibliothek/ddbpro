@@ -89,9 +89,14 @@
     display: none;
     right: 0;
 
-    i {
+    button {
         color: $color-grey;
         font-weight: font-weight(bold);
+        border: 0;
+        background-color: unset;
+        font-size: 20px;
+        height: 57px;
+        width: 57px;
     }
 }
 
