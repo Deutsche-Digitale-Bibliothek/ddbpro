@@ -181,7 +181,11 @@
 
     .form-item {
         @include spacing(margin, tiny, top right);
-        margin-bottom: 0;
+        margin-bottom: 20px;
+    }
+
+    ul li:first-child {
+      margin-left: 20px;
     }
 
     .form-checkboxes {
@@ -234,16 +238,18 @@
                 }
             }
         }
+
+        &:focus-within {
+          box-shadow: 0 0 20px $color-focus;
+        }
     }
 
     // if selected
-    [checked] + {
-        label {
-            opacity: 1;
+    label:has(input[type="checkbox"]:checked) {
+        opacity: 1;
 
-            &:after {
-                display: inline-block;
-            }
+        &:after {
+            display: inline-block;
         }
     }
 }

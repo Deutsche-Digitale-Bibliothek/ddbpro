@@ -46,15 +46,15 @@
             {% for key, option in item %}
               {% if key|first != '#' %}
                 <li class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
-                  <input type="checkbox"
-                         id="{{ option['#id'] }}"
-                         name="{{ option['#name'] }}"
-                         value="{{ key }}"
-                         tabindex="-1"
-                         {{ key in item['#value'] ? 'checked' }}
-                         data-drupal-selector="{{ option['#id'] }}"
-                         class="form-checkbox visually-hidden">
                   <label for="{{ option['#id'] }}" class="option">
+                    <input type="checkbox"
+                            id="{{ option['#id'] }}"
+                            name="{{ option['#name'] }}"
+                            value="{{ key }}"
+                            tabindex="-1"
+                            {{ key in item['#value'] ? 'checked' }}
+                            data-drupal-selector="{{ option['#id'] }}"
+                            class="form-checkbox visually-hidden">
                     {{ option['#title'] }}
                   </label>
                 </li>
