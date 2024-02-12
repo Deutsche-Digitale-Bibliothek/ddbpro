@@ -75,7 +75,7 @@
             width: 100%;
             margin-left: 0;
 
-            &:hover {
+            &:hover, &:focus {
                 .aggregator-teaser-mini__image {
                     opacity: 1;
                 }
