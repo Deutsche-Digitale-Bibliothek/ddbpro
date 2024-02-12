@@ -58,13 +58,13 @@
 
     <div id="popup-buttons" class="eu-cookies__links eu-cookie-compliance-buttons{% if cookie_categories %} eu-cookie-compliance-has-categories{% endif %}">
       {% if disagree_button %}
-        <div class="button button--primary decline-button">
+        <button class="button button--primary decline-button" tabindex="0">
           <span>{{ secondary_button_label }}</span>
-        </div>
+        </button>
       {% endif %}
-      <div class="button button--primary agree-button">
+      <button class="button button--primary agree-button" tabindex="0">
         <span>{{ agree_button }}</span>
-      </div>
+      </button>
     </div>
   </div>
 </div>
