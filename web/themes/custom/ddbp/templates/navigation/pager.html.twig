@@ -31,7 +31,11 @@
                 <span class="visually-hidden">
                   {{ current == key ? 'Current page' | t : 'Page' | t }}
                 </span>
-                <span>{{- key -}}</span>
+                <span>
+                  {% if current == key %}<strong>{% endif %}
+                    {{- key -}}
+                  {% if current == key %}</strong>{% endif %}
+                </span>
               </a>
             </li>
           {% endfor %}
