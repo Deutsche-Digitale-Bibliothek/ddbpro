@@ -35,9 +35,35 @@ const addHover = () => {
   });
 };
 
+const addFocus = () => {
+  // Add focus event to departmentLinks
+  departmentLinks.forEach(link => {
+    link.addEventListener('focus', ({ target }) => {
+      // remove active image styles
+      [...departmentImages, ...departmentLinks]
+        .forEach((item) => item.classList.remove(departmentShowClass));
+
+      // get hovered element
+      const activeLinkId = target.getAttribute('data-id')
+        ? target.dataset.id
+        : target.closest('[data-id]').dataset.id;
+
+      // select active image and add styles to it
+      const activeImage =
+        document.querySelector(`.departments__images .department-teaser-mini__image[data-id="${activeLinkId}"]`);
+      const activeLink =
+        document.querySelector(`.departments__departments a[data-id="${activeLinkId}"]`);
+
+      activeImage.classList.add(departmentShowClass);
+      activeLink.classList.add(departmentShowClass);
+    });
+  });
+}
+
 (() => {
   if (departments && !isMobile()) {
     setActive();
     addHover();
+    addFocus();
   }
 })();
