@@ -6,12 +6,13 @@
   'document-teaser-big',
 ] %}
 
+{% set id = 'media-id-' ~ media.id() %}
 {% set file = content.field_media_document[0]['#file'] %}
 {% set hasLink = content.field_link[0] %}
 
 {% set detailUrl = hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value) %}
 {% set download = hasLink ? false : true %}
-{% set aria = hasLink ? 'Visit link' | t : 'Download' | t %}
+{% set aria = hasLink ? 'Öffnet Inhalt in einem neuen Fenster' | t : 'Download' | t %}
 {% set mid = _context.media.mid[0].value %}
 {% set url = path('entity.media.canonical', { 'media': mid }) %}
 
@@ -27,6 +28,7 @@
     <div class="document-teaser-big__content">
       <a href="{{ detailUrl }}"
         {% if download %}download{% endif %}
+        id="{{ id }}"
         class="document-teaser__name">
         {{ content.name[0]['#context'].value }}
       </a>
@@ -59,6 +61,7 @@
         target="_blank"
         class="{{ linkClasses|join(' ') }}"
         aria-label="{{ aria }}"
+        aria-describedby="{{ id }}"
         tabindex="-1">
         <i class="fac {{ iconClass }}"></i>
       </a>
