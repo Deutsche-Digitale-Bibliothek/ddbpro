@@ -12,25 +12,25 @@
           {% if titlePrefix is defined %}
             <span>{{ titlePrefix }}</span>
           {% endif %}
-          {{ title }}
-        </h1>
-        {# custom select for Data provide/use views #}
-        {% if linkUrl %}
-          <div class="view-header__link-wrapper">
-            <div class="view-header__link">
-              <button aria-expanded="false" aria-controls="{{ linkUrlText|clean_class }}">
-                {{ linkText }}
-              </button>
-              <div id="{{ linkUrlText|clean_class }}"
-                   class="view-header__link-select"
-                   aria-hidden="true">
-                <a href="{{ linkUrl }}">
-                  {{ linkUrlText }}
-                </a>
+          {{ title }}&#160;
+          {# custom select for Data provide/use views #}
+          {% if linkUrl %}
+            <div class="view-header__link-wrapper">
+              <div class="view-header__link">
+                <button aria-expanded="false" aria-controls="{{ linkUrlText|clean_class }}">
+                  {{ linkText }}
+                </button>
+                <div id="{{ linkUrlText|clean_class }}"
+                     class="view-header__link-select"
+                     aria-hidden="true">
+                  <a href="{{ linkUrl }}">
+                    {{ linkUrlText }}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
+        </h1>
 
         <div class="view-header__text-wrapper">
           {% if text %}
