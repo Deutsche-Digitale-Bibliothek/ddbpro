@@ -16,3 +16,4 @@ import './js/elements/search';
 import './js/elements/stable-link';
 import './js/elements/view-filters';
 import './js/elements/view-header';
+import './js/elements/tooltip';

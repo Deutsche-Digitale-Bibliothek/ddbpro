@@ -2,7 +2,7 @@
 [data-tooltip] {
     position: relative;
 
-    &:hover {
+    &:hover, &:focus {
         @include bp(l) {
             &:before,
             &:after {
