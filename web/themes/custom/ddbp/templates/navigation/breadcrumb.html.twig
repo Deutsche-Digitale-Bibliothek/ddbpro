@@ -2,9 +2,9 @@
   {% if breadcrumb %}
     <nav class="menu menu--breadcrumbs" role="navigation" aria-labelledby="system-breadcrumb">
       <!-- <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb' | t }}</h2> -->
-      <ul class="breadcrumbs">
+      <div class="breadcrumbs">
         {% for key, item in breadcrumb %}
-          <li class="breadcrumbs__item">
+          <div class="breadcrumbs__item">
             {% if item.url %}
               <a class="breadcrumbs__item-link" href="{{ item.url }}">
                 {% if key == 0 %}
@@ -12,16 +12,16 @@
                   <i class="fa-solid fa-house"></i>
                 {% else %}
                   <i class="fa-solid fa-chevron-right"></i>
-                  {{ item.text }}
+                  {{ item.text|replace({'&amp;': '&'}) }}
                 {% endif %}
               </a>
             {% else %}
               <i class="fa-solid fa-chevron-right"></i>
-              {{ item.text }}
+              {{ item.text|replace({'&amp;': '&'}) }}
             {% endif %}
-          </li>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
     </nav>
   {% endif %}
 
