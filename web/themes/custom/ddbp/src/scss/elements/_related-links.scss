@@ -9,7 +9,7 @@
         @include spacing(position, large, top);
     }
 
-    span {
+    h2 {
         @include text(p2);
         display: inline-block;
         color: $color-main;

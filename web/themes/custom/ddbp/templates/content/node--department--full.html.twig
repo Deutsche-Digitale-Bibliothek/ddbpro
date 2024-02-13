@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row-grid__sidebar-content">
             <div class="related-links">
-              <span>{{ 'Weiterführende Links' | t }}</span>
+              <h2>{{ 'Weiterführende Links' | t }}</h2>
               {% for key, link in content.field_sub_pages %}
                 {% if key matches '/^\\d+$/' %}
                   <a href="{{ link['#url'] }}" class="related-links__link"{% if link['#options']['attributes']['target'] == '_blank' %} target="_blank"{% endif %}>
