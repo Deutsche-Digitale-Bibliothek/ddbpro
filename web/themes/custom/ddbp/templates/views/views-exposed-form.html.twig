@@ -1,21 +1,21 @@
 <div class="container">
   {# filters-accordion expand button list #}
   <div class="filters-header">
-    <ul class="filters-header__buttons">
-      <li>
+    <div class="filters-header__buttons">
+      <div>
         <span class="h4">{{ 'Filter:' | t }}</span>
-      </li>
+      </div>
       {% for key, item in form %}
         {% if key|first != '#' %}
           {% if item['#type'] == 'checkboxes' %}
-            <li>
+            <div>
               <button class="filters-header__button"
                       aria-controls="filters-{{ item['#id'] }}"
                       aria-expanded="false">
                 <span class="count"></span>
                 {{ item['#title'] }}
               </button>
-            </li>
+            </div>
           {% endif %}
         {% endif %}
       {% endfor %}
@@ -31,7 +31,7 @@
       {% else %}
         {{ form.actions.reset }}
       {% endif %}
-    </ul>
+    </div>
   </div>
 
   {# filter options as 'accordions' #}
@@ -41,11 +41,11 @@
 
       {% if type == 'checkboxes' %}
         <div class="filters-accordion" id="filters-{{ item['#id'] }}">
-          <ul class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
+          <div class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
               title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
             {% for key, option in item %}
               {% if key|first != '#' %}
-                <li class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
+                <div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
                   <label for="{{ option['#id'] }}" class="option">
                     <input type="checkbox"
                             id="{{ option['#id'] }}"
@@ -57,10 +57,10 @@
                             class="form-checkbox visually-hidden">
                     {{ option['#title'] }}
                   </label>
-                </li>
+                </div>
               {% endif %}
             {% endfor %}
-          </ul>
+          </div>
         </div>
       {% endif %}
     {% endif %}

@@ -46,6 +46,15 @@ const initFilterAccordions = () => {
           lastModifiedCheckbox = target.id;
         });
       });
+
+      // Change checked on Enter
+      checkboxes.forEach((item) => {
+        item.addEventListener('keypress', function(event) {
+          if (event.key === "Enter") {
+            jQuery(this).click();
+          }
+        });
+      });
     }
   });
 };
