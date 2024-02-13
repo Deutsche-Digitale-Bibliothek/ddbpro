@@ -45,74 +45,74 @@
         </div>
         <div class="row-grid__content">
           <div class="row-grid__content-content">
-            <div class="document__items node-table__items">
+            <dl class="document__items node-table__items">
 
               {# name #}
               {% if file %}
-                <div class="node-table__item-label">
+                <dt class="node-table__item-label">
                   {{ 'Dateiname:' | t }}
-                </div>
-                <div class="node-table__item-value">
+                </dt>
+                <dd class="node-table__item-value">
                   {{ file.filename.value }}
-                </div>
+                </dd>
               {% endif %}
 
               {# description #}
               {% if content.field_description[0] %}
-                <div class="node-table__item-label">
+                <dt class="node-table__item-label">
                   {{ 'Beschreibung:' | t }}
-                </div>
-                <div class="node-table__item-value">
+                </dt>
+                <dd class="node-table__item-value">
                   {{ content.field_description[0]['#context'].value }}
-                </div>
+                </dd>
               {% endif %}
 
               {# size #}
               {% if file %}
-                <div class="node-table__item-label">
+                <dt class="node-table__item-label">
                   {{ 'Dateigröße:' | t }}
-                </div>
-                <div class="node-table__item-value">
+                </dt>
+                <dd class="node-table__item-value">
                   {{ file.filesize.value|format_bytes }}
-                </div>
+                </dd>
               {% endif %}
 
               {# type #}
-              <div class="node-table__item-label">
+              <dt class="node-table__item-label">
                 {{ 'Dokumententyp:' | t }}
-              </div>
-              <div class="node-table__item-value {% if not hasLink %}node-table__item-value--doc-type{% endif %}">
+              </dt>
+              <dd class="node-table__item-value {% if not hasLink %}node-table__item-value--doc-type{% endif %}">
                 {{ hasLink ? 'extern' | t : file.filemime.value|split('/')[1] }}
-              </div>
+              </dd>
 
               {# last update #}
               {% if file %}
-                <div class="node-table__item-label">
+                <dt class="node-table__item-label">
                   {{ 'Letzte Aktualisierung:' | t }}
-                </div>
-                <div class="node-table__item-value">
+                </dt>
+                <dd class="node-table__item-value">
                   {{ file.getCreatedTime|date('d.m.Y') }}
-                </div>
+                </dd>
               {% endif %}
 
               {# licence #}
-              <div class="node-table__item-label">
+              <dt class="node-table__item-label">
                 {{ 'Lizenz:' | t }}
-              </div>
-              <div class="node-table__item-value">
+              </dt>
+              <dd class="node-table__item-value">
                 {{ content.field_document_license[0]['#plain_text'] }}
-              </div>
+              </dd>
 
               {# author #}
               {% if content.field_author[0] %}
-                <div class="node-table__item-label">
+                <dt class="node-table__item-label">
                   {{ 'Autor:' | t }}
-                </div>
-                <div class="node-table__item-value">
+                </dt>
+                <dd class="node-table__item-value">
                   {{ content.field_author[0]['#context'].value }}
-                </div>
+                </dd>
               {% endif %}
-            </div>
+            </dl>
 
             <div class="document__links links-siblings">
               {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
