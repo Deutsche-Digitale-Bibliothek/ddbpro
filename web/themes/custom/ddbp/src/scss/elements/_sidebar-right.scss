@@ -20,7 +20,7 @@
         margin-bottom: 0;
     }
 
-    span {
+    h2 {
         @include text(p2);
         display: block;
         color: $color-grey-light;

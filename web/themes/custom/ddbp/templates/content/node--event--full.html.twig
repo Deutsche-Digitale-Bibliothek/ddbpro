@@ -74,7 +74,7 @@
           <div class="sidebar__items">
             {# event type #}
             <div class="sidebar__item">
-              <span>{{ 'Typ' | t }}</span>
+              <h2>{{ 'Typ' | t }}</h2>
               <div class="sidebar__item-items">
                 {% for key, item in content.field_event_type %}
                   {% if key matches '/^\\d+$/' %}
@@ -89,7 +89,7 @@
             </div>
             {# event location #}
             <div class="sidebar__item">
-              <span>{{ 'Ort' | t }}</span>
+              <h2>{{ 'Ort' | t }}</h2>
               <div class="text-formatted">
                 <p>{{ content.field_location[0]['#context'].value }}</p>
               </div>
@@ -97,7 +97,7 @@
             {# related links #}
             {% if content.field_external_link[0] %}
               <div class="sidebar__item">
-                <span>{{ 'Weiterführende Links' | t }}</span>
+                <h2>{{ 'Weiterführende Links' | t }}</h2>
                 <div class="text-formatted">
                   {{ content.field_external_link }}
                 </div>

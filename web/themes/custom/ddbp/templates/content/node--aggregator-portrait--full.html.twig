@@ -50,7 +50,7 @@
             {% for key, fact in content.field_facts %}
               {% if key matches '/^\\d+$/' %}
                 <div class="sidebar__item">
-                  <span>{{ fact.label }}</span>
+                  <h2>{{ fact.label }}</h2>
                   <div class="text-formatted">
                     {{ fact.value }}
                   </div>
