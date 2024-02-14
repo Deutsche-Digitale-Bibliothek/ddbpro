@@ -20,7 +20,7 @@
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}">
-    <h3>{{ label[0]['#context'].value ~ ', ' ~ content.field_location[0]['#context'].value }}</h3>
+    <h2 class="h3">{{ label[0]['#context'].value ~ ', ' ~ content.field_location[0]['#context'].value }}</h2>
     <div class="event-teaser-big__date">
       {% if startDateRaw and endDateRaw %}
         {% set startDate = startDateRaw|format_date('custom', 'l, d.m.Y — H:i') %}
