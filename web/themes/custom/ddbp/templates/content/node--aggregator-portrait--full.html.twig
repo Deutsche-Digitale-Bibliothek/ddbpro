@@ -51,9 +51,14 @@
               {% if key matches '/^\\d+$/' %}
                 <div class="sidebar__item">
                   <h2>{{ fact.label }}</h2>
-                  <div class="text-formatted">
-                    {{ fact.value }}
-                  </div>
+                  <ul class="text-formatted">
+                    {% set sidebar_label = fact.value['#text']|striptags|replace({'\r': ''})|split('\n') %}
+                    {% for sl in sidebar_label %}
+                      {% if sl %}
+                        <li>{{ sl }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
                 </div>
               {% endif %}
             {% endfor %}
