@@ -94,9 +94,8 @@
         font-weight: font-weight(bold);
         border: 0;
         background-color: unset;
-        font-size: 20px;
-        height: 57px;
-        width: 57px;
+        @include rsa(font-size, 15px, 20px);
+        @include rsa(height width, 50px, 57px);
     }
 }
 

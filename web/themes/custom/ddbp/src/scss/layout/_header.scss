@@ -35,6 +35,10 @@
     .search-form {
         position: relative;
     }
+
+    .search-form button[type=submit] {
+        width: auto;
+    }
 }
 
 .header__content {
