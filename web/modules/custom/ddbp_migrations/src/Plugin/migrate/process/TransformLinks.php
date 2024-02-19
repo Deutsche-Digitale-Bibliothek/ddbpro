@@ -65,6 +65,7 @@ class TransformLinks extends ProcessPluginBase implements ContainerFactoryPlugin
     // Get all link nodes.
     foreach ($xpath->query('//a') as $link) {
       $href = $link->getAttribute('href');
+      $text = $link->nodeValue;
       // If link starts with glossary URL, replace it with internal link.
       if (str_starts_with($href, 'http://ddb.vocnet.org/glossar/')) {
         // Find the glossary_term node associated with this URI.
@@ -74,6 +75,8 @@ class TransformLinks extends ProcessPluginBase implements ContainerFactoryPlugin
           $link->setAttribute('href', $node->toUrl()->toString());
           // Use trimmed body as data-tooltip value.
           $link->setAttribute('data-tooltip', text_summary(trim(strip_tags($node->body->value)), NULL, 200));
+          // hide tooltip from screenreaders
+          $link->setAttribute('aria-label', $text);
         }
         else {
           // If no node was found, simply unlink.
