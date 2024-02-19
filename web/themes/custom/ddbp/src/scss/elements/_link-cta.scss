@@ -1,5 +1,6 @@
 .link-cta {
     @include text(p1);
+    @include focus;
     display: inline-flex;
     align-items: center;
     color: $color-main;
