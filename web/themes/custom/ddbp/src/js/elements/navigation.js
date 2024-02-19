@@ -123,7 +123,7 @@ $(window).on('load', () => {
         }
         // tabbing backwards (focus curr main menu point when user tabs out of submenu list)
         else {
-          if (activeSubListItemIndex < 0) {
+          if (activeSubListItemIndex < 0 && $('.sub-menu-items__close-button:focus').length < 1) {
             closeAll();
             e.preventDefault();
           }
