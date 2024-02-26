@@ -148,7 +148,7 @@ select {
 // title and description of the webform
 // should be h2 and p
 .form-type-processed-text {
-    h2 {
+    h2, h3 {
         @include spacing(margin, small, bottom);
     }
 

@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="column column--span-2">
-        <div class="tiny-label">
+        <h2 class="tiny-label">
           {{ 'Kontakt' | t }}
-        </div>
+        </h2>
       </div>
       <div class="column column--span-10">
         <div class="row">
@@ -13,7 +13,7 @@
           </div>
           {% if people[0] %}
             <div class="column node-form__people">
-              <h4>{{ 'Ansprechpartner*innen' | t }}</h4>
+              <h3 class="h4">{{ 'Ansprechpartner*innen' | t }}</h3>
               {{ people }}
             </div>
           {% endif %}

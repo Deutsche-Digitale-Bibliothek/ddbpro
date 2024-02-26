@@ -8,6 +8,10 @@
         flex-basis: 60%;
         max-width: 60%;
     }
+    
+    h3 {
+      @include text(h2);
+    }
 }
 
 .node-form__people {
@@ -19,7 +23,7 @@
         margin-top: 0;
     }
 
-    h4 {
+    h3 {
         @include spacing(margin, small, bottom);
         color: $color-main;
     }
