@@ -113,7 +113,7 @@
         }
     }
 
-    span {
+    span:first-of-type {
         @include spacing(margin, tiny, bottom);
         display: block;
         color: $color-grey-light;

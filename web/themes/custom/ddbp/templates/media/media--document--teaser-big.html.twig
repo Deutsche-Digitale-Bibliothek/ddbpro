@@ -49,7 +49,7 @@
     </div>
     <div class="document-teaser-big__size">
       <span>{{ 'Dateigröße' | t }}</span>
-      {{ hasLink ? '-' : file.filesize.value|format_bytes }}
+      {{ hasLink ? '<span title="Keine Dateigröße vorhanden">-</span>' : file.filesize.value|format_bytes }}
     </div>
     <div class="document-teaser-big__updated">
       <span>{{ 'Letzte Aktualisierung' | t }}</span>
