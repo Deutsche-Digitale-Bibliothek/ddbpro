@@ -75,7 +75,13 @@
       {{ description.content }}
     </div>
   {% endif %}
-  <p>{{ children }}</p>
+  {% if element['#id'] is defined and element['#id'] == 'edit-markup' %}
+    <p aria-hidden="true">{{ children|striptags }}</p>
+  {% elseif element['#id'] is defined and element['#id'] == 'edit-markup-reader' %}
+    <p class="visually-hidden">{{ children|striptags }}</p>
+  {% else %}
+    {{ children }}
+  {% endif %}
   {% if suffix is not empty %}
     <span class="field-suffix">{{ suffix }}</span>
   {% endif %}
