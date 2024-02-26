@@ -67,7 +67,10 @@ const close = (btn, el) => {
   el.style.maxHeight = '0px';
 
   const checkboxes = el.querySelectorAll('input[type=checkbox]');
-  checkboxes.forEach((item) => item.setAttribute('tabindex', -1));
+  checkboxes.forEach((item) => {
+    item.setAttribute('tabindex', -1);
+    item.setAttribute('aria-hidden', true);
+  });
   accordionButtons.forEach((button) => button.classList.remove('filters-header__button--inactive'));
 };
 
@@ -85,7 +88,10 @@ const open = (btn, el, event) => {
     checkboxes[0].focus();
   }
 
-  checkboxes.forEach((item) => item.setAttribute('tabindex', 0));
+  checkboxes.forEach((item) => {
+    item.setAttribute('tabindex', 0);
+    item.setAttribute('aria-hidden', false)
+  });
   accordionButtons.forEach((button) => button.classList.add('filters-header__button--inactive'));
   btn.classList.remove('filters-header__button--inactive');
 };
