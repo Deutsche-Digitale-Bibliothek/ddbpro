@@ -64,10 +64,10 @@
 <div{{attributes.addClass(classes)}}>
   <label for="{{ label['#id'] }}" class="form-item-checkbox__label">
     {{ children }}
-    <span {{description.attributes.addClass(description_classes)}}
+    <p {{description.attributes.addClass(description_classes)}}
         id="{{ description.content.description['#attributes'].id }}">
       {{ description.content.description.0 }}
-    </span>
+    </p>
   </label>
   {% if errors %}
     <div class="form-item--error-message">
