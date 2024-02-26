@@ -71,12 +71,14 @@
 }
 
 .accordion__content-info {
-    @include spacing(margin, very-small, top);
-    @include text(p2);
-    color: $color-grey;
+    p {
+        @include spacing(margin, very-small, top);
+        @include text(p2);
+        color: $color-grey;
 
-    span {
-        font-weight: font-weight(semi-bold);
+        span {
+            font-weight: font-weight(semi-bold);
+        }
     }
 }
 

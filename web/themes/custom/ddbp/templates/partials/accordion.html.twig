@@ -22,8 +22,8 @@
 
       {% if accordion.subText[0] %}
         <div class="accordion__content-info">
-          <span>{{ 'Weitere Kategorien:' | t ~ ' ' }}</span>
-          {{ accordion.subText|join(', ') }}
+          <p><span>{{ 'Weitere Kategorien:' | t ~ ' ' }}</span>
+          {{ accordion.subText|join(', ') }}</p>
         </div>
       {% endif %}
     </div>
