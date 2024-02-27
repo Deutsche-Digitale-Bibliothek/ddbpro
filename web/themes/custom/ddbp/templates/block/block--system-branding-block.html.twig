@@ -1,4 +1,3 @@
-{% extends "block.html.twig" %}
 {#
 /**
  * @file
@@ -13,7 +12,19 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
-{% block content %}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes)|without('id') }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
   {% if site_logo %}
     <a href="{{ path('<front>') }}" rel="home" class="site-logo">
       <img src="{{ site_logo }}" alt="{{ 'Deutsche Digitale Bibliothek Pro - Zur Startseite'|t }}" />
@@ -27,4 +38,4 @@
   {% if site_slogan %}
     <div class="site-slogan">{{ site_slogan }}</div>
   {% endif %}
-{% endblock %}
+</div>
