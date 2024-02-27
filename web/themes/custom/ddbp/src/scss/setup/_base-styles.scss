@@ -119,14 +119,28 @@ sub {
 
 // skip to main content link
 a[href='#main-content'] {
-    @include text(p1);
+    @include text(p2);
     color: $color-main;
     font-weight: font-weight(bold);
+    z-index: 999;
+    @include spacing(margin, tiny, top bottom);
+    @include spacing(margin, very-small, right left);
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
 
     &:focus {
         @include spacing(margin, tiny, top bottom);
         @include spacing(margin, very-small, right left);
         box-shadow: 0 0 20px $color-focus;
+        position: absolute !important;
+        clip: auto;
+        overflow: visible;
+        height: auto;
+        width: auto;
     }
 }
 
