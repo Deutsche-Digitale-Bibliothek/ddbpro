@@ -6,6 +6,7 @@ const $ = jQuery;
 $(window).on('load', () => {
   const subMenuButtons = $('button.menu-item__link');
   $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('tabindex', -1);
+  $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('aria-hidden', true);
   $('.sub-menu-items__close-button').attr('tabindex', -1);
   let activeMenu = null;
 
@@ -15,6 +16,7 @@ $(window).on('load', () => {
     $('.sub-menu-items').removeClass('sub-menu-items--active');
     $('.sub-menu-items').attr('tabindex', -1);
     $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('tabindex', -1);
+    $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('aria-hidden', true);
     $('.sub-menu-items__close-button').attr('tabindex', -1);
     $('.sub-menu-items').removeClass('sub-menu-items--no-transition');
 
@@ -68,6 +70,7 @@ $(window).on('load', () => {
     $('.main-menu__search-button').addClass('inactive');
     button.attr('aria-expanded', true);
     li.find('.menu-item a, .menu-item button').attr('tabindex', 0);
+    li.find('.menu-item a, .menu-item button').attr('aria-hidden', false);
     li.find('.sub-menu-items__close-button').attr('tabindex', 0);
     li.find('.sub-menu-items').addClass('sub-menu-items--active');
 
@@ -98,7 +101,7 @@ $(window).on('load', () => {
     const activeMainMenuItemIndex = mainMenuItems.index(activeMenu);
     const isFocusWithinMenu = $('.sidebar :focus').length !== 0;
 
-    if (isFocusWithinMenu && (e.key === 'ESC' || e.key === 'Escape')) {
+    if (isFocusWithinMenu && (e.key === 'Esc' || e.key === 'Escape')) {
       closeAll();
       $(mainMenuItems[activeMainMenuItemIndex]).find('> a, > button').focus();
     } else if (e.key === 'Tab') {
