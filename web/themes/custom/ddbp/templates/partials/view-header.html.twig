@@ -6,7 +6,7 @@
         {# Breadcrumbs block #}
         {{ drupal_block('system_breadcrumb_block', wrapper=false) }}
       {% endif %}
-
+      <a id="main-content" tabindex="-1" class="visually-hidden"></a>
       <div class="view-header__header-wrapper">
         <h1>
           {% if titlePrefix is defined %}
