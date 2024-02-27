@@ -13,6 +13,7 @@
 } %}
 
 <div{{ attributes.addClass(classes) }}>
+  <a id="main-content" tabindex="-1" class="visually-hidden"></a>
   {# announcement #}
   {% if content.field_show_announcement[0]['#markup'] == 'Yes' %}
     <div class="container">

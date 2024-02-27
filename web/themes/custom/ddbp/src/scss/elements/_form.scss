@@ -85,7 +85,7 @@ textarea {
 }
 
 // remove autofill styling
-@include autofill($color-white);
+@include autofill($color-bg, $color-grey, $color-darken);
 
 // placeholder
 @include placeholder {
