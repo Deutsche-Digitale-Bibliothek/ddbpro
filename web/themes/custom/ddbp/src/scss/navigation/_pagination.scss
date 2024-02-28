@@ -26,6 +26,14 @@
     }
 }
 
+.pager__items-wrapper li:not(.pager__item--back, .pager__item--forward) {
+    grid-column: span 2;
+
+    @include bp(m) {
+        grid-column: 2;
+    }
+}
+
 .pager__items {
     display: flex;
     align-items: center;
@@ -114,6 +122,7 @@
 
 .pager__item--back {
     justify-self: end;
+    grid-column: 1;
 
     @include bp(l) {
         justify-self: unset;
@@ -125,6 +134,11 @@
 }
 
 .pager__item--forward {
+    grid-column: 2;
+    
+    @include bp(m) {
+        grid-column: 3
+    }
     .pager__item-link {
         @include font-awesome(\f105, after, $font-awesome-free);
     }

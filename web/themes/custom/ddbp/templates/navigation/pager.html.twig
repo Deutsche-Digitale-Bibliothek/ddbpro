@@ -22,33 +22,35 @@
           <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
         {% endif %} #}
         {# Now generate the actual pager piece. #}
-        <div class="pager__items">
-          {% for key, item in items.pages %}
-            <li class="pager__item{{ current == key ? ' pager__item--active' : '' }}">
-              {% if current == key %}
-                {% set title = 'Current page' | t %}
-              {% else %}
-                {% set title = 'Go to page @key' | t({'@key': key}) %}
-              {% endif %}
-              <a href="{{ item.href }}"
-                title="{{ title }}"{{ item.attributes|without('href', 'title') }}
-                class="pager__item-link"
+        <li class="pager__item">
+          <ul class="pager__items">
+            {% for key, item in items.pages %}
+              <li class="pager__item{{ current == key ? ' pager__item--active' : '' }}">
                 {% if current == key %}
-                  aria-disabled="true"
-                  tabindex="-1"
-                {% endif %}>
-                <span class="visually-hidden">
-                  {{ current == key ? 'Current page' | t : 'Page' | t }}
-                </span>
-                <span>
-                  {% if current == key %}<strong>{% endif %}
-                    {{- key -}}
-                  {% if current == key %}</strong>{% endif %}
-                </span>
-              </a>
-            </li>
-          {% endfor %}
-        </div>
+                  {% set title = 'Current page' | t %}
+                {% else %}
+                  {% set title = 'Go to page @key' | t({'@key': key}) %}
+                {% endif %}
+                <a href="{{ item.href }}"
+                  title="{{ title }}"{{ item.attributes|without('href', 'title') }}
+                  class="pager__item-link"
+                  {% if current == key %}
+                    aria-disabled="true"
+                    tabindex="-1"
+                  {% endif %}>
+                  <span class="visually-hidden">
+                    {{ current == key ? 'Current page' | t : 'Page' | t }}
+                  </span>
+                  <span>
+                    {% if current == key %}<strong>{% endif %}
+                      {{- key -}}
+                    {% if current == key %}</strong>{% endif %}
+                  </span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
         {# Add an ellipsis if there are further next pages. #}
         {# {% if ellipses.next %}
           <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
