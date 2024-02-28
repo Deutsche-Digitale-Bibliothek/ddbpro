@@ -39,15 +39,7 @@
     'menu--' ~ derivative_plugin_id|clean_class,
   ]
 %}
-{% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
-  {# Label. If not displayed, we still provide it for screen readers. #}
-  {{ title_prefix }}
-  {% if configuration.label_display %}
-  <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-
+<nav{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
   {# Menu. #}
   {% block content %}
     {{ content }}
