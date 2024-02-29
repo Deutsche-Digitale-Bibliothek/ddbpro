@@ -3,11 +3,12 @@
   'accordion--' ~ accordion.type,
   accordion.image ? 'accordion--has-image',
 ] %}
+{% set uniqueId = accordion.title|clean_class ~ '_' ~ random() %}
 
 <div class="{{ classes|join(' ') }}">
   <button class="accordion__header"
     aria-expanded="false"
-    aria-controls="{{ accordion.title|clean_class }}">
+    aria-controls="{{ uniqueId }}">
     {% if accordion.image is defined and accordion.image %}
       <div class="accordion__header-image">
         {% set responsiveImage = { images: accordion.image.images } %}
@@ -16,7 +17,7 @@
     {% endif %}
     <span class="h4">{{- accordion.title -}}</span>
   </button>
-  <div id="{{ accordion.title|clean_class }}" class="accordion__content" aria-hidden="true">
+  <div id="{{ uniqueId }}" class="accordion__content" aria-hidden="true">
     <div class="accordion__content-wrapper text-formatted">
       {{ text }}
 
