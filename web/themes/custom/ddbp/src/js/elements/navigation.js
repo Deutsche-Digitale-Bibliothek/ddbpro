@@ -6,7 +6,7 @@ const $ = jQuery;
 $(window).on('load', () => {
   const subMenuButtons = $('button.menu-item__link');
   $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('tabindex', -1);
-  $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('aria-hidden', true);
+  $('.sub-menu-items ul.menu-items').attr('aria-hidden', true);
   $('.sub-menu-items__close-button').attr('tabindex', -1);
   let activeMenu = null;
 
@@ -16,7 +16,7 @@ $(window).on('load', () => {
     $('.sub-menu-items').removeClass('sub-menu-items--active');
     $('.sub-menu-items').attr('tabindex', -1);
     $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('tabindex', -1);
-    $('.sub-menu-items .menu-item a, .sub-menu-items .menu-item button').attr('aria-hidden', true);
+    $('.sub-menu-items ul.menu-items').attr('aria-hidden', true);
     $('.sub-menu-items__close-button').attr('tabindex', -1);
     $('.sub-menu-items').removeClass('sub-menu-items--no-transition');
 
@@ -70,7 +70,7 @@ $(window).on('load', () => {
     $('.main-menu__search-button').addClass('inactive');
     button.attr('aria-expanded', true);
     li.find('.menu-item a, .menu-item button').attr('tabindex', 0);
-    li.find('.menu-item a, .menu-item button').attr('aria-hidden', false);
+    li.find('.sub-menu-items ul.menu-items').attr('aria-hidden', false);
     li.find('.sub-menu-items__close-button').attr('tabindex', 0);
     li.find('.sub-menu-items').addClass('sub-menu-items--active');
 
