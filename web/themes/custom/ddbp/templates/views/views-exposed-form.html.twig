@@ -40,7 +40,7 @@
       {% set type = item['#type'] %}
 
       {% if type == 'checkboxes' %}
-        <div class="filters-accordion" id="filters-{{ item['#id'] }}">
+        <div aria-hidden="true" class="filters-accordion" id="filters-{{ item['#id'] }}">
           <div class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
               title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
             {% for key, option in item %}
