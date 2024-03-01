@@ -116,7 +116,7 @@ $(window).on('load', () => {
       if (activeMenu !== null) {
         // tabbing forwards (focus next main menu point if user is at submenu list end)
         if (!e.shiftKey) {
-          if (activeSubListItemIndex === -1 && $('.main-menu__join-button:focus').length < 1) {
+          if (activeSubListItemIndex === -1 && $('.main-menu__join-button:focus').length < 1 && $('.sub-menu-items__close-button:focus').length < 1) {
             closeAll();
             if (nextMainMenuPoint) {
               e.preventDefault();
