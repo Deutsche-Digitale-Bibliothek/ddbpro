@@ -45,15 +45,17 @@
   'eu-cookie-compliance-banner--' ~ method|replace({ '_': '-' }),
 ] %}
 
+{{ dump() }}
+
 <div{{attributes.addClass(classes)}}>
   <div class="eu-cookies__content popup-content info eu-cookie-compliance-content">
     <div id="popup-text" class="eu-cookies__content-message eu-cookie-compliance-message">
       {{ message }}
-      <div class="eu-cookies__content-link">
-        <div class="find-more-button">
-          {{ more_info_button }}
+      {% if more_info_button %}
+        <div class="eu-cookies__content-link">
+          <button type="button" class="find-more-button eu-cookie-compliance-more-button">{{ more_info_button }}</button>
         </div>
-      </div>
+      {% endif %}
     </div>
 
     <div id="popup-buttons" class="eu-cookies__links eu-cookie-compliance-buttons{% if cookie_categories %} eu-cookie-compliance-has-categories{% endif %}">

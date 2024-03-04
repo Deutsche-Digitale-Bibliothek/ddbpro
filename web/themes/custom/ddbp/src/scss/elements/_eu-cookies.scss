@@ -58,6 +58,8 @@ div#sliding-popup {
         font-weight: font-weight(medium);
         box-shadow: 0 -1px 0 $color-main inset;
         cursor: pointer;
+        text-decoration: none;
+        line-height: initial !important;
 
         @include focus;
 
