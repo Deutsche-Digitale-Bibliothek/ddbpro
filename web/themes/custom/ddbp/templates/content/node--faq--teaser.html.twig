@@ -4,12 +4,14 @@
     {% set categories = categories|merge([category['#plain_text']]) %}
   {% endif %}
 {% endfor %}
+{% set group = elements['#title']|render %}
 
 {% set accordion = {
   type: 'faq',
   title: label[0]['#context'].value,
   text: content.field_answer|raw,
-  subText: categories|slice(1),
+  subText: categories|filter(category => category != group),
+  group: group,
 } %}
 
 {% include '@ddbp/partials/accordion.html.twig' with accordion %}

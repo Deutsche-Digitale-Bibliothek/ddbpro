@@ -155,3 +155,27 @@ function ddbp_tools_ajax_render_alter(array &$data) {
 function ddbp_tools_query_randomize_alter(AlterableInterface $query) {
   $query->orderRandom();
 }
+
+/**
+ * Preprocesses variables for the 'faq' view, generating custom cache keys based
+ * on the titles of grouped rows.
+ *
+ * Implements template_preprocess_views_view().
+ */
+function ddbp_tools_preprocess_views_view(array &$variables) {
+  if ($variables['view']->id() == 'faq') {
+    // Iteriere durch die Hauptzeilen der Ansicht.
+    foreach ($variables['rows'] as $index1 => $main_row) {
+      // Verwende den Titel des Gruppenelements als Basis für den Cache-Key.
+      $cache_key = $main_row['#title']->__toString();
+
+      if (isset($main_row['#rows'])) {
+        // Iteriere durch die verschachtelten Zeilen.
+        foreach ($main_row['#rows'] as $index2 => $nested_row) {
+          // Füge den Cache-Key zum verschachtelten Element hinzu.
+          $variables['rows'][$index1]['#rows'][$index2]['#cache']['keys'][] = $cache_key;
+        }
+      }
+    }
+  }
+}

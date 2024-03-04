@@ -1,15 +1,16 @@
 {% if attributes -%}
   <div{{ attributes.addClass('accordion-wrapper').setAttribute('id', title|render|striptags|trim|clean_class) }}>
 {% endif %}
+{% set group_title = '' %}
   {% if title %}
     <h2>{{ title }}</h2>
+    {% set group_title = title|striptags|replace({"\n":""}) %}
   {% endif %}
-
   <{{ list.type }}{{ list.attributes }}>
 
     {% for row in rows %}
       <li{{ row.attributes }}>
-        {{- row.content -}}
+        {{- row.content|with('#title', group_title|t) -}}
       </li>
     {% endfor %}
 

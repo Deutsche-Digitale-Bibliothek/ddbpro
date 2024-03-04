@@ -3,7 +3,7 @@
   'accordion--' ~ accordion.type,
   accordion.image ? 'accordion--has-image',
 ] %}
-{% set uniqueId = accordion.title|clean_class ~ '_' ~ random() %}
+{% set uniqueId = accordion.group|clean_class ~ '_' ~ accordion.title|clean_class %}
 
 <div class="{{ classes|join(' ') }}">
   <button class="accordion__header"
