@@ -2,7 +2,7 @@
   {% for img in responsiveImage.images %}
     {% if img.media %}
       <source media="{{ img.media }}"
-              srcset="{{ img.src }}"/>
+              srcset="{{ img.src }}">
     {% endif %}
   {% endfor %}
   {% for defaultImage in responsiveImage.images %}
@@ -15,13 +15,13 @@
             {% if lazy is not defined %}loading="lazy"{% endif %}
             class="responsive-image__img js-parallax"
             data-auto="ttb"
-            data-mode="image"/>
+            data-mode="image">
         {% else %}
           <img
             src="{{ defaultImage.src }}"
             alt=""
             {% if lazy is not defined %}loading="lazy"{% endif %}
-            class="responsive-image__img"/>
+            class="responsive-image__img">
         {% endif %}
 
       {% endif %}
