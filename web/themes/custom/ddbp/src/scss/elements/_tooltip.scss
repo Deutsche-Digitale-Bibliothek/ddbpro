@@ -28,7 +28,8 @@
         @include spacing(padding, tiny, right left);
         @include spacing(margin, tiny, bottom);
         @include text(p2);
-        content: attr(data-tooltip);
+        content: attr(data-tooltip) / "";
+        alt: "";
         right: 50%;
         bottom: 100%;
         width: 200px;
