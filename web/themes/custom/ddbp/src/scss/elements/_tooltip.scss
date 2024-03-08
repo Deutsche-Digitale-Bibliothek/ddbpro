@@ -28,6 +28,9 @@
         @include spacing(padding, tiny, right left);
         @include spacing(margin, tiny, bottom);
         @include text(p2);
+        /* fallback content */
+        content: attr(data-tooltip);
+        /* content with alternative text */
         content: attr(data-tooltip) / "";
         alt: "";
         right: 50%;
