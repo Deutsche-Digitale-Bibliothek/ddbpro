@@ -100,7 +100,7 @@
     a[target='_blank'] {
         margin-right: 3px;
 
-        @include fac-icon('arrow-up-right-solid-main', false) {
+        @include fac-icon-blanklink('arrow-up-right-solid-main', false, "In neuem Fenster öffnen") {
             @include rsa(height width, 8px, 10px);
             @include rsa(margin-left, 4px, 7px);
         }

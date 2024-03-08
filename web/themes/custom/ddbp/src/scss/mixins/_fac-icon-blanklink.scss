@@ -1,0 +1,20 @@
+@mixin fac-icon-blanklink($icon, $center: true, $alt: "") {
+    @if $center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:after {
+        /* fallback content */
+        content: url('../images/icons/#{$icon}.svg');
+        /* content with alternative text */
+        content: url('../images/icons/#{$icon}.svg') / $alt;
+        alt: $alt;
+        display: inline-block;
+        height: inherit;
+        width: inherit;
+
+        @content;
+    }
+}
