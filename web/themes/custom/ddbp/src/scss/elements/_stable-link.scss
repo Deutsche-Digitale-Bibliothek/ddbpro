@@ -164,13 +164,14 @@
         transition-timing-function: $easing-default;
         visibility: hidden;
         text-align: center;
+        right: 0px;
 
         // arrow
         &:before {
             content: '';
             position: absolute;
             bottom: 100%;
-            left: 50%;
+            @include rsa(right, 22px, 27px);
             height: 0;
             width: 0;
             border: solid transparent;
