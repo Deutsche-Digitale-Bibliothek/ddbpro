@@ -61,6 +61,11 @@
 }
 
 .footer__socials {
+
+    position: absolute;
+    bottom: 0;
+    @include spacing(padding, tiny, bottom);
+
     p {
         @include spacing(margin, very-small, bottom);
         color: $color-white;
@@ -140,6 +145,7 @@
     display: flex;
     justify-content: center;
     flex: 1;
+    align-self: flex-end;
 
     & + & {
         @include spacing(margin, small, top);
