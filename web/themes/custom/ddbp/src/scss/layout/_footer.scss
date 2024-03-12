@@ -62,9 +62,11 @@
 
 .footer__socials {
 
-    position: absolute;
-    bottom: 0;
-    @include spacing(padding, tiny, bottom);
+    @include bp(l) {
+      position: absolute;
+      bottom: 0;
+      @include spacing(padding, tiny, bottom);
+    }
 
     p {
         @include spacing(margin, very-small, bottom);
@@ -133,11 +135,22 @@
 .footer__logos {
     display: flex;
     flex-direction: column;
+    li:first-child a img {
+      height: 80px;
+    }
 
     @include bp(l) {
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
+        
+        li:not(:first-child) {
+          @include spacing(padding, tiny, bottom);
+        }
+        
+        li:first-child a img {
+          height: auto;
+        }
     }
 }
 
@@ -145,7 +158,9 @@
     display: flex;
     justify-content: center;
     flex: 1;
-    align-self: flex-end;
+    @include bp(l) {
+      align-self: flex-end;
+    }
 
     & + & {
         @include spacing(margin, small, top);
