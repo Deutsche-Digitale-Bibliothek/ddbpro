@@ -130,6 +130,12 @@
 .footer__bottom {
     @include spacing(padding, large, top bottom);
     background: $color-bg;
+    
+    .container {
+      @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
+        width: fit-content;
+      }
+    }
 }
 
 .footer__logos {
@@ -137,6 +143,9 @@
     flex-direction: column;
     li:first-child a img {
       height: 80px;
+    }
+    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
+      width: fit-content;
     }
 
     @include bp(l) {
@@ -160,6 +169,10 @@
     flex: 1;
     @include bp(l) {
       align-self: flex-end;
+    }
+
+    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
+      width: fit-content;
     }
 
     & + & {
