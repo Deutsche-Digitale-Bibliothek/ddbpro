@@ -40,6 +40,12 @@
                 content: 'Alternative Begriffe: ';
             }
         }
+
+        &:last-child {
+            &:after {
+                content: '';
+            }
+        }
     }
 
     a {
