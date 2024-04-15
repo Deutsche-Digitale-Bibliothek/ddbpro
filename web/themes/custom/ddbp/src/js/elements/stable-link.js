@@ -26,6 +26,7 @@ const copyOnClick = () => {
       navigator.clipboard.writeText(stableLinkContent.value);
 
       copyBtn.classList.add(copiedClass);
+      copyBtn.querySelector('span').setAttribute('role', 'status');
 
       // setTimeout(() => {
       // copyBtn.classList.remove(copiedClass);
@@ -51,6 +52,7 @@ const hide = () => {
   copyBtn.classList.remove(copiedClass)
   stableLinkToggle.setAttribute('aria-expanded', false);
   stableLinkTooltip.setAttribute('aria-hidden', true);
+  copyBtn.querySelector('span').removeAttribute('role');
 
   open = false;
 };
