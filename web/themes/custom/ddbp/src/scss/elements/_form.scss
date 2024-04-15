@@ -23,6 +23,10 @@
         display: inline-block;
         color: $color-grey;
         font-weight: font-weight(medium);
+
+        &.error {
+            color: $color-error;
+        }
     }
 }
 
@@ -70,7 +74,7 @@ textarea {
         box-shadow: none;
     }
 
-    .form-item--error & {
+    .form-item--error &, &.error {
         border-color: $color-error;
         background-color: rgba($color-error, 0.1);
         color: $color-error;
@@ -202,6 +206,19 @@ select {
     .form-item-checkbox__label {
         display: inline-flex;
         align-items: flex-start;
+    }
+
+    #terms_and_conditions-error {
+        display: none !important;
+    }
+
+    label:has(> input.error) {
+        border: 1px solid $color-error;
+
+        &:after {
+            content: '\00A0 Die Zustimmung ist erforderlich.';
+            color: $color-error;
+        }
     }
 }
 
