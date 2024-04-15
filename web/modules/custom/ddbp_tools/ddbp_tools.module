@@ -65,7 +65,7 @@ function ddbp_tools_page_attachments_alter(array &$page) {
         '#tag' => 'link',
         '#attributes' => [
           'rel' => 'canonical',
-          'canonical_url' => $link_url,
+          'href' => $link_url,
         ],
       ];
       $page['#attached']['html_head']['canonical_url'] = [$link, 'canonical_url'];
