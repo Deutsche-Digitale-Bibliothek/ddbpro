@@ -37,13 +37,7 @@
     .field__item {
         &:first-child {
             &:before {
-                content: '(';
-            }
-        }
-
-        &:last-child {
-            &:after {
-                content: ')';
+                content: 'Alternative Begriffe: ';
             }
         }
     }
