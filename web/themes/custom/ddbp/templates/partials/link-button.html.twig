@@ -7,7 +7,7 @@
 {% if link.download %}
   {# link download #}
   <a href="{{ link.url }}"
-    class="{{ classes|join(' ') }}"
+    class="{{ classes|join(' ')|trim }}"
     download
     target="_blank">
     {% if link.type == 'primary' %}
@@ -22,7 +22,7 @@
 {# link email #}
 {% elseif link.mail %}
   <a href="{{ link.url }}"
-    class="{{ classes|join(' ') }}"
+    class="{{ classes|join(' ')|trim }}"
     target="_blank">
     <i aria-hidden="true" class="fa-regular fa-envelope"></i>
 
@@ -33,7 +33,7 @@
 {% elseif link.participate %}
   <a href="{{ link.url }}"
      aria-label="{{ link.aria_label }}"
-    class="{{ classes|join(' ') }}">
+    class="{{ classes|join(' ')|trim }}">
     <i aria-hidden="true" class="fa-regular fa-calendar-plus"></i>
 
     <span>{{ link.text }}</span>
@@ -42,7 +42,7 @@
 {# link external #}
 {% elseif link.target %}
   <a href="{{ link.url }}"
-    class="{{ classes|join(' ') }}"
+    class="{{ classes|join(' ')|trim }}"
     target="_blank"
     {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}>
     <span>{{ link.text }}</span>
@@ -57,8 +57,9 @@
 {# link default #}
 {% else %}
   <a href="{{ link.url }}"
-    class="{{ classes|join(' ') }}"
-    {% if link.target == '_blank' %}target="_blank"{% endif %}>
+    class="{{ classes|join(' ')|trim }}"
+    {% if link.target == '_blank' %}target="_blank"{% endif %}
+    {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}>
     <span>{{ link.text }}</span>
   </a>
 

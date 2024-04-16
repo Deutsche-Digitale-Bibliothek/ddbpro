@@ -2,6 +2,7 @@
   url: path('view.aggregators.aggregators'),
   text: 'Alle anzeigen' | t,
   type: 'primary',
+  'aria-describedby': 'ueber-20-Aggregatoren-sind-bereits-Teil-der-Deutschen-Digitalen-Bibliothek',
 } %}
 
 <div class="block-aggregators">
@@ -12,7 +13,7 @@
       </div>
     </div>
     <div class="column column--span-10">
-      <h2>{{ 'Über 20 Aggregatoren sind bereits Teil der Deutschen Digitalen Bibliothek' | t }}</h2>
+      <h2 id="ueber-20-Aggregatoren-sind-bereits-Teil-der-Deutschen-Digitalen-Bibliothek">{{ 'Über 20 Aggregatoren sind bereits Teil der Deutschen Digitalen Bibliothek' | t }}</h2>
       {% include '@ddbp/partials/link-button.html.twig' with link %}
     </div>
   </div>
