@@ -20,6 +20,7 @@
   target: true,
   type: 'secondary',
   bg: 'light',
+  'aria-describedby': 'node_' ~ node.id ~ '_title',
 } %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
@@ -40,7 +41,7 @@
       <div class="row-grid row-grid--fixed">
         <div class="row-grid__title">
           <div class="row-grid__title-content">
-            <h1>{{ title }}</h1>
+            <h1 id="node_{{ node.id }}_title">{{ title }}</h1>
             <div class="aggregator__text-teaser h4">
               {{ content.field_teaser_text[0]['#context'].value }}
             </div>
