@@ -44,7 +44,7 @@
   <a href="{{ link.url }}"
     class="{{ classes|join(' ') }}"
     target="_blank"
-    {{ link['aria-describedby'] ? 'aria-describedby="' ~ link['aria-describedby'] ~ '"' : '' }}
+    {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}>
     <span>{{ link.text }}</span>
 
     {% if link.type == 'primary' %}
