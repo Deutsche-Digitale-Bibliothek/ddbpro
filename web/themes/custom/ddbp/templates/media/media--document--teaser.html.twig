@@ -26,7 +26,8 @@
       <a href="{{ detailUrl }}"
         {% if download %}download{% endif %}
         target="_blank"
-        class="document-teaser__name">
+        class="document-teaser__name"
+        id="media_{{ media.id }}_title">
         {{ content.name[0]['#context'].value }}
       </a>
       {% if content.field_description[0] %}
@@ -35,7 +36,7 @@
         </p>
       {% endif %}
       <div class="document-teaser__link">
-        <a href="{{ url }}">
+        <a href="{{ url }}" aria-describedby="media_{{ media.id }}_title">
           {{ 'Weitere Informationen' | t }}
         </a>
       </div>
