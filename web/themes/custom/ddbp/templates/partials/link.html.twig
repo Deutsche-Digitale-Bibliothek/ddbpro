@@ -4,7 +4,8 @@
   link.target ? 'link-cta--external',
 ] %}
 
-<a href="{{ link.url }}" class="{{ classes|join(' ') }}"
+<a href="{{ link.url }}" class="{{ classes|join(' ')|trim }}"
+  {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}
   {% if link.target %}target="_blank"{% endif %}>
   {% if link.text is defined %}
     {{ link.text }}
