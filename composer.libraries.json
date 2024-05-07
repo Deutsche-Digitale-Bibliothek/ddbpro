@@ -42,6 +42,7 @@
         "jquery/select2": "*",
         "jquery/textcounter": "*",
         "jquery/timepicker": "*",
+        "jquery/validation": "*",
         "popperjs/popperjs": "*",
         "progress-tracker/progress-tracker": "*",
         "signature_pad/signature_pad": "*",
@@ -244,6 +245,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.18.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "jquery.validation": {
+            "type": "package",
+            "package": {
+                "name": "jquery/validation",
+                "version": "1.17",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "jquery-validation"
+                },
+                "dist": {
+                    "url": "https://github.com/jquery-validation/jquery-validation/archive/refs/tags/1.17.0.zip",
                     "type": "zip"
                 }
             }
