@@ -5,10 +5,12 @@
 
 *:focus {
     outline: none;
+    border: 1px solid $color-focus !important;
     box-shadow: 0 0 20px $color-focus;
 }
 
 *:focus:not(:focus-visible) {
+    border: none !important;
     box-shadow: 0 0 0 transparent;
 }
 
@@ -135,6 +137,7 @@ a[href='#main-content'] {
     &:focus {
         @include spacing(margin, tiny, top bottom);
         @include spacing(margin, very-small, right left);
+        border: 1px solid $color-focus !important;
         box-shadow: 0 0 20px $color-focus;
         position: absolute !important;
         clip: auto;

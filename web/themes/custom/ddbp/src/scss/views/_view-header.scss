@@ -119,7 +119,13 @@
 
     // we can't use :focus style on the button (button shadow can't overflow) so we check if parent is focused
     &:not(.view-header__link--open):focus-within {
+        border: 1px solid $color-focus !important;
         box-shadow: 0 0 20px $color-focus;
+    }
+
+    &:not(.view-header__link--open):focus-within:has(button:not(:focus-visible)) {
+        border: 1px solid $color-darken !important;
+        box-shadow: 0 0 0 transparent;
     }
 
     button,

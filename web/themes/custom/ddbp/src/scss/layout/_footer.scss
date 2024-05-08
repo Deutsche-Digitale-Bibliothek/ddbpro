@@ -44,6 +44,21 @@
     }
 }
 
+.footer__menu {
+    a {
+        &:focus {
+            outline: none;
+            border: 1px solid $color-white !important;
+            box-shadow: 0 0 20px $color-white;
+        }
+
+        &:focus:not(:focus-visible) {
+            border: none !important;
+            box-shadow: 0 0 0 transparent;
+        }
+    }
+}
+
 .footer__info {
     @include spacing(margin, large, top);
 
@@ -102,8 +117,14 @@
         }
 
         &:focus {
-            box-shadow: none;
-            border-color: $color-white;
+            outline: none;
+            border: 1px solid $color-white !important;
+            box-shadow: 0 0 20px $color-white;
+        }
+
+        &:focus:not(:focus-visible) {
+            border: none !important;
+            box-shadow: 0 0 0 transparent;
         }
 
         // background for hover
@@ -123,6 +144,21 @@
         i {
             position: relative;
             z-index: 1;
+        }
+    }
+}
+
+.footer__copyright {
+    button, a {
+        &:focus {
+            outline: none;
+            border: 1px solid $color-white !important;
+            box-shadow: 0 0 20px $color-white;
+        }
+
+        &:focus:not(:focus-visible) {
+            border: none !important;
+            box-shadow: 0 0 0 transparent;
         }
     }
 }
