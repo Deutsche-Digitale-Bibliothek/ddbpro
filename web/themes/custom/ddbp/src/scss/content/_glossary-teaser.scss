@@ -6,12 +6,6 @@
     background: $color-white;
     transition: background $duration-fast $easing-default;
 
-    @include bp(l) {
-        &:hover {
-            background: $color-bg;
-        }
-    }
-
     @include target-bps(l xl) {
         @include spacing(padding, medium, right left);
     }
@@ -26,6 +20,10 @@
 
     h2 {
         color: $color-main;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
