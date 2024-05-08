@@ -107,6 +107,14 @@
             &:nth-last-child(2) {
                 opacity: 1;
 
+                @include bp(xs) {
+                    opacity: 0.1;
+                }
+
+                @include bp(m) {
+                    opacity: 1;
+                }
+
                 @include bp(l) {
                     opacity: 0.1;
                 }
@@ -138,10 +146,6 @@
 
             &:nth-last-child(2) {
                 @include bp(xs) {
-                    opacity: 1;
-                }
-
-                @include bp(m) {
                     opacity: 0.1;
                 }
 
