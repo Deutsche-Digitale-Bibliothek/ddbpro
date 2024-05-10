@@ -79,12 +79,15 @@
         }
     }
 
+    a {
+        text-decoration: underline;
+    }
+
     a:not([class]) {
         position: relative;
         display: inline;
         color: $color-main;
         line-height: 1.5;
-        box-shadow: 0 0 0 $color-main inset;
         transition: color $duration-fast $easing-default;
 
         @include focus;
@@ -92,7 +95,6 @@
         @include bp(l) {
             &:hover {
                 color: $color-main-dark;
-                box-shadow: 0 -1px 0 $color-main inset;
             }
         }
     }

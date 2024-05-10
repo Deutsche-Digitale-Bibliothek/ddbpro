@@ -16,6 +16,10 @@
 
 .form-item {
     @include spacing(margin, small, bottom);
+    
+    a {
+        text-decoration: underline;
+    }
 
     label {
         @include spacing(margin, tiny, bottom);
@@ -196,12 +200,6 @@ select {
 
     a {
         color: $color-main;
-
-        @include bp(l) {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
     }
 
     .form-item-checkbox__label {
