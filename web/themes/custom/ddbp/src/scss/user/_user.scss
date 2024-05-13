@@ -42,11 +42,10 @@
 
     a {
         color: $color-main;
-
-        @include bp(l) {
-            &:hover {
-                text-decoration: underline;
-            }
+        text-decoration: underline;
+        
+        &:hover {
+            text-decoration: none;
         }
     }
 }

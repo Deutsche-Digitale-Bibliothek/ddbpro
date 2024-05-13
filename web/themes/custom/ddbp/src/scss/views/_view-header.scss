@@ -197,6 +197,13 @@
 .view-header__text-wrapper {
     display: flex;
     width: 100%;
+    a {
+        text-decoration: underline;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 // sub text on Glossary
