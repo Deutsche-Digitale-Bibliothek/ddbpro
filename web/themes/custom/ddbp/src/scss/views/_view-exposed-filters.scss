@@ -202,20 +202,22 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 0;
-        border: 1px solid $color-darken;
+        border: 1px solid rgba($color-black, 0.42);
         color: $color-grey;
         font-weight: font-weight(semi-bold);
         opacity: 1;
         text-align: center;
         text-transform: uppercase;
-        transition: border $duration-fast $easing-default,
-            opacity $duration-fast $easing-default;
+        transform: scale(1);
+        transition-duration: $duration-fast;
+        transition-timing-function: $easing-default;
+        transition-property: border-color, transform;
         white-space: nowrap;
         cursor: pointer;
 
         @include bp(l) {
             &:hover {
-                border-color: rgba($color-black, 0.2);
+                border-color: rgba($color-black, 0.42);
             }
         }
 
@@ -245,8 +247,12 @@
         }
 
         &:focus-within:has(input:not(:focus-visible)) {
-            border: 1px solid $color-darken !important;
+            border: 1px solid rgba($color-black, 0.42) !important;
             box-shadow: 0 0 0 transparent;
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
     }
 

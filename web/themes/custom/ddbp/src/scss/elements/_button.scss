@@ -109,21 +109,29 @@
         i {
             color: $color-white;
         }
+        
+        &:focus:not(:focus-visible) {
+            border: 1px solid rgba($color-white, 0.4) !important;
+        }
     }
 
     // on light background
     &.button--light {
-        border-color: $color-darken;
+        border-color: rgba($color-black, 0.42);
         color: $color-main;
 
         @include bp(l) {
             &:hover {
-                border-color: rgba($color-black, 0.2);
+                border-color: rgba($color-black, 0.62);
             }
         }
 
         i {
             color: $color-main;
+        }
+        
+        &:focus:not(:focus-visible) {
+            border: 1px solid rgba($color-black, 0.62) !important;
         }
     }
 }
