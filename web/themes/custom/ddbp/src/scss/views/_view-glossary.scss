@@ -64,7 +64,6 @@
 .view-ddb-glossary__filter-link--active {
     @include spacing(padding, medium, right left);
     border-radius: 50px;
-    background: $color-bg;
     color: $color-main;
     pointer-events: none;
     cursor: default;
