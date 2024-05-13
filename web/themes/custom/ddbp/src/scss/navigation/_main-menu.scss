@@ -102,7 +102,7 @@
         }
 
         &.inactive {
-            opacity: 0.4;
+            opacity: 0.61;
 
             .menu-item__link {
                 transform: none;
@@ -309,8 +309,6 @@
     display: none;
     align-self: flex-start;
     margin-bottom: 0;
-    color: $color-grey-light;
-    transition: color $duration-fast $easing-default;
 
     @include bp(l) {
         display: block;
@@ -332,15 +330,31 @@
     }
 
     @include font-awesome($fa-var-search, before, $font-awesome-free) {
-        @include spacing(margin, very-small, right);
-        transition: color $duration-fast $easing-default;
+        margin-right: 14px;
+        color: $color-main;
+    }
+    
+    span {
+        display: inline-block;
+        text-align: left;
+        transform: translateX(0);
+        transition: transform $duration-medium $easing-default;
+        pointer-events: none;
+    }
+    
+    @include bp(l) {
+        &:hover {
+            span {
+                transform: translateX(10px);
+            }
+        }
     }
 }
 
 .main-menu--open {
     .menu-item__search {
         @include bp(l) {
-            opacity: 0.4;
+            opacity: 0.61;
         }
 
         @include target-bps(l xl) {
