@@ -67,14 +67,14 @@ textarea {
     @include spacing(padding, very-small, right left);
     @include text(p1);
     width: 100%;
-    border: 1px solid $color-darken;
+    border: 1px solid rgba($color-black, 0.42);
     background-clip: padding-box;
     background-color: $color-bg;
     color: $color-grey;
 
     &:focus {
         background: $color-white;
-        border: 1px solid $color-darken !important;
+        border: 1px solid rgba($color-black, 0.42) !important;
         box-shadow: none;
         outline: none;
     }
@@ -130,7 +130,7 @@ select {
     @include text(p1);
     appearance: none;
     width: 100%;
-    border: 1px solid $color-darken;
+    border: 1px solid rgba($color-black, 0.42);
     background-color: $color-bg;
     color: $color-grey;
     cursor: pointer;
