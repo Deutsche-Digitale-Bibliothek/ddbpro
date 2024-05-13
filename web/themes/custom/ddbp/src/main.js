@@ -17,3 +17,4 @@ import './js/elements/stable-link';
 import './js/elements/view-filters';
 import './js/elements/view-header';
 import './js/elements/tooltip';
+import './js/elements/ordered-list';
