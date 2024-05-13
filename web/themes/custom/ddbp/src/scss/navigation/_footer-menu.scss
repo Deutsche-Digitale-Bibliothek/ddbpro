@@ -15,7 +15,7 @@
     @include spacing(padding, tiny, top bottom);
     @include text(p1);
     width: 100%;
-    color: $color-lighten-heavy;
+    color: rgba(#ffffff, 0.95);
     font-weight: font-weight(medium);
     transition: color $duration-fast $easing-default;
 
