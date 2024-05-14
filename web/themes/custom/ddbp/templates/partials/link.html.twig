@@ -3,16 +3,17 @@
   'link-cta--' ~ link.modifier,
   link.target ? 'link-cta--external',
 ] %}
-
-<a href="{{ link.url }}" class="{{ classes|join(' ')|trim }}"
-  {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}
-  {% if link.target %}target="_blank"{% endif %}>
-  {% if link.text is defined %}
-    {{ link.text }}
-  {% else %}
-    {{ link.url }}
-  {% endif %}
-  {% if link.target %}
-    <i class="fac fac-right-top-main"></i>
-  {% endif %}
-</a>
+{% if link.url.toString()|length > 0 %}
+  <a href="{{ link.url }}" class="{{ classes|join(' ')|trim }}"
+    {% if link['aria-describedby'] %}aria-describedby="{{ link['aria-describedby'] }}"{% endif %}
+    {% if link.target %}target="_blank"{% endif %}>
+    {% if link.text is defined %}
+      {{ link.text }}
+    {% else %}
+      {{ link.url }}
+    {% endif %}
+    {% if link.target %}
+      <i class="fac fac-right-top-main"></i>
+    {% endif %}
+  </a>
+{% endif %}
