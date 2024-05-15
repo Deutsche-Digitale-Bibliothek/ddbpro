@@ -140,10 +140,15 @@ const handleFilterCount = (btn, el) => {
         const checkboxes = [...accordion.querySelectorAll('input[type=checkbox]')];
         // Grey out checkboxes only if any of them are checked.
         if (checkboxes.some(item => item.checked)) {
-          checkboxes.forEach((checkbox) => checkbox.nextElementSibling.classList.add('option--other-selected'));
+          checkboxes.forEach((checkbox) => {
+            if (checkbox.nextElementSibling !== null) {
+              checkbox.nextElementSibling.classList.add('option--other-selected');
+            }
+          });
         }
+
         // If the last modified checkbox is checked, remove greyed out look from its label.
-        if (checkbox.checked) {
+        if (checkbox.checked && checkbox.nextElementSibling !== null) {
           checkbox.nextElementSibling.classList.remove('option--other-selected');
         }
 

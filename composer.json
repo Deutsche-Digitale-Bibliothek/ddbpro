@@ -171,7 +171,8 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch"
+                "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch",
+                "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
             },
             "drupal/field_group": {
                 "Fix UX & a11y issue in forms with tabs": "https://www.drupal.org/files/issues/2022-02-01/field-group-tabs-2894351-26.patch"
