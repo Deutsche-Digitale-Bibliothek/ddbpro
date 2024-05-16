@@ -49,7 +49,7 @@ const show = () => {
 
 const hide = () => {
   stableLink.classList.remove(showClass);
-  copyBtn.classList.remove(copiedClass)
+  copyBtn.classList.remove(copiedClass);
   stableLinkToggle.setAttribute('aria-expanded', false);
   stableLinkTooltip.setAttribute('aria-hidden', true);
   copyBtn.querySelector('span').removeAttribute('role');

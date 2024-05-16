@@ -9,7 +9,7 @@ const fadeScroll = () => {
       container.classList.add('scroll--start');
       container.classList.remove('scroll--end');
     } else {
-      if (filters.offsetWidth + filters.scrollLeft == filters.scrollWidth) {
+      if (filters.offsetWidth + filters.scrollLeft === filters.scrollWidth) {
         container.classList.add('scroll--end');
         container.classList.remove('scroll--start');
       } else {

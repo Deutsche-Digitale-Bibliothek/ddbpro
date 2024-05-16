@@ -58,7 +58,7 @@ const addFocus = () => {
       activeLink.classList.add(departmentShowClass);
     });
   });
-}
+};
 
 (() => {
   if (departments && !isMobile()) {

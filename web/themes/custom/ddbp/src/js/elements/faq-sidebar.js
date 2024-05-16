@@ -84,7 +84,7 @@ $(document).ready(function () {
 
     if ($hash.length > 0) {
       $htmlBody.stop().animate({
-        scrollTop: $hash.offset().top - scrollingOffset,
+        scrollTop: $hash.offset().top - scrollingOffset
       }, speed);
     }
   }

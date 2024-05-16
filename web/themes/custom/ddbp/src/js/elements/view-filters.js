@@ -90,7 +90,7 @@ const open = (btn, el, event) => {
 
   checkboxes.forEach((item) => {
     item.setAttribute('tabindex', 0);
-    item.setAttribute('aria-hidden', false)
+    item.setAttribute('aria-hidden', false);
   });
   accordionButtons.forEach((button) => button.classList.add('filters-header__button--inactive'));
   btn.classList.remove('filters-header__button--inactive');
