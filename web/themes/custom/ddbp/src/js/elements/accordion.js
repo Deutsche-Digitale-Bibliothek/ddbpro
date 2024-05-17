@@ -24,7 +24,9 @@ export const initAccordion = (wrapper = accordionWrapper) => {
       });
     });
   });
-  expandAll.setAttribute("aria-expanded", "false");
+  if (expandAll !== null) {
+    expandAll.setAttribute("aria-expanded", "false");
+  }
 };
 
 const openAccordion = (accordion) => {
