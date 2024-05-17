@@ -176,7 +176,8 @@
     transition-property: opacity, transform;
     transition-timing-function: $easing-default;
     transform-origin: bottom;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     z-index: -1;
 
     // hide until opened
@@ -190,15 +191,33 @@
         left: auto;
         width: 20vw;
         max-width: 380px;
-        padding-top: 0;
-        padding-bottom: 0;
+        @include spacing(padding, medium, top bottom);
         transform: translateX(0%);
         transform-origin: left;
+        flex-flow: row nowrap;
+        justify-content: left;
     }
 
     @include target-bps(l xl) {
         @include spacing(padding, medium, right);
         @include spacing(padding, very-small, left);
+    }
+
+    ul.menu-items {
+        overflow-y: auto;
+        max-height: calc(100vh - 246px);
+        @include bp(s) {
+          max-height: calc(100vh - 267px);
+        }
+        @include bp(m) {
+          max-height: calc(100vh - 304px);
+        }
+        @include bp(l) {
+          max-height: auto;
+          @include spacing(padding, tiny, right);
+        }
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     &.sub-menu-items--active {
