@@ -20,7 +20,7 @@
   not hasLink ? 'document-teaser__download--download',
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }}>
   {% if content %}
     <div class="document-teaser__content">
       <a href="{{ detailUrl }}"
@@ -52,4 +52,4 @@
       </a>
     </div>
   {% endif %}
-</article>
+</div>
