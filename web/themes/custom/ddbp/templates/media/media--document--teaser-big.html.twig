@@ -28,7 +28,7 @@
     <div class="document-teaser-big__content">
       <h2><a href="{{ detailUrl }}"
         {% if download %}download{% endif %}
-        id="{{ id }}"
+        id="media_{{ media.id }}_title"
         class="document-teaser__name">
         {{ content.name[0]['#context'].value }}
       </a></h2>
@@ -38,7 +38,7 @@
         </p>
       {% endif %}
       <div class="document-teaser__link">
-        <a href="{{ url }}">
+        <a href="{{ url }}" aria-describedby="media_{{ media.id }}_title">
           {{ 'Weitere Informationen' | t }}
         </a>
       </div>
@@ -61,7 +61,7 @@
         target="_blank"
         class="{{ linkClasses|join(' ') }}"
         aria-label="{{ aria }}"
-        aria-describedby="{{ id }}"
+        aria-describedby="media_{{ media.id }}_title"
         tabindex="-1">
         <i class="fac {{ iconClass }}"></i>
       </a>
