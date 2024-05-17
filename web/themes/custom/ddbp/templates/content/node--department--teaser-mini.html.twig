@@ -6,7 +6,7 @@
 ] %}
 
 {% set responsiveImage = { images: content.field_icon[0].images } %}
-<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+<div{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}" data-id="{{ node.id }}">
     <div class="department-teaser-mini__icon">
       {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
@@ -15,7 +15,7 @@
       {{ label[0]['#context'].value }}
     </div>
   </a>
-</article>
+</div>
 
 <div class="department-teaser-mini__image" data-id="{{ node.id }}">
   {% set responsiveImage = { images: content.field_image[0].images } %}
