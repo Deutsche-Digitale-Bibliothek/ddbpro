@@ -24,6 +24,7 @@ export const initAccordion = (wrapper = accordionWrapper) => {
       });
     });
   });
+  expandAll.setAttribute("aria-expanded", "false");
 };
 
 const openAccordion = (accordion) => {
@@ -94,6 +95,10 @@ const expandAllOnPage = () => {
     isExpanded
       ? target.classList.remove(accordionTopOpen, accordionsExpandAll)
       : target.classList.add(accordionTopOpen, accordionsExpandAll);
+
+    isExpanded
+      ? target.setAttribute("aria-expanded", "false")
+      : target.setAttribute("aria-expanded", "true");
 
     allAccordions.forEach((accordion) => {
       toggleAccordion(accordion, isExpanded);
