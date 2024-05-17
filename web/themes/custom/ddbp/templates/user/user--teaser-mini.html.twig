@@ -1,7 +1,7 @@
 {% set url = path('entity.user.canonical', { 'user': user.id }) %}
 
 {# used next to webform on CTs #}
-<article{{ attributes.addClass('user-teaser-mini') }}>
+<div{{ attributes.addClass('user-teaser-mini') }}>
   <a href="{{ url }}">
     <div class="user-teaser-mini__image">
       {% if content.field_user_image[0] %}
@@ -28,4 +28,4 @@
       {{ content.field_job_title[0]['#context'].value }}
     </div>
   </a>
-</article>
+</div>
