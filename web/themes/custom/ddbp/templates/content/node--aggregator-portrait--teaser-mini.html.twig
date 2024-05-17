@@ -7,10 +7,10 @@
 
 {% set responsiveImage = { images: content.field_image[0].images } %}
 
-<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+<div{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}">
     <div class="aggregator-teaser-mini__image">
       {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
     </div>
   </a>
-</article>
+</div>
