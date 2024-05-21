@@ -133,6 +133,7 @@
           text: content.field_participation_cta_left[0]['#title'],
           type: 'primary',
           target: content.field_participation_cta_left[0]['#options']['attributes']['target'],
+          'aria-describedby': 'frontpage-participate-now',
         },
         linkSecondary: {
           url: content.field_participation_cta_right[0]['#url'],
@@ -140,6 +141,7 @@
           type: 'secondary',
           bg: 'light',
           target: content.field_participation_cta_right[0]['#options']['attributes']['target'],
+          'aria-describedby': 'frontpage-details-flow-chart',
         },
       } %}
 
@@ -159,6 +161,7 @@
     text: content.field_studio_cta_left[0]['#title'],
     type: 'primary',
     target: content.field_studio_cta_left[0]['#options']['attributes']['target'],
+    'aria-describedby': 'frontpage-ddb-studio',
   } %}
 
   {% set linkSecondary = {
@@ -167,6 +170,7 @@
     type: 'secondary',
     bg: 'dark',
     target: content.field_studio_cta_right[0]['#options']['attributes']['target'],
+    'aria-describedby': 'frontpage-ddb-studio',
   } %}
   <div class="ddb-studio">
     {% set responsiveImage = { images: content.field_studio_image[0].images } %}
@@ -182,7 +186,7 @@
         </div>
         <div class="column column--span-10">
           <div class="ddb-studio__content">
-            <h2>{{ content.field_studio_headline[0]['#context'].value }}</h2>
+            <h2 id="frontpage-ddb-studio">{{ content.field_studio_headline[0]['#context'].value }}</h2>
             <p class="h4">
               {{ content.field_studio_description[0]['#context'].value }}
             </p>
@@ -230,13 +234,14 @@
     url: path('view.latest_events.latest_events'),
     text: 'Alle anzeigen' | t,
     type: 'primary',
+    'aria-describedby': 'frontpage-events-and-dates',
   } %}
 
   {% if latestEvents|length %}
     <div class="container">
       <div class="latest-events">
         <div class="latest-events__title">
-          <h2>{{ 'Termine und Veranstaltungen' | t }}</h2>
+          <h2 id="frontpage-events-and-dates">{{ 'Termine und Veranstaltungen' | t }}</h2>
         </div>
         <div class="latest-events__all">
           {% include '@ddbp/partials/link-button.html.twig' with { link: linkNews } %}

@@ -3,9 +3,9 @@
   <p class="tiny-label">
     {{ 'Teilnehmen' | t }}
   </p>
-  <h2>{{ data.headline }}</h2>
+  <h2 id="frontpage-participate-now">{{ data.headline }}</h2>
   {{ data.description|raw }}
-  <div class="participation__steps">
+  <div class="participation__steps" id="frontpage-details-flow-chart">
     <ul>
       {% for step in data.steps %}
         <li class="participation__step h4">
