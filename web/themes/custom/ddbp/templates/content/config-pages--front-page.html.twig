@@ -5,6 +5,7 @@
 {% set latestEvents = get_latest_events() %}
 {% set announcementLink = {
   url: content.field_announcement_link[0]['#url'],
+  attributes: content.field_announcement_link[0]['#url'].getOptions()['attributes'],
   target: content.field_announcement_link[0]['#options']['attributes']['target'] == '_blank',
 } %}
 {% set announcementText = {
@@ -20,7 +21,7 @@
       <div class="announcement">
         {% if announcementLink.url %}
           <a href="{{ announcementLink.url }}"
-            {% if announcementLink.target %}target="_blank"{% endif %}
+            {% for key, value in announcementLink.attributes %}{{ key }}="{{ value }}" {% endfor %}
             class="announcement__link">
             {% if announcementText.title or announcementText.description %}
               <div class="announcement__text-wrapper">
