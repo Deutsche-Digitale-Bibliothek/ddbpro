@@ -3,6 +3,7 @@ const viewHeaderLink = document.querySelector('.view-header__link');
 const viewHeaderButton = viewHeaderLink && viewHeaderLink.querySelector('button');
 const viewHeaderSelect = viewHeaderLink && viewHeaderLink.querySelector('.view-header__link-select');
 const viewHeaderSelectLink = viewHeaderSelect && viewHeaderSelect.querySelector('a');
+const viewHeaderTitle = document.querySelector('.view-header__header-wrapper h1');
 
 const linkOpenClass = 'view-header__link--open';
 let open = false;
@@ -46,6 +47,11 @@ const show = () => {
 
 if (viewHeaderLink) {
   viewHeaderSelectLink.setAttribute('tabindex', -1);
+
+  var newSpan = document.createElement('span');
+  newSpan.classList.add('visually-hidden');
+  newSpan.textContent = viewHeaderButton.textContent;
+  viewHeaderTitle.appendChild(newSpan);
 
   viewHeaderLink.addEventListener('click', toggleDisplay);
 

@@ -101,12 +101,8 @@
     @include rsa(height, 46px, 88px);
 
     @include target-bps(l xl) {
-        @include spacing(margin, tiny, left);
+        @include spacing(margin, small, left);
     }
-    
-    display: inline-block;
-    vertical-align:text-bottom;
-    padding-top: 5px;
 }
 
 .view-header__link {
