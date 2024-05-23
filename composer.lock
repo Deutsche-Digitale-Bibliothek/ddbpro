@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7d84e66e1bfff06aa253c858db9400f",
+    "content-hash": "f2a8d1e823de3477390086f15ed06a39",
     "packages": [
         {
             "name": "algolia/places",
@@ -5321,29 +5321,26 @@
         },
         {
             "name": "drupal/views_ajax_history",
-            "version": "1.7.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_ajax_history.git",
-                "reference": "8.x-1.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_ajax_history-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "bedc26b91131968660ebf68c7c050821b9434e10"
+                "reference": "3a3a274f545b3f94800d82ae109538b45c6bcc07"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9 || ^10"
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1671526718",
+                    "version": "8.x-1.7+4-dev",
+                    "datestamp": "1713707391",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -11447,7 +11444,8 @@
         "drupal/masquerade": 10,
         "drupal/selective_better_exposed_filters": 10,
         "drupal/spamspan": 10,
-        "drupal/ultimate_cron": 15
+        "drupal/ultimate_cron": 15,
+        "drupal/views_ajax_history": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
