@@ -127,7 +127,7 @@ const handleFilterCount = (btn, el) => {
       initFilterAccordions();
 
       // Get last modified checkbox element.
-      const checkbox = document.querySelector(`*[id^=${lastModifiedCheckbox.split('--')[0]}]`);
+      const checkbox = lastModifiedCheckbox ? document.querySelector(`*[id^=${lastModifiedCheckbox.split('--')[0]}]`) : null;
       if (checkbox) {
         // Find the accordion with the parent accordion.
         const accordion = checkbox.closest('.filters-accordion');

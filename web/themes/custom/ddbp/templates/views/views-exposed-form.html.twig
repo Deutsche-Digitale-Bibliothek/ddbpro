@@ -2,21 +2,37 @@
   {# filters-accordion expand button list #}
   <div class="filters-header">
     <div class="filters-header__buttons">
-      <div>
-        <h2 class="h4">{{ 'Filter:' | t }}</h2>
-      </div>
+      <h2 class="h4">{{ 'Filter:' | t }}</h2>
       {% for key, item in form %}
-        {% if key|first != '#' %}
-          {% if item['#type'] == 'checkboxes' %}
-            <div>
-              <button class="filters-header__button"
-                      aria-controls="filters-{{ item['#id'] }}"
-                      aria-expanded="false">
-                <span class="count"></span>
-                {{ item['#title'] }}
-              </button>
+        {% if (key|first != '#') and (item['#type'] == 'checkboxes') %}
+          <button class="filters-header__button"
+                  aria-controls="filters-{{ item['#id'] }}"
+                  aria-expanded="false">
+            <span class="count"></span>
+            {{ item['#title'] }}
+          </button>
+          <div aria-hidden="true" class="filters-accordion" id="filters-{{ item['#id'] }}">
+            <div class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
+                title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
+              {% for key, option in item %}
+                {% if key|first != '#' %}
+                  <div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
+                    <label for="{{ option['#id'] }}" class="option">
+                      <input type="checkbox"
+                              id="{{ option['#id'] }}"
+                              name="{{ option['#name'] }}"
+                              value="{{ key }}"
+                              tabindex="-1"
+                              {{ key in item['#value'] ? 'checked' }}
+                              data-drupal-selector="{{ option['#id'] }}"
+                              class="form-checkbox visually-hidden">
+                      {{ option['#title'] }}
+                    </label>
+                  </div>
+                {% endif %}
+              {% endfor %}
             </div>
-          {% endif %}
+          </div>
         {% endif %}
       {% endfor %}
       {# Workaround for reset button bug with invalid URLs on Search view (DDBPRO-246). #}
@@ -24,64 +40,14 @@
       {# Might also be related to AJAX bugs in core (see child issues referenced in #2996297). #}
       {% if form['#action'] == '/suche' %}
         {% if form.search_result_category['#value']|length %}
-          <a href="/suche?keywords={{ form.keywords['#value']|split(' ')|join('+') }}" class="button button--primary">
+          <a href="/suche?keywords={{ form.keywords['#value']|split(' ')|join('+') }}" class="button button--primary button--reset">
             <span>{{ 'Alle Filter zurücksetzen'|t }}</span>
           </a>
         {% endif %}
       {% else %}
         {{ form.actions.reset }}
       {% endif %}
+      {{ form.actions.submit }}
     </div>
   </div>
-
-  {# filter options as 'accordions' #}
-  {% for key, item in form %}
-    {% if key|first != '#' %}
-      {% set type = item['#type'] %}
-
-      {% if type == 'checkboxes' %}
-        <div aria-hidden="true" class="filters-accordion" id="filters-{{ item['#id'] }}">
-          <div class="form-checkboxes bef-checkboxes" id="{{ item['#id'] }}"
-              title="{{ 'Filter-Auswahlliste' | t }}: {{ item['#title'] }}">
-            {% for key, option in item %}
-              {% if key|first != '#' %}
-                <div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-{{ option['#id']|split('--')[0] }} form-item-{{ option['#id']|split('--')[0] }}">
-                  <label for="{{ option['#id'] }}" class="option">
-                    <input type="checkbox"
-                            id="{{ option['#id'] }}"
-                            name="{{ option['#name'] }}"
-                            value="{{ key }}"
-                            tabindex="-1"
-                            {{ key in item['#value'] ? 'checked' }}
-                            data-drupal-selector="{{ option['#id'] }}"
-                            class="form-checkbox visually-hidden">
-                    {{ option['#title'] }}
-                  </label>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
-  {# add filter collapsible fields to 'without' filter to prevent them from rendering in default form #}
-  {#
-    Note: Documents view exposed filemime filter is provided by a relationship in the view.
-    Drupal wrongly appends 'field_document_' to 'filemime', which creates incorrect data in
-    getExposedInput() and the reset button access is set to FALSE in ExposedFormPluginBase.
-    The result is that the reset button doesn't appear after selecting filemime value.
-    To fix this the exposed filter ID was set to 'filemime' in the view config.
-  #}
-  {{ form|without(
-    'bundesland_collapsible',
-    'typ_collapsible',
-    'abteilung_collapsible',
-    'kategorie_collapsible',
-    'filemime_collapsible',
-    'search_result_category',
-    'keywords',
-  ) }}
-
 </div>
