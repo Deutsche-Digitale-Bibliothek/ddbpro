@@ -1,17 +1,11 @@
 // general
 .form-required {
     // asterisk
-    &:after {
-        content: '\f069';
-        position: relative;
-        top: -0.5em;
-        display: inline-block;
-        margin-left: 4px;
+    span {
         color: $color-main;
         font: var(--fa-font-solid);
         font-size: 65%;
-        line-height: 0;
-        visibility: visible;
+        vertical-align: text-top;
     }
 }
 
