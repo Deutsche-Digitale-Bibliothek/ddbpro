@@ -76,32 +76,28 @@
             {# event type #}
             <div class="sidebar__item">
               <h2>{{ 'Typ' | t }}</h2>
-              <div class="sidebar__item-items">
+              <ul class="sidebar__item-items text-formatted">
                 {% for key, item in content.field_event_type %}
                   {% if key matches '/^\\d+$/' %}
-                    <div class="sidebar__item-items-item">
-                      <div class="text-formatted">
-                        <p>{{ item['#plain_text'] }}</p>
-                      </div>
-                    </div>
+                    <li class="sidebar__item-items-item">
+                        {{- item['#plain_text'] -}}
+                    </li>
                   {% endif %}
                 {% endfor %}
-              </div>
+              </ul>
             </div>
             {# event location #}
             <div class="sidebar__item">
               <h2>{{ 'Ort' | t }}</h2>
-              <div class="text-formatted">
-                <p>{{ content.field_location[0]['#context'].value }}</p>
-              </div>
+              <p class="text-formatted">
+                {{- content.field_location[0]['#context'].value -}}
+              </p>
             </div>
             {# related links #}
             {% if content.field_external_link[0] %}
               <div class="sidebar__item">
                 <h2>{{ 'Weiterführende Links' | t }}</h2>
-                <div class="text-formatted">
-                  {{ content.field_external_link }}
-                </div>
+                {{ content.field_external_link }}
               </div>
             {% endif %}
           </div>
