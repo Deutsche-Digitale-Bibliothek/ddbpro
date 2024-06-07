@@ -23,7 +23,7 @@
   'aria-describedby': 'node_' ~ node.id ~ '_title',
 } %}
 
-<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+<div{{ attributes.addClass(classes).removeAttribute('role') }}>
   <div class="container">
     {# Breadcrumbs block #}
     {{ drupal_block('system_breadcrumb_block', wrapper=false) }}
@@ -87,4 +87,4 @@
 
   {# stable link placeholder #}
   <div aria-hidden="true" class="stable-link__placeholder visually-hidden">{{ get_current_path() }}</div>
-</article>
+</div>
