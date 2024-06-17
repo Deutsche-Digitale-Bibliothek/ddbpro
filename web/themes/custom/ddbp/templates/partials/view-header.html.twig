@@ -19,13 +19,13 @@
           <div class="view-header__link-wrapper">
             <div class="view-header__link">
               <button aria-expanded="false" aria-controls="{{ linkUrlText|clean_class }}">
-                {{ linkText }}
+                <span>{{ linkText }}</span>
               </button>
               <div id="{{ linkUrlText|clean_class }}"
                    class="view-header__link-select"
                    aria-hidden="true">
                 <a href="{{ linkUrl }}">
-                  {{ linkUrlText }}
+                  <span>{{ linkUrlText }}</span>
                 </a>
               </div>
             </div>

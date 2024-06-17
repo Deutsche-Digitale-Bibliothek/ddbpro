@@ -113,12 +113,6 @@
     overflow: hidden;
     transition: height $duration-medium $easing-default;
 
-    // we can't use :focus style on the button (button shadow can't overflow) so we check if parent is focused
-    &:not(.view-header__link--open):focus-within {
-        border: 1px solid $color-focus !important;
-        box-shadow: 0 0 20px $color-focus;
-    }
-
     &:not(.view-header__link--open):focus-within:has(button:not(:focus-visible)) {
         border: 1px solid $color-darken !important;
         box-shadow: 0 0 0 transparent;
@@ -136,7 +130,29 @@
         font-size: inherit;
         font-weight: font-weight(semi-bold);
         line-height: inherit;
-    }
+        
+        &:focus {
+          outline: none;
+          border: none !important;
+          box-shadow: none;
+        }
+        
+        &:focus:not(:focus-visible) {
+            border: none !important;
+            box-shadow: none;
+        }
+        
+        &:focus > span {
+          outline: none;
+          border: 1px solid $color-focus !important;
+          box-shadow: 0 0 20px $color-focus;
+        }
+        
+        &:focus:not(:focus-visible) > span {
+            border: none !important;
+            box-shadow: 0 0 0 transparent;
+        }
+     }
 
     button {
         // arrow

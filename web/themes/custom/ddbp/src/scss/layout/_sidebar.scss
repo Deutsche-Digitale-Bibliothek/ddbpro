@@ -31,6 +31,11 @@
     @include bp(l) {
         display: block;
     }
+    
+    &:focus,
+    &:focus:not(:focus-visible) {
+      border-left: 6px solid $color-main !important;
+    }
 }
 
 .sidebar__content-menu {

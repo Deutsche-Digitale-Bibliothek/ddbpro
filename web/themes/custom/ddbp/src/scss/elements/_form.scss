@@ -41,6 +41,7 @@ input[type='search'] {
     -webkit-appearance: none;
 }
 
+input[type='name'],
 input[type='email'],
 input[type='number'],
 input[type='password'],
@@ -52,6 +53,7 @@ select {
     @include rsa(height, 50px, 57px);
 }
 
+input[type='name'],
 input[type='email'],
 input[type='password'],
 input[type='search'],
@@ -69,19 +71,27 @@ textarea {
 
     &:focus {
         background: $color-white;
-        border: 1px solid rgba($color-black, 0.42) !important;
-        box-shadow: none;
+        border: 1px solid $color-focus !important;
+        box-shadow: 0 0 20px $color-focus;
         outline: none;
     }
-
-    &:invalid {
-        box-shadow: none;
-    }
-
+    
     .form-item--error &, &.error {
         border-color: $color-error;
         background-color: rgba($color-error, 0.1);
         color: $color-error;
+    }
+}
+
+input[type='search'] {
+    &:focus {
+        box-shadow: none;
+    }
+    
+    @include bp(l) {
+      &:focus {
+        box-shadow: 0 0 20px $color-focus;
+      }
     }
 }
 
@@ -190,6 +200,14 @@ select {
     input {
         @include spacing(margin, tiny, right);
         @include rsa(margin-top, 2px, 3px);
+        
+        &:focus {
+          outline: 1px solid $color-focus;
+        }
+        
+        &:focus:not(:focus-visible) {
+          outline: none;
+        }
     }
 
     .description {
@@ -204,6 +222,7 @@ select {
     .form-item-checkbox__label {
         display: inline-flex;
         align-items: flex-start;
+        vertical-align: middle;
     }
 
     #terms_and_conditions-error {
