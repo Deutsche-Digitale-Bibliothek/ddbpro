@@ -57,7 +57,7 @@
 }
 
 .node__content {
-    @include spacing(padding, massive, top bottom);
+    @include spacing(padding, massive-node, top bottom);
 }
 
 .field__item {

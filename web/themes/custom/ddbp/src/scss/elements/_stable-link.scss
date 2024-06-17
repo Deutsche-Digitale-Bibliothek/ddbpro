@@ -45,14 +45,16 @@
     @include bp(l) {
         right: -22px;
         left: auto;
-        width: max-content;
     }
 
     input[type='text'] {
         border-right: 0;
+        margin-left: 5px;
+        width: calc(100% + 5px);
 
         &:focus {
             background: $color-bg;
+            border-right: 0 !important;
         }
     }
 }
@@ -66,10 +68,7 @@
     border-radius: 3px 0 0 3px;
     background: $color-bg;
     direction: rtl; // ellipsis on left
-
-    @include bp(l) {
-        max-width: 450px;
-    }
+    width: max-content;
 
     &:after,
     input {
@@ -110,6 +109,10 @@
     background: $color-bg;
     cursor: pointer;
 
+    &:focus:not(:focus-visible) {
+      border: 1px solid rgba($color-black, 0.42) !important;
+    }
+    
     // arrow
     &:before,
     &:after {
