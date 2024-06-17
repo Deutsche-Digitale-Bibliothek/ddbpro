@@ -16,6 +16,10 @@
             }
         }
 
+        &:focus:not(:focus-visible) {
+          border: 1px solid $color-darken !important;
+        }
+        
         @include target-bps(l xl) {
             &:hover {
                 @include shadow(box-hover);
@@ -69,6 +73,10 @@
         place-items: center;
         border: 1px solid $color-darken;
         overflow: hidden;
+        
+        &:focus:not(:focus-visible) {
+          border: 1px solid $color-darken !important;
+        }
 
         @include bp(l) {
             height: 100%;
