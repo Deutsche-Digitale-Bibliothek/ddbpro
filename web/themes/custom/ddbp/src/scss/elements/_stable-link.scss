@@ -43,13 +43,9 @@
     visibility: hidden;
 
     @include bp(l) {
-        right: -15px;
+        right: -22px;
         left: auto;
         width: max-content;
-    }
-
-    @include bp(xl) {
-        right: -22px;
     }
 
     input[type='text'] {
@@ -109,7 +105,7 @@
     display: grid;
     place-items: center;
     flex-shrink: 0;
-    border: 1px solid $color-darken;
+    border: 1px solid rgba($color-black, 0.42);
     border-radius: 0 3px 3px 0;
     background: $color-bg;
     cursor: pointer;
@@ -129,7 +125,7 @@
 
     // arrow border
     &:before {
-        border-bottom-color: $color-darken;
+        border-bottom-color: rgba($color-black, 0.42);
         border-width: 7px;
         margin-left: -7px;
     }
