@@ -18,6 +18,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['trusted_host_patterns'] = preg_split('/,[\s]*/', getenv('TRUSTED_HOST_PATTERNS'));
 $settings['entity_update_batch_size'] = 50;
 $settings['config_sync_directory'] = '../config/sync';
+$settings['state_cache'] = true;
 if ((getenv('USE_REDIS') ?: 'no') == 'yes') {
   $settings['redis.connection']['interface'] = 'PhpRedis';
   $settings['redis.connection']['host'] = '127.0.0.1';
