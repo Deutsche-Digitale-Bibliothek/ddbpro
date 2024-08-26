@@ -13,14 +13,14 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "compression-webpack-plugin": "^2.0.0",
+    "compression-webpack-plugin": "^11.1.0",
     "trio-assets-css": "^1.0.7",
     "trio-assets-js": "^1.0.5",
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.1",
-    "@vue/cli-service": "^4.5.15",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "sass": "^1.49.7",
     "sass-loader": "^10.0.0",
     "vue-template-compiler": "^2.6.9"
