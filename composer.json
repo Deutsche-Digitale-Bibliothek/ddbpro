@@ -20,7 +20,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/address": "^2.0",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/better_exposed_filters": "^6.0",
+        "drupal/better_exposed_filters": "^7.0",
         "drupal/calendar_link": "^3.0",
         "drupal/classy": "^1.0",
         "drupal/clientside_validation": "^4.0",
@@ -33,7 +33,7 @@
         "drupal/editor_advanced_link": "^2.0",
         "drupal/eu_cookie_compliance": "^1.19",
         "drupal/field_group": "^3.2",
-        "drupal/field_validation": "^1.0@beta",
+        "drupal/field_validation": "^3.0@beta",
         "drupal/focal_point": "^2.0",
         "drupal/gin": "^3.0@beta",
         "drupal/gin_toolbar": "^1.0@beta",
@@ -54,7 +54,7 @@
         "drupal/minifyhtml": "^2.0",
         "drupal/paragraphs": "^1.13",
         "drupal/pathauto": "^1.9",
-        "drupal/rdf": "^2.0",
+        "drupal/rdf": "^3.0@beta",
         "drupal/redirect": "^1.7",
         "drupal/redis": "^1.5",
         "drupal/search_api": "^1.23",
@@ -173,9 +173,6 @@
             "drupal/core": {
                 "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch",
                 "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
-            },
-            "drupal/field_group": {
-                "Fix UX & a11y issue in forms with tabs": "https://www.drupal.org/files/issues/2022-02-01/field-group-tabs-2894351-26.patch"
             }
         }
     }
