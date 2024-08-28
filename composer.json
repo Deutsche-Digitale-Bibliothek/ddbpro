@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.3",
         "composer/installers": "^2",
         "cweagans/composer-patches": "^1.7",
         "drupal/address": "^2.0",
@@ -38,7 +38,7 @@
         "drupal/gin": "^3.0@beta",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/health_check": "^3.0",
-        "drupal/honeypot": "2.1.4",
+        "drupal/honeypot": "^2.2",
         "drupal/jquery_ui_accordion": "^2.0",
         "drupal/jquery_ui_datepicker": "^2.1",
         "drupal/jquery_ui_slider": "^2.1",
@@ -73,7 +73,7 @@
         "drupal/views_ajax_history": "^1.x-dev",
         "drupal/views_bulk_edit": "^2.6",
         "drupal/webform": "^6.2",
-        "drush/drush": "^12",
+        "drush/drush": "^13.0",
         "politsin/jquery-ui-touch-punch": "^1.0",
         "vlucas/phpdotenv": "^5.4",
         "wikimedia/composer-merge-plugin": "^2.0"
@@ -93,7 +93,7 @@
             "wikimedia/composer-merge-plugin": true
         },
         "platform": {
-            "php": "8.1",
+            "php": "8.3",
             "ext-gd": "1"
         }
     },
