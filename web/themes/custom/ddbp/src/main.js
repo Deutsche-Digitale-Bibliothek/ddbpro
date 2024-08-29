@@ -6,7 +6,7 @@ import './scss/app.scss';
 import './js/helpers/smooth-scroll';
 // elements
 import './js/elements/accordion';
-import './js/elements/announcement';
+// import './js/elements/announcement';
 import './js/elements/departments';
 import './js/elements/fade-scroll';
 import './js/elements/faq-sidebar';
