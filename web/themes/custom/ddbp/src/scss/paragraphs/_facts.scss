@@ -20,21 +20,19 @@
                 @include spacing(margin, large, left);
             }
         }
+        
+        p {
+            @include spacing(padding, small, top);
+            @include spacing(margin, tiny, bottom);
+            border-top: 1px solid $color-darken;
+        }
     }
 }
 
 .facts__figure {
-    @include spacing(padding, small, top);
-    @include spacing(margin, tiny, bottom);
-    border-top: 1px solid $color-darken;
-
-    p {
-        color: $color-main;
-    }
+    color: $color-main;
 }
 
 .facts__fact {
-    p {
-        color: $color-grey;
-    }
+    color: $color-grey;
 }

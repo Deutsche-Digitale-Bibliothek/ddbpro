@@ -1,14 +1,13 @@
 {% extends "paragraph.html.twig" %}
 
 {% block paragraphContent %}
-  <div class="facts__figure">
-    <p class="h2">
-      {{ content.field_label[0]['#context'].value }}
-    </p>
-  </div>
-  <div class="facts__fact">
-    <p class="h4">
-      {{ content.field_figure[0]['#context'].value }}
-    </p>
-  </div>
+  <p>
+      <span class="facts__figure h2">
+        {{ content.field_label[0]['#context'].value }}
+      </span>
+      <br>
+      <span class="facts__fact h4">
+        {{ content.field_figure[0]['#context'].value }}
+      </span>
+  </p>
 {% endblock %}
