@@ -1,6 +1,9 @@
 .announcement {
     @include spacing(margin, very-small, top bottom);
     border-radius: 100px;
+    @include bp(xs) {
+        border-radius: 25px !important;
+    }
     background: $color-main;
     overflow: hidden;
     
@@ -78,6 +81,9 @@
         display: flex;
         min-width: 100%;
         /* white-space: nowrap; */
+        white-space: normal;
+        hyphens: auto;
+        word-break: break-word;
     }
 }
 
