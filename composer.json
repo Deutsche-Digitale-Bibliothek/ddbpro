@@ -176,6 +176,9 @@
             "drupal/core": {
                 "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch",
                 "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
+            },
+            "drupal/gin": {
+                "Save button missing in modal for editing media using Media Library Edit module": "https://www.drupal.org/files/issues/2024-07-24/fix_missing__ui-dialog-buttonpane__for_the_entity_browser_modal_window.patch"
             }
         }
     }
