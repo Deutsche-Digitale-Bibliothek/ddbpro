@@ -35,7 +35,7 @@
         "drupal/field_group": "^3.2",
         "drupal/field_validation": "^3.0@beta",
         "drupal/focal_point": "^2.0",
-        "drupal/gin": "^3.0@beta",
+        "drupal/gin": "3.x-dev@dev",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/health_check": "^3.0",
         "drupal/honeypot": "^2.2",
