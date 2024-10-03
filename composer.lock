@@ -7,18 +7,6 @@
     "content-hash": "8e20a725f96efae59175a2cfae6ed7a4",
     "packages": [
         {
-            "name": "algolia/places",
-            "version": "1.19.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "algolia.places"
-            }
-        },
-        {
             "name": "asm89/stack-cors",
             "version": "v2.2.0",
             "source": {
@@ -133,78 +121,6 @@
                 "source": "https://github.com/Chi-teck/drupal-code-generator/tree/3.6.1"
             },
             "time": "2024-06-06T17:36:37+00:00"
-        },
-        {
-            "name": "ckeditor/autogrow",
-            "version": "4.18.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.18.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.autogrow"
-            }
-        },
-        {
-            "name": "ckeditor/codemirror",
-            "version": "v1.17.12",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.12/CKEditor-CodeMirror-Plugin.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.codemirror"
-            }
-        },
-        {
-            "name": "ckeditor/fakeobjects",
-            "version": "4.18.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.18.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.fakeobjects"
-            }
-        },
-        {
-            "name": "ckeditor/image",
-            "version": "4.18.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/image/releases/image_4.18.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.image"
-            }
-        },
-        {
-            "name": "ckeditor/link",
-            "version": "4.18.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/link/releases/link_4.18.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.link"
-            }
-        },
-        {
-            "name": "codemirror/codemirror",
-            "version": "5.61.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/5.61.1.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "codemirror"
-            }
         },
         {
             "name": "commerceguys/addressing",
@@ -1932,16 +1848,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.3.5",
+            "version": "10.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "831a269a4d99957638977ec325c3346f896d9f08"
+                "reference": "168ec99f2012aeb4e93c6c7dd4a90dc919ae96c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/831a269a4d99957638977ec325c3346f896d9f08",
-                "reference": "831a269a4d99957638977ec325c3346f896d9f08",
+                "url": "https://api.github.com/repos/drupal/core/zipball/168ec99f2012aeb4e93c6c7dd4a90dc919ae96c6",
+                "reference": "168ec99f2012aeb4e93c6c7dd4a90dc919ae96c6",
                 "shasum": ""
             },
             "require": {
@@ -2090,9 +2006,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.3.5"
+                "source": "https://github.com/drupal/core/tree/10.3.6"
             },
-            "time": "2024-09-12T09:45:37+00:00"
+            "time": "2024-10-03T08:58:13+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -2187,16 +2103,16 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "10.3.5",
+            "version": "10.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "055a27d032e1fdcbac90976a14bdd152b368d761"
+                "reference": "5ddec63138dc10869dea5d1cd4e72c977bb9b538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/055a27d032e1fdcbac90976a14bdd152b368d761",
-                "reference": "055a27d032e1fdcbac90976a14bdd152b368d761",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/5ddec63138dc10869dea5d1cd4e72c977bb9b538",
+                "reference": "5ddec63138dc10869dea5d1cd4e72c977bb9b538",
                 "shasum": ""
             },
             "require": {
@@ -2205,7 +2121,7 @@
                 "doctrine/annotations": "~1.14.3",
                 "doctrine/deprecations": "~1.1.3",
                 "doctrine/lexer": "~2.1.1",
-                "drupal/core": "10.3.5",
+                "drupal/core": "10.3.6",
                 "egulias/email-validator": "~4.0.2",
                 "guzzlehttp/guzzle": "~7.8.1",
                 "guzzlehttp/promises": "~2.0.2",
@@ -2266,9 +2182,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/10.3.5"
+                "source": "https://github.com/drupal/core-recommended/tree/10.3.6"
             },
-            "time": "2024-09-12T09:45:37+00:00"
+            "time": "2024-10-03T08:58:13+00:00"
         },
         {
             "name": "drupal/crop",
@@ -6546,90 +6462,6 @@
             "time": "2024-06-28T20:10:30+00:00"
         },
         {
-            "name": "jquery/inputmask",
-            "version": "5.0.6",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.6.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.inputmask"
-            }
-        },
-        {
-            "name": "jquery/intl-tel-input",
-            "version": "16.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jackocnr/intl-tel-input/archive/v16.1.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.intl-tel-input"
-            }
-        },
-        {
-            "name": "jquery/rateit",
-            "version": "1.1.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/gjunge/rateit.js/archive/1.1.3.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.rateit"
-            }
-        },
-        {
-            "name": "jquery/select2",
-            "version": "4.0.13",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.13.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.select2"
-            }
-        },
-        {
-            "name": "jquery/textcounter",
-            "version": "0.9.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.9.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.textcounter"
-            }
-        },
-        {
-            "name": "jquery/timepicker",
-            "version": "1.13.18",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.18.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.timepicker"
-            }
-        },
-        {
-            "name": "jquery/validation",
-            "version": "1.17",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jquery-validation/jquery-validation/archive/refs/tags/1.17.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery-validation"
-            }
-        },
-        {
             "name": "laravel/prompts",
             "version": "v0.1.25",
             "source": {
@@ -7821,33 +7653,6 @@
             "time": "2020-12-15T10:26:18+00:00"
         },
         {
-            "name": "popperjs/popperjs",
-            "version": "2.11.8",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "popperjs"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "progress-tracker/progress-tracker",
-            "version": "2.0.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/NigelOToole/progress-tracker/archive/2.0.7.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "progress-tracker"
-            }
-        },
-        {
             "name": "psr/cache",
             "version": "3.0.0",
             "source": {
@@ -8448,18 +8253,6 @@
                 }
             ],
             "time": "2024-03-02T06:30:58+00:00"
-        },
-        {
-            "name": "signature_pad/signature_pad",
-            "version": "2.3.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/szimek/signature_pad/archive/v2.3.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "signature_pad"
-            }
         },
         {
             "name": "spatie/calendar-links",
@@ -11544,30 +11337,6 @@
             "time": "2024-09-17T12:47:12+00:00"
         },
         {
-            "name": "tabby/tabby",
-            "version": "12.0.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/cferdinandi/tabby/archive/v12.0.3.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "tabby"
-            }
-        },
-        {
-            "name": "tippyjs/6.x",
-            "version": "6.3.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/tippy.js/-/tippy.js-6.3.7.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "tippyjs"
-            }
-        },
-        {
             "name": "twig/twig",
             "version": "v3.14.0",
             "source": {
@@ -11859,5 +11628,5 @@
         "php": "8.3",
         "ext-gd": "1"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
