@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b1c4da202a3f1c1894dc84369a8c07d",
+    "content-hash": "55c906d67b7bb7be19f31350e2cdabe7",
     "packages": [
         {
             "name": "algolia/places",
@@ -2951,17 +2951,11 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-rc13",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-rc13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc13.zip",
-                "reference": "8.x-3.0-rc13",
-                "shasum": "7b8e9d7ae6fe6de7de0bba930200fe80b437eefe"
+                "reference": "3b40713ca8a09461f99ed8bf1aa9376a8dd361a2"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
@@ -2969,12 +2963,15 @@
             },
             "type": "drupal-theme",
             "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-3.0-rc13",
-                    "datestamp": "1720416342",
+                    "version": "8.x-3.0-rc13+36-dev",
+                    "datestamp": "1728210655",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -11940,10 +11937,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "stability-flags": {
         "drupal/field_validation": 10,
-        "drupal/gin": 5,
+        "drupal/gin": 20,
         "drupal/gin_toolbar": 10,
         "drupal/linkchecker": 15,
         "drupal/linkit": 10,
