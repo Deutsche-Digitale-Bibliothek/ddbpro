@@ -17,7 +17,8 @@
   bg: 'light',
 } %}
 
-{% set events = rows.0['#rows']|map(e => {
+{% set rows_data = rows.0['#rows']|default([]) %}
+{% set events = rows_data|map(e => {
   'title': e['#node'].title.value,
   'description': e['#node'].field_description.0.value,
   'location': e['#node'].field_location.value,
