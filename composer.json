@@ -35,10 +35,11 @@
         "drupal/field_group": "^3.2",
         "drupal/field_validation": "^3.0@beta",
         "drupal/focal_point": "^2.0",
-        "drupal/gin": "3.x-dev@dev",
+        "drupal/gin": "^3.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/health_check": "^3.0",
         "drupal/honeypot": "^2.2",
+        "drupal/imce": "^3.1",
         "drupal/jquery_ui_accordion": "^2.0",
         "drupal/jquery_ui_datepicker": "^2.1",
         "drupal/jquery_ui_slider": "^2.1",
@@ -49,6 +50,7 @@
         "drupal/linkit": "^6.0@beta",
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^1.18",
+        "drupal/media_thumbnails_pdf": "^2.0",
         "drupal/media_thumbnails_video": "^2.0",
         "drupal/menu_item_extras": "^3.0",
         "drupal/metatag": "^2.0",
@@ -94,7 +96,8 @@
         },
         "platform": {
             "php": "8.3",
-            "ext-gd": "1"
+            "ext-gd": "1",
+            "ext-imagick": "6"
         }
     },
     "autoload": {

@@ -1,4 +1,4 @@
-FROM composer:2 AS COMPOSER_CHAIN
+FROM composer:2 AS cchain
 COPY / /tmp/ddbpro
 WORKDIR /tmp/ddbpro
 RUN composer install --no-dev
@@ -9,29 +9,31 @@ RUN { \
     } >> /tmp/ddbpro/version; \
     rm -rf .git/;
 
-FROM node:16-alpine AS NODE_CHAIN
-COPY --from=COMPOSER_CHAIN /tmp/ddbpro/ /tmp/ddbpro
+FROM node:16-alpine AS nchain
+COPY --from=cchain /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
 RUN yarn && yarn build
 
 FROM php:8.3-fpm-alpine
-MAINTAINER Michael Büchner <m.buechner@dnb.de>
+LABEL org.opencontainers.image.authors="m.buechner@dnb.de"
 
 # Install packages
-RUN apk --no-cache add \
-    curl \
-    ffmpeg \
-    nginx \
-    nginx-mod-http-brotli \
-    redis \
-    supervisor; \
-    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    supercronic;
+RUN apk --update --no-cache add -X https://dl-cdn.alpinelinux.org/alpine/edge/community supercronic; \
+    apk --update --no-cache add \
+       curl \
+       ghostscript \
+       imagemagick \
+       ffmpeg \
+       nginx \
+       nginx-mod-http-brotli \
+       redis \
+       supervisor;
 
 RUN set -eux; \
      \
      apk add --no-cache --virtual .build-deps \
           coreutils \
+          imagemagick-dev \
           freetype-dev \
           libjpeg-turbo-dev \
           libpng-dev \
@@ -59,6 +61,22 @@ RUN set -eux; \
      pecl channel-update pecl.php.net; \
      pecl install oauth apcu redis; \
      docker-php-ext-enable apcu oauth redis; \
+     \
+     # Source: https://github.com/docker-library/wordpress/blob/3f1a0cab9f2f938bbc57f5f92ec11eeea4511636/latest/php8.3/fpm-alpine/Dockerfile#L47
+     # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
+     # https://pecl.php.net/package/imagick
+     # https://github.com/Imagick/imagick/commit/5ae2ecf20a1157073bad0170106ad0cf74e01cb6 (causes a lot of build failures, but strangely only intermittent ones 🤔)
+     # see also https://github.com/Imagick/imagick/pull/641
+     # this is "pecl install imagick-3.7.0", but by hand so we can apply a small hack / part of the above commit
+     curl -fL -o imagick.tgz 'https://pecl.php.net/get/imagick-3.7.0.tgz'; \
+     echo '5a364354109029d224bcbb2e82e15b248be9b641227f45e63425c06531792d3e *imagick.tgz' | sha256sum -c -; \
+     tar --extract --directory /tmp --file imagick.tgz imagick-3.7.0; \
+     grep '^//#endif$' /tmp/imagick-3.7.0/Imagick.stub.php; \
+     test "$(grep -c '^//#endif$' /tmp/imagick-3.7.0/Imagick.stub.php)" = '1'; \
+     sed -i -e 's!^//#endif$!#endif!' /tmp/imagick-3.7.0/Imagick.stub.php; \
+     grep '^//#endif$' /tmp/imagick-3.7.0/Imagick.stub.php && exit 1 || :; \
+     docker-php-ext-install /tmp/imagick-3.7.0; \
+     rm -rf imagick.tgz /tmp/imagick-3.7.0; \
      \
      runDeps="$( \
           scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
@@ -89,7 +107,7 @@ COPY --chown=${RUN_USER}:${RUN_GROUP} config/supervisord/supervisord.conf /etc/s
 
 # Add application
 WORKDIR /var/www/html
-COPY --chown=${RUN_USER}:${RUN_GROUP} --from=NODE_CHAIN /tmp/ddbpro/ .
+COPY --chown=${RUN_USER}:${RUN_GROUP} --from=nchain /tmp/ddbpro/ .
 ENV PATH=${PATH}:/var/www/html/vendor/bin
 
 RUN \
