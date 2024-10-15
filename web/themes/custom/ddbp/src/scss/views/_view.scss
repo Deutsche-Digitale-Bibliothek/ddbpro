@@ -87,7 +87,7 @@
     @include spacing(padding, massive, bottom);
 
     h2,
-    h3 {
+    p.h3 {
         @include spacing(margin, tiny, bottom);
     }
 
@@ -95,12 +95,12 @@
         color: $color-main;
     }
 
-    h3,
-    h4 {
+    p.h3,
+    p.h4 {
         color: $color-grey;
     }
 
-    h4 {
+    p.h4 {
         font-weight: font-weight(regular);
     }
 

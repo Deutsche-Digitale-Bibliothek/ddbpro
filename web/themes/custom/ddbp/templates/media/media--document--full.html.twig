@@ -58,15 +58,13 @@
                 </dd>
               {% endif %}
 
-              {# description #}
-              {% if content.field_description[0] %}
-                <dt class="node-table__item-label">
-                  {{ 'Beschreibung:' | t }}
-                </dt>
-                <dd class="node-table__item-value">
-                  {{ content.field_description[0]['#context'].value }}
-                </dd>
-              {% endif %}
+              {# type #}
+              <dt class="node-table__item-label">
+                {{ 'Dokumententyp:' | t }}
+              </dt>
+              <dd class="node-table__item-value {% if not hasLink %}node-table__item-value--doc-type{% endif %}">
+                {{ hasLink ? 'extern' | t : file.filemime.value|split('/')[1] }}
+              </dd>
 
               {# size #}
               {% if file %}
@@ -77,14 +75,6 @@
                   {{ file.filesize.value|format_bytes }}
                 </dd>
               {% endif %}
-
-              {# type #}
-              <dt class="node-table__item-label">
-                {{ 'Dokumententyp:' | t }}
-              </dt>
-              <dd class="node-table__item-value {% if not hasLink %}node-table__item-value--doc-type{% endif %}">
-                {{ hasLink ? 'extern' | t : file.filemime.value|split('/')[1] }}
-              </dd>
 
               {# last update #}
               {% if file %}
@@ -97,12 +87,14 @@
               {% endif %}
 
               {# licence #}
+              {% if content.field_document_license[0] %}
               <dt class="node-table__item-label">
                 {{ 'Lizenz:' | t }}
               </dt>
               <dd class="node-table__item-value">
                 {{ content.field_document_license[0]['#plain_text'] }}
               </dd>
+              {% endif %}
 
               {# author #}
               {% if content.field_author[0] %}
@@ -111,6 +103,16 @@
                 </dt>
                 <dd class="node-table__item-value">
                   {{ content.field_author[0]['#context'].value }}
+                </dd>
+              {% endif %}
+
+              {# description #}
+              {% if content.field_description['#items']|length > 0 %}
+                <dt class="node-table__item-label">
+                  {{ 'Beschreibung:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ content.field_description }}
                 </dd>
               {% endif %}
             </dl>

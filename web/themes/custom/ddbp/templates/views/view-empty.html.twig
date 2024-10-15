@@ -1,10 +1,19 @@
 <div class="view-empty">
+  {% set filter_count = view.getExposedInput is defined ? view.getExposedInput|length : 0 %}
   <h2>{{ 'Entschuldigen Sie,' | t }}</h2>
-  <h3>{{ 'Ihre Auswahl hat zu keinem Ergebnis geführt.' | t }}</h3>
-  <h4>
-    {{ 'Bitte ändern Sie Ihre Auswahl oder wenden Sie sich für weitere Unterstützung an unsere' | t ~ ' ' }}
-    <a href="{{ '/node/279' | t }}">
-      {{ 'Servicestelle' }}.
-    </a>
-  </h4>
+  {% if filter_count == 0 %}
+    {# Keine benutzerdef. Filter gesetzt, daher keine Entitäten zum Anzeigen #}
+    <p class="h3">{{ 'es gibt aktuell keine Termine & Veranstaltungen.' | t }}</p>
+    <p class="h4">
+      {{ 'Bitte wenden Sie sich für weitere Unterstützung an unsere' | t ~ ' ' }}
+      <a href="{{ '/node/279' | t }}">{{ 'Servicestelle' }}</a>.
+    </p>
+  {% else %}
+    {# benutzerdef. Filter sind gesetzt, aber keine Ergebnisse gefunden #}
+    <p class="h3">{{ 'Ihre Auswahl hat zu keinem Ergebnis geführt.' | t }}</p>
+    <p class="h4">
+      {{ 'Bitte ändern Sie Ihre Auswahl oder wenden Sie sich für weitere Unterstützung an unsere' | t ~ ' ' }}
+      <a href="{{ '/node/279' | t }}">{{ 'Servicestelle' }}</a>.
+    </p>
+  {% endif %}
 </div>

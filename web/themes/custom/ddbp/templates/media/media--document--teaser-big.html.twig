@@ -32,10 +32,9 @@
         class="document-teaser__name">
         {{ content.name[0]['#context'].value }}
       </a></h2>
-      {% if content.field_description[0] %}
-        <p class="document-teaser__description">
-          {{ content.field_description[0]['#context'].value }}
-        </p>
+      {% if content.field_description['#items']|length > 0 %}
+        {% set description = content.field_description['#items'][0].value %}
+        <p class="document-teaser__description">{{ description|striptags|truncate(400, true, '...') }}</p>
       {% endif %}
       <div class="document-teaser__link">
         <a href="{{ url }}" aria-describedby="media_{{ media.id }}_title">
