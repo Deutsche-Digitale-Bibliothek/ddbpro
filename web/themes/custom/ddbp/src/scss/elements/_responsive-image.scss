@@ -4,7 +4,7 @@
 }
 
 .responsive-image__desc {
-    @include spacing(margin, very-small, top);
+    @include spacing(margin, very-small, top bottom);
     display: flex;
 
     &:before {

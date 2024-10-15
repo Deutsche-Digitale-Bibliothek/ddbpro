@@ -69,7 +69,7 @@
     {% if img.description['#markup'] %}
       <div class="responsive-image__desc">
         <div class="text-formatted">
-          <p>{{- img.description['#markup']|raw -}}</p>
+          {{- img.description['#markup']|raw -}}
         </div>
       </div>
     {% endif %}

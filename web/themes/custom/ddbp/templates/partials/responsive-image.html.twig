@@ -44,21 +44,24 @@
         </div>
         <span class="responsive-image__copyright-text">
           <strong>{{- copyright.title -}}: </strong>
-          {% if defaultImage.description['#markup'] %}
-            <span>{{- defaultImage.description -}}</span>
-            {% if defaultImage.author['#markup'] %}
-              |
-            {% endif %}
-          {% endif %}
+          
+          {% set elements = [] %}
+          
           {% if defaultImage.author['#markup'] %}
-            <span>{{ defaultImage.author }}</span>
+            {% set elements = elements|merge([defaultImage.author]) %}
           {% endif %}
+          
           {% if copyright.text %}
-            {% if defaultImage.description['#markup'] or defaultImage.author['#markup'] %}
-              |
-            {% endif %}
-            {{- copyright.text -}}
+            {% set elements = elements|merge([copyright.text]) %}
           {% endif %}
+          
+          {% if copyright.license %}
+            {% set elements = elements|merge([copyright.license]) %}
+          {% endif %}
+          
+          {% for element in elements %}
+            <span>{{ element }}</span>{% if not loop.last %} | {% endif %}
+          {% endfor %}
         </span>
       </div>
     {% endif %}
@@ -71,7 +74,7 @@
     {% if img.description['#markup'] %}
       <div class="responsive-image__desc">
         <div class="text-formatted">
-          <p>{{- img.description['#markup']|raw -}}</p>
+          {{- img.description['#markup']|raw -}}
         </div>
       </div>
     {% endif %}

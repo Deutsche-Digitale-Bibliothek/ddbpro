@@ -30,6 +30,12 @@
         max-width: 50%;
         margin-bottom: 0;
     }
+    
+    .paragraph-collage__image {
+        position: relative;
+        display: inline-block;
+        max-width: 100%;
+    }
 }
 
 .paragraph-collage__content-wrapper {

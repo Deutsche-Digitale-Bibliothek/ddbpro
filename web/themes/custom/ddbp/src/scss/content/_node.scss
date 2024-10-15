@@ -11,7 +11,6 @@
     .paragraph--content-boxes,
     .paragraph--document,
     .paragraph--facts-figures,
-    .paragraph--image,
     .paragraph--link,
     .paragraph--process,
     .paragraph--separator,
@@ -28,6 +27,33 @@
             @include bp(xl) {
                 max-width: $column-fixed-content;
                 padding-right: 3.15vw;
+            }
+        }
+    }
+
+    .paragraph--image {
+        @extend %container-default;
+        max-width: $container-max-width;
+        margin-right: auto;
+        margin-left: auto;
+
+        > .paragraph-inner {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+
+            @include bp(xl) {
+                max-width: $column-fixed-content;
+                padding-right: 3.15vw;
+                .responsive-image__desc {
+                  padding-right: 3.15vw;
+                }
+            }
+            
+            @include bp(m) {
+              .responsive-image__desc {
+                  position: absolute;
+              }
             }
         }
     }

@@ -185,6 +185,9 @@ class ImageUrlFieldFormatter extends EntityReferenceFormatterBase {
         $image_copyright = empty($media->get('field_copyright')->value)
           ? ''
           : $media->get('field_copyright')->value;
+        $image_license = empty($media->get('field_document_license')->entity)
+          ? ''
+          : $media->get('field_document_license')->entity->getName();
         $image_copyright_link = $media->get('field_link')->first()
           ? $media->get('field_link')->first()->getUrl()->toString()
           : '';
@@ -293,6 +296,7 @@ class ImageUrlFieldFormatter extends EntityReferenceFormatterBase {
                       'image' => $image_copy_url,
                       'title' => $image_title,
                       'text' => $image_copyright,
+                      'license' => $image_license,
                       'link' => $image_copyright_link,
                     ];
                   }
