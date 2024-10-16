@@ -43,24 +43,23 @@
           style="background-image: url('{{ copyright.image }}')">
         </div>
         <span class="responsive-image__copyright-text">
-          <strong>{{- copyright.title -}}: </strong>
-          
           {% set elements = [] %}
           
-          {% if defaultImage.author['#markup'] %}
+          {% if defaultImage.author['#markup'] is not empty %}
             {% set elements = elements|merge([defaultImage.author]) %}
           {% endif %}
           
-          {% if copyright.text %}
+          {% if copyright.text is not empty %}
             {% set elements = elements|merge([copyright.text]) %}
           {% endif %}
           
-          {% if copyright.license %}
+          {% if copyright.license is not empty %}
             {% set elements = elements|merge([copyright.license]) %}
           {% endif %}
           
+          <strong>{{- copyright.title -}}{% if elements|length > 0 %}: {% endif %}</strong>
           {% for element in elements %}
-            <span>{{ element }}</span>{% if not loop.last %} | {% endif %}
+            <span>{{- element -}}</span>{% if not loop.last %} | {% endif %}
           {% endfor %}
         </span>
       </div>

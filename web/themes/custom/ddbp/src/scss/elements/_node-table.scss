@@ -1,5 +1,9 @@
 // for content that appears to be displayed as table
 // Document full & Glossary full
+.row-grid__content-content .field--name-field-media-image {
+    @include spacing(margin, medium, bottom);
+}
+
 .node-table__items {
     display: grid;
     grid-template-columns: 1fr;

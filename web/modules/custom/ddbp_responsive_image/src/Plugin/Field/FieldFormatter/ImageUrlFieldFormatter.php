@@ -289,16 +289,17 @@ class ImageUrlFieldFormatter extends EntityReferenceFormatterBase {
                       ],
                     ];
                   }
-
-                  // add copyright only if copyright field not empty
-                  if ($image_copyright) {
-                    $image_default_original['copyright'] = [
+                  $pos = mb_strpos($image_title, 'ddbp_theme');
+                  if ($pos === false || $pos > 0) {
+                    $image_default_original['copyright'] = array_filter([
                       'image' => $image_copy_url,
                       'title' => $image_title,
                       'text' => $image_copyright,
                       'license' => $image_license,
                       'link' => $image_copyright_link,
-                    ];
+                    ], function($value) {
+                      return !empty($value);
+                    });
                   }
 
                   $elements[$delta]['images'][] = [

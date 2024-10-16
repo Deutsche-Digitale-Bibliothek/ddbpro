@@ -1,0 +1,144 @@
+{% set classes = [
+  'media',
+  'media--type-' ~ media.bundle()|clean_class,
+  not media.isPublished() ? 'media--unpublished',
+  view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+  'document'
+] %}
+
+{% set file = content.field_media_image['#items'].entity %}
+{% set hasLink = content.field_link[0] %}
+
+{% set linkPrimary = {
+  url: hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value),
+  text: hasLink ? 'Website besuchen' | t : 'Herunterladen' | t,
+  target: true,
+  download: hasLink ? false : true,
+  type: 'primary',
+} %}
+
+{% set linkSecondary = {
+  url: path('view.documents.documents'),
+  text: 'Zur Übersicht' | t,
+  type: 'secondary',
+  bg: 'light',
+} %}
+
+{% set linkClasses = [
+  'document__link-link',
+  hasLink ? 'document__link-link--external' : 'document__link-link--download',
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="container">
+    {# Breadcrumbs block #}
+    {{ drupal_block('system_breadcrumb_block', wrapper=false) }}
+  </div>
+
+  <div class="node__content">
+    <div class="container">
+      <a id="main-content" tabindex="-1" class="visually-hidden"></a>
+      <div class="row-grid row-grid--fixed">
+        <div class="row-grid__title">
+          <div class="row-grid__title-content">
+            <h1>{{ name }}</h1>
+          </div>
+        </div>
+        <div class="row-grid__content">
+          <div class="row-grid__content-content">
+            
+           {{ content.field_media_image }}
+            
+            <dl class="document__items node-table__items">
+              
+              {# name #}
+              {% if file %}
+                <dt class="node-table__item-label">
+                  {{ 'Dateiname:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ file.filename.value }}
+                </dd>
+              {% endif %}
+
+              {# type #}
+              <dt class="node-table__item-label">
+                {{ 'Dokumententyp:' | t }}
+              </dt>
+              <dd class="node-table__item-value node-table__item-value--doc-type">
+                {{ file.filemime.value|split('/')[1] }}
+              </dd>
+
+              {# size #}
+              {% if file %}
+                <dt class="node-table__item-label">
+                  {{ 'Dateigröße:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ file.filesize.value|format_bytes }}
+                </dd>
+              {% endif %}
+
+              {# last update #}
+              {% if file %}
+                <dt class="node-table__item-label">
+                  {{ 'Letzte Aktualisierung:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ file.getCreatedTime|date('d.m.Y') }}
+                </dd>
+              {% endif %}
+
+              {# licence #}
+              {% if content.field_document_license[0] %}
+              <dt class="node-table__item-label">
+                {{ 'Lizenz:' | t }}
+              </dt>
+              <dd class="node-table__item-value">
+                {{ content.field_document_license[0]['#plain_text'] }}
+              </dd>
+              {% endif %}
+
+              {# author #}
+              {% if content.field_author[0] %}
+                <dt class="node-table__item-label">
+                  {{ 'Autor:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ content.field_author[0]['#context'].value }}
+                </dd>
+              {% endif %}
+
+              {% if content.field_copyright[0] %}
+              <dt class="node-table__item-label">
+                {{ 'Quelle:' | t }}
+              </dt>
+              <dd class="node-table__item-value">
+                {{ content.field_copyright[0]['#context'].value }}
+              </dd>
+              {% endif %}
+
+              {# description #}
+              {% if content.field_description['#items']|length > 0 %}
+                <dt class="node-table__item-label">
+                  {{ 'Bildunterschrift:' | t }}
+                </dt>
+                <dd class="node-table__item-value">
+                  {{ content.field_description }}
+                </dd>
+              {% endif %}
+            </dl>
+
+            <div class="document__links links-siblings">
+              {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
+              {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# stable link placeholder #}
+  <div aria-hidden="true" class="stable-link__placeholder visually-hidden">{{ get_current_path() }}</div>
+</article>

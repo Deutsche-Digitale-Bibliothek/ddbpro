@@ -31,22 +31,24 @@
               style="background-image: url('{{ imageCopyright.image }}')">
             </div>
             <span class="responsive-image__copyright-text">
-              <strong>{{- imageDefault.title -}}: </strong>
-              {% if imageDefault.description['#markup'] %}
-                <span>{{- imageDefault.description -}}</span>
-                {% if imageDefault.author['#markup'] %}
-                  |
-                {% endif %}
+              {% set elements = [] %}
+              
+              {% if imageDefault.author['#markup'] is not empty %}
+                {% set elements = elements|merge([imageDefault.author]) %}
               {% endif %}
-              {% if imageDefault.author['#markup'] %}
-                <span>{{ imageDefault.author }}</span>
+              
+              {% if imageCopyright.text is not empty %}
+                {% set elements = elements|merge([imageCopyright.text]) %}
               {% endif %}
-              {% if imageCopyright.text %}
-                {% if imageDefault.description['#markup'] or imageDefault.author['#markup'] %}
-                  |
-                {% endif %}
-                {{- imageCopyright.text -}}
+              
+              {% if imageCopyright.license is not empty %}
+                {% set elements = elements|merge([imageCopyright.license]) %}
               {% endif %}
+              
+              <strong>{{- imageDefault.title -}}{% if elements|length > 0 %}: {% endif %}</strong>
+              {% for element in elements %}
+                <span>{{- element -}}</span>{% if not loop.last %} | {% endif %}
+              {% endfor %}
             </span>
           </div>
         {% endif %}
