@@ -20,9 +20,19 @@
 
       {# set custom image bc of the width and different image style #}
       {% if display == 'klein' %}
-        <picture class="responsive-image">
-          <img src="{{ src }}" class="responsive-image__img" alt="{{ imageAlt }}">
-        </picture>
+        <figure>
+          <picture class="responsive-image">
+            <img src="{{ src }}" class="responsive-image__img" alt="{{ imageAlt }}">
+          </picture>
+          {# description #}
+          {% if imageDescription %}
+            <figcaption class="responsive-image__desc">
+              <div class="text-formatted">
+                {{- imageDescription|raw -}}
+              </div>
+            </figcaption>
+          {% endif %}
+        </figure>
         {# copyright #}
         {% if imageCopyright %}
           <div class="responsive-image__copyright"
@@ -52,15 +62,7 @@
             </span>
           </div>
         {% endif %}
-        {# description #}
-        {% if imageDescription %}
-          <div class="responsive-image__desc">
-            <div class="text-formatted">
-              {{- imageDescription -}}
-            </div>
-          </div>
-        {% endif %}
-
+      
       {% else %}
         {% set responsiveImage = {
           images: images,

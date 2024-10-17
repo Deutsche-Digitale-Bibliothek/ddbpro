@@ -1,5 +1,6 @@
 .service-contact {
     @include spacing(padding, large);
+    @include spacing(margin, medium, bottom);
     @include border-radius();
     position: relative;
     display: flex;

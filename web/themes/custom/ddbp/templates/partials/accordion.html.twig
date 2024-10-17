@@ -4,16 +4,14 @@
   accordion.image ? 'accordion--has-image',
 ] %}
 {% set uniqueId = accordion.group|clean_class ~ '_' ~ accordion.title|clean_class %}
-
 <div class="{{ classes|join(' ') }}">
   <button class="accordion__header"
     aria-expanded="false"
     aria-controls="{{ uniqueId }}">
-    {% if accordion.image is defined and accordion.image %}
-      <div class="accordion__header-image">
-        {% set responsiveImage = { images: accordion.image.images } %}
-        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-      </div>
+    {% if image.images.5 is not empty %}
+      <span class="accordion__header-image">
+        {{ drupal_image(image.images.5.uri['#markup'], 'thumbnail', {alt: image.images.5.alt['#markup']|t}) }}
+      </span>
     {% endif %}
     <span class="h4">{{- accordion.title -}}</span>
   </button>

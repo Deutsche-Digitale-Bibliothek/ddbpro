@@ -7,21 +7,26 @@
     @include spacing(margin, very-small, top bottom);
     display: flex;
 
-    &:before {
-        @include rsa(height width, 10px, 12px);
-        @include rsa(margin-top, 2px, 3px);
-        @include spacing(margin, tiny, right);
-        content: '';
-        display: inline-block;
-        flex-shrink: 0;
-        background-image: url('../images/icons/circle-info-regular-main.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-
-    .text-formatted p {
-        @include text(p2);
-        color: $color-grey-light;
-    }
+    .text-formatted {
+        margin-bottom: 0px;
+        
+        p:first-child:before {
+            @include rsa(height width, 10px, 12px);
+            @include rsa(margin-top, 2px, 3px);
+            @include spacing(margin, tiny, right);
+            content: '';
+            display: inline-block;
+            flex-shrink: 0;
+            background-image: url('../images/icons/circle-info-regular-main.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+       }
+       
+       p {
+          @include text(p2);
+          @include spacing(margin, tiny, bottom);
+          color: $color-grey-light;
+       }
+   }
 }
