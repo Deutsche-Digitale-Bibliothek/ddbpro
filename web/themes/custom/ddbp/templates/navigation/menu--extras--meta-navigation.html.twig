@@ -6,7 +6,7 @@
         {% if link.content.field_icon[0] %}
           {% set responsiveImage = { images: link.content.field_icon[0].images } %}
           <div class="menu--meta-navigation__item-icon">
-            {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+            {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
           </div>
         {% endif %}
 

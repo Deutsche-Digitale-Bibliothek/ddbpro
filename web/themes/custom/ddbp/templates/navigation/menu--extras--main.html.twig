@@ -26,7 +26,7 @@
             <a href="{{ item.url }}" class="menu-item__link">
               {% if item.content.field_icon[0] %}
                 {% set responsiveImage = { images: item.content.field_icon[0].images } %}
-                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+                {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
               {% endif %}
               <span>{{ item.title }}</span>
             </a>
@@ -37,7 +37,7 @@
                     aria-controls="subMenu-{{ key }}">
               {% if item.content.field_icon[0] %}
                 {% set responsiveImage = { images: item.content.field_icon[0].images } %}
-                {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+                {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
               {% endif %}
               <span>{{ item.title }}</span>
             </button>
