@@ -56,9 +56,17 @@ const closeAccordion = (accordion) => {
 };
 
 const toggleAccordion = (accordion, open) => {
-  const isOpen = open ? open : accordion.classList.contains(accordionOpenClass);
+  const isOpen = accordion.classList.contains(accordionOpenClass);
 
-  !isOpen ? openAccordion(accordion) : closeAccordion(accordion);
+  if(open === undefined && !isOpen) {
+    openAccordion(accordion);
+  } else if(open === undefined && isOpen) {
+    closeAccordion(accordion);
+  } else if(!open && !isOpen) {
+    openAccordion(accordion);
+  } else if(open && isOpen) {
+    closeAccordion(accordion);
+  }
 };
 
 const toggleAll = (event) => {
