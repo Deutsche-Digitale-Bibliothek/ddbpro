@@ -1,19 +1,41 @@
 uuid: 945e0429-bac4-4331-8967-66e918253f39
 langcode: de
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - spamspan
 _core:
   default_config_hash: NIKBt6kw_uPhNI0qtR2DnRf7mSOgAQdx7Q94SKMjXbQ
-name: 'Plain text'
+name: Klartext
 format: plain_text
 weight: 10
 filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: true
     weight: -10
     settings: {  }
+  filter_spamspan:
+    id: filter_spamspan
+    provider: spamspan
+    status: true
+    weight: 0
+    settings:
+      spamspan_at: ' [at] '
+      spamspan_use_graphic: false
+      spamspan_dot_enable: false
+      spamspan_dot: ' [dot] '
+      spamspan_use_form: false
+      spamspan_form_pattern: '<a href="%url?goto=%email">%displaytext</a>'
+      spamspan_form_default_url: contact
+      spamspan_form_default_displaytext: 'contact form'
   filter_url:
     id: filter_url
     provider: filter
@@ -21,9 +43,3 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }

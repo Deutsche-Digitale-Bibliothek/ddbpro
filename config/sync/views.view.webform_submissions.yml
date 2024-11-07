@@ -11,9 +11,9 @@ dependencies:
 _core:
   default_config_hash: YPgxGC8TmLtfCOLGCCHJcdH2llA7QksUkdi1abhB7Ro
 id: webform_submissions
-label: 'Webform submissions'
+label: Webformular-Eingaben
 module: views
-description: 'Default webform submissions views.'
+description: 'Standardansichten für die Anzeige von Webformular-Eingaben.'
 tag: ''
 base_table: webform_submission
 base_field: sid
@@ -24,7 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Webform submissions'
+      title: Webformular-Eingaben
       fields:
         sid:
           id: sid
@@ -102,7 +102,7 @@ display:
           entity_type: webform_submission
           entity_field: in_draft
           plugin_id: field
-          label: Draft
+          label: Entwurf
           exclude: false
           alter:
             alter_text: false
@@ -216,6 +216,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -348,6 +357,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 25
           total_pages: null
           id: 0
@@ -391,7 +401,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No submissions available.'
+          content: 'Keine Eingaben verfügbar.'
           tokenize: false
       sorts: {  }
       arguments:
@@ -422,7 +432,8 @@ display:
           field: uid
           entity_type: webform_submission
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
+          target_entity_type_id: user
         in_draft:
           id: in_draft
           table: webform_submission
@@ -443,7 +454,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -597,7 +607,7 @@ display:
       tags: {  }
   embed_administer:
     id: embed_administer
-    display_title: 'Embed: Administer'
+    display_title: 'Eingebettet: Administrator'
     display_plugin: embed
     position: 2
     display_options:
@@ -611,7 +621,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: webform_submission_bulk_form
-          label: 'Webform submission operations bulk form'
+          label: 'Massenverarbeitungsformular für Webformular-Eingaben'
           exclude: false
           alter:
             alter_text: false
@@ -731,7 +741,7 @@ display:
           entity_type: webform_submission
           entity_field: in_draft
           plugin_id: field
-          label: Draft
+          label: Entwurf
           exclude: false
           alter:
             alter_text: false
@@ -979,6 +989,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -999,7 +1018,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false
@@ -1046,6 +1065,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1194,7 +1222,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'Is draft'
+            label: 'Ist Entwurf'
             description: ''
             use_operator: false
             operator: in_draft_op
@@ -1416,7 +1444,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
-      display_description: 'Administer submissions.'
+      display_description: 'Webformular-Eingaben verwalten'
       display_extenders: {  }
     cache_metadata:
       max-age: 0
@@ -1430,7 +1458,7 @@ display:
       tags: {  }
   embed_default:
     id: embed_default
-    display_title: 'Embed: Default'
+    display_title: 'Eingebettet: Standard'
     display_plugin: embed
     position: 1
     display_options:
@@ -1502,7 +1530,7 @@ display:
         fields: true
         filters: true
         filter_groups: true
-      display_description: 'Display submissions.'
+      display_description: 'Webformular-Eingaben anzeigen.'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1515,7 +1543,7 @@ display:
       tags: {  }
   embed_manage:
     id: embed_manage
-    display_title: 'Embed: Manage'
+    display_title: 'Eingebettet: Verwalten'
     display_plugin: embed
     position: 3
     display_options:
@@ -1529,7 +1557,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: webform_submission_bulk_form
-          label: 'Webform submission operations bulk form'
+          label: 'Massenverarbeitungsformular für Webformular-Eingaben'
           exclude: false
           alter:
             alter_text: false
@@ -1653,7 +1681,7 @@ display:
           entity_type: webform_submission
           entity_field: in_draft
           plugin_id: field
-          label: Draft
+          label: Entwurf
           exclude: false
           alter:
             alter_text: false
@@ -1901,6 +1929,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1921,7 +1958,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false
@@ -1968,6 +2005,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2170,7 +2216,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'Is draft'
+            label: 'Ist Entwurf'
             description: ''
             use_operator: false
             operator: in_draft_op
@@ -2392,7 +2438,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
-      display_description: 'Manage submissions.'
+      display_description: 'Webformular-Eingaben verwalten'
       display_extenders: {  }
     cache_metadata:
       max-age: 0
@@ -2406,7 +2452,7 @@ display:
       tags: {  }
   embed_review:
     id: embed_review
-    display_title: 'Embed: Review'
+    display_title: 'Eingebettet: Überprüfung'
     display_plugin: embed
     position: 4
     display_options:
@@ -2487,7 +2533,7 @@ display:
           entity_type: webform_submission
           entity_field: in_draft
           plugin_id: field
-          label: Draft
+          label: Entwurf
           exclude: false
           alter:
             alter_text: false
@@ -2735,6 +2781,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2755,7 +2810,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false
@@ -2802,6 +2857,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2951,7 +3015,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'Is draft'
+            label: 'Ist Entwurf'
             description: ''
             use_operator: false
             operator: in_draft_op
@@ -3173,7 +3237,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
-      display_description: 'Review submissions.'
+      display_description: 'Webformular-Eingaben überprüfen'
       display_extenders: {  }
     cache_metadata:
       max-age: -1

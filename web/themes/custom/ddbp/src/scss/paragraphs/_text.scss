@@ -9,7 +9,7 @@
     ul,
     pre,
     table {
-        @include spacing(margin, medium, bottom);
+        @include spacing(margin, small, bottom);
 
         &:last-child {
             margin-bottom: 0;

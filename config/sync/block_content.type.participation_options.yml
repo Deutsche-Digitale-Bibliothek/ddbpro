@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: participation_options
 label: 'Participation options'
-revision: 0
+revision: false
 description: ''

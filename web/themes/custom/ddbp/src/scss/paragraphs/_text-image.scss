@@ -1,0 +1,42 @@
+.paragraph-text-image__image-wrapper {
+    @include spacing(margin, very-small, bottom);
+    @include spacing(margin, tiny, top);
+}
+
+.paragraph--text-image-row--image-right,
+.paragraph--text-image-row--image-left {
+    .paragraph-text-image__image-wrapper {
+        max-width: 100%;
+        
+        @include bp(s) {
+            max-width: min(100%, calc(var(--max-width, 25%) + 10%));
+        }
+        
+        @include bp(m) {
+            max-width: min(100%, calc(var(--max-width, 25%) + 5%));
+        }
+        
+        @include bp(l) {
+            max-width: var(--max-width, 25%);
+        }
+    }
+}
+
+
+.paragraph--text-image-row--image-right {
+    .paragraph-text-image__image-wrapper {
+        @include bp(s) {
+            float: right;
+            @include spacing(margin, large, left);
+        }
+    }
+}
+
+.paragraph--text-image-row--image-left {
+    .paragraph-text-image__image-wrapper {
+        @include bp(s) {
+            float: left;
+            @include spacing(margin, large, right);
+        }
+    }
+}

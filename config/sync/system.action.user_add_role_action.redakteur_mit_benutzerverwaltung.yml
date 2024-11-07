@@ -1,0 +1,14 @@
+uuid: 091d852a-1346-4dec-a883-9fb2b54f1e8f
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.redakteur_mit_benutzerverwaltung
+  module:
+    - user
+id: user_add_role_action.redakteur_mit_benutzerverwaltung
+label: 'Den ausgewählten Benutzern die Rolle Redakteur mit Benutzerverwaltung zuweisen'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: redakteur_mit_benutzerverwaltung

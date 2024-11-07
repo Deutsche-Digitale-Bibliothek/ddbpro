@@ -7,12 +7,25 @@ dependencies:
     - media.type.document
   module:
     - link
+    - link_field_autocomplete_filter
+third_party_settings:
+  link_field_autocomplete_filter:
+    negate: null
+    allowed_content_types:
+      aggregator_portrait: '0'
+      article: '0'
+      department: '0'
+      event: '0'
+      faq: '0'
+      glossary_term: '0'
+      overview_teaser: '0'
+      page: '0'
 id: media.document.field_link
 field_name: field_link
 entity_type: media
 bundle: document
 label: URL
-description: ''
+description: 'Nur bei Verlinkung zu externen Seiten mit dem URL befüllen! Bei Downloads von PDFs, Powerpoints, ... frei lassen.'
 required: false
 translatable: false
 default_value: {  }

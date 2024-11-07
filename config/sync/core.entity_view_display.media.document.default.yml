@@ -14,6 +14,7 @@ dependencies:
   module:
     - file
     - link
+    - text
 _core:
   default_config_hash: XxUyhaTuM0OUUZpr8G6jdrFBEh5eag7auWxBKhm6cvY
 id: media.document.default
@@ -30,7 +31,7 @@ content:
     weight: 5
     region: content
   field_description:
-    type: basic_string
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }

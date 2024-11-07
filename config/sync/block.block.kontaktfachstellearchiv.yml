@@ -1,0 +1,25 @@
+uuid: 80a97297-3ff0-4f4e-ab19-ad1a68b5fe31
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:service_contact_element:f7c96ccb-b386-42de-bad9-a7b93ddde67a'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: kontaktfachstellearchiv
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:f7c96ccb-b386-42de-bad9-a7b93ddde67a'
+settings:
+  id: 'block_content:f7c96ccb-b386-42de-bad9-a7b93ddde67a'
+  label: 'Kontakt Fachstelle Archiv'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

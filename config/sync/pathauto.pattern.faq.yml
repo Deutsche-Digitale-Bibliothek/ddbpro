@@ -11,7 +11,7 @@ type: 'canonical_entities:node'
 pattern: 'faq/[node:title]'
 selection_criteria:
   b5ae08be-0729-4f80-bfd8-fb660589259d:
-    id: node_type
+    id: 'entity_bundle:node'
     negate: false
     uuid: b5ae08be-0729-4f80-bfd8-fb660589259d
     context_mapping:

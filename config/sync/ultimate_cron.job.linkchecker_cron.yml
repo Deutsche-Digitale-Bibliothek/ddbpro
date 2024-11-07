@@ -1,0 +1,17 @@
+uuid: 88818cb9-eac4-4e86-978b-81def33fc6f8
+langcode: de
+status: true
+dependencies:
+  module:
+    - linkchecker
+title: 'Standardverarbeitungsroutine für Cron'
+id: linkchecker_cron
+weight: 0
+module: linkchecker
+callback: linkchecker_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

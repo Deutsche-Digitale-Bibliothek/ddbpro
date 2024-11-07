@@ -8,20 +8,20 @@ dependencies:
 _core:
   default_config_hash: DaGeEDJMcbbQtgV96AuPeZ-0irMc_Oa6Zzh2U3Kmul8
 id: files
-label: Files
+label: Dateien
 module: file
-description: 'Find and manage files.'
+description: 'Dateien suchen und verwalten.'
 tag: default
 base_table: file_managed
 base_field: fid
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Standard
     display_plugin: default
     position: 0
     display_options:
-      title: Files
+      title: Dateien
       fields:
         fid:
           id: fid
@@ -129,7 +129,7 @@ display:
           entity_type: file
           entity_field: filemime
           plugin_id: field
-          label: 'MIME type'
+          label: MIME-Typ
           exclude: false
           alter:
             alter_text: false
@@ -181,7 +181,7 @@ display:
           entity_type: file
           entity_field: filesize
           plugin_id: field
-          label: Size
+          label: Größe
           exclude: false
           alter:
             alter_text: false
@@ -277,8 +277,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Temporary
-            format_custom_true: Permanent
+            format_custom_false: Temporär
+            format_custom_true: Dauerhaft
         created:
           id: created
           table: file_managed
@@ -289,7 +289,7 @@ display:
           entity_type: file
           entity_field: created
           plugin_id: field
-          label: 'Upload date'
+          label: Upload-Datum
           exclude: false
           alter:
             alter_text: false
@@ -335,6 +335,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
         changed:
           id: changed
           table: file_managed
@@ -345,7 +354,7 @@ display:
           entity_type: file
           entity_field: changed
           plugin_id: field
-          label: 'Changed date'
+          label: Änderungsdatum
           exclude: false
           alter:
             alter_text: false
@@ -391,6 +400,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
         count:
           id: count
           table: file_usage
@@ -399,7 +417,7 @@ display:
           group_type: sum
           admin_label: ''
           plugin_id: numeric
-          label: 'Used in'
+          label: 'Verwendet in'
           exclude: false
           alter:
             alter_text: false
@@ -445,19 +463,20 @@ display:
           decimal: .
           separator: ','
           format_plural: true
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+          format_plural_string: !!binary MSBTdGVsbGUDQGNvdW50IFN0ZWxsZW4=
           prefix: ''
           suffix: ''
       pager:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Nächste Seite ›'
+            previous: '‹ Vorherige Seite'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -490,7 +509,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: true
-          content: 'No files available.'
+          content: 'Keine Dateien verfügbar'
       sorts: {  }
       arguments: {  }
       filters:
@@ -510,7 +529,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: Filename
+            label: Dateiname
             description: ''
             use_operator: false
             operator: filename_op
@@ -552,7 +571,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: 'MIME type'
+            label: MIME-Typ
             description: ''
             use_operator: false
             operator: filemime_op
@@ -735,7 +754,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: 'Files overview'
+    display_title: Dateiübersicht
     display_plugin: page
     position: 1
     display_options:
@@ -756,7 +775,7 @@ display:
       path: admin/content/files
       menu:
         type: tab
-        title: Files
+        title: Dateien
         description: ''
         weight: 0
         menu_name: admin
@@ -772,11 +791,11 @@ display:
       tags: {  }
   page_2:
     id: page_2
-    display_title: 'File usage'
+    display_title: Dateinutzung
     display_plugin: page
     position: 2
     display_options:
-      title: 'File usage'
+      title: Dateinutzung
       fields:
         entity_label:
           id: entity_label
@@ -786,7 +805,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: entity_label
-          label: Entity
+          label: Entität
           exclude: false
           alter:
             alter_text: false
@@ -836,7 +855,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Entity type'
+          label: Entitätstyp
           exclude: false
           alter:
             alter_text: false
@@ -885,7 +904,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Registering module'
+          label: 'Registrierendes Modul'
           exclude: false
           alter:
             alter_text: false
@@ -934,7 +953,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: 'Use count'
+          label: 'Anzahl der Verwendung'
           exclude: false
           alter:
             alter_text: false
@@ -987,12 +1006,13 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Nächste Seite ›'
+            previous: '‹ Vorherige Seite'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -1019,11 +1039,10 @@ display:
             title_enable: false
             title: All
           title_enable: true
-          title: 'File usage information for {{ arguments.fid }}'
+          title: 'Dateiverwendungsinformationen für {{ arguments.fid }}'
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

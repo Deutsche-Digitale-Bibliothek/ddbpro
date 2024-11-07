@@ -179,7 +179,7 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships:
@@ -192,6 +192,7 @@ display:
           admin_label: 'field_faq_category: Taxonomy term'
           plugin_id: standard
           required: true
+      group_by: true
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -210,7 +211,22 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
+        ajax_history: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: faq
     cache_metadata:
       max-age: -1

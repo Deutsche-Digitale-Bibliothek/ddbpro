@@ -1,0 +1,29 @@
+uuid: a375e530-e35a-4996-ba84-4397e77c3a6a
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_document_license
+    - media.type.image
+    - taxonomy.vocabulary.document_license
+id: media.image.field_document_license
+field_name: field_document_license
+entity_type: media
+bundle: image
+label: Lizenz
+description: 'Was ist die Lizenz des Bildes? Wenn sie nicht bekannt ist, dann bitte „unbekannt“ auswählen.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      document_license: document_license
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

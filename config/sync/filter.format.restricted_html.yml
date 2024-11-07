@@ -1,13 +1,21 @@
 uuid: 18898bd5-8358-4b64-b28f-8652f8d417ed
 langcode: de
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - spamspan
 _core:
   default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI
-name: 'Restricted HTML'
+name: 'Eingeschränktes HTML'
 format: restricted_html
 weight: 1
 filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -17,12 +25,20 @@ filters:
       allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
       filter_html_help: true
       filter_html_nofollow: false
-  filter_autop:
-    id: filter_autop
-    provider: filter
+  filter_spamspan:
+    id: filter_spamspan
+    provider: spamspan
     status: true
     weight: 0
-    settings: {  }
+    settings:
+      spamspan_at: ' [at] '
+      spamspan_use_graphic: false
+      spamspan_dot_enable: false
+      spamspan_dot: ' [dot] '
+      spamspan_use_form: false
+      spamspan_form_pattern: '<a href="%url?goto=%email">%displaytext</a>'
+      spamspan_form_default_url: contact
+      spamspan_form_default_displaytext: 'contact form'
   filter_url:
     id: filter_url
     provider: filter

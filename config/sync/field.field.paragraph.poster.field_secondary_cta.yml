@@ -24,7 +24,7 @@ id: paragraph.poster.field_secondary_cta
 field_name: field_secondary_cta
 entity_type: paragraph
 bundle: poster
-label: 'CTA sekundär'
+label: 'Button mit Link (weiß)'
 description: ''
 required: false
 translatable: true

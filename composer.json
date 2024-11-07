@@ -12,6 +12,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "require": {
@@ -22,6 +26,7 @@
         "drupal/admin_toolbar": "^3.1",
         "drupal/better_exposed_filters": "^7.0",
         "drupal/calendar_link": "^3.0",
+        "drupal/ckeditor5_plugin_pack": "^1.2",
         "drupal/classy": "^1.0",
         "drupal/clientside_validation": "^4.0",
         "drupal/config_pages": "^2.9",
@@ -52,7 +57,7 @@
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^1.18",
         "drupal/media_thumbnails_pdf": "^2.0",
-        "drupal/media_thumbnails_video": "^2.0",
+        "drupal/media_thumbnails_video": "2.0.x-dev",
         "drupal/menu_item_extras": "^3.0",
         "drupal/metatag": "^2.0",
         "drupal/migrate_plus": "^6.0",
@@ -74,11 +79,12 @@
         "drupal/twig_tweak": "^3.1",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
-        "drupal/views_ajax_history": "^1.x-dev",
+        "drupal/views_ajax_history": "1.x-dev@dev",
         "drupal/views_bulk_edit": "^3.0",
         "drupal/webform": "^6.2",
         "drush/drush": "^13.0",
-        "politsin/jquery-ui-touch-punch": "^1.0",
+        "npm-asset/jquery-validation": "^1.21",
+        "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.4",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
@@ -94,7 +100,9 @@
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "cweagans/composer-patches": true,
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "php-http/discovery": true,
+            "oomphinc/composer-installers-extender": true
         },
         "platform": {
             "php": "8.3",
@@ -116,7 +124,8 @@
         },
         "merge-plugin": {
             "include": [
-                "composer.*.json"
+                "web/modules/contrib/*/composer.libraries.json",
+                "web/modules/custom/*/composer.libraries.json"
             ],
             "recurse": true,
             "replace": false,
@@ -126,12 +135,23 @@
             "merge-extra-deep": false,
             "merge-scripts": false
         },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset",
+            "drupal-drush",
+            "drupal-theme",
+            "drupal-profile",
+            "drupal-module",
+            "drupal-core"
+        ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
             ],
             "web/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -155,35 +175,12 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "drupal-core-project-message": {
-            "include-keys": [
-                "homepage",
-                "support"
-            ],
-            "post-create-project-cmd-message": [
-                "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
-                "<bg=blue;fg=white>                                                         </>",
-                "",
-                "<bg=yellow;fg=black>Next steps</>:",
-                "  * Install the site: https://www.drupal.org/docs/8/install",
-                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                "  * Get support: https://www.drupal.org/support",
-                "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
-            ]
-        },
         "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
         "patches": {
             "drupal/core": {
                 "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch",
                 "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
-            },
-            "drupal/gin": {
-                "Save button missing in modal for editing media using Media Library Edit module": "https://www.drupal.org/files/issues/2024-07-24/fix_missing__ui-dialog-buttonpane__for_the_entity_browser_modal_window.patch"
             }
         }
     }

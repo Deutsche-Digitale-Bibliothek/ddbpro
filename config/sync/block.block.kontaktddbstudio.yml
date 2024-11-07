@@ -1,0 +1,25 @@
+uuid: 0f017ba8-5403-452a-9547-81e7277cd957
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:service_contact_element:9d0b7f8d-a503-47ad-939d-a243879611ec'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: kontaktddbstudio
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:9d0b7f8d-a503-47ad-939d-a243879611ec'
+settings:
+  id: 'block_content:9d0b7f8d-a503-47ad-939d-a243879611ec'
+  label: 'Kontakt DDBstudio'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

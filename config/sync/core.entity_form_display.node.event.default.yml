@@ -18,6 +18,7 @@ dependencies:
     - link
     - media_library
     - path
+    - text
 third_party_settings:
   field_group:
     group_tabs:
@@ -120,7 +121,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_description:
-    type: string_textarea
+    type: text_textarea
     weight: 2
     region: content
     settings:
@@ -178,6 +179,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 5
@@ -202,6 +208,11 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

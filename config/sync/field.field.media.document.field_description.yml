@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.media.field_description
     - media.type.document
+  module:
+    - text
 id: media.document.field_description
 field_name: field_description
 entity_type: media
@@ -15,5 +17,6 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats: {  }
+field_type: text_long

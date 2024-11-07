@@ -10,9 +10,9 @@ id: media.document.field_document_license
 field_name: field_document_license
 entity_type: media
 bundle: document
-label: 'Dokument Lizenz'
-description: ''
-required: false
+label: Lizenz
+description: 'Was ist die Lizenz des Dokuments oder Links? Wenn dies nicht bekannt ist, dann bitte „unbekannt“ auswählen.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

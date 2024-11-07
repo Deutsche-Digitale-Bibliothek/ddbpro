@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: service_contact_element
 label: 'Service Contact Element'
-revision: 0
+revision: false
 description: ''

@@ -3,7 +3,7 @@ langcode: de
 status: true
 dependencies: {  }
 id: link
-label: Link
+label: 'Button mit Link (rot)'
 icon_uuid: null
 icon_default: null
 description: ''

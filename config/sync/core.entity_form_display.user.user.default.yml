@@ -152,7 +152,8 @@ content:
     type: address_default
     weight: 6
     region: content
-    settings: {  }
+    settings:
+      wrapper_type: details
     third_party_settings: {  }
   field_division:
     type: options_buttons
@@ -227,6 +228,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  matomo:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 15

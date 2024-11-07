@@ -3,6 +3,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.document_license.field_abbreviation
     - field.field.taxonomy_term.document_license.field_link
     - taxonomy.vocabulary.document_license
   module:
@@ -12,9 +13,17 @@ targetEntityType: taxonomy_term
 bundle: document_license
 mode: default
 content:
+  field_abbreviation:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 1
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -28,9 +37,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true

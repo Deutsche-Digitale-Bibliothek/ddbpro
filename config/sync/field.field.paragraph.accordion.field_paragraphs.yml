@@ -7,7 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.accordion
     - paragraphs.paragraphs_type.document
     - paragraphs.paragraphs_type.image
-    - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -27,7 +26,6 @@ settings:
     target_bundles:
       document: document
       image: image
-      link: link
       text: text
     negate: 0
     target_bundles_drag_drop:
@@ -63,7 +61,10 @@ settings:
         enabled: true
       link:
         weight: 27
-        enabled: true
+        enabled: false
+      participation_option:
+        weight: 30
+        enabled: false
       poster:
         weight: 28
         enabled: false
@@ -79,4 +80,7 @@ settings:
       text:
         weight: 32
         enabled: true
+      video:
+        weight: 36
+        enabled: false
 field_type: entity_reference_revisions

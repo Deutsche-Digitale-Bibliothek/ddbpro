@@ -1,0 +1,39 @@
+{% extends "paragraph.html.twig" %}
+{% block paragraphContent %}
+  {% set position = content.field_image_position[0]['#markup'] == 'Links' ? 'left' : 'right' %}
+  
+  {% set rowClasses = [
+    'paragraph--text-image-row',
+    'paragraph--text-image-row--image-' ~ position,
+  ] %}
+  
+  <div class="{{ rowClasses|join(' ') }}">
+    {% if content.field_headline[0] %}
+      <h2 class="paragraph-collage__headline">
+        {{ content.field_headline[0]['#context'].value }}
+      </h2>
+    {% endif %}
+    {% if content.field_image[0] %}
+      {% set image_size = content.field_image_size ? content.field_image_size.0['#markup'] : '25%' %}
+      <div class="paragraph-text-image__image-wrapper" style="--max-width: {{ image_size }};">
+        <div class="paragraph-text-image__image">
+          {% set responsiveImage = {
+            images: content.field_image[0].images,
+            description: true,
+            lazy: true,
+          } %}
+          {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+        </div>
+      </div>
+    {% endif %}
+    {% if content.field_text[0] %}
+      <div class="paragraph-text-image__content-wrapper">
+        <div class="paragraph-text-image__content">
+            <div class="paragraph-text-image__text">
+              {{ content.field_text }}
+            </div>
+        </div>
+      </div>
+   {% endif %}
+  </div>
+{% endblock %}

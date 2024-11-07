@@ -1,6 +1,6 @@
 uuid: 9e3a393c-e201-44bb-846f-9c2ad92a531d
 langcode: de
-status: true
+status: false
 dependencies: {  }
 id: node__overview_teaser
 label: 'Content: Übersichtsteaser'

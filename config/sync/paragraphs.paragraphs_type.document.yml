@@ -3,7 +3,7 @@ langcode: de
 status: true
 dependencies: {  }
 id: document
-label: Dokument
+label: Dokumente
 icon_uuid: null
 icon_default: null
 description: ''

@@ -5,15 +5,18 @@ dependencies:
   config:
     - field.storage.media.field_description
     - media.type.image
+  module:
+    - text
 id: media.image.field_description
 field_name: field_description
 entity_type: media
 bundle: image
-label: Beschreibung
-description: ''
+label: Bildunterschrift
+description: 'Die Bildunterschrift wird nur unter dem Bild angezeigt und kann individuell gestaltet werden.'
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats: {  }
+field_type: text_long

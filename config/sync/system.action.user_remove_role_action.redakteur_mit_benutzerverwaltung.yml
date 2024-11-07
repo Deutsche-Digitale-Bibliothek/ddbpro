@@ -1,0 +1,14 @@
+uuid: db13ea34-7e3b-41c3-8f34-8f438d8ac2a8
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.redakteur_mit_benutzerverwaltung
+  module:
+    - user
+id: user_remove_role_action.redakteur_mit_benutzerverwaltung
+label: 'Den ausgewählten Benutzern die Rolle Redakteur mit Benutzerverwaltung entziehen'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: redakteur_mit_benutzerverwaltung

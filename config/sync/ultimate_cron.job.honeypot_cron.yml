@@ -1,0 +1,17 @@
+uuid: 3241a0f0-5d1b-45bb-8789-7403497c8332
+langcode: de
+status: true
+dependencies:
+  module:
+    - honeypot
+title: 'Standardverarbeitungsroutine für Cron'
+id: honeypot_cron
+weight: 0
+module: honeypot
+callback: honeypot_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

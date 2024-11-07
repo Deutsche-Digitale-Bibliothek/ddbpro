@@ -3,21 +3,12 @@ langcode: de
 status: true
 dependencies:
   module:
-    - language
     - user
 id: user
 label: User
 type: 'canonical_entities:user'
-pattern: 'ueber-uns/ansprechpartner/[user:field_firstname]-[user:field_lastname]'
-selection_criteria:
-  7bb49e16-3a18-4695-97a3-fc96873f871a:
-    id: language
-    negate: false
-    uuid: 7bb49e16-3a18-4695-97a3-fc96873f871a
-    context_mapping:
-      language: 'user:langcode:language'
-    langcodes:
-      de: de
+pattern: 'ueber-uns/ansprechpartner_innen/[user:field_firstname]-[user:field_lastname]'
+selection_criteria: {  }
 selection_logic: and
 weight: -5
 relationships:

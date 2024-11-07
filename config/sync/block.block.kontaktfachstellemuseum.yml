@@ -1,0 +1,25 @@
+uuid: 1b155e3a-ccff-4c21-b01f-1d5e2005ba7b
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:service_contact_element:bedbbf94-2eb2-4f97-ac22-145abe427c3f'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: kontaktfachstellemuseum
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:bedbbf94-2eb2-4f97-ac22-145abe427c3f'
+settings:
+  id: 'block_content:bedbbf94-2eb2-4f97-ac22-145abe427c3f'
+  label: 'Kontakt Fachstelle Museum'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

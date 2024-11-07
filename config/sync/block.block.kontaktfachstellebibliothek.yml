@@ -1,0 +1,25 @@
+uuid: af4f298f-4fa5-4cce-a35a-ec9e7783de82
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:service_contact_element:8df12318-6d4b-446b-ad6e-c3abf29f9706'
+  module:
+    - block_content
+  theme:
+    - ddbp
+id: kontaktfachstellebibliothek
+theme: ddbp
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:8df12318-6d4b-446b-ad6e-c3abf29f9706'
+settings:
+  id: 'block_content:8df12318-6d4b-446b-ad6e-c3abf29f9706'
+  label: 'Kontakt Fachstelle Bibliothek'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

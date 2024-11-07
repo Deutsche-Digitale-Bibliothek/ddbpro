@@ -116,6 +116,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -138,6 +139,7 @@ display:
               allow_secondary: false
               secondary_label: 'Erweiterte Optionen'
               secondary_open: false
+              autosubmit_textfield_minimum_length: 3
             filter:
               search_api_fulltext:
                 plugin_id: default
@@ -145,21 +147,27 @@ display:
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
+                  hide_label: false
               aggregated_field:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
+                  hide_label: false
       access:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: search_api_none
         options: {  }
       empty: {  }
       sorts: {  }
@@ -308,7 +316,7 @@ display:
             'entity:user':
               user: search_teaser
       query:
-        type: views_query
+        type: search_api_query
         options:
           bypass_access: false
           skip_access: false

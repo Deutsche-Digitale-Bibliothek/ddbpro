@@ -9,9 +9,9 @@ id: media.image.field_copyright
 field_name: field_copyright
 entity_type: media
 bundle: image
-label: Copyright
-description: ''
-required: false
+label: Quelle
+description: 'Name der Quelle, bei der das Objekt vorliegt. Bei DDB-Objekten der Name des Datenpartners (z.B. Badisches Landesmuseum), bei Stockfotos GettyImages, usw.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -15,7 +15,9 @@
     .paragraph--link,
     .paragraph--process,
     .paragraph--separator,
-    .paragraph--text {
+    .paragraph--text,
+    .paragraph--text-image,
+    .paragraph--video {
         @extend %container-default;
         max-width: $container-max-width;
         margin-right: auto;

@@ -27,6 +27,8 @@ dependencies:
     - eu_cookie_compliance
     - file
     - filter
+    - help
+    - linkchecker
     - media
     - node
     - path
@@ -40,13 +42,16 @@ _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
 label: Redakteur
-weight: 2
+weight: -8
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access broken links report'
   - 'access content overview'
   - 'access files overview'
+  - 'access help pages'
   - 'access media overview'
+  - 'access own broken links report'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access webform overview'
@@ -102,6 +107,7 @@ permissions:
   - 'delete own document media'
   - 'delete own event content'
   - 'delete own faq content'
+  - 'delete own files'
   - 'delete own glossary_term content'
   - 'delete own image media'
   - 'delete own overview_teaser content'

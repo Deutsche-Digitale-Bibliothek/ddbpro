@@ -1,0 +1,19 @@
+uuid: 7aa292ae-01bf-4922-b250-bd005745d13a
+langcode: de
+status: true
+dependencies: {  }
+name: user_user
+label: 'user user validation'
+entity_type: user
+bundle: user
+field_validation_rules:
+  a176d73e-5466-4597-b5f1-16f74547ed01:
+    id: regex_field_validation_rule
+    title: Telefonnummer
+    data:
+      setting: '(\+49\s[1-9][0-9]*\s[0-9]*-?[0-9]*)'
+    weight: 1
+    uuid: a176d73e-5466-4597-b5f1-16f74547ed01
+    field_name: field_phone
+    column: value
+    error_message: 'Bitte eine Telefonummer im Format +49 xxx xxx-xxx eingeben. Die führende Null muss von der Vorwahl entfernt werden, die Durchwahl wird mit einem Bindestrich abgegrenzt und ist optional.'

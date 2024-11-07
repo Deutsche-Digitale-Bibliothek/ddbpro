@@ -8,6 +8,8 @@
 .paragraph--content-boxes,
 .paragraph--document,
 .paragraph--facts-figures,
+.paragraph--text-image,
+.paragraph--video,
 .paragraph--image,
 .paragraph--link {
     @include spacing(margin, very-large, bottom);

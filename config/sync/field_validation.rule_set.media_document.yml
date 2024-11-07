@@ -1,0 +1,20 @@
+uuid: a8d3d4c2-91a5-43df-aca6-c01fe8bf1c23
+langcode: de
+status: true
+dependencies: {  }
+name: media_document
+label: 'media document validation'
+entity_type: media
+bundle: document
+field_validation_rules:
+  c48fa128-1285-48da-92df-1b731ddef08c:
+    id: unique_field_validation_rule
+    title: 'URL muss eindeutig sein'
+    data:
+      scope: entity
+      per_user: 0
+    weight: 1
+    uuid: c48fa128-1285-48da-92df-1b731ddef08c
+    field_name: field_link
+    column: uri
+    error_message: 'Diese URL wird schon für ein anderes Dokument verwendet!'

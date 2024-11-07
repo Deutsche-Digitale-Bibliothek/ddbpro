@@ -10,8 +10,8 @@ field_name: field_author
 entity_type: media
 bundle: document
 label: Autor
-description: ''
-required: false
+description: 'Wer ist der Autor des Dokuments oder Links? Wenn dieser nicht bekannt ist, dann bitte „unbekannt“ einfügen.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

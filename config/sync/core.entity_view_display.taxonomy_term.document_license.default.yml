@@ -3,6 +3,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.document_license.field_abbreviation
     - field.field.taxonomy_term.document_license.field_link
     - taxonomy.vocabulary.document_license
   module:
@@ -18,11 +19,19 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
+  field_abbreviation:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
     region: content
   field_link:
     type: link
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false
@@ -34,3 +43,4 @@ content:
     region: content
 hidden:
   langcode: true
+  search_api_excerpt: true

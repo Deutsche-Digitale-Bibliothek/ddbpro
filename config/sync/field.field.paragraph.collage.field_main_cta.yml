@@ -24,7 +24,7 @@ id: paragraph.collage.field_main_cta
 field_name: field_main_cta
 entity_type: paragraph
 bundle: collage
-label: 'CTA primär'
+label: 'Button mit Link (rot)'
 description: ''
 required: false
 translatable: false

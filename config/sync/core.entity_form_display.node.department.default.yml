@@ -15,7 +15,7 @@ dependencies:
     - node.type.department
   module:
     - field_group
-    - link
+    - link_attributes
     - media_library
     - paragraphs
     - path
@@ -200,12 +200,21 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
   field_sub_pages:
-    type: link_default
+    type: link_attributes
     weight: 51
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_teaser_text:
     type: string_textarea
@@ -233,6 +242,11 @@ content:
   path:
     type: path
     weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

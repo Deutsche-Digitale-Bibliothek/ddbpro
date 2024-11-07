@@ -9,9 +9,9 @@ dependencies:
 _core:
   default_config_hash: 7-f_3ASk-Ly7MqcUiwREHB0r0l-jkq7bKwjRLTMhDEs
 id: redirect
-label: Redirect
+label: Umleiten
 module: views
-description: 'List of redirects'
+description: 'Liste der Umleitungen'
 tag: ''
 base_table: redirect
 base_field: rid
@@ -22,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Redirect
+      title: Umleiten
       fields:
         redirect_bulk_form:
           id: redirect_bulk_form
@@ -74,7 +74,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: 'With selection'
+          action_title: 'Mit Auswahl'
           include_exclude: exclude
           selected_actions: {  }
         redirect_source__path:
@@ -226,6 +226,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -247,7 +248,7 @@ display:
         type: basic
         options:
           submit_button: Filter
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -270,7 +271,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There is no redirect yet.'
+          content: 'Es wurde noch keine Umleitung eingerichtet.'
           tokenize: false
       sorts: {  }
       arguments: {  }
@@ -589,7 +590,7 @@ display:
       cacheable: false
   page_1:
     id: page_1
-    display_title: Page
+    display_title: Seite
     display_plugin: page
     position: 1
     display_options:

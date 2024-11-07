@@ -29,7 +29,6 @@ dependencies:
     - field.field.config_pages.front_page.field_title_cta
   module:
     - field_group
-    - link
     - link_attributes
     - media_library
     - metatag
@@ -229,20 +228,38 @@ content:
       use_details: true
     third_party_settings: {  }
   field_participation_cta_left:
-    type: link_default
+    type: link_attributes
     weight: 4
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_participation_cta_right:
-    type: link_default
+    type: link_attributes
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_participation_description:
     type: text_textarea
@@ -276,20 +293,38 @@ content:
       display_label: true
     third_party_settings: {  }
   field_studio_cta_left:
-    type: link_default
+    type: link_attributes
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_studio_cta_right:
-    type: link_default
+    type: link_attributes
     weight: 6
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_studio_description:
     type: string_textarea
@@ -331,12 +366,21 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_title_cta:
-    type: link_default
+    type: link_attributes
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
 hidden:
   label: true

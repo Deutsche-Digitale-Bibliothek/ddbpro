@@ -3,7 +3,7 @@ langcode: de
 status: true
 dependencies: {  }
 id: facts_figures
-label: 'Fakten & Businesskennzahlen'
+label: 'Fakten & Kennzahlen'
 icon_uuid: null
 icon_default: null
 description: ''

@@ -38,9 +38,11 @@
     {% endif %}
     <div class="paragraph-collage__content-wrapper">
       <div class="paragraph-collage__content">
-        <h2 class="paragraph-collage__headline">
-          {{ content.field_headline[0]['#context'].value }}
-        </h2>
+        {% if content.field_headline[0] %}
+          <h2 class="paragraph-collage__headline">
+            {{ content.field_headline[0]['#context'].value }}
+          </h2>
+        {% endif %}
         {% if content.field_text[0] %}
           <div class="paragraph-collage__text">
             {{ content.field_text }}

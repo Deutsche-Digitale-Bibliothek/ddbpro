@@ -1,0 +1,25 @@
+uuid: acb3a2f6-59df-4d55-b907-7eea7b48cc6e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_size
+    - paragraphs.paragraphs_type.text_image
+id: paragraph.text_image.field_image_size
+field_name: field_image_size
+entity_type: paragraph
+bundle: text_image
+label: Bildgröße
+description: 'Breite des Bildes in Prozent der Gesamtbreite des Texts'
+required: true
+translatable: false
+default_value:
+  -
+    value: 25
+default_value_callback: ''
+settings:
+  min: 1
+  max: 100
+  prefix: ''
+  suffix: '%'
+field_type: integer

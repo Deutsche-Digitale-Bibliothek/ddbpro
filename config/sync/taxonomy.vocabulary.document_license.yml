@@ -2,7 +2,8 @@ uuid: eb93f545-936d-4bcf-a668-820baf61aaf8
 langcode: de
 status: true
 dependencies: {  }
-name: 'Dokument Lizenz'
+name: Lizenzen
 vid: document_license
-description: ''
+description: null
 weight: 0
+new_revision: false

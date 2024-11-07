@@ -1,10 +1,9 @@
 _core:
   default_config_hash: uZHsLrDp1ThO0RvupHKcPzLOyVvWexm58JTTHNDo7yc
-langcode: de
 display_extenders:
   - matomo
   - ajax_history
-skip_cache: false
+  - metatag_display_extender
 sql_signature: false
 ui:
   show:

@@ -4,12 +4,19 @@ status: true
 dependencies:
   module:
     - editor
+    - spamspan
 _core:
   default_config_hash: WNeK5FbcY8pXgEpbD_KgRzlF1-5PL3BJXwqaBctPTqw
-name: 'Full HTML'
+name: 'Vollständiges HTML'
 format: full_html
 weight: 2
 filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 11
+    settings: {  }
   filter_align:
     id: filter_align
     provider: filter
@@ -22,19 +29,13 @@ filters:
     status: true
     weight: 9
     settings: {  }
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
-    status: true
-    weight: 11
-    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang title target data-tooltip> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <h1> <pre> <i class>'
+      allowed_html: '<br> <p> <h1> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <i class> <a hreflang target data-tooltip href title data-entity-type data-entity-uuid data-entity-substitution> <blockquote cite> <ul type> <ol type start> <span dir> <strong> <em> <code class="language-*"> <pre> <s> <sub> <sup> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <img src alt height width data-entity-uuid data-entity-type data-caption data-align>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_htmlcorrector:
@@ -43,3 +44,23 @@ filters:
     status: true
     weight: 10
     settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: 12
+    settings: {  }
+  filter_spamspan:
+    id: filter_spamspan
+    provider: spamspan
+    status: true
+    weight: 0
+    settings:
+      spamspan_at: ' [at] '
+      spamspan_use_graphic: false
+      spamspan_dot_enable: false
+      spamspan_dot: ' [dot] '
+      spamspan_use_form: false
+      spamspan_form_pattern: '<a href="%url?goto=%email">%displaytext</a>'
+      spamspan_form_default_url: contact
+      spamspan_form_default_displaytext: 'contact form'

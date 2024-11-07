@@ -11,7 +11,7 @@ third_party_settings:
 name: Glossar
 type: glossary_term
 description: 'Daten für diesen Inhaltstyp werden aus <a href="http://xtree-ddb.digicult-verbund.de">http://xtree-ddb.digicult-verbund.de</a> importiert.'
-help: ''
+help: null
 new_revision: false
 preview_mode: 1
 display_submitted: false

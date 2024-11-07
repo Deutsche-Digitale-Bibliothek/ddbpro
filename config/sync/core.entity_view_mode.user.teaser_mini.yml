@@ -6,5 +6,6 @@ dependencies:
     - user
 id: user.teaser_mini
 label: 'Teaser mini'
+description: ''
 targetEntityType: user
 cache: true

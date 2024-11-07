@@ -5,12 +5,25 @@ dependencies: {  }
 _core:
   default_config_hash: MvQPTbQx0Vxwy0ordSHyixdZmLCMpvMdLD69dlwkrKc
 id: user
-label: User
+label: Benutzer
 tags:
   canonical_url: '[user:url]'
-  description: '[site:name]'
-  image_src: '[node:field_user_image:entity:field_media_image:entity:url]'
+  description: '[user:field_job_title:value]'
+  image_src: '[user:field_user_image:entity:field_media_image:entity:url]'
+  og_description: '[user:field_job_title:value]'
+  og_email: '[user:mail]'
+  og_image: '[user:field_user_image:entity:field_media_image:entity:url]'
+  og_locality: '[user:field_address:locality]'
+  og_phone_number: '[user:field_phone]'
+  og_postal_code: '[user:field_address:postal_code]'
+  og_site_name: '[site:name]'
+  og_street_address: '[user:field_address:address_line1]'
+  og_title: '[user:display-name] | [site:name]'
+  og_url: '[user:url]'
+  profile_first_name: '[user:field_firstname]'
+  profile_last_name: '[user:field_lastname]'
+  robots: noimageindex
   title: '[user:display-name] | [site:name]'
-  og_image_secure_url: '[node:field_user_image:entity:field_media_image:entity:url]'
-  og_image_url: '[node:field_user_image:entity:field_media_image:entity:url]'
-  twitter_cards_image: '[node:field_user_image:entity:field_media_image:entity:url]'
+  twitter_cards_description: '[user:field_job_title:value]'
+  twitter_cards_image: '[user:field_user_image:entity:field_media_image:entity:url]'
+  twitter_cards_title: '[user:display-name] | [site:name]'

@@ -24,7 +24,7 @@ id: paragraph.collage.field_secondary_cta
 field_name: field_secondary_cta
 entity_type: paragraph
 bundle: collage
-label: 'CTA sekundär'
+label: 'Button mit Link (weiß)'
 description: ''
 required: false
 translatable: false

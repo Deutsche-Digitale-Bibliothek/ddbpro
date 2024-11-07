@@ -10,8 +10,8 @@ field_name: field_author
 entity_type: media
 bundle: image
 label: Autor
-description: ''
-required: false
+description: 'Wer ist der Autor des Bildes? Wenn dieser nicht bekannt ist, dann bitte „unbekannt“ einfügen.'
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
