@@ -8,9 +8,9 @@
   <button class="accordion__header"
     aria-expanded="false"
     aria-controls="{{ uniqueId }}">
-    {% if image.images.5 is not empty %}
+    {% if accordion.image is defined and accordion.image %}
       <span class="accordion__header-image">
-        {{ drupal_image(image.images.5.uri['#markup'], 'thumbnail', {alt: image.images.5.alt['#markup']|t}) }}
+        {{ drupal_image(accordion.image.images.5.uri['#markup'], 'thumbnail', {alt: accordion.image.images.5.alt['#markup']|t}) }}
       </span>
     {% endif %}
     <span class="h4">{{- accordion.title -}}</span>
