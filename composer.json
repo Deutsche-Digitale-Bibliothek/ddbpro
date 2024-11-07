@@ -29,6 +29,7 @@
         "drupal/ckeditor5_plugin_pack": "^1.2",
         "drupal/classy": "^1.0",
         "drupal/clientside_validation": "^4.0",
+        "drupal/config_entity_reference_selection": "^2.0",
         "drupal/config_pages": "^2.9",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
