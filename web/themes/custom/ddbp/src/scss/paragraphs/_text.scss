@@ -126,6 +126,7 @@
         @include spacing(padding, very-small);
         border: 1px solid $color-darken;
         background: $color-bg;
+        overflow: auto;
 
         code {
             border: none;
