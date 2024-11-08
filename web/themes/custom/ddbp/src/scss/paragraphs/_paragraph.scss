@@ -1,6 +1,8 @@
-.paragraph--text {
+.paragraph--text,
+.paragraph--text-image {
     // switching to padding to prevent collapsed margins
     @include spacing(padding, medium, bottom);
+    clear: both;
 }
 
 .paragraph--accordions,
@@ -8,7 +10,6 @@
 .paragraph--content-boxes,
 .paragraph--document,
 .paragraph--facts-figures,
-.paragraph--text-image,
 .paragraph--video,
 .paragraph--image,
 .paragraph--link {
