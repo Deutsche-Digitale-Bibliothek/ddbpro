@@ -9,6 +9,7 @@
 
     .text-formatted {
         margin-bottom: 0px;
+        word-break: break-word;
         
         p:first-child:before {
             @include rsa(height width, 10px, 12px);
