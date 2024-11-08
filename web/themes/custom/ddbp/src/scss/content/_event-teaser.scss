@@ -42,6 +42,8 @@
     h3 {
         grid-column: 1;
         grid-row: 1;
+        word-wrap: anywhere;
+        hyphens: auto;
     }
 
     a {
