@@ -82,7 +82,7 @@
         min-width: 100%;
         /* white-space: nowrap; */
         white-space: normal;
-        hyphens: auto;
+        @include hyphens;
         word-break: break-word;
     }
 }

@@ -2,7 +2,7 @@
 .paragraph--text-image {
     // switching to padding to prevent collapsed margins
     @include spacing(padding, medium, bottom);
-    clear: both;
+    display: flow-root;
 }
 
 .paragraph--accordions,

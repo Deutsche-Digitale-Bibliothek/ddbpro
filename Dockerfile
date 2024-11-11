@@ -9,10 +9,10 @@ RUN { \
     } >> /tmp/ddbpro/version; \
     rm -rf .git/;
 
-FROM node:16-alpine AS nchain
+FROM node:22-alpine AS nchain
 COPY --from=cchain /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
-RUN yarn && yarn build
+RUN yarn install && yarn build
 
 FROM php:8.3-fpm-alpine
 LABEL org.opencontainers.image.authors="m.buechner@dnb.de"

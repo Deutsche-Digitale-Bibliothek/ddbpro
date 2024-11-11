@@ -39,6 +39,8 @@
             figcaption {
               display: table-caption;
               caption-side: bottom ;
+              word-wrap: anywhere;
+              @include hyphens;
             }
         }
     }
