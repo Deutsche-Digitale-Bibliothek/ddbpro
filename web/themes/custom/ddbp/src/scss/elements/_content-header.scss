@@ -34,11 +34,6 @@
     }
 }
 
-.content-header__content {
-    @include rsa(max-width, 100%, 65%);
-    width: 100%;
-}
-
 .content-header__title {
     @include spacing(margin, small, bottom);
     color: $color-grey-dark;
