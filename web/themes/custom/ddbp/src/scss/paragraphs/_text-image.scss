@@ -1,12 +1,10 @@
-.paragraph-text-image__image-wrapper {
-    @include spacing(margin, very-small, bottom);
-    @include spacing(margin, tiny, top);
-}
-
 .paragraph--text-image-row--image-right,
+.paragraph--text-image-row--image-middle,
 .paragraph--text-image-row--image-left {
     .paragraph-text-image__image-wrapper {
         max-width: 100%;
+        @include spacing(margin, very-small, bottom);
+        @include spacing(margin, tiny, top);
         
         @include bp(s) {
             max-width: min(100%, calc(var(--max-width, 25%) + 10%));
@@ -28,6 +26,16 @@
         @include bp(s) {
             float: right;
             @include spacing(margin, large, left);
+        }
+    }
+}
+
+.paragraph--text-image-row--image-middle {
+    .paragraph-text-image__image-wrapper {
+        @include bp(s) {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }

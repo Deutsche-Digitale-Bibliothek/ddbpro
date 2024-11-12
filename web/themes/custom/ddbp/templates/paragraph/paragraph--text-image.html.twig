@@ -1,6 +1,13 @@
 {% extends "paragraph.html.twig" %}
 {% block paragraphContent %}
-  {% set position = content.field_image_position[0]['#markup'] == 'Links' ? 'left' : 'right' %}
+  {% set positions = {
+      'Links': 'left',
+      'Rechts': 'right',
+      'Mittig': 'middle'
+    }
+  %}
+  
+  {% set position = positions[content.field_image_position[0]['#markup']] ?? 'left' %}
   
   {% set rowClasses = [
     'paragraph--text-image-row',
