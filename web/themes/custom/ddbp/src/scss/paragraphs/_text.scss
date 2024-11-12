@@ -134,6 +134,10 @@
         }
     }
 
+    .hljs-copy-button {
+        background-color: $color-main !important;
+    }
+
     table {
         color: $color-grey;
         text-align: left;

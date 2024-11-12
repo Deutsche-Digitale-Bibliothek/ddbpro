@@ -132,7 +132,6 @@ footer {
         height: 100%;
         width: 100%;
         max-width: 100%;
-        z-index: 100;
 
         @include bp(l) {
             max-width: $column-fixed-sidebar;
