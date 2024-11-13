@@ -123,14 +123,14 @@
 
     // code block
     pre {
-        @include spacing(padding, very-small);
         border: 1px solid $color-darken;
         background: $color-bg;
-        overflow: auto;
+        overflow: hidden;
 
         code {
             border: none;
             background: inherit;
+            overflow: auto;
         }
     }
 
