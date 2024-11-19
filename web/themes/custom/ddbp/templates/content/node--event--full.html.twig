@@ -47,10 +47,10 @@
         <div class="row-grid__title">
           <div class="row-grid__title-content">
             <h1>{{ label[0]['#context'].value }}</h1>
-            <div class="event__date-time h3">
+            <div class="event__date-time h4">
               {% if startDateRaw and endDateRaw %}
-                {% set startDate = startDateRaw|format_date('custom', 'l, d.m.Y — H:i') %}
-                {% set endDate = endDateRaw|format_date('custom', 'l, d.m.Y — H:i') %}
+                {% set startDate = startDateRaw|format_date('custom', 'l, d.m.Y, H:i') %}
+                {% set endDate = endDateRaw|format_date('custom', 'l, d.m.Y, H:i') %}
 
                 {% set startDateOnly = startDateRaw|format_date('custom', 'l, d.m.Y') %}
                 {% set endDateOnly = endDateRaw|format_date('custom', 'l, d.m.Y') %}
@@ -107,7 +107,7 @@
             {% if content.field_description[0] %}
               <div class="event__text text-formatted">
                 {% if content.field_teaser_text[0]['#context'].value %}
-                  <p class="event__teaser h4">
+                  <p class="event__teaser h5">
                     {{- content.field_teaser_text[0]['#context'].value -}}
                   </p>
                 {% endif %}

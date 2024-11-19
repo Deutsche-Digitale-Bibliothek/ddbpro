@@ -24,7 +24,7 @@
     @include border-radius();
     display: grid;
     grid-template-columns: 1fr auto; /* Zwei Spalten: flexible Breite und automatische Breite */
-    grid-template-rows: 1fr auto; /* Zwei Zeilen: Überschrift + Inhalte und Datum + Icon */
+    grid-template-rows: 1fr; /* Eine Zeile: Überschrift + Inhalte + Datum + Icon */
     height: 100%;
     width: 100%;
     border: 1px solid $color-darken;
@@ -43,7 +43,6 @@
     h3 {
         word-wrap: anywhere;
         @include hyphens;
-        @include spacing(margin, very-small, bottom);
     }
     
     a {
@@ -60,11 +59,12 @@
 }
 
 .event-teaser__ical {
+    @include spacing(margin, small, left);
     grid-column: 2 / 3; /* Spalte 2 */
-    grid-row: 2 / 3;    /* Zeile 2 */
+    grid-row: 1 / 2;    /* Zeile 1 */
     text-align: right;  /* Text nach rechts ausrichten */
     justify-self: end;  /* Inhalt horizontal rechts ausrichten */
-    align-self: end;    /* Inhalt vertikal unten ausrichten */
+    align-self: start;    /* Inhalt vertikal unten ausrichten */
     
     a {
         padding-left: 0px;
@@ -79,11 +79,9 @@
 }
 
 .event-teaser__date {
-    @include spacing(margin, small, top);
+    @include spacing(margin, tiny, top);
+    @include spacing(margin, small, bottom);
     @include text(p1);
-    align-self: end;
-    grid-column: 1 / 2; /* Spalte 1 */
-    grid-row: 2 / 3;    /* Zeile 2 */
     color: $color-grey-light;
     font-weight: font-weight(medium);
 }
