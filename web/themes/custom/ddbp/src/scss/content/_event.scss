@@ -9,6 +9,10 @@
     color: $color-grey;
 }
 
+.event__teaser {
+    color: $color-grey;
+}
+
 .event__text {
     @include spacing(margin, very-large, bottom);
     color: $color-grey;

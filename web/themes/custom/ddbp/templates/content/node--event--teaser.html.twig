@@ -19,25 +19,32 @@
 ) %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
-  <div class="event-teaser__ical">
-    <a href="{{ ics_link }}" aria-label="{{ 'iCalendar Datei zu der Veranstaltung herunterladen' | t }}">
-      <i aria-hidden="true" class="fa-regular fa-calendar-plus"></i>
-    </a>
-  </div>
-  <h3 class="h4">
-    <a href="{{ url }}">
-      {{ label[0]['#context'].value }}
-    </a>
-  </h3>
+  <a href="{{ url }}">
+    <h3>
+        {{ label[0]['#context'].value }}
+    </h3>
+    {% if content.field_teaser_text[0]['#context'].value %}
+      <div class="teaser__text event-teaser__text">
+        <p>{{- content.field_teaser_text[0]['#context'].value -}}</p>
+      </div>
+    {% endif %}
+  </a>
   <div class="event-teaser__date">
-    <a href="{{ url }}">
     {% if startDateRaw %}
-      {{ startDateRaw|format_date('custom', 'd.m.Y') }}
+      <time datetime="{{ startDateRaw|format_date('custom', 'Y-m-d\\TH:i:sP') }}" title="{{ startDateRaw|format_date('custom', 'd.m.Y H:i') }}">
+        {{ startDateRaw|format_date('custom', 'd.m.Y') }}
+      </time>
     {% endif %}
     {% if endDateRaw and (endDateRaw is not same as(startDateRaw)) %}
       {{ ' ' ~ 'bis' | t ~ ' ' }}
-      {{ endDateRaw|format_date('custom', 'd.m.Y') }}
+      <time datetime="{{ endDateRaw|format_date('custom', 'Y-m-d\\TH:i:sP') }}" title="{{ endDateRaw|format_date('custom', 'd.m.Y H:i') }}">
+        {{ endDateRaw|format_date('custom', 'd.m.Y') }}
+      </time>
     {% endif %}
+  </div>
+  <div class="event-teaser__ical">
+    <a href="{{ ics_link }}" aria-label="{{ 'iCalendar Datei zu der Veranstaltung herunterladen' | t }}">
+      <i aria-hidden="true" class="fa-regular fa-calendar-plus"></i>
     </a>
   </div>
 </article>

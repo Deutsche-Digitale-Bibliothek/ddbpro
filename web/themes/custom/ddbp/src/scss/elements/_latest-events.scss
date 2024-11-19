@@ -46,6 +46,7 @@
     }
 
     .row > div {
+        @include spacing(margin, medium, bottom);
         @include columns(1);
 
         @include bp(l) {
