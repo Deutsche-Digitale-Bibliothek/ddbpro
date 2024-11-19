@@ -12,12 +12,10 @@
 
 .latest-events__title {
     @include spacing(margin, large, bottom);
-    text-align: center;
 
     @include bp(l) {
         grid-column: 1;
         grid-row: 1;
-        text-align: left;
     }
 }
 
@@ -50,7 +48,19 @@
         @include columns(1);
 
         @include bp(l) {
+            @include columns(2);
+            
+            &:nth-child(3) {
+                display: none; /* Versteckt das dritte Element */
+            }
+        }
+
+        @include bp(xl) {
             @include columns(3);
+            
+            &:nth-child(3) {
+                display: block;
+            }
         }
     }
 }
