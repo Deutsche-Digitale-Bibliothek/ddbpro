@@ -8,8 +8,6 @@ on:
     # Publish `v1.2.3` tags as releases.
     tags:
       - v*
-  # Run tests for any PRs.
-  pull_request:
   workflow_dispatch:
 env:
   IMAGE_NAME: ddbpro
@@ -19,7 +17,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
@@ -36,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
       - name: Log into registry

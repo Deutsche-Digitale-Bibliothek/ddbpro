@@ -54,7 +54,7 @@
 
 .event-teaser__text {
     p {
-        color: $color-grey-light;
+        color: $color-grey;
     }
 }
 
@@ -82,8 +82,8 @@
     @include spacing(margin, tiny, top);
     @include spacing(margin, small, bottom);
     @include text(p1);
-    color: $color-grey-light;
-    font-weight: font-weight(medium);
+    color: $color-main;
+    font-weight: font-weight(semi-bold);
 }
 
 // events views
