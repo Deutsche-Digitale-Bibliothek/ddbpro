@@ -7,20 +7,22 @@
 ] %}
 
 {% set type_mapping = {
-  'faq': 'FAQ' | t,
-  'event': 'Termine & Veranstaltungen' | t,
-  'aggregator_portrait': 'Aggregatoren' | t,
-  'department': 'Fachstellen' | t,
-  'glossary_term': 'Glossar' | t
+  'faq': 'FAQ',
+  'event': 'Termine & Veranstaltungen',
+  'aggregator_portrait': 'Aggregatoren',
+  'aggregator-portrait': 'Aggregatoren',
+  'department': 'Fachstellen',
+  'glossary_term': 'Glossar',
+  'glossary-term': 'Glossar'
 } %}
 
-{% set type = type_mapping[bundle] ?? 'Inhalt' | t %}
+{% set type = type_mapping[bundle] ?? 'Inhalt' %}
 
 {% set hasText = content.field_teaser_text[0] or content.field_answer[0] or content.body[0] or content.field_description[0] %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <div class="search-teaser__type">
-    {{ type }}
+    {{ type | t }}
   </div>
   <a href="{{ url }}" class="search-teaser__title">
     <h2 class="h4">
