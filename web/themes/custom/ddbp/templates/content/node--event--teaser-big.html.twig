@@ -46,7 +46,7 @@
     {% if content.field_teaser_text[0]['#context'].value or content.field_description[0] %}
       <div class="event-teaser-big__text text-formatted">
         {% if content.field_teaser_text[0]['#context'].value %}
-          <p>{{ content.field_teaser_text[0]['#context'].value | striptags }}</p>
+          <p class="event-teaser-big__text__teaser">{{ content.field_teaser_text[0]['#context'].value | striptags }}</p>
         {% endif %}
         {% if content.field_description[0] %}
           <p>{{ content.field_description[0]['#text'] | striptags | truncate(400, true, '...') }}</p>

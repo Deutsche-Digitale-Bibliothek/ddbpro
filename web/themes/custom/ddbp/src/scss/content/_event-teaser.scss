@@ -143,3 +143,7 @@
     @include spacing(margin, tiny, top);
     color: $color-grey-light;
 }
+
+.event-teaser-big__text__teaser {
+    font-weight: font-weight(semi-bold);
+}
