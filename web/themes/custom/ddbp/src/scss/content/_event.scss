@@ -6,6 +6,11 @@
 
 .event__date-time {
     @include spacing(margin, huge, bottom);
+    color: $color-main;
+    font-weight: font-weight(semi-bold);
+}
+
+.event__teaser {
     color: $color-grey;
 }
 

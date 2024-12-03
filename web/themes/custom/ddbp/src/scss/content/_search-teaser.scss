@@ -35,6 +35,10 @@
     grid-column: 1 / -1;
 }
 
+.search-teaser__description__teaser {
+    font-weight: font-weight(semi-bold);
+}
+
 .search-teaser__type {
     @include spacing(margin, very-small, top);
     @include text(a1);
