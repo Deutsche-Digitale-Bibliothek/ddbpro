@@ -55,7 +55,7 @@
         "drupal/link_attributes": "^2.1",
         "drupal/link_field_autocomplete_filter": "^2.0",
         "drupal/linkchecker": "^2.0@alpha",
-        "drupal/linkit": "^6.0@beta",
+        "drupal/linkit": "^7.0",
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^1.18",
         "drupal/media_thumbnails_pdf": "^2.0",
