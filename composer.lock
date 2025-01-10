@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d872098a06d8737b7042bad8d66deb49",
+    "content-hash": "83033c94ccf0b8b7218f35b1e55cdb69",
     "packages": [
         {
             "name": "algolia/places",
@@ -133,16 +133,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.336.11",
+            "version": "3.336.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "442039c766a82f06ecfecb0ac2c610d6aaba228d"
+                "reference": "a173ab3af8d9186d266e4937d8254597f36a9e15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/442039c766a82f06ecfecb0ac2c610d6aaba228d",
-                "reference": "442039c766a82f06ecfecb0ac2c610d6aaba228d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a173ab3af8d9186d266e4937d8254597f36a9e15",
+                "reference": "a173ab3af8d9186d266e4937d8254597f36a9e15",
                 "shasum": ""
             },
             "require": {
@@ -225,9 +225,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.336.11"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.336.12"
             },
-            "time": "2025-01-08T19:06:59+00:00"
+            "time": "2025-01-09T19:04:34+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -2971,6 +2971,50 @@
             }
         },
         {
+            "name": "drupal/editor_paste_plain",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/editor_paste_plain.git",
+                "reference": "1.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/editor_paste_plain-1.0.0-beta1.zip",
+                "reference": "1.0.0-beta1",
+                "shasum": "6f1aa759d31ba0c199b124e5b6761841429be035"
+            },
+            "require": {
+                "drupal/core": "^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta1",
+                    "datestamp": "1707239576",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "DuaelFr",
+                    "homepage": "https://www.drupal.org/user/931394"
+                }
+            ],
+            "description": "CKEditor 5 plugin to force pasting as plain text.",
+            "homepage": "https://www.drupal.org/project/editor_paste_plain",
+            "support": {
+                "source": "https://git.drupalcode.org/project/editor_paste_plain"
+            }
+        },
+        {
             "name": "drupal/entity_reference_revisions",
             "version": "1.12.0",
             "source": {
@@ -3337,27 +3381,30 @@
         },
         {
             "name": "drupal/gin",
-            "version": "dev-3.x",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "50d458d80116ee658af5d91aaeea6bd639937527"
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/gin-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "8607d9f225b550c9c2f0a84d0371adabc0ac42c1"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11",
-                "drupal/gin_toolbar": "^1.0"
+                "drupal/core": "^10 || ^11",
+                "drupal/gin_toolbar": "^1.0@beta"
             },
             "type": "drupal-theme",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.0+1-dev",
-                    "datestamp": "1734700815",
+                    "version": "4.0.0",
+                    "datestamp": "1734696940",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -7392,7 +7439,7 @@
             "version": "1.0.2 ",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/dargullin/icheck/archive/refs/tags/1.0.2.zip"
+                "url": "https://api.github.com/repos/drgullin/icheck/zipball/8a6eb37bd7dab1e843c1b630c91c6398ff409d05"
             },
             "type": "drupal-library",
             "extra": {
@@ -7661,6 +7708,21 @@
                 }
             ],
             "time": "2024-11-10T12:42:13+00:00"
+        },
+        {
+            "name": "leongersen/nouislider",
+            "version": "15.5.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://github.com/leongersen/noUiSlider/archive/refs/tags/15.5.1.tar.gz"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "nouislider"
+            },
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "masterminds/html5",
@@ -13053,10 +13115,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/editor_paste_plain": 10,
         "drupal/field_type_converter": 15,
         "drupal/field_validation": 10,
-        "drupal/gin": 20,
-        "drupal/gin_toolbar": 10,
         "drupal/linkchecker": 15,
         "drupal/masquerade": 10,
         "drupal/media_thumbnails_video": 20,
@@ -13077,5 +13138,5 @@
         "ext-gd": "1",
         "ext-imagick": "6"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
