@@ -43,17 +43,16 @@
     <div class="view-content">
       {% if rows %}
         {{ rows }}
-
         <a href="{{ ics_link }}" class="view-latest-events__download-all">
           {{ 'Alle Veranstaltungen speichern / abonnieren'|t }}
         </a>
-
-        <div class="view-content__link">
-          {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
-        </div>
       {% else %}
         {% include '@ddbp/views/view-empty.html.twig' %}
       {% endif %}
+
+      <div class="view-content__link">
+        {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
+      </div>
     </div>
   </div>
 
