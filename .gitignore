@@ -52,3 +52,4 @@ Vagrantfile
 # DB dumps
 *.sql
 
+/nbproject/private/
