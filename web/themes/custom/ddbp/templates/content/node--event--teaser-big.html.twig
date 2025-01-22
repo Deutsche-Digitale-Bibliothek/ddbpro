@@ -43,13 +43,13 @@
         {% endif %}
       {% endif %}
     </div>
-    {% if content.field_teaser_text[0]['#context'].value or content.field_description[0] %}
+    {% if content.field_teaser_text.0 is not empty or content.field_description.0 is not empty %}
       <div class="event-teaser-big__text text-formatted">
-        {% if content.field_teaser_text[0]['#context'].value %}
-          <p class="event-teaser-big__text__teaser">{{ content.field_teaser_text[0]['#context'].value | striptags }}</p>
+        {% if content.field_teaser_text.0 is not empty %}
+          <p class="event-teaser-big__text__teaser">{{ content.field_teaser_text }}</p>
         {% endif %}
-        {% if content.field_description[0] %}
-          <p>{{ content.field_description[0]['#text'] | striptags | truncate(400, true, '...') }}</p>
+        {% if content.field_description.0 is not empty %}
+          <p>{{ content.field_description | render | striptags | truncate(400, true, '...') | raw }}</p>
         {% endif %}
       </div>
     {% endif %}
