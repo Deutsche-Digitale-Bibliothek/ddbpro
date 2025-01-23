@@ -6,7 +6,7 @@
 
     {% if text %}
       <div class="content-header__text">
-        <p class="h4">{{ text }}</p>
+        <p class="h4">{{ text|striptags|raw }}</p>
       </div>
     {% endif %}
 

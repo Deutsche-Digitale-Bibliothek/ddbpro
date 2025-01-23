@@ -45,7 +45,7 @@
       {% endif %}
       {% if content.field_description[0] %}
         {% set description = content.field_description[0]['#text']|striptags|raw|trim %}
-        <p>{{ description|truncate(400, true, '...') }}</p>
+        <p>{{ description|truncate(400, true, '...')|raw }}</p>
       {% endif %}
     </a>
   {% endif %}
