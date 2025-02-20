@@ -34,21 +34,26 @@ const addToCopy = () => {
 const appendToHtml = (images) => {
   Object.values(images).forEach((image) => {
     const href = image.dataset.link;
+    let titleSpan = image.querySelector('.responsive-image__copyright-text-title');
 
     // wrap in link if exists
-    if (href) {
-      const orgHtml = image.innerHTML;
-      const newHtml = `
-                <a href="${href}" class="responsive-image__copyright-link" target="_blank">
-                    ${orgHtml}
-                </a>`;
-      image.innerHTML = newHtml;
+    if (href && titleSpan) {
+      
+      // Neuen Link erstellen
+      let link = document.createElement('a');
+      link.href = href;
+      link.target = '_blank';
+      link.className = 'responsive-image__copyright-link';
+      link.innerHTML = titleSpan.innerHTML;
+      
+      // Das ursprüngliche span durch den Link ersetzen
+      titleSpan.parentNode.replaceChild(link, titleSpan);
     }
-
+    
     image.classList.add('copyright__item');
     copySection.appendChild(image);
     const anchor = image.querySelector('a');
-
+    
     if (anchor) {
       anchors.push(anchor);
     }

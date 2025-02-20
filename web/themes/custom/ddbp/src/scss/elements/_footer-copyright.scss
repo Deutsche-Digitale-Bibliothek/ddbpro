@@ -59,10 +59,16 @@
     }
 
     a {
-        display: flex;
-        align-items: center;
-        width: 100%;
         color: inherit;
+        text-decoration: underline;
+    }
+
+    a[target='_blank'] {
+        margin-right: 3px;
+         @include fac-icon-blanklink('arrow-up-right-solid-white', false, "In neuem Fenster öffnen") {
+            @include rsa(height width, 8px, 10px);
+            @include rsa(margin-left, 4px, 7px);
+        }
     }
 
     .responsive-image__copyright-image {
@@ -76,10 +82,17 @@
 
     .responsive-image__copyright-text {
         @include text(p1);
-        display: block;
 
         span {
             font-weight: font-weight(medium);
+        }
+
+        span:not(:first-child) {
+          margin-left: 0.25em;
+        }
+
+        span:not(:last-child) {
+          margin-right: 0.25em;
         }
     }
 }
