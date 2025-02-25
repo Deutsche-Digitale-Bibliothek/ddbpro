@@ -61,10 +61,8 @@
         {% if copyright.text is not empty %}
           {% set elements = elements|merge([copyright.text]) %}
         {% endif %}
-        <span class="responsive-image__copyright-text">
-          <span class="responsive-image__copyright-text-title">
-            <strong>{{- copyright.title -}}</strong>
-          </span>
+        <div class="responsive-image__copyright-text">
+          <span class="responsive-image__copyright-text-title">{{- copyright.title -}}</span>
           {%- if elements|length > 0 -%}:{%- endif -%}
           {%- for element in elements -%}
             <span>{{- element -}}</span>
@@ -75,7 +73,7 @@
           {%- elseif copyright.license is not empty -%}
             |<span>{{- copyright.license -}}</span>
           {%- endif -%}
-        </span>
+        </div>
       </div>
     {% endif %}
   {% endif %}

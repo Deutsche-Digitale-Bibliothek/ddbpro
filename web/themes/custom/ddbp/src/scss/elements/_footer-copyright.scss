@@ -51,11 +51,11 @@
 
     &.responsive-image__copyright {
         display: flex;
-        align-items: center;
+        align-items: start;
     }
 
     & + & {
-        @include spacing(margin, very-small, top);
+        @include spacing(margin, small, top);
     }
 
     a {
@@ -74,6 +74,10 @@
     .responsive-image__copyright-image {
         @include rsa(height width, 50px, 80px);
         @include spacing(margin, medium, right);
+        @include spacing(margin, very-small, top);
+        @include bp(m) {
+          margin-top: 0px;
+        }
         flex-shrink: 0;
         background-position: center;
         background-repeat: no-repeat;
@@ -84,7 +88,11 @@
         @include text(p1);
 
         span {
-            font-weight: font-weight(medium);
+          font-weight: font-weight(medium);
+        }
+
+        a.responsive-image__copyright-link {
+          font-weight: font-weight(bold);
         }
 
         span:not(:first-child) {
