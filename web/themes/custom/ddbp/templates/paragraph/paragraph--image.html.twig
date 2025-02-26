@@ -55,7 +55,7 @@
                 {%- if not loop.last -%}|{%- endif -%}
               {%- endfor -%}
               {%- if imageCopyright.license is not empty and imageCopyright.license_link is not empty -%}
-                |<span><a href="{{-imageCopyright.license_link -}}" target="_blank">{{- imageCopyright.license -}}</a></span>
+                |<span data-link="{{-imageCopyright.license_link -}}">{{- imageCopyright.license -}}</span>
               {%- elseif copyright.license is not empty -%}
                 |<span>{{- imageCopyright.license -}}</span>
               {%- endif -%}

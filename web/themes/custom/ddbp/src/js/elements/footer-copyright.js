@@ -36,6 +36,28 @@ const appendToHtml = (images) => {
     const href = image.dataset.link;
     let titleSpan = image.querySelector('.responsive-image__copyright-text-title');
 
+    if (titleSpan) {
+      // Alle <span>-Elemente mit data-link im titleSpan suchen
+      let spans = titleSpan.querySelectorAll('span[data-link]');
+
+      spans.forEach(span => {
+          let link = span.getAttribute("data-link");
+          let content = span.innerHTML;
+
+          // Neues <a>-Element erstellen
+          let anchor = document.createElement("a");
+          anchor.href = link;
+          anchor.target = "_blank";
+          anchor.innerHTML = content;
+
+          // Altes <span>-Element durch neues <span> mit <a> ersetzen
+          let newSpan = document.createElement("span");
+          newSpan.appendChild(anchor);
+          
+          span.replaceWith(newSpan);
+      });
+    }
+
     // wrap in link if exists
     if (href && titleSpan) {
       
