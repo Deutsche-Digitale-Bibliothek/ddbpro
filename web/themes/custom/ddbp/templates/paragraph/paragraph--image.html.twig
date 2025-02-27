@@ -40,26 +40,26 @@
             <div class="responsive-image__copyright-image"
               style="background-image: url('{{ imageCopyright.image }}')">
             </div>
-            <span class="responsive-image__copyright-text">
-              {% set elements = [] %}
-              
-              {% if imageDefault.author['#markup'] is not empty %}
-                {% set elements = elements|merge([imageDefault.author]) %}
-              {% endif %}
-              
-              {% if imageCopyright.text is not empty %}
-                {% set elements = elements|merge([imageCopyright.text]) %}
-              {% endif %}
-              
-              {% if imageCopyright.license is not empty %}
-                {% set elements = elements|merge([imageCopyright.license]) %}
-              {% endif %}
-              
-              <strong>{{- imageDefault.title -}}{% if elements|length > 0 %}: {% endif %}</strong>
-              {% for element in elements %}
-                <span>{{- element -}}</span>{% if not loop.last %} | {% endif %}
-              {% endfor %}
-            </span>
+            {% set elements = [] %}
+            {% if imageDefault.author['#markup'] is not empty %}
+              {% set elements = elements|merge([imageDefault.author]) %}
+            {% endif %}
+            {% if imageCopyright.text is not empty %}
+              {% set elements = elements|merge([imageCopyright.text]) %}
+            {% endif %}
+            <div class="responsive-image__copyright-text">
+              <span class="responsive-image__copyright-text-title">{{- imageDefault.title -}}</span>
+              {%- if elements|length > 0 -%}:{%- endif -%}
+              {%- for element in elements -%}
+                <span>{{- element -}}</span>
+                {%- if not loop.last -%}|{%- endif -%}
+              {%- endfor -%}
+              {%- if imageCopyright.license is not empty and imageCopyright.license_link is not empty -%}
+                |<span data-link="{{-imageCopyright.license_link -}}">{{- imageCopyright.license -}}</span>
+              {%- elseif copyright.license is not empty -%}
+                |<span>{{- imageCopyright.license -}}</span>
+              {%- endif -%}
+            </div>
           </div>
         {% endif %}
       

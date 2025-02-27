@@ -52,26 +52,26 @@
         <div class="responsive-image__copyright-image"
           style="background-image: url('{{ copyright.image }}')">
         </div>
-        <span class="responsive-image__copyright-text">
-          {% set elements = [] %}
-          
-          {% if defaultImage.author['#markup'] is not empty %}
-            {% set elements = elements|merge([defaultImage.author]) %}
-          {% endif %}
-          
-          {% if copyright.text is not empty %}
-            {% set elements = elements|merge([copyright.text]) %}
-          {% endif %}
-          
-          {% if copyright.license is not empty %}
-            {% set elements = elements|merge([copyright.license]) %}
-          {% endif %}
-          
-          <strong>{{- copyright.title -}}{% if elements|length > 0 %}: {% endif %}</strong>
-          {% for element in elements %}
-            <span>{{- element -}}</span>{% if not loop.last %} | {% endif %}
-          {% endfor %}
-        </span>
+        {% set elements = [] %}
+        {% if defaultImage.author['#markup'] is not empty %}
+          {% set elements = elements|merge([defaultImage.author]) %}
+        {% endif %}
+        {% if copyright.text is not empty %}
+          {% set elements = elements|merge([copyright.text]) %}
+        {% endif %}
+        <div class="responsive-image__copyright-text">
+          <span class="responsive-image__copyright-text-title">{{- copyright.title -}}</span>
+          {%- if elements|length > 0 -%}:{%- endif -%}
+          {%- for element in elements -%}
+            <span>{{- element -}}</span>
+            {%- if not loop.last -%}|{%- endif -%}
+          {%- endfor -%}
+          {%- if copyright.license is not empty and copyright.license_link is not empty -%}
+            |<span data-link="{{-copyright.license_link -}}">{{- copyright.license -}}</span>
+          {%- elseif copyright.license is not empty -%}
+            |<span>{{- copyright.license -}}</span>
+          {%- endif -%}
+        </div>
       </div>
     {% endif %}
   {% endif %}

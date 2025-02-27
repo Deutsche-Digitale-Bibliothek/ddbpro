@@ -34,21 +34,48 @@ const addToCopy = () => {
 const appendToHtml = (images) => {
   Object.values(images).forEach((image) => {
     const href = image.dataset.link;
+    let titleSpan = image.querySelector('.responsive-image__copyright-text-title');
 
     // wrap in link if exists
-    if (href) {
-      const orgHtml = image.innerHTML;
-      const newHtml = `
-                <a href="${href}" class="responsive-image__copyright-link" target="_blank">
-                    ${orgHtml}
-                </a>`;
-      image.innerHTML = newHtml;
+    if (href && titleSpan) {
+      
+      // Neuen Link erstellen
+      let link = document.createElement('a');
+      link.href = href;
+      link.target = '_blank';
+      link.className = 'responsive-image__copyright-link';
+      link.innerHTML = titleSpan.innerHTML;
+      
+      // Das ursprüngliche span durch den Link ersetzen
+      titleSpan.parentNode.replaceChild(link, titleSpan);
+    }
+    
+    let textSpan = image.querySelector('.responsive-image__copyright-text');
+
+    if (textSpan) {
+      // Alle <span>-Elemente mit data-link innerhalb von titleSpan suchen
+      let spans = textSpan.querySelectorAll('span[data-link]');
+  
+      spans.forEach(span => {
+          let link = span.getAttribute("data-link");
+          let content = span.innerHTML;
+  
+          // Neues <a>-Element erstellen
+          let anchor = document.createElement("a");
+          anchor.href = link;
+          anchor.target = "_blank";
+          anchor.innerHTML = content;
+  
+          // Den Inhalt des <span> ersetzen
+          span.innerHTML = "";
+          span.appendChild(anchor);
+      });
     }
 
     image.classList.add('copyright__item');
     copySection.appendChild(image);
     const anchor = image.querySelector('a');
-
+    
     if (anchor) {
       anchors.push(anchor);
     }

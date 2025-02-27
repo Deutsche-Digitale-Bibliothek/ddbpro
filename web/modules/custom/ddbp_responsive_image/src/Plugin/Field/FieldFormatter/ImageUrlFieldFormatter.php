@@ -185,13 +185,21 @@ class ImageUrlFieldFormatter extends EntityReferenceFormatterBase {
         $image_copyright = empty($media->get('field_copyright')->value)
           ? ''
           : $media->get('field_copyright')->value;
-        $image_license = empty($media->get('field_document_license')->entity)
-          ? ''
-          : $media->get('field_document_license')->entity->getName();
+        $image_license = '';
+        $image_license_link = '';
+
+        if ($media->get('field_document_license')->entity instanceof \Drupal\taxonomy\Entity\Term) {
+          $term = $media->get('field_document_license')->entity;
+          
+          $license_name = $term->getName();
+          $licence_abbreviation = $term->get('field_abbreviation')->getString();
+          
+          $image_license = $licence_abbreviation ?: $license_name;
+          $image_license_link = $term->get('field_link')->first()?->getUrl()->toString();
+        }
         $image_copyright_link = $media->get('field_link')->first()
           ? $media->get('field_link')->first()->getUrl()->toString()
           : '';
-
         $image_url = NULL;
         $id = $image_data['target_id'];
 
@@ -296,12 +304,12 @@ class ImageUrlFieldFormatter extends EntityReferenceFormatterBase {
                       'title' => $image_title,
                       'text' => $image_copyright,
                       'license' => $image_license,
+                      'license_link' => $image_license_link,
                       'link' => $image_copyright_link,
                     ], function($value) {
                       return !empty($value);
                     });
                   }
-
                   $elements[$delta]['images'][] = [
                     'src' => [
                       '#type' => 'markup',
