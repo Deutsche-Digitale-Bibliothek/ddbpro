@@ -36,28 +36,6 @@ const appendToHtml = (images) => {
     const href = image.dataset.link;
     let titleSpan = image.querySelector('.responsive-image__copyright-text-title');
 
-    if (titleSpan) {
-      // Alle <span>-Elemente mit data-link im titleSpan suchen
-      let spans = titleSpan.querySelectorAll('span[data-link]');
-
-      spans.forEach(span => {
-          let link = span.getAttribute("data-link");
-          let content = span.innerHTML;
-
-          // Neues <a>-Element erstellen
-          let anchor = document.createElement("a");
-          anchor.href = link;
-          anchor.target = "_blank";
-          anchor.innerHTML = content;
-
-          // Altes <span>-Element durch neues <span> mit <a> ersetzen
-          let newSpan = document.createElement("span");
-          newSpan.appendChild(anchor);
-          
-          span.replaceWith(newSpan);
-      });
-    }
-
     // wrap in link if exists
     if (href && titleSpan) {
       
@@ -72,6 +50,28 @@ const appendToHtml = (images) => {
       titleSpan.parentNode.replaceChild(link, titleSpan);
     }
     
+    let textSpan = image.querySelector('.responsive-image__copyright-text');
+
+    if (textSpan) {
+      // Alle <span>-Elemente mit data-link innerhalb von titleSpan suchen
+      let spans = textSpan.querySelectorAll('span[data-link]');
+  
+      spans.forEach(span => {
+          let link = span.getAttribute("data-link");
+          let content = span.innerHTML;
+  
+          // Neues <a>-Element erstellen
+          let anchor = document.createElement("a");
+          anchor.href = link;
+          anchor.target = "_blank";
+          anchor.innerHTML = content;
+  
+          // Den Inhalt des <span> ersetzen
+          span.innerHTML = "";
+          span.appendChild(anchor);
+      });
+    }
+
     image.classList.add('copyright__item');
     copySection.appendChild(image);
     const anchor = image.querySelector('a');
