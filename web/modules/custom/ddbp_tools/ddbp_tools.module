@@ -180,9 +180,3 @@ function ddbp_tools_preprocess_views_view(array &$variables) {
   }
 }
 
-function ddbp_tools_post_update_media_description(&$sandbox) {
-  $field_map['media'] = [
-    'field_description' => 'text_long',
-  ];
-  return \Drupal\field_type_converter\FieldTypeConverter::processBatch($sandbox, $field_map);
-}
