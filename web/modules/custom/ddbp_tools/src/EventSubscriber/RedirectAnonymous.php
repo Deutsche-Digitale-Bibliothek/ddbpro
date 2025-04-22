@@ -62,7 +62,7 @@ class RedirectAnonymous implements EventSubscriberInterface {
     $node = $this->routeMatch->getParameter('node');
     $term = $this->routeMatch->getParameter('taxonomy_term');
 
-    if ($is_anonymous && $event->getRequestType() === HttpKernelInterface::MASTER_REQUEST) {
+    if ($is_anonymous && $event->getRequestType() === HttpKernelInterface::MAIN_REQUEST) {
       if ($node && in_array($node->getType(), $target_CTs)) {
         throw new AccessDeniedHttpException();
       }
