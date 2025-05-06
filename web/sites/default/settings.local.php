@@ -24,3 +24,6 @@ if ((getenv('USE_REDIS') ?: 'no') == 'yes') {
   $settings['redis.connection']['host'] = '127.0.0.1';
   $settings['cache']['default'] = 'cache.backend.redis';
 }
+if (file_exists($app_root . '/' . $site_path . '/settings.redis.php')) {
+  include $app_root . '/' . $site_path . '/settings.redis.php';
+}
