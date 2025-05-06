@@ -1,0 +1,10 @@
+# Plugin \Drupal\editor_advanced_link\Plugin\CKEditor5Plugin\AdvancedLink
+ckeditor5.plugin.editor_paste_plain_text:
+  type: mapping
+  label: 'Paste as plain text'
+  mapping:
+    force_paste_plain_text:
+      type: boolean
+      label: 'Force pasting as plain text'
+      constraints:
+        NotNull: []
