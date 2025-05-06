@@ -34,7 +34,7 @@ class RedirectMiddleware implements HttpKernelInterface {
   /**
    * {@inheritdoc}
    */
-  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true): Response {
+  public function handle(Request $request, $type = self::MAIN_REQUEST, $catch = true): Response {
     $response = $this->httpKernel->handle($request, $type, $catch);
     return $this->redirectResponse ?: $response;
   }

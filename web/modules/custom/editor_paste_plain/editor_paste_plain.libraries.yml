@@ -1,0 +1,7 @@
+ckeditor5:
+  version: VERSION
+  js:
+    js/build/forcePastePlainText.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - ckeditor5/ckeditor5
