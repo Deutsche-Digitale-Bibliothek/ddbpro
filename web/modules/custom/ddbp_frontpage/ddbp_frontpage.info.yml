@@ -3,7 +3,7 @@ description: Provides route & controller for the front page.
 package: Custom
 
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 
 dependencies:
   - block
