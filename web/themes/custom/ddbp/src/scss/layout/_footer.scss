@@ -199,12 +199,20 @@
     }
 }
 
-.footer__logo {
-    display: flex;
-    justify-content: center;
-    flex: 1;
+li.footer__logo {
+
+    span {
+        display: block;
+        width: 100%;
+        color: $color-grey;
+        @include spacing(margin, small, bottom top);
+        @include bp(l) {
+            margin-top: 0px;
+        }
+    }
+
     @include bp(l) {
-      align-self: flex-end;
+      align-self: end;
     }
 
     @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
@@ -239,6 +247,18 @@
             max-width: 190px;
             width: 100%;
         }
+    }
+}
+
+li.footer__logo:first-child {
+    @include bp(l) {
+      align-self: start;
+    }
+}
+
+li.footer__logo:last-child {
+    @include bp(l) {
+      align-self: start;
     }
 }
 
