@@ -24,8 +24,10 @@
     "@vue/cli-plugin-babel": "^5",
     "@vue/cli-service": "^5",
     "@vue/cli-shared-utils": "^5",
+    "csso-webpack-plugin": "^2.0.0-beta.3",
     "sass": "^1",
-    "sass-loader": "^16"
+    "sass-loader": "^16",
+    "terser-webpack-plugin": "^5.3.14"
   },
   "browserslist": [
     "> 5%",

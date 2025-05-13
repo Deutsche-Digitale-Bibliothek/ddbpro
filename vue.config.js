@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin');
+const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 const CompressionPlugin = require('compression-webpack-plugin');
 const path = require('path');
 
@@ -20,25 +22,35 @@ module.exports = {
             // Disable hot reload
             config.plugins.delete('hmr');
     },
-    configureWebpack: {
-        resolve: {
-            alias: {
-                "@": path.resolve(__dirname, 'web/themes/custom/ddbp/src')
-            },
-        },
-        performance: {
-            hints: process.env.NODE_ENV === 'development' ? false : 'warning',
-        },
-        entry: {
-            app: './web/themes/custom/ddbp/src/main.js',
-        },
-        plugins: [
-            new CompressionPlugin({
-                compressionOptions: {
-                    algorithm: 'gzip',
-                }
-            })
-        ],
+    configureWebpack: config => {
+        const base = {
+          resolve: {
+              alias: {
+                  "@": path.resolve(__dirname, 'web/themes/custom/ddbp/src')
+              },
+          },
+          performance: {
+              hints: process.env.NODE_ENV === 'development' ? false : 'warning',
+          },
+          entry: {
+              app: './web/themes/custom/ddbp/src/main.js',
+          },
+          plugins: [
+              new CompressionPlugin({
+                filename: '[path][base].gz',
+                algorithm: 'gzip',
+                compressionOptions: { level: 9 }
+              }),
+          ],
+          optimization: {
+                minimize: true,
+                minimizer: [
+                  new TerserPlugin(), // JS minify
+                  new CssoWebpackPlugin(), // CSS minify
+                ]
+              },
+        };
+        return base;
     },
     runtimeCompiler: true,
 };

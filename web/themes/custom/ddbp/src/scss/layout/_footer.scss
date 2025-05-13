@@ -177,21 +177,16 @@
 .footer__logos {
     display: flex;
     flex-direction: column;
-    li:first-child a img {
-      height: 80px;
-    }
+    background: $color-white;
+
     @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
       width: fit-content;
     }
 
     @include bp(l) {
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
         flex-direction: row;
-        
-        li:not(:first-child) {
-          @include spacing(padding, tiny, bottom);
-        }
         
         li:first-child a img {
           height: auto;
@@ -200,6 +195,11 @@
 }
 
 li.footer__logo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    @include spacing(padding, small, top bottom left right);
 
     span {
         display: block;
@@ -211,54 +211,43 @@ li.footer__logo {
         }
     }
 
+    &:last-child {
+        border-top: 25px solid $color-bg;
+        border-left: none;
+    }
+
     @include bp(l) {
-      align-self: end;
+        &:last-child {
+            border-top: none;
+            border-left: 25px solid $color-bg;
+        }
     }
 
     @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
       width: fit-content;
     }
 
-    & + & {
-        @include spacing(margin, small, top);
-
-        @include bp(l) {
-            margin-top: 0;
-        }
-
-        @include target-bps(l xl) {
-            @include spacing(margin, tiny, left);
-        }
-    }
-
     a {
         @include bp(l) {
             width: 100%;
         }
-    }
-
-    img {
-        height: 40px;
-        max-width: 100%;
-        width: auto;
-
-        @include bp(l) {
-            height: auto;
-            max-width: 190px;
-            width: 100%;
+        
+        img {
+            height: 40px;
+            max-width: 100%;
+            width: auto;
+    
+            @include bp(l) {
+                height: auto;
+                max-width: 190px;
+                width: 100%;
+            }
         }
     }
-}
-
-li.footer__logo:first-child {
-    @include bp(l) {
-      align-self: start;
-    }
-}
-
-li.footer__logo:last-child {
-    @include bp(l) {
-      align-self: start;
+    
+    &:first-child a img,
+    &:last-child a img {
+        height: 80px;
     }
 }
 
