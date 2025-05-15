@@ -178,19 +178,13 @@
     display: flex;
     flex-direction: column;
     background: $color-white;
-
-    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
-      width: fit-content;
-    }
+    align-items: stretch;
+    @include spacing(margin, small, top bottom left right);
+    max-width: 300px;
 
     @include bp(l) {
-        align-items: flex-end;
-        justify-content: space-between;
         flex-direction: row;
-        
-        li:first-child a img {
-          height: auto;
-        }
+        max-width: none;
     }
 }
 
@@ -198,56 +192,67 @@ li.footer__logo {
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
-    @include spacing(padding, small, top bottom left right);
+    align-items: center;
+    justify-content: flex-end;
+    @include spacing(padding, very-small, top bottom);
+    @include spacing(padding, tiny, left right);
 
     span {
         display: block;
         width: 100%;
-        color: $color-grey;
+        color: $color-grey-dark;
         @include spacing(margin, small, bottom top);
+        @include rsa(font-size, 14px, 16px);
+
         @include bp(l) {
-            margin-top: 0px;
+            margin-top: 0;
         }
     }
 
+    // Standard-Border für das letzte Element
     &:last-child {
         border-top: 25px solid $color-bg;
         border-left: none;
-    }
 
-    @include bp(l) {
-        &:last-child {
+        @include bp(l) {
             border-top: none;
             border-left: 25px solid $color-bg;
         }
     }
 
-    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
-      width: fit-content;
-    }
-
-    a {
-        @include bp(l) {
-            width: 100%;
-        }
-        
-        img {
-            height: 40px;
-            max-width: 100%;
+    @include bp(l) {
+        // Logo-Ausrichtung oben für erstes und letztes Item
+        &:first-child,
+        &:last-child {
             width: auto;
-    
-            @include bp(l) {
-                height: auto;
-                max-width: 190px;
-                width: 100%;
+            justify-content: flex-start;
+            // Größere Logos für erstes/letztes Item
+            a img {
+            		max-width: 220px;
+            		height: 80px;
+            		margin-bottom: auto;
             }
         }
-    }
-    
-    &:first-child a img,
-    &:last-child a img {
-        height: 80px;
+
+        // Link-Container und Standard-Bildgröße
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            img {
+                height: 40px;
+                max-width: 100%;
+                width: auto;
+                width: 100%;
+                max-width: 200px;
+                height: auto;
+                margin-bottom: 0;
+                margin-top: auto;
+            }
+        }
     }
 }
 
