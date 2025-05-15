@@ -177,67 +177,81 @@
 .footer__logos {
     display: flex;
     flex-direction: column;
-    li:first-child a img {
-      height: 80px;
-    }
-    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
-      width: fit-content;
-    }
+    background: $color-white;
+    align-items: stretch;
+    @include spacing(margin, small, top bottom left right);
+    max-width: 300px;
 
     @include bp(l) {
-        align-items: center;
-        justify-content: space-between;
         flex-direction: row;
-        
-        li:not(:first-child) {
-          @include spacing(padding, tiny, bottom);
-        }
-        
-        li:first-child a img {
-          height: auto;
-        }
+        max-width: none;
     }
 }
 
-.footer__logo {
+li.footer__logo {
     display: flex;
-    justify-content: center;
     flex: 1;
-    @include bp(l) {
-      align-self: flex-end;
-    }
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    @include spacing(padding, very-small, top bottom);
+    @include spacing(padding, tiny, left right);
 
-    @media only screen and (max-width: map_get(map_get($breakpoints, 'l'), 'size')) {
-      width: fit-content;
-    }
-
-    & + & {
-        @include spacing(margin, small, top);
+    span {
+        display: block;
+        width: 100%;
+        color: $color-grey-dark;
+        @include spacing(margin, small, bottom top);
+        @include rsa(font-size, 14px, 16px);
 
         @include bp(l) {
             margin-top: 0;
         }
+    }
 
-        @include target-bps(l xl) {
-            @include spacing(margin, tiny, left);
+    // Standard-Border für das letzte Element
+    &:last-child {
+        border-top: 25px solid $color-bg;
+        border-left: none;
+
+        @include bp(l) {
+            border-top: none;
+            border-left: 25px solid $color-bg;
         }
     }
 
-    a {
-        @include bp(l) {
-            width: 100%;
+    @include bp(l) {
+        // Logo-Ausrichtung oben für erstes und letztes Item
+        &:first-child,
+        &:last-child {
+            width: auto;
+            justify-content: flex-start;
+            // Größere Logos für erstes/letztes Item
+            a img {
+            		max-width: 220px;
+            		height: 80px;
+            		margin-bottom: auto;
+            }
         }
-    }
 
-    img {
-        height: 40px;
-        max-width: 100%;
-        width: auto;
-
-        @include bp(l) {
-            height: auto;
-            max-width: 190px;
+        // Link-Container und Standard-Bildgröße
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
             width: 100%;
+
+            img {
+                height: 40px;
+                max-width: 100%;
+                width: auto;
+                width: 100%;
+                max-width: 200px;
+                height: auto;
+                margin-bottom: 0;
+                margin-top: auto;
+            }
         }
     }
 }
