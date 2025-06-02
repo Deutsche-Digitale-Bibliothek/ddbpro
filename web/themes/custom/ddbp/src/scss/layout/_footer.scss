@@ -174,102 +174,88 @@
     }
 }
 
-.footer__logos {
-    display: flex;
-    flex-direction: column;
-    background: $color-white;
-    align-items: stretch;
-    @include spacing(margin, small, top bottom left right);
-    max-width: 300px;
-
-    @include bp(l) {
-        flex-direction: row;
-        max-width: none;
-    }
+.footer-logos {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+  padding: 5px 0;
 }
 
-li.footer__logo {
+/* „Weitere Portale“ */
+.portal-section {
+  flex: calc(4/5);
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  padding: 20px;
+}
+
+.bkm-section {
+  flex: calc(1/5);
+  background: $color-white;
+  padding: 20px;
+}
+
+.box-title {
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+/* Flex-Container nur für die vier Logos */
+.partners-box {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo-Boxen */
+.logo-common {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $color-white;
+  text-align: center;
+  
+  a {
     display: flex;
-    flex: 1;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    @include spacing(padding, very-small, top bottom);
-    @include spacing(padding, tiny, left right);
-
-    span {
-        display: block;
-        width: 100%;
-        color: $color-grey-dark;
-        @include spacing(margin, small, bottom top);
-        @include rsa(font-size, 14px, 16px);
-
-        @include bp(l) {
-            margin-top: 0;
-        }
-    }
-
-    // Standard-Border für das letzte Element
-    &:last-child {
-        border-top: 25px solid $color-bg;
-        border-left: none;
-
-        @include bp(l) {
-            border-top: none;
-            border-left: 25px solid $color-bg;
-        }
-    }
-
-    @include bp(l) {
-        // Logo-Ausrichtung oben für erstes und letztes Item
-        &:first-child,
-        &:last-child {
-            width: auto;
-            justify-content: flex-start;
-            // Größere Logos für erstes/letztes Item
-            a img {
-            		max-width: 220px;
-            		height: 80px;
-            		margin-bottom: auto;
-            }
-        }
-
-        // Link-Container und Standard-Bildgröße
-        a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-
-            img {
-                height: 40px;
-                max-width: 100%;
-                width: auto;
-                width: 100%;
-                max-width: 200px;
-                height: auto;
-                margin-bottom: 0;
-                margin-top: auto;
-            }
-        }
-    }
+    width: 100%;
+    height: 100%;
+  }
+  
+  img {
+    max-height: 80%;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
-// images get blurry on Chrome 🤷
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-    .footer__logo img {
-        image-rendering: -webkit-optimize-contrast !important;
-    }
+/* Größerer Skalierungs-Modifier */
+.logo-lg { 
+  flex-basis: calc(200px * 1.15);
 }
 
-// Unset for Safari 11+
-@media not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-        .footer__logo img {
-            image-rendering: unset !important;
-        }
+.logo-xl {
+  flex-basis: calc(200px * 1.30);
+}
+
+@media only screen and (max-width: map_get(map_get($breakpoints, 'm'), 'size')) {
+  .footer-logos {
+    flex-wrap: wrap;
+    padding: 5px 25px;
     }
+  
+  .portal-section,
+  .bkm-section,
+  .logo-common {
+    flex: 1 1 100%;
+    width: 100%;
+  }
 }
 
 .footer_copyright-section-item {
