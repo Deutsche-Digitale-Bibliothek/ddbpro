@@ -256,7 +256,11 @@
   .bkm-section,
   .logo-common {
     flex: 1 1 100%;
-    width: 60%;
+    
+    img {
+      width: 60%;
+      max-width: 250px;
+    }
   }
 }
 
