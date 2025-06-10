@@ -199,6 +199,7 @@
 .box-title {
   margin: 0 0 20px;
   text-align: left;
+  color: $color-grey-dark;
 }
 
 /* Flex-Container nur für die vier Logos */
@@ -251,10 +252,11 @@
     }
   
   .portal-section,
+  .partners-box,
   .bkm-section,
   .logo-common {
     flex: 1 1 100%;
-    width: 100%;
+    width: 60%;
   }
 }
 
