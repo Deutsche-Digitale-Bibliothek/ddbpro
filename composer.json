@@ -42,8 +42,8 @@
         "drupal/field_group": "^4.0",
         "drupal/field_validation": "^3.0@beta",
         "drupal/focal_point": "^2.0",
-        "drupal/gin": "^4.0",
-        "drupal/gin_toolbar": "^2.0",
+        "drupal/gin": "^5.0",
+        "drupal/gin_toolbar": "^3.0",
         "drupal/health_check": "^3.0",
         "drupal/highlightjs_input_filter": "^1.1",
         "drupal/honeypot": "^2.2",
@@ -182,7 +182,6 @@
         "composer-exit-on-patch-failure": true,
         "patches": {
             "drupal/core": {
-                "Don't ignore context filter title overrides in views TitleResolver": "https://www.drupal.org/files/issues/2022-05-01/2787051-65.patch",
                 "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
             }
         }
