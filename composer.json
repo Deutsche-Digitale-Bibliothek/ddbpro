@@ -43,6 +43,7 @@
         "drupal/field_validation": "^3.0@beta",
         "drupal/focal_point": "^2.0",
         "drupal/gin": "^5.0",
+        "drupal/gin_login": "^2.1",
         "drupal/gin_toolbar": "^3.0",
         "drupal/health_check": "^3.0",
         "drupal/highlightjs_input_filter": "^1.1",

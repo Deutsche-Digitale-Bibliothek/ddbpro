@@ -4,7 +4,6 @@ global-styling:
       assets/css/app.css: {}
 global-scripts:
   js:
-    assets/js/chunk-vendors.js: {}
     assets/js/app.js: {}
   dependencies:
     - core/drupal

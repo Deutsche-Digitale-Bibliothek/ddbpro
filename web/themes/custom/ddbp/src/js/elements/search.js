@@ -8,10 +8,6 @@ const contentContainer = document.querySelector('.content-main');
 const searchForm = document.querySelectorAll('.search-form');
 const searchTrigger = [...document.querySelectorAll('.search-toggle')];
 
-const searchContainer = isMobile() ? '.header' : '.main-menu';
-const sidebarSearchInput = document.querySelector(`${searchContainer} .search-form input`);
-const sidebarSearchButton = document.querySelector(`${searchContainer} .search-toggle`);
-
 let open = false;
 
 const searchOpen = (target) => {
@@ -34,6 +30,10 @@ const searchOpen = (target) => {
 };
 
 const searchClose = (isMenuItem = false, keepMenuOpen = false) => {
+  const searchContainer = isMobile() ? '.header' : '.main-menu';
+  const sidebarSearchInput = document.querySelector(`${searchContainer} .search-form input`);
+  const sidebarSearchButton = document.querySelector(`${searchContainer} .search-toggle`);
+
   searchForm.forEach((e) => e.classList.remove('search-form--open'));
   contentContainer.classList.remove('content-main--search-open');
 
@@ -48,12 +48,15 @@ const searchClose = (isMenuItem = false, keepMenuOpen = false) => {
   }
 
   open = false;
-  sidebarSearchInput.setAttribute('tabindex', -1);
-  sidebarSearchButton.focus();
+  sidebarSearchInput?.setAttribute('tabindex', -1);
+  sidebarSearchButton?.focus();
 };
 
 const searchInit = () => {
-  sidebarSearchInput.setAttribute('tabindex', -1);
+  const searchContainer = isMobile() ? '.header' : '.main-menu';
+  const sidebarSearchInput = document.querySelector(`${searchContainer} .search-form input`);
+
+  sidebarSearchInput?.setAttribute('tabindex', -1);
 
   searchTrigger.forEach((trigger) => {
     trigger.addEventListener('click', ({ target }) => {
@@ -85,7 +88,7 @@ const searchClear = () => {
 };
 
 (() => {
-  if (searchForm) {
+  if (searchForm.length > 0) {
     searchInit();
   }
 })();
