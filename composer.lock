@@ -133,16 +133,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.348.1",
+            "version": "3.348.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c384263bebbfcdd0f59b459e630851f59080955f"
+                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c384263bebbfcdd0f59b459e630851f59080955f",
-                "reference": "c384263bebbfcdd0f59b459e630851f59080955f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6acc8e4f8b7468e604d6f0442284937398c2959a",
+                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a",
                 "shasum": ""
             },
             "require": {
@@ -224,9 +224,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.2"
             },
-            "time": "2025-06-27T19:02:10+00:00"
+            "time": "2025-06-30T18:12:03+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -2885,20 +2885,20 @@
         },
         {
             "name": "drupal/editor_advanced_link",
-            "version": "2.2.6",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editor_advanced_link.git",
-                "reference": "2.2.6"
+                "reference": "2.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.2.6.zip",
-                "reference": "2.2.6",
-                "shasum": "f6d7c437900f288b1e735b4faf2decc99bdd30e8"
+                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.3.0.zip",
+                "reference": "2.3.0",
+                "shasum": "bd567b4f6a11ec80989ad2f420eaec6614653f88"
             },
             "require": {
-                "drupal/core": "^10.2 || ^11.0"
+                "drupal/core": "^10.5 || ^11.2"
             },
             "require-dev": {
                 "drupal/ckeditor": "*",
@@ -2907,8 +2907,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.6",
-                    "datestamp": "1723183019",
+                    "version": "2.3.0",
+                    "datestamp": "1751299046",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4156,32 +4156,33 @@
         },
         {
             "name": "drupal/linkchecker",
-            "version": "2.1.0-alpha1",
+            "version": "2.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkchecker.git",
-                "reference": "2.1.0-alpha1"
+                "reference": "2.1.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkchecker-2.1.0-alpha1.zip",
-                "reference": "2.1.0-alpha1",
-                "shasum": "5b1b8f70185706a236f19522c49299204e7dac20"
+                "url": "https://ftp.drupal.org/files/projects/linkchecker-2.1.0-beta1.zip",
+                "reference": "2.1.0-beta1",
+                "shasum": "fe2074663fd5dcfc71450c29c846d54e96429166"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10.0 || ^11"
+                "drupal/core": "^10.2 || ^11.0"
             },
             "require-dev": {
+                "drupal/paragraphs": "*",
                 "drupal/redirect": "^1.8"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0-alpha1",
-                    "datestamp": "1722857029",
+                    "version": "2.1.0-beta1",
+                    "datestamp": "1751291988",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {

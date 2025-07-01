@@ -38,6 +38,7 @@ RUN set -eux; \
           libjpeg-turbo-dev \
           libpng-dev \
           libwebp-dev \
+          libavif-dev \
           libzip-dev \
           pcre-dev \
           autoconf \
@@ -49,8 +50,9 @@ RUN set -eux; \
      \
      docker-php-ext-configure gd \
           --with-freetype \
-          --with-jpeg=/usr/include \
-          --with-webp; \
+          --with-jpeg \
+          --with-webp \
+          --with-avif; \
      \
      docker-php-ext-install -j "$(nproc)" \
           gd \
@@ -87,8 +89,8 @@ RUN set -eux; \
      apk add --no-network --virtual .drupal-phpexts-rundeps $runDeps; \
      apk del --no-network .build-deps;
 
-ENV RUN_USER nobody
-ENV RUN_GROUP 0
+ENV RUN_USER=nobody
+ENV RUN_GROUP=0
 
 # add PHP config
 COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/php/ /usr/local/etc/php/conf.d/
@@ -111,7 +113,7 @@ COPY --chown=${RUN_USER}:${RUN_GROUP} --from=nchain /tmp/ddbpro/ .
 ENV PATH=${PATH}:/var/www/html/vendor/bin
 
 RUN \
-    # Create symlink for php7
+    # Create symlink for php8
     ln -s /usr/bin/php8 /usr/bin/php; \
     # Use the default PHP production configuration
     mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"; \
@@ -125,7 +127,7 @@ RUN \
     cp /etc/ssl/mykey.pem /etc/ssl/mykey.pem.orig; \
     openssl rsa -passin pass:foobar -in /etc/ssl/mykey.pem.orig -out /etc/ssl/mykey.pem; \
     # Generating certificate signing request
-    openssl req -new -key /etc/ssl/mykey.pem -out /etc/ssl/mycert.csr -subj "/C=DE/ST=DE/L=Frankfurt am Main/O=Deutsche Nationalbibliothek/OU=IT.DDB/CN=DDBpro"; \
+    openssl req -new -key /etc/ssl/mykey.pem -out /etc/ssl/mycert.csr -subj "/C=DE/ST=DE/L=Frankfurt am Main/O=Deutsche Nationalbibliothek/OU=GD.DDB/CN=DDBpro"; \
     # Generating self-signed certificate
     openssl x509 -req -days 3650 -in /etc/ssl/mycert.csr -signkey /etc/ssl/mykey.pem -out /etc/ssl/mycert.pem; \
     # Make sure files/folders needed by the processes are accessable when they run under the nobody user
