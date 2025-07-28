@@ -4,23 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3560bed1bff5373d1e6416630c4cbe83",
+    "content-hash": "87531c169ea6d9120d31262e3bc9907c",
     "packages": [
-        {
-            "name": "algolia/places",
-            "version": "1.19.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "algolia.places"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.3.0",
@@ -1538,30 +1523,30 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "7.0.5",
+            "version": "7.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "7.0.5"
+                "reference": "7.1.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.0.5.zip",
-                "reference": "7.0.5",
-                "shasum": "a215444c39a6ae384710a6c707caf593f6dd1e2d"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.1.0-beta1.zip",
+                "reference": "7.1.0-beta1",
+                "shasum": "589b2d62fda7edf615f91d9cd9998ee6f97a0402"
             },
             "require": {
-                "drupal/core": "^10 || ^11",
-                "drupal/nouislider_js": "^15.8"
+                "drupal/core": "^10.3 || ^11",
+                "drupal/nouislider_js": "^15.8.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.5",
-                    "datestamp": "1738353781",
+                    "version": "7.1.0-beta1",
+                    "datestamp": "1752100982",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -2835,17 +2820,17 @@
         },
         {
             "name": "drupal/eu_cookie_compliance",
-            "version": "1.27.0",
+            "version": "1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eu-cookie-compliance.git",
-                "reference": "8.x-1.27"
+                "reference": "8.x-1.28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.27.zip",
-                "reference": "8.x-1.27",
-                "shasum": "c8293061df6748fb6fefd57affc751b39ce6470e"
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.28.zip",
+                "reference": "8.x-1.28",
+                "shasum": "963991f5ead59e5fcf57fb100f30267ded5929f2"
             },
             "require": {
                 "drupal/core": "^8.9 || ^9 || ^10 || ^11"
@@ -2853,8 +2838,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.27",
-                    "datestamp": "1750814952",
+                    "version": "8.x-1.28",
+                    "datestamp": "1753332673",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4083,7 +4068,7 @@
             "extra": {
                 "drupal": {
                     "version": "7.0.7",
-                    "datestamp": "1752264962",
+                    "datestamp": "1753116879",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4621,21 +4606,21 @@
         },
         {
             "name": "drupal/migrate_tools",
-            "version": "6.1.1",
+            "version": "6.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/migrate_tools.git",
-                "reference": "6.1.1"
+                "reference": "6.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_tools-6.1.1.zip",
-                "reference": "6.1.1",
-                "shasum": "c9b19bd599d5610a95c7d96c6213da128e299161"
+                "url": "https://ftp.drupal.org/files/projects/migrate_tools-6.1.2.zip",
+                "reference": "6.1.2",
+                "shasum": "839f561a6d81ea1b5e0b74990f69401e1fb7a379"
             },
             "require": {
                 "drupal/core": ">=9.1",
-                "php": ">=7.4"
+                "php": ">=8.1"
             },
             "require-dev": {
                 "drupal/migrate_plus": ">=5",
@@ -4649,8 +4634,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.1",
-                    "datestamp": "1752270527",
+                    "version": "6.1.2",
+                    "datestamp": "1753365392",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6043,17 +6028,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.3.0-beta2",
+            "version": "6.3.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.3.0-beta2"
+                "reference": "6.3.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0-beta2.zip",
-                "reference": "6.3.0-beta2",
-                "shasum": "02e45bf3716c6e81846a9b77837782a43053e6f9"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0-beta3.zip",
+                "reference": "6.3.0-beta3",
+                "shasum": "60af12e66a7898c81a34400979973b046867582e"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0"
@@ -6098,8 +6083,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.3.0-beta2",
-                    "datestamp": "1742582977",
+                    "version": "6.3.0-beta3",
+                    "datestamp": "1753217750",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -6150,16 +6135,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.6.0",
+            "version": "13.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "570a05dce7aea9770f17306808804290764127ad"
+                "reference": "fde8e2593fe78824acf7305c8faf8ff6c3ac352c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/570a05dce7aea9770f17306808804290764127ad",
-                "reference": "570a05dce7aea9770f17306808804290764127ad",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/fde8e2593fe78824acf7305c8faf8ff6c3ac352c",
+                "reference": "fde8e2593fe78824acf7305c8faf8ff6c3ac352c",
                 "shasum": ""
             },
             "require": {
@@ -6199,7 +6184,7 @@
                 "drupal/semver_example": "2.3.0",
                 "jetbrains/phpstorm-attributes": "^1.0",
                 "mglaman/phpstan-drupal": "^1.2",
-                "phpunit/phpunit": "^9 || ^10",
+                "phpunit/phpunit": "^9 || ^10 || ^11",
                 "rector/rector": "^1",
                 "squizlabs/php_codesniffer": "^3.7"
             },
@@ -6286,7 +6271,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.6.0"
+                "source": "https://github.com/drush-ops/drush/tree/13.6.1"
             },
             "funding": [
                 {
@@ -6294,7 +6279,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-22T12:14:13+00:00"
+            "time": "2025-07-24T10:42:08+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -6921,21 +6906,6 @@
             ]
         },
         {
-            "name": "jquery/geocomplete",
-            "version": "1.7.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ubilabs/geocomplete/archive/refs/tags/1.7.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.geocomplete"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "jquery/hotkeys",
             "version": "0.2.0",
             "dist": {
@@ -6945,21 +6915,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "jquery.hotkeys"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/icheck",
-            "version": "1.0.2 ",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drgullin/icheck/zipball/8a6eb37bd7dab1e843c1b630c91c6398ff409d05"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.icheck"
             },
             "license": [
                 "MIT"
@@ -7065,21 +7020,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "jquery.timepicker"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/toggles",
-            "version": "4.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/simontabor/jquery-toggles/archive/refs/tags/v4.0.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.toggles"
             },
             "license": [
                 "MIT"
@@ -7460,16 +7400,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.5.0",
+            "version": "v5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/221b0d0fdf1369c71047ad1d18bb5880017bbc56",
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56",
                 "shasum": ""
             },
             "require": {
@@ -7512,9 +7452,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.0"
             },
-            "time": "2025-05-31T08:24:38+00:00"
+            "time": "2025-07-27T20:03:57+00:00"
         },
         {
             "name": "npm-asset/jquery-validation",
@@ -8290,16 +8230,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.17",
+            "version": "2.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "89b5ef665716fa2a52ecd2633f21007a6a349053"
+                "reference": "a9ccfef95210f92ba6feea6e8d1eef42b5605499"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/89b5ef665716fa2a52ecd2633f21007a6a349053",
-                "reference": "89b5ef665716fa2a52ecd2633f21007a6a349053",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a9ccfef95210f92ba6feea6e8d1eef42b5605499",
+                "reference": "a9ccfef95210f92ba6feea6e8d1eef42b5605499",
                 "shasum": ""
             },
             "require": {
@@ -8344,7 +8284,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-21T20:55:28+00:00"
+            "time": "2025-07-26T20:45:26+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -12509,6 +12449,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/better_exposed_filters": 10,
         "drupal/editor_paste_plain": 5,
         "drupal/field_validation": 10,
         "drupal/linkchecker": 15,
@@ -12532,5 +12473,5 @@
         "ext-gd": "1",
         "ext-imagick": "6"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

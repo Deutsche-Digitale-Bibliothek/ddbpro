@@ -24,7 +24,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/address": "^2.0",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/better_exposed_filters": "^7.0",
+        "drupal/better_exposed_filters": "^7.1@beta",
         "drupal/calendar_link": "^3.0",
         "drupal/ckeditor5_plugin_pack": "^1.2",
         "drupal/classy": "^2.0",
