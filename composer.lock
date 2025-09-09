@@ -2882,17 +2882,17 @@
         },
         {
             "name": "drupal/extlink",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/extlink.git",
-                "reference": "2.0.4"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/extlink-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "0331ef3457d3a1701f01e04f8256bdd823ea3512"
+                "url": "https://ftp.drupal.org/files/projects/extlink-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "3b2f73f60483ebf6e7f374f7340b19f228386cca"
             },
             "require": {
                 "drupal/core": "^10 || ^11"
@@ -2900,8 +2900,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1732565828",
+                    "version": "2.0.5",
+                    "datestamp": "1757349140",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4466,17 +4466,17 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "2.1.1"
+                "reference": "2.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "94f272db388cbf1e4df775a2677f8c35818c9382"
+                "url": "https://ftp.drupal.org/files/projects/metatag-2.1.2.zip",
+                "reference": "2.1.2",
+                "shasum": "0ef6232c40a3b7a45ea40d033e124b9698941e9d"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10 || ^11",
@@ -4496,8 +4496,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1752433708",
+                    "version": "2.1.2",
+                    "datestamp": "1757006643",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5570,7 +5570,7 @@
                     "homepage": "https://www.drupal.org/user/1078742"
                 },
                 {
-                    "name": "Rajeshreeputra",
+                    "name": "rajeshreeputra",
                     "homepage": "https://www.drupal.org/user/3418561"
                 },
                 {
@@ -5586,17 +5586,17 @@
         },
         {
             "name": "drupal/token",
-            "version": "1.15.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/token.git",
-                "reference": "8.x-1.15"
+                "reference": "8.x-1.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.15.zip",
-                "reference": "8.x-1.15",
-                "shasum": "5916fbccc86458a5f51e71f832ac70ff4c84ebdf"
+                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.16.zip",
+                "reference": "8.x-1.16",
+                "shasum": "f7ae77316ef8135068d995c09507da7517b20572"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
@@ -5607,8 +5607,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.15",
-                    "datestamp": "1722206211",
+                    "version": "8.x-1.16",
+                    "datestamp": "1757151197",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
