@@ -12582,5 +12582,5 @@
         "ext-gd": "1",
         "ext-imagick": "6"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
