@@ -53,5 +53,5 @@ To rollback a migration run:
 
 After executing a migration Drupal will create a table in the database which represents a migration mapping, e.g. if old node IDs are 
 not kept, you can use the mapping to see which target ID corresponds to which source ID after the migration. The table will be named something like:
-migrate_map_migration_id. 
+migrate_map_migration_id.
 
