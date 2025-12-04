@@ -101,7 +101,7 @@ COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/supervisord/supervisord.conf /etc
 
 # Add application
 WORKDIR /var/www/html
-COPY --chown=${RUN_USER}:${RUN_GROUP} --from=cchain /tmp/ddbpro/ .
+COPY --chown=${RUN_USER}:${RUN_GROUP} --from=nchain /tmp/ddbpro/ .
 ENV PATH=${PATH}:/var/www/html/vendor/bin
 
 RUN \
