@@ -18,7 +18,7 @@ RUN set -eu; \
 FROM node:22-alpine AS nchain
 COPY --from=cchain /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
-RUN yarn install && yarn build
+RUN yarn install --immutable && yarn build;
 
 FROM php:8.3-fpm-alpine
 LABEL org.opencontainers.image.authors="m.buechner@dnb.de"
@@ -133,7 +133,7 @@ RUN \
     # cleanup
     rm -rf ./config/cron ./config/nginx ./config/php ./config/supervisord; \
     docker-php-source delete || true; \
-    rm -rf /usr/src/php* \
+    rm -rf /usr/src/php*; \
     apk del --no-network .build-deps; \
     pecl clear-cache || true; \
     rm -rf /tmp/* /var/tmp/* /root/.cache /tmp/pear;
