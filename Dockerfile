@@ -20,7 +20,7 @@ COPY --from=cchain /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
 RUN yarn install --immutable && yarn build;
 
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 LABEL org.opencontainers.image.authors="m.buechner@dnb.de"
 
 # Install packages
