@@ -2,6 +2,11 @@
 
 {% block paragraphContent %}
   {% set position = content.field_image_position[0]['#markup'] == 'Links' ? 'left' : 'right' %}
+  {% set mainCta = content.field_main_cta[0]|default(null) %}
+  {% set secondaryCta = content.field_secondary_cta[0]|default(null) %}
+  {% set hasImage = content.field_image['#items']|default([])|length %}
+  {% set headlineText = content.field_headline[0]['#context'].value|default('') %}
+  {% set paragraphText = content.field_text|render %}
 
   {% set rowClasses = [
     'paragraph--collage-row',
@@ -9,22 +14,22 @@
   ] %}
 
   {% set linkPrimary = {
-    url: content.field_main_cta[0]['#url'],
-    text: content.field_main_cta[0]['#title'],
-    target: content.field_main_cta[0]['#options']['attributes']['target'] == '_blank',
+    url: mainCta ? mainCta['#url'] : null,
+    text: mainCta ? mainCta['#title'] : '',
+    target: mainCta and mainCta['#options']['attributes']['target'] == '_blank',
     type: 'primary',
   } %}
 
   {% set linkSecondary = {
-    url: content.field_secondary_cta[0]['#url'],
-    text: content.field_secondary_cta[0]['#title'],
-    target: content.field_secondary_cta[0]['#options']['attributes']['target'] == '_blank',
+    url: secondaryCta ? secondaryCta['#url'] : null,
+    text: secondaryCta ? secondaryCta['#title'] : '',
+    target: secondaryCta and secondaryCta['#options']['attributes']['target'] == '_blank',
     type: 'secondary',
     bg: 'light',
   } %}
 
   <div class="{{ rowClasses|join(' ') }}">
-    {% if content.field_image[0] %}
+    {% if hasImage %}
       <div class="paragraph-collage__image-wrapper">
         <div class="paragraph-collage__image">
           {% set responsiveImage = {
@@ -38,22 +43,22 @@
     {% endif %}
     <div class="paragraph-collage__content-wrapper">
       <div class="paragraph-collage__content">
-        {% if content.field_headline[0] %}
+        {% if headlineText %}
           <h2 class="paragraph-collage__headline">
-            {{ content.field_headline[0]['#context'].value }}
+            {{ headlineText }}
           </h2>
         {% endif %}
-        {% if content.field_text[0] %}
+        {% if paragraphText|trim %}
           <div class="paragraph-collage__text">
-            {{ content.field_text }}
+            {{ paragraphText }}
           </div>
         {% endif %}
-        {% if content.field_main_cta[0] or content.field_secondary_cta[0] %}
+        {% if mainCta or secondaryCta %}
           <div class="paragraph-collage__links">
-            {% if content.field_main_cta[0] %}
+            {% if mainCta %}
               {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
             {% endif %}
-            {% if content.field_secondary_cta[0] %}
+            {% if secondaryCta %}
               {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
             {% endif %}
           </div>

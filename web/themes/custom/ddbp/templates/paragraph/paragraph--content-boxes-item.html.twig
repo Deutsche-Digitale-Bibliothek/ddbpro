@@ -1,10 +1,13 @@
 {% extends "paragraph.html.twig" %}
 
+{% set cta = content.field_cta[0]|default(null) %}
+{% set descriptionText = content.field_description[0]['#context'].value|default('') %}
+
 {% set link = {
   modifier: 'content-boxes',
-  url: content.field_cta[0]['#url'],
-  text: content.field_cta[0]['#title'],
-  target: content.field_cta[0]['#options']['attributes']['target'] == '_blank',
+  url: cta ? cta['#url'] : null,
+  text: cta ? cta['#title'] : '',
+  target: cta and cta['#options']['attributes']['target'] == '_blank',
   'aria-describedby': 'paragraph_' ~ paragraph.id() ~ '_title',
 } %}
 
@@ -21,12 +24,12 @@
     <div class="content-box__title">
       <h3 class="h4" id="paragraph_{{ paragraph.id() }}_title">{{ content.field_headline[0]['#context'].value }}</h3>
     </div>
-    {% if content.field_description[0] %}
+    {% if descriptionText %}
       <div class="content-box__text">
-        <p>{{ content.field_description[0]['#context'].value }}</p>
+        <p>{{ descriptionText }}</p>
       </div>
     {% endif %}
-    {% if content.field_cta[0] %}
+    {% if cta %}
       <div class="content-box__link">
         {# text link #}
         {% include '@ddbp/partials/link.html.twig' with link %}

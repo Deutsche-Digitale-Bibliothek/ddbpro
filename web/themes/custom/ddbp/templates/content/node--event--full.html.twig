@@ -34,6 +34,12 @@
   bg: 'light',
 } %}
 
+{% set locationText = content.field_location[0]['#context'].value|default('') %}
+{% set externalLinks = content.field_external_link|render %}
+{% set teaserText = content.field_teaser_text[0]['#context'].value|default('') %}
+{% set eventDescription = content.field_description|render %}
+{% set eventDocuments = content.field_document|render %}
+
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <div class="container">
     {# Breadcrumbs block #}
@@ -90,35 +96,35 @@
             <div class="sidebar__item">
               <h2>{{ 'Ort' | t }}</h2>
               <p class="text-formatted">
-                {{- content.field_location[0]['#context'].value -}}
+                {{- locationText -}}
               </p>
             </div>
             {# related links #}
-            {% if content.field_external_link[0] %}
+            {% if externalLinks|trim %}
               <div class="sidebar__item">
                 <h2>{{ 'Weiterführende Links' | t }}</h2>
-                {{ content.field_external_link }}
+                {{ externalLinks }}
               </div>
             {% endif %}
           </div>
         </div>
         <div class="row-grid__content">
           <div class="row-grid__content-content">
-            {% if content.field_description[0] %}
+            {% if eventDescription|trim %}
               <div class="event__text text-formatted">
-                {% if content.field_teaser_text[0]['#context'].value %}
+                {% if teaserText %}
                   <p class="event__teaser h5">
-                    {{- content.field_teaser_text[0]['#context'].value -}}
+                    {{- teaserText -}}
                   </p>
                 {% endif %}
-                {{ content.field_description[0]['#text'] | raw }}
+                {{ eventDescription }}
               </div>
             {% endif %}
 
-            {% if content.field_document[0] %}
+            {% if eventDocuments|trim %}
               <div class="event__media">
                 <h3>{{ 'Veranstaltungsdokumente' | t }}</h3>
-                {{ content.field_document }}
+                {{ eventDocuments }}
               </div>
             {% endif %}
 

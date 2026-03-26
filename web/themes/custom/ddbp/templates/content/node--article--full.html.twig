@@ -12,17 +12,20 @@
   background: image.images,
 } %}
 
+{% set webform = content.field_webform|render %}
+{% set contactPeople = content.field_contact_persons|render %}
+
 {% set contentHeaderBottom = {
   title: label[0]['#context'].value,
   text: content.field_teaser_text|render|striptags|trim,
-  link: content.field_webform[0] ? true : false,
+  link: webform|trim ? true : false,
 } %}
 
 {% set faqId = content.field_faq_category[0]['#plain_text'] %}
 
 {% set formSection = {
-  form: content.field_webform,
-  people: content.field_contact_persons,
+  form: webform,
+  people: contactPeople,
 } %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
@@ -67,7 +70,7 @@
   </div>
 
   {# webform section #}
-  {% if content.field_webform[0] %}
+  {% if webform|trim %}
     {% include '@ddbp/partials/node-form.html.twig' with formSection %}
   {% endif %}
 

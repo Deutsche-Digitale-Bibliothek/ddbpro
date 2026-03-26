@@ -6,16 +6,19 @@
 ] %}
 
 {% set title = label[0]['#context'].value %}
+{% set portalUrl = content.field_link_ddb_portal[0]['#url']|default(null) %}
+{% set websiteUrl = content.field_link_website[0]['#url']|default(null) %}
+{% set teaserText = content.field_teaser_text[0]['#context'].value|default('') %}
 
 {% set linkPrimary = {
-  url: content.field_link_ddb_portal[0]['#url'],
+  url: portalUrl,
   text: title ~ ' ' ~ 'im Portal' | t,
   target: true,
   type: 'primary',
 } %}
 
 {% set linkSecondary = {
-  url: content.field_link_website[0]['#url'],
+  url: websiteUrl,
   text: 'Webseite besuchen' | t,
   target: true,
   type: 'secondary',
@@ -43,7 +46,7 @@
           <div class="row-grid__title-content">
             <h1 id="node_{{ node.id }}_title">{{ title }}</h1>
             <div class="aggregator__text-teaser h4">
-              {{ content.field_teaser_text[0]['#context'].value }}
+              {{ teaserText }}
             </div>
           </div>
         </div>
@@ -72,10 +75,10 @@
               {{ content.field_text }}
             </div>
             <div class="aggregator__links links-siblings">
-              {% if content.field_link_ddb_portal[0] %}
+              {% if portalUrl %}
                 {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
               {% endif %}
-              {% if content.field_link_website[0] %}
+              {% if websiteUrl %}
                 {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
               {% endif %}
             </div>

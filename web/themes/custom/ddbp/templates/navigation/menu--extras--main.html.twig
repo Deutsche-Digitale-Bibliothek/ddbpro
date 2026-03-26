@@ -24,7 +24,7 @@
         <li{{ item.attributes.addClass(classes) }} role="menuitem" id="li-{{ key }}">
           {% if not item.below %}
             <a href="{{ item.url }}" class="menu-item__link">
-              {% if item.content.field_icon[0] %}
+              {% if item.content.field_icon['#items']|default([])|length %}
                 {% set responsiveImage = { images: item.content.field_icon[0].images } %}
                 {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
               {% endif %}
@@ -35,7 +35,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     aria-controls="subMenu-{{ key }}">
-              {% if item.content.field_icon[0] %}
+              {% if item.content.field_icon['#items']|default([])|length %}
                 {% set responsiveImage = { images: item.content.field_icon[0].images } %}
                 {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
               {% endif %}

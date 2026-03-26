@@ -7,7 +7,10 @@
 ] %}
 
 {% set file = content.field_media_image['#items'].entity %}
-{% set hasLink = content.field_link[0] %}
+{% set hasLink = content.field_link[0]|default(null) %}
+{% set licenseText = content.field_document_license[0]['#plain_text']|default('') %}
+{% set authorText = content.field_author[0]['#context'].value|default('') %}
+{% set copyrightText = content.field_copyright[0]['#context'].value|default('') %}
 
 {% set linkPrimary = {
   url: hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value),
@@ -90,31 +93,31 @@
               {% endif %}
 
               {# licence #}
-              {% if content.field_document_license[0] %}
+              {% if licenseText %}
               <dt class="node-table__item-label">
                 {{ 'Lizenz:' | t }}
               </dt>
               <dd class="node-table__item-value">
-                {{ content.field_document_license[0]['#plain_text'] }}
+                {{ licenseText }}
               </dd>
               {% endif %}
 
               {# author #}
-              {% if content.field_author[0] %}
+              {% if authorText %}
                 <dt class="node-table__item-label">
                   {{ 'Autor:' | t }}
                 </dt>
                 <dd class="node-table__item-value">
-                  {{ content.field_author[0]['#context'].value }}
+                  {{ authorText }}
                 </dd>
               {% endif %}
 
-              {% if content.field_copyright[0] %}
+              {% if copyrightText %}
               <dt class="node-table__item-label">
                 {{ 'Quelle:' | t }}
               </dt>
               <dd class="node-table__item-value">
-                {{ content.field_copyright[0]['#context'].value }}
+                {{ copyrightText }}
               </dd>
               {% endif %}
 
