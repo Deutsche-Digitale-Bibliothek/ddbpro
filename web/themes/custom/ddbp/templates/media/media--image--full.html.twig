@@ -6,14 +6,14 @@
   'document'
 ] %}
 
-{% set file = content.field_media_image['#items'].entity %}
+{% set file = content.field_media_image['#items'].entity|default(null) %}
 {% set hasLink = content.field_link[0]|default(null) %}
 {% set licenseText = content.field_document_license[0]['#plain_text']|default('') %}
 {% set authorText = content.field_author[0]['#context'].value|default('') %}
 {% set copyrightText = content.field_copyright[0]['#context'].value|default('') %}
 
 {% set linkPrimary = {
-  url: hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value),
+  url: hasLink ? content.field_link[0]['#url'] : (file ? file_url(file.uri.value) : ''),
   text: hasLink ? 'Website besuchen' | t : 'Herunterladen' | t,
   target: true,
   download: hasLink ? false : true,

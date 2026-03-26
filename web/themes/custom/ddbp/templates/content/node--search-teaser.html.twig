@@ -30,7 +30,7 @@
   </div>
   <a href="{{ url }}" class="search-teaser__title">
     <h2 class="h4">
-      {{ label[0]['#context'].value }}
+      {{ label[0]['#context'].value|default('') }}
     </h2>
   </a>
   {% if hasText %}

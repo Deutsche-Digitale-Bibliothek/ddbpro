@@ -23,7 +23,7 @@
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}">
     <h3>
-        {{ label[0]['#context'].value }}
+        {{ label[0]['#context'].value|default('') }}
     </h3>
     <div class="event-teaser__date">
       {% if startDateRaw %}

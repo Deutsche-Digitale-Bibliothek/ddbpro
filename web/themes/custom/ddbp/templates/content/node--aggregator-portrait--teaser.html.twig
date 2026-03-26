@@ -1,4 +1,4 @@
-{% set image = content.field_image[0] %}
+{% set image = content.field_image[0]|default(null) %}
 
 {% set classes = [
   'node',
@@ -8,7 +8,7 @@
   'aggregator-teaser',
 ] %}
 
-{% set responsiveImage = { images: image.images } %}
+{% set responsiveImage = image and image.images ? { images: image.images } : {} %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}">
@@ -18,10 +18,10 @@
       </div>
     {% endif %}
     <div class="teaser__title aggregator-teaser__title">
-      <h3>{{ label[0]['#context'].value }}</h3>
+      <h3>{{ label[0]['#context'].value|default('') }}</h3>
     </div>
     <div class="teaser__text aggregator-teaser__text">
-      <p>{{ content.field_teaser_text[0]['#context'].value }}</p>
+      <p>{{ content.field_teaser_text[0]['#context'].value|default('') }}</p>
     </div>
     <div class="aggregator-teaser__more">
       <i aria-hidden="true" class="fa-solid fa-arrow-right"></i>

@@ -52,7 +52,7 @@
       <div class="row-grid row-grid--fixed">
         <div class="row-grid__title">
           <div class="row-grid__title-content">
-            <h1>{{ label[0]['#context'].value }}</h1>
+            <h1>{{ label[0]['#context'].value|default('') }}</h1>
             <div class="event__date-time h4">
               {% if startDateRaw and endDateRaw %}
                 {% set startDate = startDateRaw|format_date('custom', 'l, d.m.Y, H:i') %}

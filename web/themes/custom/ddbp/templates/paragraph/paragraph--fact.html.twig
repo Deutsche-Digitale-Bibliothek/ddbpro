@@ -3,11 +3,11 @@
 {% block paragraphContent %}
   <p>
       <span class="facts__figure h2">
-        {{ content.field_label[0]['#context'].value }}
+        {{ content.field_label[0]['#context'].value|default('') }}
       </span>
       <br>
       <span class="facts__fact h4">
-        {{ content.field_figure[0]['#context'].value }}
+        {{ content.field_figure[0]['#context'].value|default('') }}
       </span>
   </p>
 {% endblock %}

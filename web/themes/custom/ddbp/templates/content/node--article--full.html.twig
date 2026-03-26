@@ -5,23 +5,23 @@
   'article',
 ] %}
 
-{% set image = content.field_image[0] %}
+{% set image = content.field_image[0]|default(null) %}
 
 {% set contentHeaderTop = {
   titleImage: image ? true : false,
-  background: image.images,
+  background: image and image.images ? image.images : [],
 } %}
 
 {% set webform = content.field_webform|render %}
 {% set contactPeople = content.field_contact_persons|render %}
 
 {% set contentHeaderBottom = {
-  title: label[0]['#context'].value,
+  title: label[0]['#context'].value|default(''),
   text: content.field_teaser_text|render|striptags|trim,
   link: webform|trim ? true : false,
 } %}
 
-{% set faqId = content.field_faq_category[0]['#plain_text'] %}
+{% set faqId = content.field_faq_category[0]['#plain_text']|default('') %}
 
 {% set formSection = {
   form: webform,
@@ -43,7 +43,8 @@
       </div>
     </div>
     <div class="row-grid__sidebar">
-      {% if content.field_sub_pages[0] %}
+      {% set subPages = content.field_sub_pages|render %}
+      {% if subPages|trim %}
         <div class="container">
           <div class="row-grid__sidebar-content">
             <div class="related-links">

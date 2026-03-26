@@ -12,17 +12,19 @@
 } %}
 
 {% set responsiveImage = {
-  images: content.field_image[0].images,
+  images: (content.field_image[0]|default(null) and content.field_image[0].images) ? content.field_image[0].images : [],
   lazy: true,
 } %}
 
 {% block paragraphContent %}
   <div class="content-box">
     <div class="content-box__image">
-      {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% if content.field_image[0]|default(null) %}
+        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% endif %}
     </div>
     <div class="content-box__title">
-      <h3 class="h4" id="paragraph_{{ paragraph.id() }}_title">{{ content.field_headline[0]['#context'].value }}</h3>
+      <h3 class="h4" id="paragraph_{{ paragraph.id() }}_title">{{ content.field_headline[0]['#context'].value|default('') }}</h3>
     </div>
     {% if descriptionText %}
       <div class="content-box__text">

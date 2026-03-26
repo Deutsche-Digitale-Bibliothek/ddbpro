@@ -5,7 +5,7 @@
   'aggregator',
 ] %}
 
-{% set title = label[0]['#context'].value %}
+{% set title = label[0]['#context'].value|default('') %}
 {% set portalUrl = content.field_link_ddb_portal[0]['#url']|default(null) %}
 {% set websiteUrl = content.field_link_website[0]['#url']|default(null) %}
 {% set teaserText = content.field_teaser_text[0]['#context'].value|default('') %}

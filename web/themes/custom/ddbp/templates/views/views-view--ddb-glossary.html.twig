@@ -30,7 +30,8 @@
 
       <div class="view-count">
         {# Sg. vs pl. results count. #}
-        {% set count = rows[0]['#rows']|length %}
+        {% set firstRow = rows[0]|default(null) %}
+        {% set count = (firstRow and firstRow['#rows']) ? firstRow['#rows']|length : 0 %}
         <span role="status">{{ count }}</span> {{ count == 1 ? 'Fachbegriff' | t : 'Fachbegriffe' | t }}
       </div>
       <div class="view-content">

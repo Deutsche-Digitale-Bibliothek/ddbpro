@@ -20,16 +20,19 @@
   } %}
 
   <div class="poster__background">
-    {% set responsiveImage = {
-      images: content.field_image[0].images,
-      lazy: true,
-    } %}
-    {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+    {% set imageField = content.field_image[0]|default(null) %}
+    {% if imageField and imageField.images %}
+      {% set responsiveImage = {
+        images: imageField.images,
+        lazy: true,
+      } %}
+      {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+    {% endif %}
   </div>
   <div class="container">
     <div class="poster__content">
       <h2 class="poster__headline">
-        {{ content.field_headline[0]['#context'].value }}
+        {{ content.field_headline[0]['#context'].value|default('') }}
       </h2>
       <div class="poster__text">
         <p class="h4">

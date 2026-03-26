@@ -10,7 +10,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   <a href="{{ url }}" aria-label="Details öffnen" class="glossary-teaser__title">
-    <h2 class="h3">{{ label[0]['#context'].value }}</h2>
+    <h2 class="h3">{{ label[0]['#context'].value|default('') }}</h2>
   </a>
   {% if glossaryAlternatives|trim %}
     <div class="glossary-teaser__alternatives">

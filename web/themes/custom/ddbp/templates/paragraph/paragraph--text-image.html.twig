@@ -27,12 +27,15 @@
       {% set image_size = content.field_image_size ? content.field_image_size.0['#markup'] : '25%' %}
       <div class="paragraph-text-image__image-wrapper" style="--max-width: {{ image_size }};">
         <div class="paragraph-text-image__image">
-          {% set responsiveImage = {
-            images: content.field_image[0].images,
-            description: true,
-            lazy: true,
-          } %}
-          {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+          {% set imageField = content.field_image[0]|default(null) %}
+          {% if imageField and imageField.images %}
+            {% set responsiveImage = {
+              images: imageField.images,
+              description: true,
+              lazy: true,
+            } %}
+            {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+          {% endif %}
         </div>
       </div>
     {% endif %}
