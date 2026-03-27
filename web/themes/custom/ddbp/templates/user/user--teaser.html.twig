@@ -18,7 +18,8 @@
           {% set responsiveImage = { images: imageField.images } %}
           {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
         {% else %}
-        <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
+          <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
+        {% endif %}    
       {% endif %}
     </a>
   </div>

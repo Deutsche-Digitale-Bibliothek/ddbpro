@@ -53,3 +53,4 @@ Vagrantfile
 *.sql
 
 /nbproject/private/
+.vscode/
