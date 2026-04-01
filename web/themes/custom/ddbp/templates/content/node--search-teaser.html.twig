@@ -18,10 +18,10 @@
 
 {% set type = type_mapping[bundle] ?? 'Inhalt' %}
 
-{% set teaserText = content.field_teaser_text[0]['#context'].value|default('')|striptags|raw|trim %}
-{% set answerText = content.field_answer|render|striptags|raw|trim %}
-{% set bodyText = content.body|render|striptags|raw|trim %}
-{% set descriptionText = content.field_description|render|striptags|raw|trim %}
+{% set teaserText = content.field_teaser_text[0]['#context'].value|default('')|striptags|trim %}
+{% set answerText = content.field_answer|render|striptags|trim %}
+{% set bodyText = content.body|render|striptags|trim %}
+{% set descriptionText = content.field_description|render|striptags|trim %}
 {% set hasText = teaserText or answerText or bodyText or descriptionText %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
@@ -45,7 +45,7 @@
         <p>{{ bodyText|truncate(400, true, '...') }}</p>
       {% endif %}
       {% if descriptionText %}
-        <p>{{ descriptionText|truncate(400, true, '...')|raw }}</p>
+        <p>{{ descriptionText|truncate(400, true, '...') }}</p>
       {% endif %}
     </a>
   {% endif %}
