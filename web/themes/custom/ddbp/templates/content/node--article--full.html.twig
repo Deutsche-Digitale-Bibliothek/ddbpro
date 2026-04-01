@@ -43,8 +43,7 @@
       </div>
     </div>
     <div class="row-grid__sidebar">
-      {% set subPages = content.field_sub_pages|render %}
-      {% if subPages|trim %}
+      {% if content.field_sub_pages['#items']|default([])|length %}
         <div class="container">
           <div class="row-grid__sidebar-content">
             <div class="related-links">
