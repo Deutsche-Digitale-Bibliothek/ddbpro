@@ -5,24 +5,27 @@
   'article',
 ] %}
 
-{% set image = content.field_image[0] %}
+{% set image = content.field_image[0]|default(null) %}
 
 {% set contentHeaderTop = {
   titleImage: image ? true : false,
-  background: image.images,
+  background: image and image.images ? image.images : [],
 } %}
+
+{% set webform = content.field_webform|render %}
+{% set contactPeople = content.field_contact_persons|render %}
 
 {% set contentHeaderBottom = {
-  title: label[0]['#context'].value,
+  title: label[0]['#context'].value|default(''),
   text: content.field_teaser_text|render|striptags|trim,
-  link: content.field_webform[0] ? true : false,
+  link: webform|trim ? true : false,
 } %}
 
-{% set faqId = content.field_faq_category[0]['#plain_text'] %}
+{% set faqId = content.field_faq_category[0]['#plain_text']|default('') %}
 
 {% set formSection = {
-  form: content.field_webform,
-  people: content.field_contact_persons,
+  form: webform,
+  people: contactPeople,
 } %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
@@ -40,7 +43,7 @@
       </div>
     </div>
     <div class="row-grid__sidebar">
-      {% if content.field_sub_pages[0] %}
+      {% if content.field_sub_pages['#items']|default([])|length %}
         <div class="container">
           <div class="row-grid__sidebar-content">
             <div class="related-links">
@@ -67,7 +70,7 @@
   </div>
 
   {# webform section #}
-  {% if content.field_webform[0] %}
+  {% if webform|trim %}
     {% include '@ddbp/partials/node-form.html.twig' with formSection %}
   {% endif %}
 

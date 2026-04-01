@@ -1,44 +1,50 @@
 {% extends "paragraph.html.twig" %}
 
 {% block paragraphContent %}
+  {% set mainCta = content.field_main_cta[0]|default(null) %}
+  {% set secondaryCta = content.field_secondary_cta[0]|default(null) %}
+
   {% set linkPrimary = {
-    url: content.field_main_cta[0]['#url'],
-    text: content.field_main_cta[0]['#title'],
-    target: content.field_main_cta[0]['#options']['attributes']['target'] == '_blank',
+    url: mainCta ? mainCta['#url'] : null,
+    text: mainCta ? mainCta['#title'] : '',
+    target: mainCta and mainCta['#options']['attributes']['target'] == '_blank',
     type: 'primary',
   } %}
 
   {% set linkSecondary = {
-    url: content.field_secondary_cta[0]['#url'],
-    text: content.field_secondary_cta[0]['#title'],
-    target: content.field_secondary_cta[0]['#options']['attributes']['target'] == '_blank',
+    url: secondaryCta ? secondaryCta['#url'] : null,
+    text: secondaryCta ? secondaryCta['#title'] : '',
+    target: secondaryCta and secondaryCta['#options']['attributes']['target'] == '_blank',
     type: 'secondary',
     bg: 'dark',
   } %}
 
   <div class="poster__background">
-    {% set responsiveImage = {
-      images: content.field_image[0].images,
-      lazy: true,
-    } %}
-    {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+    {% set imageField = content.field_image[0]|default(null) %}
+    {% if imageField and imageField.images %}
+      {% set responsiveImage = {
+        images: imageField.images,
+        lazy: true,
+      } %}
+      {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+    {% endif %}
   </div>
   <div class="container">
     <div class="poster__content">
       <h2 class="poster__headline">
-        {{ content.field_headline[0]['#context'].value }}
+        {{ content.field_headline[0]['#context'].value|default('') }}
       </h2>
       <div class="poster__text">
         <p class="h4">
           {{ content.field_description|render|striptags('<br><strong>')|trim }}
         </p>
       </div>
-      {% if content.field_main_cta[0] or content.field_secondary_cta[0] %}
+      {% if mainCta or secondaryCta %}
         <div class="poster__links links-siblings">
-          {% if content.field_main_cta[0] %}
+          {% if mainCta %}
             {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
           {% endif %}
-          {% if content.field_secondary_cta[0] %}
+          {% if secondaryCta %}
             {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
           {% endif %}
         </div>

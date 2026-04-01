@@ -11,7 +11,7 @@
           <div class="column node-form__form">
             {{ form }}
           </div>
-          {% if people[0] %}
+          {% if people|trim %}
             <div class="column node-form__people">
               <h3 class="h4">{{ 'Ansprechpartner*innen' | t }}</h3>
               {{ people }}

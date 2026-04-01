@@ -1,5 +1,12 @@
 {% set email = user.mail.value %}
-{% set phone = content.field_phone[0]['#context'].value %}
+{% set phone = content.field_phone[0]['#context'].value|default('') %}
+{% set academicDegree = content.field_academic_degree[0]['#context'].value|default('') %}
+{% set firstname = content.field_firstname[0]['#context'].value|default('') %}
+{% set lastname = content.field_lastname[0]['#context'].value|default('') %}
+{% set nameSuffix = content.field_name_suffix[0]['#context'].value|default('') %}
+{% set jobTitle = content.field_job_title[0]['#context'].value|default('') %}
+{% set institution = content.field_institution[0]['#context'].value|default('') %}
+{% set hasUserImage = content.field_user_image['#items']|default([])|length %}
 
 {% set linkPrimary = {
   url: 'mailto:' ~ email,
@@ -29,19 +36,19 @@
         <div class="row-grid__title">
           <div class="row-grid__title-content">
             <div class="user__name h1">
-              {% if content.field_academic_degree[0] %}
-                {{ content.field_academic_degree[0]['#context'].value }}
+              {% if academicDegree %}
+                {{ academicDegree }}
               {% endif %}
-              {{ content.field_firstname[0]['#context'].value }}</br>
-              {{ content.field_lastname[0]['#context'].value }}
-              {% if content.field_name_suffix[0] %}
-                {{ content.field_name_suffix[0]['#context'].value }}
+              {{ firstname }}</br>
+              {{ lastname }}
+              {% if nameSuffix %}
+                {{ nameSuffix }}
               {% endif %}
             </div>
 
-            {% if content.field_job_title[0] %}
+            {% if jobTitle %}
               <div class="user__job-title h4">
-                {{ content.field_job_title[0]['#context'].value }}
+                {{ jobTitle }}
               </div>
             {% endif %}
           </div>
@@ -49,9 +56,14 @@
 
         <div class="row-grid__sidebar">
           <div class="user__image">
-            {% if content.field_user_image[0] %}
-              {% set responsiveImage = { images: content.field_user_image[0].images } %}
-              {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+            {% if hasUserImage %}
+                {% set imageField = content.field_user_image[0]|default(null) %}
+                {% if imageField and imageField.images %}
+                  {% set responsiveImage = { images: imageField.images } %}
+                  {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+                {% else %}
+                  <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
+                {% endif %}
             {% else %}
               <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
             {% endif %}
@@ -61,9 +73,9 @@
         <div class="row-grid__content">
           <div class="row-grid__content-content">
             <div class="user__info">
-              {% if content.field_institution[0] %}
+              {% if institution %}
                 <div class="user__info-institution">
-                  {{ content.field_institution[0]['#context'].value }}
+                  {{ institution }}
                 </div>
               {% endif %}
               <div class="user__info-address">

@@ -3,7 +3,7 @@
 {% block paragraphContent %}
   <div class="content-boxes">
     <h2>
-      {{ content.field_headline[0]['#context'].value }}
+      {{ content.field_headline[0]['#context'].value|default('') }}
     </h2>
     {{ content.field_content }}
   </div>

@@ -20,12 +20,15 @@
         </div>
       {% endif %}
       <div class="teaser__title department-teaser__title">
-        <h2>{{ label[0]['#context'].value }}</h2>
+        <h2>{{ label[0]['#context'].value|default('') }}</h2>
       </div>
     </div>
     <div class="teaser__icon department-teaser__icon">
-      {% set responsiveImage = { images: content.field_icon[0].images } %}
-      {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% set iconField = content.field_icon[0]|default(null) %}
+      {% if iconField and iconField.images %}
+        {% set responsiveImage = { images: iconField.images } %}
+        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% endif %}
     </div>
   </a>
 </article>

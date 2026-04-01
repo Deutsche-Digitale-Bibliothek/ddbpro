@@ -3,20 +3,21 @@
 ] %}
 
 {% set latestEvents = get_latest_events() %}
+{% set announcementLinkField = content.field_announcement_link[0]|default(null) %}
 {% set announcementLink = {
-  url: content.field_announcement_link[0]['#url'],
-  attributes: content.field_announcement_link[0]['#url'].getOptions()['attributes'],
-  target: content.field_announcement_link[0]['#options']['attributes']['target'] == '_blank',
+  url: announcementLinkField ? announcementLinkField['#url'] : '',
+  attributes: announcementLinkField ? announcementLinkField['#url'].getOptions()['attributes'] : {},
+  target: announcementLinkField ? announcementLinkField['#options']['attributes']['target'] == '_blank' : false,
 } %}
 {% set announcementText = {
-  title: content.field_announcement_title[0]['#context'].value,
-  description: content.field_announcement_description[0]['#context'].value,
+  title: content.field_announcement_title[0]['#context'].value|default(''),
+  description: content.field_announcement_description[0]['#context'].value|default(''),
 } %}
 
 <div{{ attributes.addClass(classes) }}>
   <a id="main-content" tabindex="-1" class="visually-hidden"></a>
   {# announcement #}
-  {% if content.field_show_announcement[0]['#markup'] == 'Yes' %}
+  {% if content.field_show_announcement[0]['#markup']|default('') == 'Yes' %}
     <div class="container">
       <div class="announcement">
         {% if announcementLink.url %}
@@ -107,17 +108,20 @@
       <div class="hero__content-top">
         <div class="row">
           <div class="column">
-            <h1>{{ content.field_headline[0]['#context'].value }}</h1>
+            <h1>{{ content.field_headline[0]['#context'].value|default('') }}</h1>
             <p class="h3">
-              {{ content.field_subheadline[0]['#context'].value }}
+              {{ content.field_subheadline[0]['#context'].value|default('') }}
             </p>
+            {% set linkTitleField = content.field_title_cta[0]|default(null) %}
             {% set linkTitle = {
-              url: content.field_title_cta[0]['#url'],
-              text: content.field_title_cta[0]['#title'],
+              url: linkTitleField ? linkTitleField['#url'] : '',
+              text: linkTitleField ? linkTitleField['#title'] : '',
               type: 'primary',
-              target: content.field_title_cta[0]['#options']['attributes']['target'],
+              target: linkTitleField ? linkTitleField['#options']['attributes']['target'] : '',
             } %}
-            {% include '@ddbp/partials/link-button.html.twig' with { link: linkTitle } %}
+            {% if linkTitleField %}
+              {% include '@ddbp/partials/link-button.html.twig' with { link: linkTitle } %}
+            {% endif %}
           </div>
         </div>
       </div>
@@ -129,18 +133,18 @@
         description: content.field_participation_description,
         steps: config_pages.field_participation_steps,
         linkPrimary: {
-          url: content.field_participation_cta_left[0]['#url'],
-          text: content.field_participation_cta_left[0]['#title'],
+          url: (content.field_participation_cta_left[0]|default(null)) ? content.field_participation_cta_left[0]['#url'] : '',
+          text: (content.field_participation_cta_left[0]|default(null)) ? content.field_participation_cta_left[0]['#title'] : '',
           type: 'primary',
-          target: content.field_participation_cta_left[0]['#options']['attributes']['target'],
+          target: (content.field_participation_cta_left[0]|default(null)) ? content.field_participation_cta_left[0]['#options']['attributes']['target'] : '',
           'aria-describedby': 'frontpage-participate-now',
         },
         linkSecondary: {
-          url: content.field_participation_cta_right[0]['#url'],
-          text: content.field_participation_cta_right[0]['#title'],
+          url: (content.field_participation_cta_right[0]|default(null)) ? content.field_participation_cta_right[0]['#url'] : '',
+          text: (content.field_participation_cta_right[0]|default(null)) ? content.field_participation_cta_right[0]['#title'] : '',
           type: 'secondary',
           bg: 'light',
-          target: content.field_participation_cta_right[0]['#options']['attributes']['target'],
+          target: (content.field_participation_cta_right[0]|default(null)) ? content.field_participation_cta_right[0]['#options']['attributes']['target'] : '',
           'aria-describedby': 'frontpage-details-flow-chart',
         },
       } %}
@@ -156,27 +160,32 @@
   </div>
 
   {# DDB studio #}
+  {% set studioCTALeftField = content.field_studio_cta_left[0]|default(null) %}
+  {% set studioCTARightField = content.field_studio_cta_right[0]|default(null) %}
   {% set linkPrimary = {
-    url: content.field_studio_cta_left[0]['#url'],
-    text: content.field_studio_cta_left[0]['#title'],
+    url: studioCTALeftField ? studioCTALeftField['#url'] : '',
+    text: studioCTALeftField ? studioCTALeftField['#title'] : '',
     type: 'primary',
-    target: content.field_studio_cta_left[0]['#options']['attributes']['target'],
+    target: studioCTALeftField ? studioCTALeftField['#options']['attributes']['target'] : '',
     'aria-describedby': 'frontpage-ddb-studio',
   } %}
 
   {% set linkSecondary = {
-    url: content.field_studio_cta_right[0]['#url'],
-    text: content.field_studio_cta_right[0]['#title'],
+    url: studioCTARightField ? studioCTARightField['#url'] : '',
+    text: studioCTARightField ? studioCTARightField['#title'] : '',
     type: 'secondary',
     bg: 'dark',
-    target: content.field_studio_cta_right[0]['#options']['attributes']['target'],
+    target: studioCTARightField ? studioCTARightField['#options']['attributes']['target'] : '',
     'aria-describedby': 'frontpage-ddb-studio',
   } %}
   <div class="ddb-studio">
-    {% set responsiveImage = { images: content.field_studio_image[0].images } %}
-    <div class="ddb-studio__background-image">
-      {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
-    </div>
+    {% set studioImageField = content.field_studio_image[0]|default(null) %}
+    {% if studioImageField and studioImageField.images %}
+      {% set responsiveImage = { images: studioImageField.images } %}
+      <div class="ddb-studio__background-image">
+        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      </div>
+    {% endif %}
     <div class="container">
       <div class="row">
         <div class="column column--span-2">
@@ -186,15 +195,15 @@
         </div>
         <div class="column column--span-10">
           <div class="ddb-studio__content">
-            <h2 id="frontpage-ddb-studio">{{ content.field_studio_headline[0]['#context'].value }}</h2>
+            <h2 id="frontpage-ddb-studio">{{ content.field_studio_headline[0]['#context'].value|default('') }}</h2>
             <p class="h4">
-              {{ content.field_studio_description[0]['#context'].value }}
+              {{ content.field_studio_description[0]['#context'].value|default('') }}
             </p>
             <div class="ddb-studio__links links-siblings">
-              {% if content.field_studio_cta_left[0] %}
+              {% if studioCTALeftField %}
                 {% include '@ddbp/partials/link-button.html.twig' with { link: linkPrimary } %}
               {% endif %}
-              {% if content.field_studio_cta_right[0] %}
+              {% if studioCTARightField %}
                 {% include '@ddbp/partials/link-button.html.twig' with { link: linkSecondary } %}
               {% endif %}
             </div>

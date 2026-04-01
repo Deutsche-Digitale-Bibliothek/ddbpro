@@ -1,4 +1,4 @@
-{% set display = content.field_display[0]['#markup']|clean_class %}
+{% set display = content.field_display[0]['#markup']|default('')|clean_class %}
 
 {% set classes = [
   'paragraph',
@@ -6,7 +6,8 @@
   'paragraph--' ~ paragraph.bundle|clean_class ~ '-' ~ display,
 ] %}
 
-{% set images = content.field_image[0].images %}
+{% set imageItems = content.field_image[0]|default(null) %}
+{% set images = imageItems ? imageItems.images : [] %}
 {% set imageDefault = images[images|length - 1] %}
 {% set imageAlt = imageDefault.alt['#markup'] %}
 {% set imageDescription = imageDefault.description['#markup'] %}
