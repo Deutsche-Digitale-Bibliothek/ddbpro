@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the ddbp_migrations module.
+ * Post update hooks for the ddbp_migrations module.
  */
 
 /**
  * Ensures imported glossary body fields are rendered as HTML.
  */
-function ddbp_migrations_update_11001() {
+function ddbp_migrations_post_update_glossary_body_format(&$sandbox = NULL) {
   $storage = \Drupal::entityTypeManager()->getStorage('node');
   $nids = $storage->getQuery()
     ->condition('type', 'glossary_term')
