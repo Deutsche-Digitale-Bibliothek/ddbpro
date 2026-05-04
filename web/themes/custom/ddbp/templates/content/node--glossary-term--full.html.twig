@@ -27,7 +27,7 @@
         </div>
         <div class="row-grid__content">
           <div class="glossary__items node-table__items">
-            {% set glossaryBody = content.body|render %}
+            {% set glossaryBody = node.body.value %}
             {% set glossaryAlternatives = content.field_alternatives|render %}
             {% set glossaryUri = content.field_uri[0]['#context'].value|default('') %}
             {% set lastModified = content.field_last_modified[0]['#context'].value|default('') %}
@@ -39,7 +39,7 @@
               </div>
               <div class="node-table__item-value">
                 <div class="text-formatted">
-                  {{ glossaryBody }}
+                  {{ glossaryBody|raw }}
                 </div>
               </div>
             {% endif %}

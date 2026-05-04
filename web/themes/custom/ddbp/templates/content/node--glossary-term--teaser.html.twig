@@ -6,7 +6,7 @@
 ] %}
 
 {% set glossaryAlternatives = content.field_alternatives|render %}
-{% set glossaryBody = content.body|render %}
+{% set glossaryBody = node.body.value %}
 
 <article{{ attributes.addClass(classes) }}>
   <a href="{{ url }}" aria-label="Details öffnen" class="glossary-teaser__title">
@@ -20,7 +20,7 @@
   {% if glossaryBody|trim %}
     <div class="glossary-teaser__definition">
       <div class="text-formatted read-more">
-        {{ glossaryBody }}
+        {{ glossaryBody|raw }}
       </div>
       <div class="read-more__link">
         <a href="{{ url }}">
