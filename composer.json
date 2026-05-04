@@ -38,7 +38,7 @@
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/editor_advanced_link": "^2.0",
         "drupal/editor_paste_plain": "^1.0@RC",
-        "drupal/eu_cookie_compliance": "^1.19",
+        "drupal/eu_cookie_compliance": "^1.30@RC",
         "drupal/extlink": "^2.0",
         "drupal/field_group": "^4.0",
         "drupal/field_validation": "^3.0@beta",

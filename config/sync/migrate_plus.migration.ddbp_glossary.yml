@@ -72,7 +72,7 @@ destination:
   plugin: 'entity:node'
   default_bundle: glossary_term
   overwrite_properties:
-    - body/value
+    - body
     - field_alternatives
     - field_last_modified
 migration_dependencies: null
