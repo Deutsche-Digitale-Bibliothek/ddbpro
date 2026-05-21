@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59c2662fd75b3d4061e98a52114cf117",
+    "content-hash": "e5c9826646598a3b5442407edf008679",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2738,17 +2738,17 @@
         },
         {
             "name": "drupal/eu_cookie_compliance",
-            "version": "1.29.0",
+            "version": "1.30.0-rc2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eu-cookie-compliance.git",
-                "reference": "8.x-1.29"
+                "reference": "8.x-1.30-rc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.29.zip",
-                "reference": "8.x-1.29",
-                "shasum": "c10aca3e4b4107e0ca804804f0deb98d20a78251"
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.30-rc2.zip",
+                "reference": "8.x-1.30-rc2",
+                "shasum": "3f99de9085921d530fba95362bec6ce7f11d3f19"
             },
             "require": {
                 "drupal/core": "^8.9 || ^9 || ^10 || ^11"
@@ -2756,11 +2756,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.29",
-                    "datestamp": "1760671053",
+                    "version": "8.x-1.30-rc2",
+                    "datestamp": "1762114922",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -12639,6 +12639,7 @@
     "stability-flags": {
         "drupal/better_exposed_filters": 10,
         "drupal/editor_paste_plain": 5,
+        "drupal/eu_cookie_compliance": 5,
         "drupal/field_validation": 10,
         "drupal/linkchecker": 15,
         "drupal/masquerade": 10,
