@@ -107,7 +107,8 @@
             "cweagans/composer-patches": true,
             "wikimedia/composer-merge-plugin": true,
             "php-http/discovery": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "symfony/runtime": true
         },
         "platform": {
             "php": "8.3",
