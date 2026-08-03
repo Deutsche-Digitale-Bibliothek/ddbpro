@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "322ce5e3887aa1fd221fb2a83f40133b",
+    "content-hash": "6eb4574a0dba663d1e1673a967fcf462",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3327,26 +3327,31 @@
         },
         {
             "name": "drupal/highlightjs_input_filter",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/highlightjs_input_filter.git",
-                "reference": "1.1.6"
+                "reference": "1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/highlightjs_input_filter-1.1.6.zip",
-                "reference": "1.1.6",
-                "shasum": "4c907e3aa8ed94716039fde3e99bb55e62e04919"
+                "url": "https://ftp.drupal.org/files/projects/highlightjs_input_filter-1.2.0.zip",
+                "reference": "1.2.0",
+                "shasum": "0c6c817ad794bdda2e06d1fefaf5cd58533e5f4e"
             },
             "require": {
                 "drupal/core": "^9.0 || ^10 || ^11"
             },
+            "suggest": {
+                "highlightjs/cdn-assets": "To manage highlight.js pre-built assets locally. See README.md for the recommended custom package setup.",
+                "npm-asset/highlightjs-copy": "To manage the copy-to-clipboard plugin locally via Composer and Asset Packagist.",
+                "oomphinc/composer-installers-extender": "Required to use installer-paths with npm-asset packages for local assets."
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.6",
-                    "datestamp": "1759724219",
+                    "version": "1.2.0",
+                    "datestamp": "1785613107",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
