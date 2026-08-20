@@ -30,7 +30,7 @@
         "drupal/classy": "^2.0",
         "drupal/clientside_validation": "^4.0",
         "drupal/config_entity_reference_selection": "^2.0",
-        "drupal/config_pages": "^2.9",
+        "drupal/config_pages": "^4.0",
         "drupal/core-composer-scaffold": "^11",
         "drupal/core-project-message": "^11",
         "drupal/core-recommended": "^11",
