@@ -31,9 +31,9 @@
         "drupal/clientside_validation": "^4.0",
         "drupal/config_entity_reference_selection": "^2.0",
         "drupal/config_pages": "^4.0",
-        "drupal/core-composer-scaffold": "^11",
-        "drupal/core-project-message": "^11",
-        "drupal/core-recommended": "^11",
+        "drupal/core-composer-scaffold": "~11.4",
+        "drupal/core-project-message": "~11.4",
+        "drupal/core-recommended": "~11.4",
         "drupal/dynamic_entity_reference": "^3.0",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/editor_advanced_link": "^2.0",
@@ -61,7 +61,7 @@
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^2.0@alpha",
         "drupal/media_thumbnails_pdf": "^2.0",
-        "drupal/media_thumbnails_video": "2.0.x-dev",
+        "drupal/media_thumbnails_video": "~2.0",
         "drupal/menu_item_extras": "^3.0",
         "drupal/metatag": "^2.1",
         "drupal/migrate_plus": "^6.0",
@@ -102,13 +102,13 @@
         "sort-packages": true,
         "allow-plugins": {
             "composer/installers": true,
-            "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "oomphinc/composer-installers-extender": true,
+            "cweagans/composer-patches": true,
+            "wikimedia/composer-merge-plugin": true,
             "php-http/discovery": true,
-            "symfony/runtime": true,
-            "wikimedia/composer-merge-plugin": true
+            "oomphinc/composer-installers-extender": true,
+            "symfony/runtime": true
         },
         "platform": {
             "php": "8.3",
@@ -184,9 +184,6 @@
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
         "patches": {
-            "drupal/core": {
-                "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
-            }
-        }
+	}
     }
 }
