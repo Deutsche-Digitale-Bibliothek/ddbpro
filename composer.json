@@ -61,7 +61,7 @@
         "drupal/masquerade": "^2.0@beta",
         "drupal/matomo": "^2.0@alpha",
         "drupal/media_thumbnails_pdf": "^2.0",
-        "drupal/media_thumbnails_video": "~2.0",
+        "drupal/media_thumbnails_video": "2.1.x-dev@dev",
         "drupal/menu_item_extras": "^3.0",
         "drupal/metatag": "^2.1",
         "drupal/migrate_plus": "^6.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de01e70ed5bef36aca59cfe10beef77c",
+    "content-hash": "0a3daba1611dbdba230e52553f687c2f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4322,32 +4322,29 @@
         },
         {
             "name": "drupal/media_thumbnails_video",
-            "version": "2.0.2",
+            "version": "dev-2.1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_thumbnails_video.git",
-                "reference": "2.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_thumbnails_video-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "9700f42eb0a3e9ee5fa83fcf21d6fbf273a7708e"
+                "reference": "8df07a1e02ffa8ff48fd3503a699f2f0c209c36e"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10 || ^11",
+                "drupal/core": ">=11.4.0",
                 "drupal/media_thumbnails": ">=2.0",
                 "ext-gd": "*",
                 "php-ffmpeg/php-ffmpeg": ">=0.14.0"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.1.x": "2.1.x-dev"
+                },
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1768311698",
+                    "version": "2.1.x-dev",
+                    "datestamp": "1786538149",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -13098,6 +13095,7 @@
         "drupal/linkchecker": 15,
         "drupal/masquerade": 10,
         "drupal/matomo": 15,
+        "drupal/media_thumbnails_video": 20,
         "drupal/selective_better_exposed_filters": 10,
         "drupal/spamspan": 10,
         "drupal/ultimate_cron": 15,
