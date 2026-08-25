@@ -1,11 +1,13 @@
 {% extends "paragraph.html.twig" %}
 
+{% set linkField = content.field_link[0]|default(null) %}
 {% set link = {
-  url: content.field_link[0]['#url'],
-  text: content.field_link[0]['#title'],
-  target: content.field_link[0]['#options']['attributes']['target'] == '_blank',
+  url: linkField ? linkField['#url'] : '',
+  text: linkField ? linkField['#title'] : '',
+  target: linkField ? linkField['#options']['attributes']['target'] == '_blank' : false,
   type: 'primary',
 } %}
+{% set hasLink = link.url and link.text %}
 
 {% block paragraphContent %}
   <div class="participation-option__option-wrapper">
@@ -19,8 +21,10 @@
       </div>
     </div>
 
-    <div class="participation-option__link">
-      {% include '@ddbp/partials/link-button.html.twig' with link %}
-    </div>
+    {% if hasLink %}
+      <div class="participation-option__link">
+        {% include '@ddbp/partials/link-button.html.twig' with link %}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

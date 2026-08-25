@@ -10,7 +10,7 @@
 } %}
 
 {% set contentHeaderBottom = {
-  title: label[0]['#context'].value,
+  title: label[0]['#context'].value|default(''),
 } %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>

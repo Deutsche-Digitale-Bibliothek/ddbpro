@@ -18,10 +18,12 @@
   node.field_location
 ) %}
 
+{% set teaserText = content.field_teaser_text[0]['#context'].value|default('') %}
+
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}">
     <h3>
-        {{ label[0]['#context'].value }}
+        {{ label[0]['#context'].value|default('') }}
     </h3>
     <div class="event-teaser__date">
       {% if startDateRaw %}
@@ -36,9 +38,9 @@
         </time>
       {% endif %}
     </div>
-    {% if content.field_teaser_text[0]['#context'].value %}
+    {% if teaserText %}
       <div class="teaser__text event-teaser__text">
-        <p>{{- content.field_teaser_text[0]['#context'].value -}}</p>
+        <p>{{- teaserText -}}</p>
       </div>
     {% endif %}
   </a>

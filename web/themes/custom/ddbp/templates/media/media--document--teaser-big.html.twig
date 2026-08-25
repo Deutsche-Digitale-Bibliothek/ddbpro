@@ -7,13 +7,13 @@
 ] %}
 
 {% set id = 'media-id-' ~ media.id() %}
-{% set file = content.field_media_document[0]['#file'] %}
-{% set hasLink = content.field_link[0] %}
+{% set file = content.field_media_document[0]['#file']|default(null) %}
+{% set hasLink = content.field_link[0]|default(null) %}
 
-{% set detailUrl = hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value) %}
+{% set detailUrl = hasLink ? content.field_link[0]['#url'] : (file ? file_url(file.uri.value) : '') %}
 {% set download = hasLink ? false : true %}
 {% set aria = hasLink ? 'Öffnet Inhalt in einem neuen Fenster' | t : 'Download' | t %}
-{% set mid = _context.media.mid[0].value %}
+{% set mid = _context.media.mid[0].value|default('') %}
 {% set url = path('entity.media.canonical', { 'media': mid }) %}
 
 {% set iconClass = hasLink ? 'fac-right-top-main' : 'fac-download-main' %}
@@ -30,7 +30,7 @@
         {% if download %}download{% endif %}
         id="media_{{ media.id }}_title"
         class="document-teaser__name">
-        {{ content.name[0]['#context'].value }}
+        {{ content.name[0]['#context'].value|default('Dokument'|t) }}
       </a></h2>
       {% if content.field_description['#items']|length > 0 %}
         {% set description = content.field_description['#items'][0].value %}

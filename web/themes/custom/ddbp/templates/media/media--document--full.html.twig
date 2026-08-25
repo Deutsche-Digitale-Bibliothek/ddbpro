@@ -6,11 +6,13 @@
   'document'
 ] %}
 
-{% set file = content.field_media_document[0]['#file'] %}
-{% set hasLink = content.field_link[0] %}
+{% set file = content.field_media_document[0]['#file']|default(null) %}
+{% set hasLink = content.field_link[0]|default(null) %}
+{% set licenseText = content.field_document_license[0]['#plain_text']|default('') %}
+{% set authorText = content.field_author[0]['#context'].value|default('') %}
 
 {% set linkPrimary = {
-  url: hasLink ? content.field_link[0]['#url'] : file_url(file.uri.value),
+  url: hasLink ? content.field_link[0]['#url'] : (file ? file_url(file.uri.value) : ''),
   text: hasLink ? 'Website besuchen' | t : 'Herunterladen' | t,
   target: true,
   download: hasLink ? false : true,
@@ -87,22 +89,22 @@
               {% endif %}
 
               {# licence #}
-              {% if content.field_document_license[0] %}
+              {% if licenseText %}
               <dt class="node-table__item-label">
                 {{ 'Lizenz:' | t }}
               </dt>
               <dd class="node-table__item-value">
-                {{ content.field_document_license[0]['#plain_text'] }}
+                {{ licenseText }}
               </dd>
               {% endif %}
 
               {# author #}
-              {% if content.field_author[0] %}
+              {% if authorText %}
                 <dt class="node-table__item-label">
                   {{ 'Autor:' | t }}
                 </dt>
                 <dd class="node-table__item-value">
-                  {{ content.field_author[0]['#context'].value }}
+                  {{ authorText }}
                 </dd>
               {% endif %}
 

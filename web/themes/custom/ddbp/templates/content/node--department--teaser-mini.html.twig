@@ -5,19 +5,25 @@
   'department-teaser-mini',
 ] %}
 
-{% set responsiveImage = { images: content.field_icon[0].images } %}
+{% set iconField = content.field_icon[0]|default(null) %}
 <div{{ attributes.addClass(classes).removeAttribute('role') }}>
   <a href="{{ url }}" data-id="{{ node.id }}">
     <div class="department-teaser-mini__icon">
-      {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
+      {% if iconField and iconField.images %}
+        {% set responsiveImage = { images: iconField.images } %}
+        {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
+      {% endif %}
     </div>
     <div class="department-teaser-mini__title h3">
-      {{ label[0]['#context'].value }}
+      {{ label[0]['#context'].value|default('') }}
     </div>
   </a>
 </div>
 
 <div class="department-teaser-mini__image" data-id="{{ node.id }}">
-  {% set responsiveImage = { images: content.field_image[0].images } %}
-  {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
+  {% set imageField = content.field_image[0]|default(null) %}
+  {% if imageField and imageField.images %}
+    {% set responsiveImage = { images: imageField.images } %}
+    {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}
+  {% endif %}
 </div>

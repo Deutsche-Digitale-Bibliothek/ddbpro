@@ -1,4 +1,4 @@
-{% set isFullWidth = content.field_width[0]['#markup'] == 'true' %}
+{% set isFullWidth = content.field_width[0]['#markup']|default('false') == 'true' %}
 
 {% set classes = [
   'paragraph',

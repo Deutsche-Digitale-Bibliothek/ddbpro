@@ -1,14 +1,25 @@
 {% set email = user.mail.value %}
-{% set phone = content.field_phone[0]['#context'].value %}
+{% set phone = content.field_phone[0]['#context'].value|default('') %}
 {% set url = path('entity.user.canonical', { 'user': user.id }) %}
+{% set jobTitle = content.field_job_title[0]['#context'].value|default('') %}
+{% set academicDegree = content.field_academic_degree[0]['#context'].value|default('') %}
+{% set firstname = content.field_firstname[0]['#context'].value|default('') %}
+{% set lastname = content.field_lastname[0]['#context'].value|default('') %}
+{% set nameSuffix = content.field_name_suffix[0]['#context'].value|default('') %}
+{% set hasUserImage = content.field_user_image['#items']|default([])|length %}
 
 {# used on Team overview #}
 <article{{ attributes.addClass('user-teaser') }}>
   <div class="user-teaser__image">
     <a href="{{ url }}">
-      {% if content.field_user_image[0] %}
-        {% set responsiveImage = { images: content.field_user_image[0].images } %}
-        {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+      {% if hasUserImage %}
+        {% set imageField = content.field_user_image[0]|default(null) %}
+        {% if imageField and imageField.images %}
+          {% set responsiveImage = { images: imageField.images } %}
+          {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
+        {% else %}
+          <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
+        {% endif %}
       {% else %}
         <img src="/{{ directory }}/src/images/ddbp-platzhalter-team.webp" alt="">
       {% endif %}
@@ -17,22 +28,22 @@
 
   <div class="user-teaser__job-title">
     <a href="{{ url }}">
-      {{ content.field_job_title[0]['#context'].value }}
+      {{ jobTitle }}
     </a>
   </div>
 
   <div class="user-teaser__name h4">
     <a href="{{ url }}">
       <span>
-        {% if content.field_academic_degree[0] %}
-          {{ content.field_academic_degree[0]['#context'].value }}
+        {% if academicDegree %}
+          {{ academicDegree }}
         {% endif %}
-        {{ content.field_firstname[0]['#context'].value }}
+        {{ firstname }}
       </span>
       <span>
-        {{ content.field_lastname[0]['#context'].value }}
-        {% if content.field_name_suffix[0] %}
-          {{ content.field_name_suffix[0]['#context'].value }}
+        {{ lastname }}
+        {% if nameSuffix %}
+          {{ nameSuffix }}
         {% endif %}
       </span>
     </a>

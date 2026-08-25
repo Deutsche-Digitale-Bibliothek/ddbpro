@@ -8,7 +8,7 @@
 
 {% set accordion = {
   type: 'faq',
-  title: label[0]['#context'].value,
+  title: label[0]['#context'].value|default(''),
   text: content.field_answer|raw,
   subText: categories|filter(category => category != group),
   group: group,

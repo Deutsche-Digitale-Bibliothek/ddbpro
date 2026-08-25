@@ -112,6 +112,10 @@ class TwigExtension extends AbstractExtension {
     $node_storage = $this->entityTypeManager->getStorage('node');
     $term_storage = $this->entityTypeManager->getStorage('taxonomy_term');
     $term = $term_storage->load($tid);
+    // Return early if term does not exist.
+    if (!$term) {
+      return [];
+    }
     // Get term name for header.
     $data['term'] = $term->getName();
     // Prepare query.

@@ -1,7 +1,9 @@
+{% set imageField = content.field_image[0]|default(null) %}
+{% set headlineText = content.field_headline[0]['#context'].value|default('') %}
 {% set accordion = {
   type: 'paragraph',
-  image: content.field_image[0],
-  title: content.field_headline[0]['#context'].value,
+  image: imageField,
+  title: headlineText,
   text: content.field_paragraphs,
 } %}
 

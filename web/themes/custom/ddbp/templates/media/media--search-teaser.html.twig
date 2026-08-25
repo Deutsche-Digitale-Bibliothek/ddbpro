@@ -7,8 +7,8 @@
 ] %}
 
 {% set type = 'Downloads & Links' | t %}
-{% set mid = _context.media.mid[0].value %}
-{% set url = url('entity.media.canonical', { 'media': mid })['#markup'] %}
+{% set mid = _context.media.mid[0].value|default('') %}
+{% set url = mid ? url('entity.media.canonical', { 'media': mid })['#markup'] : '' %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <div class="search-teaser__type">

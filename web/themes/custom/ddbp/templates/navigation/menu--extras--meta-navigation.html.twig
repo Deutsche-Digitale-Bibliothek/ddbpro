@@ -3,7 +3,7 @@
     <li class="menu--meta-navigation__item">
       <a href="{{ link.url }}" class="menu--meta-navigation__item-link">
 
-        {% if link.content.field_icon[0] %}
+        {% if link.content.field_icon['#items']|default([])|length %}
           {% set responsiveImage = { images: link.content.field_icon[0].images } %}
           <div class="menu--meta-navigation__item-icon">
             {% include '@ddbp/partials/responsive-image-empty-alt.html.twig' with responsiveImage %}

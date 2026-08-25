@@ -1,4 +1,4 @@
-{% set image = content.field_image[0] %}
+{% set image = content.field_image[0]|default(null) %}
 
 {% set classes = [
   'node',
@@ -10,20 +10,21 @@
   image ? 'overview-teaser--image'
 ] %}
 
-{% set responsiveImage = { images: image.images } %}
+{% set responsiveImage = image and image.images ? { images: image.images } : {} %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
-  <a href="{{ content.field_link[0]['#url'] }}">
+  {% set linkField = content.field_link[0]|default(null) %}
+  <a href="{{ linkField ? linkField['#url'] : '#' }}">
     {% if image %}
       <div class="teaser__image overview-teaser__image">
         {% include '@ddbp/partials/responsive-image.html.twig' with responsiveImage %}
       </div>
     {% endif %}
     <div class="teaser__title overview-teaser__title">
-      <h2 class="h3">{{ label[0]['#context'].value }}</h2>
+      <h2 class="h3">{{ label[0]['#context'].value|default('') }}</h2>
     </div>
     <div class="teaser__text overview-teaser__text">
-      <p>{{ content.field_teaser_text[0]['#context'].value }}</p>
+      <p>{{ content.field_teaser_text[0]['#context'].value|default('') }}</p>
       <div class="overview-teaser__more">
         <i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
       </div>

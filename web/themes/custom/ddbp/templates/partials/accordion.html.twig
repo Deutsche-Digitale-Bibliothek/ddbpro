@@ -19,7 +19,7 @@
     <div class="accordion__content-wrapper text-formatted">
       {{ text }}
 
-      {% if accordion.subText[0] %}
+      {% if accordion.subText is not empty %}
         <div class="accordion__content-info">
           <p><span>{{ 'Weitere Kategorien:' | t ~ ' ' }}</span>
           {{ accordion.subText|join(', ') }}</p>

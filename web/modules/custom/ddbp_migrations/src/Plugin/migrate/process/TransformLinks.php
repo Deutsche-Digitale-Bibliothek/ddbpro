@@ -60,6 +60,7 @@ class TransformLinks extends ProcessPluginBase implements ContainerFactoryPlugin
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    $value = Html::decodeEntities($value);
     $html = Html::load($value);
     $xpath = new \DOMXPath($html);
     // Get all link nodes.
