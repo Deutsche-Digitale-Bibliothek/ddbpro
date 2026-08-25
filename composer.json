@@ -46,7 +46,7 @@
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/editor_advanced_link": "^2.3",
         "drupal/editor_paste_plain": "^1.0@RC",
-        "drupal/eu_cookie_compliance": "^1.29",
+        "drupal/eu_cookie_compliance": "^1.30@RC",
         "drupal/extlink": "^3.0.0",
         "drupal/field_group": "^4.0",
         "drupal/field_validation": "^3.0@beta",
@@ -79,7 +79,7 @@
         "drupal/paragraphs": "^1.23",
         "drupal/paragraphs_report": "^2.1",
         "drupal/pathauto": "^1.15",
-        "drupal/rdf": "^3.0@beta",
+        "drupal/rdf": "^4.0",
         "drupal/redirect": "^1.13",
         "drupal/redis": "^1.11",
         "drupal/search_api": "^1.41",
@@ -94,7 +94,7 @@
         "drupal/upgrade_status": "^4.3",
         "drupal/views_ajax_history": "^1.8",
         "drupal/views_bulk_edit": "^3.0",
-        "drupal/webform": "^6.3@beta",
+        "drupal/webform": "^6.3",
         "drush/drush": "^13.7",
         "mnsami/composer-custom-directory-installer": "^2.2",
         "npm-asset/jquery-validation": "^1.22",
@@ -160,13 +160,13 @@
             "merge-scripts": false
         },
         "installer-types": [
-            "bower-asset",
             "npm-asset",
+            "drupal-core",
             "drupal-drush",
-            "drupal-theme",
-            "drupal-profile",
+            "drupal-library",
             "drupal-module",
-            "drupal-core"
+            "drupal-profile",
+            "drupal-theme"            
         ],
         "installer-paths": {
             "web/core": [
@@ -177,7 +177,6 @@
             ],
             "web/libraries/{$name}": [
                 "type:drupal-library",
-                "type:bower-asset",
                 "type:npm-asset"
             ],
             "web/modules/contrib/{$name}": [

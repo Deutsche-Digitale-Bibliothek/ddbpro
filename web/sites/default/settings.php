@@ -629,6 +629,16 @@ $settings['update_free_access'] = FALSE;
 # $config['user.settings']['anonymous'] = 'Visitor';
 
 /**
+ * Enable HTML5 form validation.
+ *
+ * Set this explicitly to retain the existing behavior when upgrading to
+ * Drupal 12, where HTML5 form validation will be disabled by default.
+ *
+ * @see https://www.drupal.org/node/3537128
+ */
+$settings['enable_html5_validation'] = TRUE;
+
+/**
  * Fast 404 pages:
  *
  * Drupal can generate fully themed 404 pages. However, some of these responses
