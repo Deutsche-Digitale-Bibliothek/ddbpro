@@ -166,7 +166,7 @@
             "drupal-library",
             "drupal-module",
             "drupal-profile",
-            "drupal-theme"            
+            "drupal-theme"
         ],
         "installer-paths": {
             "web/core": [
