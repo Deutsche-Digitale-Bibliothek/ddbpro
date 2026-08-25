@@ -102,12 +102,13 @@
         "sort-packages": true,
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "cweagans/composer-patches": true,
-            "wikimedia/composer-merge-plugin": true,
+            "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
-            "oomphinc/composer-installers-extender": true
+            "symfony/runtime": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "platform": {
             "php": "8.3",
@@ -183,9 +184,6 @@
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
         "patches": {
-            "drupal/core": {
-                "Ajax pagination is broken when some links has no href": "https://www.drupal.org/files/issues/2024-05-15/3418396-2.patch"
-            }
         }
     }
 }
