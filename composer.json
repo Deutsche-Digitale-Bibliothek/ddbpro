@@ -117,6 +117,11 @@
             "mnsami/composer-custom-directory-installer": true,
             "symfony/runtime": true,
             "wikimedia/composer-merge-plugin": true
+        },
+        "platform": {
+            "php": "8.5",
+            "ext-gd": "*",
+            "ext-imagick": "*"
         }
     },
     "autoload": {
