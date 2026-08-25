@@ -6,7 +6,12 @@ dependencies:
     - field.storage.node.field_answer
     - node.type.faq
   module:
+    - linkchecker
     - text
+third_party_settings:
+  linkchecker:
+    scan: true
+    extractor: html_link_extractor
 id: node.faq.field_answer
 field_name: field_answer
 entity_type: node
@@ -17,5 +22,6 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats: {  }
 field_type: text_long

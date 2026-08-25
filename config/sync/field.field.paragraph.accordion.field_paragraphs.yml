@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_paragraphs
     - paragraphs.paragraphs_type.accordion
     - paragraphs.paragraphs_type.document
-    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -25,7 +24,6 @@ settings:
   handler_settings:
     target_bundles:
       document: document
-      image: image
       text: text
     negate: 0
     target_bundles_drag_drop:

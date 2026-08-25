@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.event.field_external_link
     - field.field.node.event.field_location
     - field.field.node.event.field_people
+    - field.field.node.event.field_teaser_text
     - node.type.event
   module:
     - datetime_range
@@ -41,9 +42,10 @@ third_party_settings:
     group_intro:
       children:
         - title
+        - field_teaser_text
         - field_description
         - field_external_link
-      label: Intro
+      label: Allgemein
       region: content
       parent_name: group_tabs
       weight: 17
@@ -52,15 +54,16 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: open
         description: ''
-        required_fields: true
+        required_fields: false
     group_event_info:
       children:
         - field_date
         - field_location
         - field_event_type
-      label: Ereignisinfo
+      label: Informationen
       region: content
       parent_name: group_tabs
       weight: 18
@@ -69,9 +72,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_department:
       children:
         - field_division
@@ -85,9 +89,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_media:
       children:
         - field_document
@@ -100,9 +105,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -122,10 +128,10 @@ content:
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
-      rows: 5
+      rows: 10
       placeholder: ''
     third_party_settings: {  }
   field_division:
@@ -149,7 +155,7 @@ content:
     third_party_settings: {  }
   field_external_link:
     type: link_default
-    weight: 3
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -165,12 +171,20 @@ content:
     third_party_settings: {  }
   field_people:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_teaser_text:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 2
       placeholder: ''
     third_party_settings: {  }
   path:

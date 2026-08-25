@@ -1,26 +1,29 @@
 _core:
   default_config_hash: igiBmmDcoM8bCjVqwEcvTdLCSzgQOJE4BaAQZDIJ9f8
 favicon:
-  use_default: true
+  mimetype: image/vnd.microsoft.icon
+  path: themes/custom/ddbp/favicon.ico
+  use_default: false
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
   node_user_picture: true
 logo:
+  path: themes/custom/ddbp/src/images/logo-ddbpro.svg
   use_default: true
 third_party_settings:
   shortcut:
     module_link: true
 preset_accent_color: custom
-preset_focus_color: gin
+preset_focus_color: custom
 enable_darkmode: auto
-classic_toolbar: horizontal
+classic_toolbar: vertical
 secondary_toolbar_frontend: true
 high_contrast_mode: false
 accent_color: '#de1738'
-focus_color: ''
+focus_color: '#6102fc'
 layout_density: medium
-show_description_toggle: false
+show_description_toggle: true
 show_user_theme_settings: false
-sticky_action_buttons: false
+sticky_action_buttons: true

@@ -15,6 +15,9 @@ settings:
       value: Links
       label: Links
     -
+      value: Mittig
+      label: Mittig
+    -
       value: Rechts
       label: Rechts
   allowed_values_function: ''

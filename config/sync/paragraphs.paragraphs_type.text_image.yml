@@ -3,7 +3,7 @@ langcode: de
 status: true
 dependencies: {  }
 id: text_image
-label: 'Text mit Bild'
+label: 'Bild mit Text'
 icon_uuid: null
 icon_default: null
 description: ''

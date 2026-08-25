@@ -1,8 +1,8 @@
 _core:
   default_config_hash: mKwnhF-0ryfftZZP6jyqW8q9MEo9glyRkvRzSddrc0k
 site_id: '7'
-url_http: 'https://report.deutsche-digitale-bibliothek.de/'
-url_https: 'https://report.deutsche-digitale-bibliothek.de/'
+url_http: 'https://deutschedigitalebibliothek.matomo.cloud/'
+url_https: 'https://deutschedigitalebibliothek.matomo.cloud/'
 domain_mode: 0
 visibility:
   request_path_mode: 0
@@ -21,6 +21,8 @@ track:
 privacy:
   donottrack: true
   disablecookies: false
+  cookieduration: null
+  securecookies: false
 custom:
   variable:
     1:

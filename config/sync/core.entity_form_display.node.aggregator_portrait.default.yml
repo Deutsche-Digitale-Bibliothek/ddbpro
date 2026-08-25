@@ -43,7 +43,7 @@ third_party_settings:
         - title
         - field_teaser_text
         - field_image
-      label: 'Basic info'
+      label: Allgemein
       region: content
       parent_name: group_tabs
       weight: 20
@@ -52,9 +52,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: open
         description: ''
-        required_fields: true
+        required_fields: false
     group_content:
       children:
         - field_text
@@ -69,9 +70,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_facts:
       children:
         - field_facts
@@ -84,9 +86,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_filters:
       children:
         - field_region
@@ -100,9 +103,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
 id: node.aggregator_portrait.default
 targetEntityType: node
 bundle: aggregator_portrait
@@ -168,12 +172,17 @@ content:
     weight: 22
     region: content
     settings:
-      rows: 5
+      rows: 10
       placeholder: ''
     third_party_settings: {  }
   path:
     type: path
     weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -201,6 +210,11 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

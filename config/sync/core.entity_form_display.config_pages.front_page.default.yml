@@ -68,9 +68,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_images:
       children:
         - field_gallery_column_1
@@ -86,9 +87,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_participation:
       children:
         - field_participation_headline
@@ -105,9 +107,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_ddbstudio:
       children:
         - field_studio_headline
@@ -124,9 +127,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_announcement_box:
       children:
         - field_show_announcement
@@ -142,9 +146,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
 id: config_pages.front_page.default
 targetEntityType: config_pages
 bundle: front_page
@@ -174,6 +179,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_announcement_title:
     type: string_textfield
@@ -243,6 +249,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_participation_cta_right:
     type: link_attributes
@@ -260,6 +267,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_participation_description:
     type: text_textarea
@@ -308,6 +316,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_studio_cta_right:
     type: link_attributes
@@ -325,6 +334,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_studio_description:
     type: string_textarea
@@ -381,6 +391,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
 hidden:
   label: true

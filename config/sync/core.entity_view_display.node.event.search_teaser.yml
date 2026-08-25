@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.event.field_external_link
     - field.field.node.event.field_location
     - field.field.node.event.field_people
+    - field.field.node.event.field_teaser_text
     - node.type.event
   module:
     - text
@@ -23,6 +24,13 @@ mode: search_teaser
 content:
   field_description:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_teaser_text:
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }

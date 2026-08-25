@@ -11,7 +11,7 @@ id: node.aggregator_portrait.field_facts
 field_name: field_facts
 entity_type: node
 bundle: aggregator_portrait
-label: Facts
+label: Fakten
 description: ''
 required: false
 translatable: false

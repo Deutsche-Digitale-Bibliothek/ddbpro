@@ -8,6 +8,7 @@ dependencies:
   module:
     - better_exposed_filters
     - search_api
+    - text
 id: search
 label: Search
 module: views
@@ -99,6 +100,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -116,7 +118,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -132,37 +133,65 @@ display:
           bef:
             general:
               autosubmit: true
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: true
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: true
               input_required: false
               allow_secondary: false
               secondary_label: 'Erweiterte Optionen'
               secondary_open: false
-              autosubmit_textfield_minimum_length: 3
+              reset_button_always_show: false
             filter:
               search_api_fulltext:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: false
               aggregated_field:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: false
       access:
         type: none
         options: {  }
@@ -199,9 +228,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -265,33 +291,61 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Ansprechpartner
+                title: Aggregatoren
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: aggregator_portrait
+              2:
+                title: 'Ansprechpartner*innen'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: user
-              2:
-                title: Inhalt
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: node
               3:
-                title: 'Dokumente & Links'
+                title: 'Downloads & Links'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: media
               4:
+                title: Inhalt
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: article
+              5:
+                title: Fachstellen
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: department
+              6:
                 title: FAQ
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: faq
+              7:
+                title: Glossar
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: glossary_term
+              8:
+                title: 'Termine & Veranstaltungen'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: event
       filter_groups:
         operator: AND
         groups:
@@ -337,6 +391,7 @@ display:
       tags:
         - 'config:field.storage.media.field_description'
         - 'config:search_api.index.index'
+        - 'search_api_list:index'
   search:
     id: search
     display_title: Page
@@ -356,7 +411,11 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
         ajax_history:
-          enable_history: false
+          enable_history: true
+          exclude_args: ''
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: suche
     cache_metadata:
       max-age: -1
@@ -369,3 +428,4 @@ display:
       tags:
         - 'config:field.storage.media.field_description'
         - 'config:search_api.index.index'
+        - 'search_api_list:index'

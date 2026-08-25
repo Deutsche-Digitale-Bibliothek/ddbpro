@@ -6,7 +6,12 @@ dependencies:
     - field.storage.paragraph.field_text
     - paragraphs.paragraphs_type.text
   module:
+    - linkchecker
     - text
+third_party_settings:
+  linkchecker:
+    scan: true
+    extractor: html_link_extractor
 id: paragraph.text.field_text
 field_name: field_text
 entity_type: paragraph
@@ -17,5 +22,6 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats: {  }
 field_type: text_long

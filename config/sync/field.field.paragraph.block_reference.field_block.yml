@@ -16,8 +16,18 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:block'
+  handler: 'config:block'
   handler_settings:
     target_bundles: null
     auto_create: false
+    filter:
+      allowed_ids:
+        - aggregatorportraitteasers
+        - kontaktddbstudio
+        - kontaktfachstellearchiv
+        - kontaktfachstellebibliothek
+        - kontaktfachstellemuseum
+        - participation_options
+        - service_contact
+        - participation_block
 field_type: entity_reference

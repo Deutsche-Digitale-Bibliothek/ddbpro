@@ -73,6 +73,6 @@ destination:
   default_bundle: glossary_term
   overwrite_properties:
     - body/value
-    - field_alternatives
+    - body/format
     - field_last_modified
 migration_dependencies: null

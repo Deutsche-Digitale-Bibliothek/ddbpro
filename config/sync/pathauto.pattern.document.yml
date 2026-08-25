@@ -2,17 +2,18 @@ uuid: 8fddbd9b-e739-4f41-8a28-2fe79f7e1ec0
 langcode: de
 status: true
 dependencies:
+  config:
+    - media.type.document
   module:
     - media
 id: document
 label: Dokumente
 type: 'canonical_entities:media'
-pattern: 'downloads-links/[media:name]'
+pattern: '/downloads-links/[media:name]'
 selection_criteria:
   8a475cb6-763f-43d2-b3d7-ba888eb4d24f:
     id: 'entity_bundle:media'
     negate: false
-    uuid: 8a475cb6-763f-43d2-b3d7-ba888eb4d24f
     context_mapping:
       media: media
     bundles:

@@ -4,14 +4,17 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - node_title_help_text
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-name: Veranstaltung
+  node_title_help_text:
+    title_help: ''
+name: 'Termin oder Veranstaltung'
 type: event
-description: null
+description: 'Dieser Inhaltstyp dient dazu, kommende Veranstaltungen, Events und wichtige Termine darzustellen. Er eignet sich für die Planung und Kommunikation von Workshops, Konferenzen, Meetings und weiteren Ereignissen.'
 help: null
 new_revision: true
 preview_mode: 1

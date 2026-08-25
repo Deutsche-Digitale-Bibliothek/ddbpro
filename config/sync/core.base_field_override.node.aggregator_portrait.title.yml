@@ -1,0 +1,18 @@
+uuid: 6718671a-f7fe-4b5a-b253-f33128369dca
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.aggregator_portrait
+id: node.aggregator_portrait.title
+field_name: title
+entity_type: node
+bundle: aggregator_portrait
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
