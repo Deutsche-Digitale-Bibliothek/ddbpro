@@ -10,7 +10,7 @@ id: node.faq.field_faq_category
 field_name: field_faq_category
 entity_type: node
 bundle: faq
-label: 'FAQ Kategorie'
+label: FAQ-Kategorie
 description: ''
 required: true
 translatable: false

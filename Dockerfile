@@ -20,7 +20,7 @@ COPY --from=cchain /tmp/ddbpro/ /tmp/ddbpro
 WORKDIR /tmp/ddbpro
 RUN yarn install --immutable && yarn build;
 
-FROM php:8.4-fpm-alpine
+FROM php:8.5-fpm-alpine
 LABEL org.opencontainers.image.authors="m.buechner@dnb.de"
 
 # Install packages
@@ -32,8 +32,7 @@ RUN apk --no-cache add \
     nginx \
     nginx-mod-http-brotli \
     redis \
-    supervisor; \
-    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
+    supervisor \
     supercronic;
 
 RUN set -eux; \
@@ -64,13 +63,11 @@ RUN set -eux; \
      \
      docker-php-ext-install -j "$(nproc)" \
           gd \
-          opcache \
           pdo_mysql \
           pdo_pgsql \
           zip; \
-     pecl channel-update pecl.php.net; \
-     pecl install apcu oauth redis imagick; \
-     docker-php-ext-enable apcu oauth redis imagick; \
+     pecl install apcu redis imagick; \
+     docker-php-ext-enable apcu redis imagick; \
      \
      runDeps="$( \
           scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
@@ -86,6 +83,7 @@ ENV RUN_GROUP=0
 
 # add PHP config
 COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/php/ /usr/local/etc/php/conf.d/
+COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/php-fpm/ /usr/local/etc/php-fpm.d/
 
 # add NGINX config
 COPY --chown=${RUN_USER}:${RUN_GROUP} ./config/nginx/*.conf /etc/nginx/
@@ -131,7 +129,7 @@ RUN \
     touch /run/nginx/nginx.pid && chgrp -R ${RUN_GROUP} /run/nginx/nginx.pid && chmod -R g=u /run/nginx/nginx.pid; \
     \
     # cleanup
-    rm -rf ./config/cron ./config/nginx ./config/php ./config/supervisord; \
+    rm -rf ./config/cron ./config/nginx ./config/php ./config/php-fpm ./config/supervisord; \
     docker-php-source delete || true; \
     rm -rf /usr/src/php*; \
     apk del --no-network .build-deps; \

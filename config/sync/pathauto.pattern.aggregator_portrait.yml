@@ -2,18 +2,19 @@ uuid: d097d86f-0ce3-4de0-9e04-6db3a4823981
 langcode: de
 status: true
 dependencies:
+  config:
+    - node.type.aggregator_portrait
   module:
     - language
     - node
 id: aggregator_portrait
 label: Aggregatorenportrait
 type: 'canonical_entities:node'
-pattern: 'daten-liefern/aggregatoren/aggregatoren-portraits/[node:title]'
+pattern: '/daten-liefern/aggregatoren/aggregatoren-portraits/[node:title]'
 selection_criteria:
   7e0ccbaf-3430-46a3-b183-18917bb4af49:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 7e0ccbaf-3430-46a3-b183-18917bb4af49
     context_mapping:
       node: node
     bundles:
@@ -21,7 +22,6 @@ selection_criteria:
   ccfd1731-70b3-4968-ad1c-869145f5ff0a:
     id: language
     negate: false
-    uuid: ccfd1731-70b3-4968-ad1c-869145f5ff0a
     context_mapping:
       language: 'node:langcode:language'
     langcodes:

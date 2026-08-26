@@ -1,0 +1,33 @@
+_core:
+  default_config_hash: WDVVbTde1eXP94qMDbx4NqQy4uOAEHLdyGsAcQBcF4o
+content_types:
+  aggregator_portrait: aggregator_portrait
+  article: article
+  department: department
+  event: event
+  faq: faq
+  glossary_term: glossary_term
+  overview_teaser: overview_teaser
+  page: page
+hide_paras:
+  accordion: 0
+  accordions: 0
+  block_reference: 0
+  collage: 0
+  content_boxes: 0
+  content_boxes_item: 0
+  document: 0
+  fact: 0
+  facts_figures: 0
+  image: 0
+  link: 0
+  participation_option: 0
+  poster: 0
+  process: 0
+  process_step: 0
+  separator: 0
+  text: 0
+  text_image: 0
+  video: 0
+import_rows_per_batch: 10
+watch_content: false

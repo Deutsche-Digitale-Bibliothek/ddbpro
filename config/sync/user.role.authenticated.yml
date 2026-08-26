@@ -3,7 +3,6 @@ langcode: de
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
     - filter.format.webform_default
   module:
     - eu_cookie_compliance
@@ -26,6 +25,5 @@ permissions:
   - 'delete own files'
   - 'display eu cookie compliance popup'
   - 'opt-in or out of matomo tracking'
-  - 'use text format basic_html'
   - 'use text format webform_default'
   - 'view media'

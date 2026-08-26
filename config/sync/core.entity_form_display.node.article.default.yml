@@ -45,7 +45,7 @@ third_party_settings:
         - title
         - field_teaser_text
         - field_weight
-      label: Info
+      label: Allgemein
       region: content
       parent_name: group_tabs
       weight: 17
@@ -54,9 +54,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: open
         description: ''
-        required_fields: true
+        required_fields: false
     group_media:
       children:
         - field_image
@@ -69,9 +70,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_form:
       children:
         - field_webform
@@ -85,9 +87,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_faq:
       children:
         - field_faq_category
@@ -100,13 +103,14 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_subpages:
       children:
         - field_sub_pages
-      label: Subseiten
+      label: Unterseiten
       region: content
       parent_name: group_tabs
       weight: 19
@@ -115,9 +119,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_content:
       children:
         - field_paragraphs
@@ -130,9 +135,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -206,6 +212,7 @@ content:
         accesskey: false
         aria-label: false
         title: false
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_teaser_text:
     type: string_textarea

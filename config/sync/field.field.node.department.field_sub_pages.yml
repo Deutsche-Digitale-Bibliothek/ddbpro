@@ -8,6 +8,7 @@ dependencies:
   module:
     - link
     - link_field_autocomplete_filter
+    - linkchecker
 third_party_settings:
   link_field_autocomplete_filter:
     negate: null
@@ -20,6 +21,9 @@ third_party_settings:
       faq: '0'
       glossary_term: '0'
       page: '0'
+  linkchecker:
+    scan: true
+    extractor: link_link_extractor
 id: node.department.field_sub_pages
 field_name: field_sub_pages
 entity_type: node

@@ -11,25 +11,78 @@ editor: ckeditor5
 settings:
   toolbar:
     items:
+      - heading
+      - textPartLanguage
+      - showBlocks
+      - removeFormat
+      - undo
+      - redo
+      - '|'
+      - findAndReplace
+      - sourceEditing
+      - fullScreen
+      - '-'
       - bold
       - italic
-      - '|'
-      - link
+      - underline
+      - strikethrough
+      - subscript
+      - superscript
+      - specialCharacters
       - '|'
       - bulletedList
       - numberedList
       - '|'
-      - blockQuote
-      - drupalInsertImage
-      - '|'
-      - heading
-      - textPartLanguage
-      - '|'
-      - sourceEditing
-      - '|'
-      - code
       - insertTable
+      - link
+      - blockQuote
+      - codeBlock
+      - code
   plugins:
+    ckeditor5_codeBlock:
+      languages:
+        -
+          label: 'Plain text'
+          language: plaintext
+        -
+          label: C
+          language: c
+        -
+          label: 'C#'
+          language: cs
+        -
+          label: C++
+          language: cpp
+        -
+          label: CSS
+          language: css
+        -
+          label: Diff
+          language: diff
+        -
+          label: HTML
+          language: html
+        -
+          label: Java
+          language: java
+        -
+          label: JavaScript
+          language: javascript
+        -
+          label: PHP
+          language: php
+        -
+          label: Python
+          language: python
+        -
+          label: Ruby
+          language: ruby
+        -
+          label: TypeScript
+          language: typescript
+        -
+          label: XML
+          language: xml
     ckeditor5_heading:
       enabled_headings:
         - heading2
@@ -37,15 +90,83 @@ settings:
         - heading4
         - heading5
         - heading6
-    ckeditor5_imageResize:
-      allow_resize: true
     ckeditor5_language:
-      language_list: all
+      language_list: site_configured
     ckeditor5_list:
       properties:
         reversed: false
         startIndex: true
+        styles: true
       multiBlock: true
+    ckeditor5_plugin_pack_find_and_replace__find_and_replace:
+      ui_type: dialog
+    ckeditor5_plugin_pack_text_transformation__text_transformation:
+      enabled: true
+      extra_transformations: ''
+      extra_regex_transformations: {  }
+      groups:
+        typography:
+          transformations:
+            ellipsis:
+              enabled: 1
+            enDash:
+              enabled: 1
+            emDash:
+              enabled: 1
+          enabled: 1
+        quotes:
+          transformations:
+            quotesPrimary:
+              enabled: 1
+            quotesSecondary:
+              enabled: 1
+          enabled: 1
+        symbols:
+          transformations:
+            trademark:
+              enabled: 1
+            registeredTrademark:
+              enabled: 1
+            copyright:
+              enabled: 1
+          enabled: 1
+        mathematical:
+          transformations:
+            oneHalf:
+              enabled: 1
+            oneThird:
+              enabled: 1
+            twoThirds:
+              enabled: 1
+            oneFourth:
+              enabled: 1
+            threeQuarters:
+              enabled: 1
+            lessThanOrEqual:
+              enabled: 1
+            greaterThanOrEqual:
+              enabled: 1
+            notEqual:
+              enabled: 1
+            arrowLeft:
+              enabled: 1
+            arrowRight:
+              enabled: 1
+          enabled: 1
+        misc:
+          transformations:
+            quotesPrimaryEnGb:
+              enabled: 0
+            quotesSecondaryEnGb:
+              enabled: 0
+            quotesPrimaryPl:
+              enabled: 0
+            quotesSecondaryPl:
+              enabled: 0
+          enabled: 0
+    ckeditor5_plugin_pack_word_count__word_count:
+      word_count_enabled: true
+      word_count_mode: words_chars
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
@@ -56,8 +177,6 @@ settings:
         - '<i class>'
         - '<a hreflang target data-tooltip>'
         - '<blockquote cite>'
-        - '<ul type>'
-        - '<ol type>'
         - '<h2 id>'
         - '<h3 id>'
         - '<h4 id>'

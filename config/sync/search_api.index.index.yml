@@ -5,14 +5,13 @@ dependencies:
   config:
     - field.storage.media.field_description
     - field.storage.node.field_teaser_text
+    - field.storage.user.field_firstname
     - field.storage.user.field_job_title
     - field.storage.user.field_lastname
-    - field.storage.user.field_firstname
     - search_api.server.database
   module:
     - media
     - node
-    - search_api
     - user
 id: index
 name: 'Search Index'

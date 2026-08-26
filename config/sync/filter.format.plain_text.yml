@@ -30,7 +30,7 @@ filters:
     settings:
       spamspan_at: ' [at] '
       spamspan_use_graphic: false
-      spamspan_dot_enable: false
+      spamspan_dot_enable: true
       spamspan_dot: ' [dot] '
       spamspan_use_form: false
       spamspan_form_pattern: '<a href="%url?goto=%email">%displaytext</a>'

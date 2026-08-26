@@ -4,6 +4,7 @@ scan_blocks: null
 check_links_types: 0
 default_url_scheme: 'https://'
 base_path: ''
+search_published_contents_only: false
 extract:
   from_a: true
   from_audio: false
@@ -17,11 +18,14 @@ extract:
     filter_align: filter_align
     filter_autop: filter_autop
     filter_caption: filter_caption
+    entity_links: '0'
     filter_html: '0'
     filter_htmlcorrector: '0'
     filter_html_escape: '0'
     filter_html_image_secure: '0'
+    filter_image_lazy_load: '0'
     filter_url: '0'
+    filter_highlightjs: '0'
     linkit: '0'
     media_embed: '0'
     filter_spamspan: '0'
@@ -33,7 +37,7 @@ check:
     example.net
     example.org
   library: core
-  interval: 2419200
+  interval: 604800
   useragent: 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0'
 error:
   action_status_code_301: 0

@@ -40,7 +40,7 @@ third_party_settings:
         - field_teaser_text
         - field_link
         - field_weight
-      label: Info
+      label: Allgemeines
       region: content
       parent_name: group_tabs
       weight: 16
@@ -49,9 +49,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_bild:
       children:
         - field_image
@@ -64,9 +65,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
     group_display_options:
       children:
         - field_show_on_use_data
@@ -81,9 +83,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
-        required_fields: true
+        required_fields: false
 id: node.overview_teaser.default
 targetEntityType: node
 bundle: overview_teaser
@@ -152,6 +155,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 5
@@ -176,6 +184,11 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

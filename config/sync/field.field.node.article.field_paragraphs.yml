@@ -5,16 +5,20 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.article
+    - paragraphs.paragraphs_type.accordion
     - paragraphs.paragraphs_type.accordions
     - paragraphs.paragraphs_type.block_reference
     - paragraphs.paragraphs_type.collage
     - paragraphs.paragraphs_type.content_boxes
+    - paragraphs.paragraphs_type.content_boxes_item
     - paragraphs.paragraphs_type.document
+    - paragraphs.paragraphs_type.fact
     - paragraphs.paragraphs_type.facts_figures
-    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.participation_option
     - paragraphs.paragraphs_type.poster
     - paragraphs.paragraphs_type.process
+    - paragraphs.paragraphs_type.process_step
     - paragraphs.paragraphs_type.separator
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.text_image
@@ -35,16 +39,20 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      accordion: accordion
       accordions: accordions
       block_reference: block_reference
       collage: collage
       content_boxes: content_boxes
+      content_boxes_item: content_boxes_item
       document: document
+      fact: fact
       facts_figures: facts_figures
-      image: image
       link: link
       poster: poster
       process: process
+      participation_option: participation_option
+      process_step: process_step
       separator: separator
       text: text
       text_image: text_image
@@ -53,7 +61,7 @@ settings:
     target_bundles_drag_drop:
       accordion:
         weight: -39
-        enabled: false
+        enabled: true
       accordions:
         weight: -38
         enabled: true
@@ -68,25 +76,22 @@ settings:
         enabled: true
       content_boxes_item:
         weight: -34
-        enabled: false
+        enabled: true
       document:
         weight: -33
         enabled: true
       fact:
         weight: -32
-        enabled: false
+        enabled: true
       facts_figures:
         weight: -31
-        enabled: true
-      image:
-        weight: -30
         enabled: true
       link:
         weight: -29
         enabled: true
       participation_option:
         weight: -26
-        enabled: false
+        enabled: true
       poster:
         weight: -28
         enabled: true
@@ -95,7 +100,7 @@ settings:
         enabled: true
       process_step:
         weight: -25
-        enabled: false
+        enabled: true
       separator:
         weight: -24
         enabled: true

@@ -13,7 +13,6 @@ dependencies:
     - node.type.faq
     - node.type.glossary_term
     - node.type.overview_teaser
-    - node.type.page
     - taxonomy.vocabulary.cultural_sector
     - taxonomy.vocabulary.division
     - taxonomy.vocabulary.document_category
@@ -27,6 +26,7 @@ dependencies:
     - file
     - filter
     - help
+    - linkchecker
     - media
     - node
     - path
@@ -42,10 +42,12 @@ weight: -7
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access broken links report'
   - 'access content overview'
   - 'access files overview'
   - 'access help pages'
   - 'access media overview'
+  - 'access own broken links report'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
@@ -68,7 +70,6 @@ permissions:
   - 'create image media'
   - 'create media'
   - 'create overview_teaser content'
-  - 'create page content'
   - 'create terms in cultural_sector'
   - 'create terms in division'
   - 'create terms in document_category'
@@ -89,7 +90,6 @@ permissions:
   - 'delete any image media'
   - 'delete any media'
   - 'delete any overview_teaser content'
-  - 'delete any page content'
   - 'delete article revisions'
   - 'delete department revisions'
   - 'delete event revisions'
@@ -107,8 +107,6 @@ permissions:
   - 'delete own glossary_term content'
   - 'delete own image media'
   - 'delete own overview_teaser content'
-  - 'delete own page content'
-  - 'delete page revisions'
   - 'delete terms in cultural_sector'
   - 'delete terms in division'
   - 'delete terms in document_category'
@@ -126,7 +124,6 @@ permissions:
   - 'edit any glossary_term content'
   - 'edit any image media'
   - 'edit any overview_teaser content'
-  - 'edit any page content'
   - 'edit front_page config page entity'
   - 'edit own aggregator_portrait content'
   - 'edit own article content'
@@ -137,7 +134,6 @@ permissions:
   - 'edit own glossary_term content'
   - 'edit own image media'
   - 'edit own overview_teaser content'
-  - 'edit own page content'
   - 'edit terms in cultural_sector'
   - 'edit terms in division'
   - 'edit terms in document_category'
@@ -147,6 +143,7 @@ permissions:
   - 'edit terms in region'
   - 'edit terms in tags'
   - 'notify of path changes'
+  - 'rebuild node access permissions'
   - 'revert aggregator_portrait revisions'
   - 'revert all revisions'
   - 'revert article revisions'
@@ -154,12 +151,13 @@ permissions:
   - 'revert event revisions'
   - 'revert faq revisions'
   - 'revert overview_teaser revisions'
-  - 'revert page revisions'
   - 'update any media'
   - 'update media'
   - 'use text format full_html'
   - 'view aggregator_portrait revisions'
   - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
   - 'view any webform submission'
   - 'view article revisions'
   - 'view department revisions'
@@ -168,6 +166,5 @@ permissions:
   - 'view overview_teaser revisions'
   - 'view own unpublished content'
   - 'view own webform submission'
-  - 'view page revisions'
   - 'view the administration theme'
   - 'view user email addresses'

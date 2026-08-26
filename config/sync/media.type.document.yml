@@ -6,7 +6,7 @@ _core:
   default_config_hash: _D9q3XSnP6ik9we9UuoTvZsQKPuYNp_G9PfwVtWzgnQ
 id: document
 label: Dokument
-description: 'Eine hochgeladene Datei oder ein hochgeladenes Dokument, z.B. eine PDF.'
+description: 'Ein lokal gespeichertes Dokument, beispielsweise eine PDF-Datei.'
 source: file
 queue_thumbnail_downloads: false
 new_revision: true

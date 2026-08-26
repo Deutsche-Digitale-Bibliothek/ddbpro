@@ -10,7 +10,7 @@ field_name: field_image_size
 entity_type: paragraph
 bundle: text_image
 label: Bildgröße
-description: 'Breite des Bildes in Prozent der Gesamtbreite des Texts'
+description: 'Breite des Bildes in Prozent. 100% = Originalgröße des Bildes.'
 required: true
 translatable: false
 default_value:

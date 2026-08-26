@@ -1,13 +1,19 @@
 {
-    "name": "ddb/ddb-pro",
-    "description": "Project template for Drupal 9 projects with a relocated document root",
+    "name": "ddbkultur/ddbpro",
+    "description": "DDBpro is the portal for data partners of the German Digital Library.",
     "type": "project",
-    "license": "GPL-2.0-or-later",
-    "homepage": "https://www.drupal.org/project/drupal",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Deutsche-Digitale-Bibliothek/ddbpro",
     "support": {
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
+    "authors": [
+        {
+            "name": "Michael Büchner <m.buechner@dnb.de>",
+            "role": "Developer"
+        }
+    ],
     "repositories": [
         {
             "type": "composer",
@@ -19,114 +25,126 @@
         }
     ],
     "require": {
-        "php": ">=8.3",
-        "composer/installers": "^2",
-        "cweagans/composer-patches": "^1.7",
+        "php": ">=8.5",
+        "ext-gd": "*",
+        "ext-imagick": "*",
+        "cweagans/composer-patches": "^2.0",
         "drupal/address": "^2.0",
-        "drupal/admin_toolbar": "^3.1",
-        "drupal/better_exposed_filters": "^7.1@beta",
+        "drupal/admin_toolbar": "^3.6",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/calendar_link": "^3.0",
-        "drupal/ckeditor5_plugin_pack": "^1.2",
+        "drupal/ckeditor5_plugin_pack": "^1.5",
         "drupal/classy": "^2.0",
-        "drupal/clientside_validation": "^4.0",
+        "drupal/clientside_validation": "^4.1",
         "drupal/config_entity_reference_selection": "^2.0",
         "drupal/config_pages": "^4.0",
-        "drupal/core-composer-scaffold": "~11.4",
-        "drupal/core-project-message": "~11.4",
-        "drupal/core-recommended": "~11.4",
-        "drupal/dynamic_entity_reference": "^3.0",
+        "drupal/core-composer-scaffold": "^11",
+        "drupal/core-project-message": "^11",
+        "drupal/core-recipe-unpack": "^11",
+        "drupal/core-recommended": "^11",
+        "drupal/dynamic_entity_reference": "^5.0@RC",
         "drupal/easy_breadcrumb": "^2.0",
-        "drupal/editor_advanced_link": "^2.0",
+        "drupal/editor_advanced_link": "^2.3",
         "drupal/editor_paste_plain": "^1.0@RC",
         "drupal/eu_cookie_compliance": "^1.30@RC",
         "drupal/extlink": "^3.0.0",
         "drupal/field_group": "^4.0",
         "drupal/field_validation": "^3.0@beta",
-        "drupal/focal_point": "^2.0",
+        "drupal/focal_point": "^2.1",
         "drupal/gin": "^5.0",
         "drupal/gin_login": "^2.1",
         "drupal/gin_toolbar": "^3.0",
-        "drupal/health_check": "^3.0",
-        "drupal/highlightjs_input_filter": "^2.0",
+        "drupal/health_check": "^3.2",
+        "drupal/highlightjs_input_filter": "^2.0.0",
         "drupal/honeypot": "^2.2",
         "drupal/imce": "^3.1",
-        "drupal/jquery_ui_accordion": "^2.0",
+        "drupal/jquery_ui_accordion": "^2.1",
         "drupal/jquery_ui_datepicker": "^2.1",
         "drupal/jquery_ui_slider": "^2.1",
         "drupal/jquery_ui_touch_punch": "^1.1",
         "drupal/link_attributes": "^2.1",
         "drupal/link_field_autocomplete_filter": "^2.0",
-        "drupal/linkchecker": "^2.1@alpha",
+        "drupal/linkchecker": "^2.1",
         "drupal/linkit": "^7.0",
-        "drupal/masquerade": "^2.0@beta",
+        "drupal/masquerade": "^2.2",
         "drupal/matomo": "^2.0@alpha",
         "drupal/media_thumbnails_pdf": "^2.0",
         "drupal/media_thumbnails_video": "2.1.x-dev@dev",
-        "drupal/menu_item_extras": "^3.0",
-        "drupal/metatag": "^2.1",
+        "drupal/menu_item_extras": "^3.1",
+        "drupal/metatag": "^2.2",
         "drupal/migrate_plus": "^6.0",
-        "drupal/migrate_tools": "^6.0",
+        "drupal/migrate_tools": "^6.1",
         "drupal/minifyhtml": "^2.0",
         "drupal/node_title_help_text": "^1.4",
-        "drupal/paragraphs": "^1.13",
+        "drupal/paragraphs": "^1.23",
         "drupal/paragraphs_report": "^2.1",
-        "drupal/pathauto": "^1.9",
+        "drupal/pathauto": "^1.15",
         "drupal/rdf": "^4.0",
-        "drupal/redirect": "^1.7",
-        "drupal/redis": "^1.5",
-        "drupal/search_api": "^1.23",
+        "drupal/redirect": "^1.13",
+        "drupal/redis": "^1.11",
+        "drupal/search_api": "^1.41",
         "drupal/selective_better_exposed_filters": "^3.0@beta",
-        "drupal/simple_sitemap": "^4.1",
-        "drupal/smtp": "^1.0",
-        "drupal/spamspan": "^3.0@beta",
-        "drupal/token": "^1.13",
-        "drupal/token_or": "^2.2",
-        "drupal/twig_tweak": "^3.1",
-        "drupal/ultimate_cron": "^2.0@alpha",
-        "drupal/upgrade_status": "^4.0",
+        "drupal/simple_sitemap": "^4.2.3",
+        "drupal/smtp": "^1.4",
+        "drupal/spamspan": "^3.2.2",
+        "drupal/token": "^1.17",
+        "drupal/token_or": "^2.3",
+        "drupal/twig_tweak": "^3.4",
+        "drupal/ultimate_cron": "^2.0@beta",
+        "drupal/upgrade_status": "^4.3",
         "drupal/views_ajax_history": "^1.8",
         "drupal/views_bulk_edit": "^3.0",
-        "drupal/webform": "^6.3@beta",
-        "drush/drush": "^13.0",
-        "npm-asset/jquery-validation": "^1.21",
-        "oomphinc/composer-installers-extender": "^2.0",
-        "vlucas/phpdotenv": "^5.6",
-        "wikimedia/composer-merge-plugin": "^2.0"
+        "drupal/webform": "^6.3",
+        "drush/drush": "^13.7",
+        "mnsami/composer-custom-directory-installer": "^2.2",
+        "npm-asset/jquery-validation": "^1.22",
+        "vlucas/phpdotenv": "^5.7",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "cweagans/composer-patches": true,
-            "wikimedia/composer-merge-plugin": true,
-            "php-http/discovery": true,
-            "oomphinc/composer-installers-extender": true,
-            "symfony/runtime": true
+            "drupal/core-recipe-unpack": true,
+            "mnsami/composer-custom-directory-installer": true,
+            "symfony/runtime": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "platform": {
-            "php": "8.3",
+            "php": "8.5",
             "ext-gd": "1",
-            "ext-imagick": "6"
+            "ext-imagick": "3"
         }
     },
     "autoload": {
-        "files": ["load.environment.php"]
+        "files": [
+            "load.environment.php"
+        ]
     },
     "extra": {
-        "drupal-scaffold": {
+    	"drupal-scaffold": {
+            "initial": {
+                ".editorconfig": "../.editorconfig",
+                ".gitattributes": "../.gitattributes"
+            },
             "locations": {
                 "web-root": "web/"
-            },
+        },
             "file-mapping": {
-                "[web-root]/robots.txt": false
+            	"[web-root]/robots.txt": false,
+                "[web-root]/README.md": false
             }
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
         },
         "merge-plugin": {
             "include": [
@@ -142,21 +160,23 @@
             "merge-scripts": false
         },
         "installer-types": [
-            "bower-asset",
             "npm-asset",
+            "drupal-core",
             "drupal-drush",
-            "drupal-theme",
-            "drupal-profile",
+            "drupal-library",
             "drupal-module",
-            "drupal-core"
+            "drupal-profile",
+            "drupal-theme"
         ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
             ],
+            "web/libraries/fontawesome": [
+                "npm-asset/fortawesome--fontawesome-free"
+            ],
             "web/libraries/{$name}": [
                 "type:drupal-library",
-                "type:bower-asset",
                 "type:npm-asset"
             ],
             "web/modules/contrib/{$name}": [
@@ -183,7 +203,6 @@
         },
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
-        "patches": {
-	}
+        "patches": {}
     }
 }

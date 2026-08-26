@@ -25,7 +25,7 @@ categories: {  }
 elements: |-
   intro:
     '#type': processed_text
-    '#text': '<h3>Kontaktieren Sie uns!</h3><p>Bei Fragen können Sie die Servicestelle der Deutschen Digitalen Bibliothek über das Kontaktformular ansprechen und telefonisch&nbsp;erreichen Sie uns unter der Rufnummer&nbsp;<a href="tel:00496915251080">+49 69 1525-1080</a>.</p>'
+    '#text': '<h3>Kontaktieren Sie uns!</h3><p>Bei Fragen können Sie die Servicestelle der Deutschen Digitalen Bibliothek über das Kontaktformular ansprechen.</p>'
     '#format': basic_html
   messages:
     '#type': status_messages
@@ -268,9 +268,9 @@ handlers:
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: _default
+      from_mail: '[site:mail]'
       from_options: {  }
-      from_name: _default
+      from_name: '[site:name]'
       reply_to: ''
       return_path: ''
       sender_mail: ''
@@ -295,6 +295,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: ''
+      langcode: ''
       parameters: {  }
       debug: false
   email_notification:
@@ -314,9 +315,9 @@ handlers:
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: _default
+      from_mail: '[site:mail]'
       from_options: {  }
-      from_name: _default
+      from_name: '[site:name]'
       reply_to: '[webform_submission:values:email:raw]'
       return_path: ''
       sender_mail: ''
@@ -341,6 +342,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: ''
+      langcode: ''
       parameters: {  }
       debug: false
 variants: {  }
