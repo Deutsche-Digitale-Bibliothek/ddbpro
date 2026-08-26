@@ -963,6 +963,42 @@ if ($use_redis && !\Drupal\Core\Installer\InstallerKernel::installationAttempted
   $settings['cache']['default'] = 'cache.backend.redis';
 }
 
+// Override SMTP configuration at runtime. In particular, this keeps SMTP
+// credentials out of Drupal's active and exported configuration.
+$smtp_enabled = $env_bool('SMTP_ENABLED');
+$config['smtp.settings']['smtp_on'] = $smtp_enabled;
+
+if ($smtp_enabled) {
+  $smtp_host = $env('SMTP_HOST', '');
+  if ($smtp_host === '') {
+    throw new RuntimeException('SMTP_ENABLED is enabled, but SMTP_HOST is empty.');
+  }
+
+  $smtp_protocol = strtolower($env('SMTP_PROTOCOL', 'tls'));
+  if (!in_array($smtp_protocol, ['standard', 'tls', 'ssl'], TRUE)) {
+    throw new RuntimeException('SMTP_PROTOCOL must be one of: standard, tls, ssl.');
+  }
+
+  $config['smtp.settings']['smtp_host'] = $smtp_host;
+  $config['smtp.settings']['smtp_hostbackup'] = $env('SMTP_HOST_BACKUP', '');
+  $config['smtp.settings']['smtp_port'] = $env('SMTP_PORT', '587');
+  $config['smtp.settings']['smtp_protocol'] = $smtp_protocol;
+  $config['smtp.settings']['smtp_autotls'] = $env_bool('SMTP_AUTOTLS', TRUE);
+  $config['smtp.settings']['smtp_timeout'] = (int) $env('SMTP_TIMEOUT', '30');
+  $config['smtp.settings']['smtp_username'] = $env('SMTP_USERNAME', '');
+  $config['smtp.settings']['smtp_password'] = $env('SMTP_PASSWORD', '');
+  $config['smtp.settings']['smtp_from'] = $env('SMTP_FROM', '');
+  $config['smtp.settings']['smtp_fromname'] = $env('SMTP_FROM_NAME', 'DDBpro');
+  $config['smtp.settings']['smtp_client_hostname'] = $env('SMTP_CLIENT_HOSTNAME', '');
+  $config['smtp.settings']['smtp_client_helo'] = $env('SMTP_CLIENT_HELO', '');
+  $config['smtp.settings']['smtp_allowhtml'] = $env_bool('SMTP_ALLOW_HTML', TRUE);
+  $config['smtp.settings']['smtp_test_address'] = $env('SMTP_TEST_ADDRESS', '');
+  $config['smtp.settings']['smtp_reroute_address'] = $env('SMTP_REROUTE_ADDRESS', '');
+  $config['smtp.settings']['smtp_debugging'] = $env_bool('SMTP_DEBUGGING');
+  $config['smtp.settings']['smtp_debug_level'] = (int) $env('SMTP_DEBUG_LEVEL', '1');
+  $config['smtp.settings']['smtp_keepalive'] = $env_bool('SMTP_KEEPALIVE');
+}
+
 // Keep local overrides last so they can replace every setting above.
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
