@@ -31,7 +31,6 @@ RUN apk --no-cache add \
     ffmpeg \
     nginx \
     nginx-mod-http-brotli \
-    redis \
     supervisor \
     supercronic;
 

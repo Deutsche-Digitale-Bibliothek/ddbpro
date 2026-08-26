@@ -1,0 +1,5 @@
+# Site-specific service overrides.
+#
+# Keep this file for always-on overrides.
+# Redis-specific overrides are loaded conditionally from
+# sites/default/redis.services.yml when USE_REDIS is enabled.

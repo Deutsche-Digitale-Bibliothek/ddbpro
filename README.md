@@ -1,8 +1,9 @@
 # DDBpro
 
 DDBpro ist das Portal für Datenpartner der Deutschen Digitalen Bibliothek. Die
-Anwendung basiert auf Drupal 11 und wird als Container mit PHP 8.5, nginx,
-Redis und Supercronic betrieben.
+Anwendung basiert auf Drupal 11 und wird als Container mit PHP 8.5, nginx und
+Supercronic betrieben. MySQL/MariaDB und optional Redis werden als externe
+Dienste bereitgestellt.
 
 ## Voraussetzungen
 
@@ -39,11 +40,27 @@ Die wichtigsten Variablen sind:
 | `FILE_PUBLIC_PATH` | Öffentliches Dateiverzeichnis relativ zum Webroot |
 | `FILE_PRIVATE_PATH` | Privates Dateiverzeichnis |
 | `TRUSTED_HOST_PATTERNS` | Kommagetrennte reguläre Ausdrücke erlaubter Hosts |
-| `USE_REDIS` | Aktiviert mit `yes` das Redis-Cache-Backend |
+| `USE_REDIS` | Aktiviert mit `yes` das externe Redis-Cache-Backend; Standard: deaktiviert |
+| `REDIS_HOST` | Hostname des Redis-Dienstes; Standard: `127.0.0.1` |
+| `REDIS_PORT` | Port des Redis-Dienstes; Standard: `6379` |
+| `REDIS_PASSWORD` | Optionales Passwort des Redis-Dienstes |
 
 Bei einem Container-Start bezeichnet `localhost` immer den Container selbst.
 Liegt die Datenbank außerhalb des Containers, muss `MYSQL_HOSTNAME` auf einen
 im Docker-Netzwerk erreichbaren Hostnamen gesetzt werden.
+
+Dasselbe gilt für Redis: Das Image enthält keinen Redis-Server und startet
+keinen solchen Prozess. Wenn `USE_REDIS=yes` gesetzt ist, muss `REDIS_HOST` auf
+einen vom Container erreichbaren externen Redis-Dienst zeigen. Für OpenShift
+wird das Passwort üblicherweise aus einem Secret als `REDIS_PASSWORD` in den
+Container injiziert. Ohne `USE_REDIS` verwendet Drupal sein reguläres
+Datenbank-Cache-Backend. Bei einer Installation ohne das bereitgestellte Image
+muss für `USE_REDIS=yes` zusätzlich die PHP-Erweiterung PhpRedis geladen sein.
+
+Speicherlimit, Eviction Policy, Persistenz und Hochverfügbarkeit werden am
+externen Redis-Dienst konfiguriert. Für den ausschließlichen Einsatz als
+Drupal-Cache muss insbesondere eine geeignete `maxmemory`-Grenze und Eviction
+Policy gesetzt sein.
 
 Zusätzliche optionale Container-Variablen:
 
@@ -52,7 +69,6 @@ Zusätzliche optionale Container-Variablen:
 | `UPDATEDB_ON_STARTUP` | `no` | Führt beim Start `drush updatedb` aus |
 | `CONFIG_IMPORT_ON_STARTUP` | `no` | Importiert beim Start die Drupal-Konfiguration |
 | `CACHEREBUILD_ON_STARTUP` | `no` | Leert beim Start den Drupal-Cache |
-| `REDIS_MAXMEMORY` | `1gb` | Maximale Speicherbelegung des integrierten Redis |
 | `HTPASSWD_USER` | – | Aktiviert zusammen mit `HTPASSWD_PWD` HTTP Basic Auth |
 | `HTPASSWD_PWD` | – | Passwort für HTTP Basic Auth |
 | `HTPASSWD_GREETING` | – | Optionaler Text des Authentifizierungsdialogs |
@@ -82,9 +98,10 @@ Die Anwendung ist anschließend über `http://localhost:8080` oder über den
 HTTPS-Port `https://localhost:4430` erreichbar. Das Image verwendet für HTTPS
 ein selbstsigniertes Zertifikat.
 
-Der Container startet PHP-FPM, nginx, Redis, Cron und die optionalen
+Der Container startet PHP-FPM, nginx, Cron und die optionalen
 Drupal-Wartungsaufgaben über Supervisor. Die Anwendung läuft als Benutzer
-`nobody`.
+`nobody`. Externe Datenbank- und Redis-Dienste werden nicht durch Supervisor
+verwaltet.
 
 ## Laufzeit, Cache und Reverse Proxy
 
