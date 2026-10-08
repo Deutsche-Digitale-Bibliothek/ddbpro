@@ -75,4 +75,4 @@ vendor/bin/drush cache:rebuild
 ```
 
 Weitere Frontend-Befehle: `yarn build` für Produktion und `yarn build-watch`
-für Entwicklung mit Dateibeobachtung.
+für Entwicklung mit Dateibeobachtung.   
